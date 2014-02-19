@@ -8,12 +8,12 @@ package pidev;
  *
  * @author Abdelaziz
  */
-public class Choix_inscription extends javax.swing.JFrame {
+public class Choix_authentification extends javax.swing.JFrame {
 
     /**
-     * Creates new form Choix_inscription
+     * Creates new form Choix_authentification
      */
-    public Choix_inscription() {
+    public Choix_authentification() {
         initComponents();
     }
 
@@ -42,15 +42,15 @@ public class Choix_inscription extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(13, 130, 160, 23);
+        jButton1.setBounds(40, 130, 160, 23);
 
         jButton2.setText("Administrateur");
         getContentPane().add(jButton2);
-        jButton2.setBounds(220, 130, 160, 23);
+        jButton2.setBounds(310, 130, 160, 23);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pidev/song_of_freedom_by_mr_twingo.jpg"))); // NOI18N
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 410, 380);
+        jLabel1.setBounds(0, 0, 600, 380);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -76,20 +76,20 @@ public class Choix_inscription extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Choix_inscription.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Choix_authentification.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Choix_inscription.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Choix_authentification.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Choix_inscription.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Choix_authentification.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Choix_inscription.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Choix_authentification.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Choix_inscription().setVisible(true);
+                new Choix_authentification().setVisible(true);
             }
         });
     }
