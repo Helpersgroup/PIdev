@@ -167,6 +167,7 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
         getContentPane().add(jButton2);
         jButton2.setBounds(80, 360, 90, 23);
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pidev/song_of_freedom_by_mr_twingo.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 560, 410);

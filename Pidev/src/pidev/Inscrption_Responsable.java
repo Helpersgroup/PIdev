@@ -169,6 +169,7 @@ public class Inscrption_Responsable extends javax.swing.JFrame {
         getContentPane().add(jLabel12);
         jLabel12.setBounds(30, 100, 50, 15);
 
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pidev/song_of_freedom_by_mr_twingo.jpg"))); // NOI18N
         jLabel11.setText("jLabel11");
         getContentPane().add(jLabel11);
         jLabel11.setBounds(0, -30, 690, 430);
