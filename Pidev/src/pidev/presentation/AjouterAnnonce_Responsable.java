@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package pidev;
+package pidev.presentation;
 
 /**
  *
@@ -48,7 +48,6 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(380, 500));
         setResizable(false);
         getContentPane().setLayout(null);
 

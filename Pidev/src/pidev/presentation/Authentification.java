@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package pidev;
+package pidev.presentation;
 
 /**
  *
@@ -37,7 +37,6 @@ public class Authentification extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 153, 153));
-        setPreferredSize(new java.awt.Dimension(500, 300));
         setResizable(false);
         getContentPane().setLayout(null);
 

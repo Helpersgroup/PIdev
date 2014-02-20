@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package pidev;
+package pidev.presentation;
 
 /**
  *
@@ -31,7 +31,6 @@ public class Choix_authentification extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(560, 400));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -50,7 +49,7 @@ public class Choix_authentification extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pidev/song_of_freedom_by_mr_twingo.jpg"))); // NOI18N
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 600, 380);
+        jLabel1.setBounds(0, 0, 0, 380);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

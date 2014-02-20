@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package pidev;
+package pidev.presentation;
 
 /**
  *
@@ -33,7 +33,6 @@ public class Menu_administrateur extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(560, 400));
         setResizable(false);
         getContentPane().setLayout(null);
 
