@@ -55,33 +55,33 @@ public class Authentification extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(210, 70, 101, 30);
+        jTextField1.setBounds(190, 70, 101, 30);
         getContentPane().add(jPasswordField1);
-        jPasswordField1.setBounds(210, 130, 101, 30);
+        jPasswordField1.setBounds(190, 130, 101, 30);
 
         jLabel3.setBackground(new java.awt.Color(44, 62, 80));
         jLabel3.setForeground(new java.awt.Color(44, 62, 80));
         jLabel3.setText("s'inscrire");
-        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel3MouseClicked(evt);
             }
         });
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(30, 210, 80, 23);
+        jLabel3.setBounds(40, 210, 80, 23);
 
-        jLabel4.setForeground(new java.awt.Color(44, 62, 80));
+        jLabel4.setForeground(new java.awt.Color(204, 204, 255));
         jLabel4.setText("Connexion");
-        jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(140, 210, 110, 24);
+        jLabel4.setBounds(210, 210, 110, 24);
 
-        jLabel5.setForeground(new java.awt.Color(44, 62, 80));
+        jLabel5.setForeground(new java.awt.Color(204, 255, 204));
         jLabel5.setText("(Mot de passe oublié)");
-        jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(290, 210, 140, 20);
+        jLabel5.setBounds(340, 210, 140, 20);
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pidev/song_of_freedom_by_mr_twingo.jpg"))); // NOI18N
         getContentPane().add(jLabel6);
