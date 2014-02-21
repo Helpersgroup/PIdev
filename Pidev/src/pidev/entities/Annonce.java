@@ -3,6 +3,8 @@
  * and open the template in the editor.
  */
 package pidev.entities;
+import pidev.entities.Transport;
+import pidev.entities.TypeHebergement;
 
 /**
  *
@@ -16,13 +18,15 @@ public class Annonce {
     private String destination;
     private String depart;
     private String hebergement;
-    private String type_hebergement;
-    private String transport;
     private int    note;
     private int    nbr_adultes;
     private int    nbr_enfants;
-    private String theme;
+    
+    public enum Transport {
+    MICRO_BUS,MINI_BUS,BUS,VOITURE,AVION;
+    Transport[] transports = Transport.values() ;
+
+    TypeHebergement [] Heberg = TypeHebergement.values();
     
     
-    
-}
+    }}
