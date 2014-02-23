@@ -8,13 +8,15 @@ package pidev.presentation;
  *
  * @author chiheb
  */
-public class Inscription_Responsable extends javax.swing.JFrame {
+public class Chiheb_Inscription_Responsable extends javax.swing.JFrame {
 
     /**
      * Creates new form Inscrption
      */
-    public Inscription_Responsable() {
+    public Chiheb_Inscription_Responsable() {
         initComponents();
+         this.setLocationRelativeTo(null);
+       this.pack();
     }
 
     /**
@@ -49,9 +51,9 @@ public class Inscription_Responsable extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jTextField9 = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(600, 600));
         setResizable(false);
         setType(java.awt.Window.Type.POPUP);
         getContentPane().setLayout(null);
@@ -169,11 +171,6 @@ public class Inscription_Responsable extends javax.swing.JFrame {
         getContentPane().add(jLabel12);
         jLabel12.setBounds(30, 100, 50, 15);
 
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pidev/song_of_freedom_by_mr_twingo.jpg"))); // NOI18N
-        jLabel11.setText("jLabel11");
-        getContentPane().add(jLabel11);
-        jLabel11.setBounds(0, -30, 690, 430);
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -206,20 +203,20 @@ public class Inscription_Responsable extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Inscription_Responsable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Chiheb_Inscription_Responsable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Inscription_Responsable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Chiheb_Inscription_Responsable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Inscription_Responsable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Chiheb_Inscription_Responsable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Inscription_Responsable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Chiheb_Inscription_Responsable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Inscription_Responsable().setVisible(true);
+                new Chiheb_Inscription_Responsable().setVisible(true);
             }
         });
     }
@@ -228,7 +225,6 @@ public class Inscription_Responsable extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

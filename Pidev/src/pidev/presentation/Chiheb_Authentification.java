@@ -8,12 +8,12 @@ package pidev.presentation;
  *
  * @author Abdelaziz
  */
-public class Authentification extends javax.swing.JFrame {
+public class Chiheb_Authentification extends javax.swing.JFrame {
 
     /**
      * Creates new form Acceuil
      */
-    public Authentification() {
+    public Chiheb_Authentification() {
         initComponents();
     }
 
@@ -33,7 +33,6 @@ public class Authentification extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 153, 153));
@@ -70,21 +69,17 @@ public class Authentification extends javax.swing.JFrame {
         getContentPane().add(jLabel3);
         jLabel3.setBounds(40, 210, 80, 23);
 
-        jLabel4.setForeground(new java.awt.Color(204, 204, 255));
+        jLabel4.setForeground(new java.awt.Color(44, 62, 80));
         jLabel4.setText("Connexion");
         jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().add(jLabel4);
         jLabel4.setBounds(210, 210, 110, 24);
 
-        jLabel5.setForeground(new java.awt.Color(204, 255, 204));
+        jLabel5.setForeground(new java.awt.Color(44, 62, 80));
         jLabel5.setText("(Mot de passe oublié)");
         jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().add(jLabel5);
         jLabel5.setBounds(340, 210, 140, 20);
-
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pidev/song_of_freedom_by_mr_twingo.jpg"))); // NOI18N
-        getContentPane().add(jLabel6);
-        jLabel6.setBounds(0, 0, 520, 310);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -114,20 +109,20 @@ public class Authentification extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Authentification.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Chiheb_Authentification.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Authentification.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Chiheb_Authentification.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Authentification.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Chiheb_Authentification.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Authentification.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Chiheb_Authentification.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Authentification().setVisible(true);
+                new Chiheb_Authentification().setVisible(true);
             }
         });
     }
@@ -137,7 +132,6 @@ public class Authentification extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables

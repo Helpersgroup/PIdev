@@ -8,13 +8,16 @@ package pidev.presentation;
  *
  * @author Abdelaziz
  */
-public class Choix_authentification extends javax.swing.JFrame {
+public class Chiheb_Choix_authentification extends javax.swing.JFrame {
 
     /**
      * Creates new form Choix_authentification
      */
-    public Choix_authentification() {
+    public Chiheb_Choix_authentification() {
         initComponents();
+       
+        this.setLocationRelativeTo(null);
+       this.pack();
     }
 
     /**
@@ -28,9 +31,10 @@ public class Choix_authentification extends javax.swing.JFrame {
 
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(600, 600));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -47,9 +51,9 @@ public class Choix_authentification extends javax.swing.JFrame {
         getContentPane().add(jButton2);
         jButton2.setBounds(310, 130, 160, 23);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pidev/song_of_freedom_by_mr_twingo.jpg"))); // NOI18N
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 0, 380);
+        jButton3.setText("Client");
+        getContentPane().add(jButton3);
+        jButton3.setBounds(180, 180, 160, 23);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -75,26 +79,27 @@ public class Choix_authentification extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Choix_authentification.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Chiheb_Choix_authentification.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Choix_authentification.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Chiheb_Choix_authentification.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Choix_authentification.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Chiheb_Choix_authentification.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Choix_authentification.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Chiheb_Choix_authentification.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
-                new Choix_authentification().setVisible(true);
+                new Chiheb_Choix_authentification().setVisible(true);
             }
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton jButton3;
     // End of variables declaration//GEN-END:variables
 }

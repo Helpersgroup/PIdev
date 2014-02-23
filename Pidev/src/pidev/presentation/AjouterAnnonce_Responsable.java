@@ -50,8 +50,6 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
         TFnom = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         BtnAjouterAnnonce = new javax.swing.JButton();
-        DataDep = new org.jdesktop.swingx.JXDatePicker();
-        DataRetour = new org.jdesktop.swingx.JXDatePicker();
         CboxTransport = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -190,10 +188,6 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
         });
         getContentPane().add(BtnAjouterAnnonce);
         BtnAjouterAnnonce.setBounds(180, 490, 90, 23);
-        getContentPane().add(DataDep);
-        DataDep.setBounds(190, 160, 110, 22);
-        getContentPane().add(DataRetour);
-        DataRetour.setBounds(190, 190, 110, 22);
 
         CboxTransport.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "AVION", "BUS ", "MACRO-BUS", "MINI-BUS", "VOITURE" }));
         getContentPane().add(CboxTransport);
@@ -302,8 +296,6 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
     private javax.swing.JComboBox CboxTheme;
     private javax.swing.JComboBox CboxTransport;
     private javax.swing.JComboBox CboxTypeHeberg;
-    private org.jdesktop.swingx.JXDatePicker DataDep;
-    private org.jdesktop.swingx.JXDatePicker DataRetour;
     private javax.swing.JTextArea TAdesc;
     private javax.swing.JTextField TFdepart;
     private javax.swing.JTextField TFdestination;
