@@ -2,8 +2,13 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package pidev.presentation;
+import java.util.Date;
 import javax.swing.*;
+import pidev.dao.AnnonceDAO;
+import pidev.entities.Annonce;
+import pidev.util.MyConnection;
 /**
  *
  * @author chiheb
@@ -26,6 +31,7 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jComboBox1 = new javax.swing.JComboBox();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -36,127 +42,136 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jTextField1 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox();
-        jComboBox2 = new javax.swing.JComboBox();
-        jComboBox3 = new javax.swing.JComboBox();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        TAdesc = new javax.swing.JTextArea();
+        TFdepart = new javax.swing.JTextField();
+        CboxTypeHeberg = new javax.swing.JComboBox();
+        CboxTheme = new javax.swing.JComboBox();
+        TFdestination = new javax.swing.JTextField();
+        TFnom = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        BtnAjouterAnnonce = new javax.swing.JButton();
+        DataDep = new org.jdesktop.swingx.JXDatePicker();
+        DataRetour = new org.jdesktop.swingx.JXDatePicker();
+        CboxTransport = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setResizable(false);
-        getContentPane().setLayout(null);
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(44, 62, 80));
-        jLabel2.setText("Date Depart :");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(20, 300, 110, 17);
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(44, 62, 80));
-        jLabel4.setText("Nom :");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(20, 90, 60, 17);
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(44, 62, 80));
-        jLabel5.setText("Date Retour :");
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(20, 330, 100, 17);
-
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(44, 62, 80));
-        jLabel6.setText("Depart :");
-        getContentPane().add(jLabel6);
-        jLabel6.setBounds(20, 120, 70, 17);
-
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(44, 62, 80));
-        jLabel7.setText("Type Hebergement :");
-        getContentPane().add(jLabel7);
-        jLabel7.setBounds(20, 250, 150, 17);
-
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(44, 62, 80));
-        jLabel8.setText("Destination :");
-        getContentPane().add(jLabel8);
-        jLabel8.setBounds(20, 150, 100, 17);
-
-        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(44, 62, 80));
-        jLabel9.setText("Description");
-        getContentPane().add(jLabel9);
-        jLabel9.setBounds(20, 180, 100, 17);
-
-        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(44, 62, 80));
-        jLabel10.setText("Transport :");
-        getContentPane().add(jLabel10);
-        jLabel10.setBounds(20, 280, 100, 17);
-
-        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(44, 62, 80));
-        jLabel11.setText("thème");
-        getContentPane().add(jLabel11);
-        jLabel11.setBounds(20, 60, 120, 17);
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
-
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(180, 180, 230, 60);
-
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(180, 120, 140, 20);
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Bus", "mini-Bus", "Voiture", "Avion", "Camping-Car" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Avion", "Camping-Car", "Bus", "Micro-Bus ", "Mini-Bus", "Voiture", " ", " " }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jComboBox1);
-        jComboBox1.setBounds(190, 280, 130, 20);
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Hotel", "Compement", "Villa", "Residence" }));
-        getContentPane().add(jComboBox2);
-        jComboBox2.setBounds(190, 250, 130, 20);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Voyage", "Rendonnée", "Evennement Profesionnel", "Soirée" }));
-        jComboBox3.addActionListener(new java.awt.event.ActionListener() {
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(44, 62, 80));
+        jLabel2.setText("Date Depart ");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(20, 160, 110, 17);
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(44, 62, 80));
+        jLabel4.setText("Nom ");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(20, 70, 60, 17);
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(44, 62, 80));
+        jLabel5.setText("Date Retour ");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(20, 190, 100, 17);
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(44, 62, 80));
+        jLabel6.setText("Depart ");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(30, 230, 70, 17);
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(44, 62, 80));
+        jLabel7.setText("Type Hebergement ");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(20, 390, 150, 17);
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(44, 62, 80));
+        jLabel8.setText("Destination ");
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(30, 260, 100, 17);
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(44, 62, 80));
+        jLabel9.setText("Description");
+        getContentPane().add(jLabel9);
+        jLabel9.setBounds(20, 310, 100, 17);
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(44, 62, 80));
+        jLabel10.setText("Transport ");
+        getContentPane().add(jLabel10);
+        jLabel10.setBounds(20, 420, 100, 17);
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(44, 62, 80));
+        jLabel11.setText("Thème");
+        getContentPane().add(jLabel11);
+        jLabel11.setBounds(20, 120, 120, 17);
+
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+
+        TAdesc.setColumns(20);
+        TAdesc.setRows(5);
+        jScrollPane1.setViewportView(TAdesc);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(180, 310, 230, 60);
+
+        TFdepart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox3ActionPerformed(evt);
+                TFdepartActionPerformed(evt);
             }
         });
-        getContentPane().add(jComboBox3);
-        jComboBox3.setBounds(180, 60, 130, 20);
+        getContentPane().add(TFdepart);
+        TFdepart.setBounds(190, 230, 190, 20);
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        CboxTypeHeberg.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "Auberge", "Bungalow", "Hotel 1 etoile ", "Hotel 2 etoiles ", "Hotel 3 etoiles ", "Hotel 4 etoiles", "Hotel 5 etoiles", "Residence  ", "Villa", " " }));
+        CboxTypeHeberg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                CboxTypeHebergActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField2);
-        jTextField2.setBounds(180, 150, 140, 20);
+        getContentPane().add(CboxTypeHeberg);
+        CboxTypeHeberg.setBounds(190, 390, 130, 20);
 
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        CboxTheme.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "Affaire", "Bien etre", "Camping", "Excursion", "Randonnée", "Voyage de découverte ", "Voyage de noce ", " " }));
+        CboxTheme.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                CboxThemeActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField3);
-        jTextField3.setBounds(180, 90, 140, 20);
+        getContentPane().add(CboxTheme);
+        CboxTheme.setBounds(180, 120, 190, 20);
+
+        TFdestination.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TFdestinationActionPerformed(evt);
+            }
+        });
+        getContentPane().add(TFdestination);
+        TFdestination.setBounds(190, 260, 190, 20);
+
+        TFnom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TFnomActionPerformed(evt);
+            }
+        });
+        getContentPane().add(TFnom);
+        TFnom.setBounds(180, 70, 190, 20);
 
         jButton1.setText("Annuler");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -165,53 +180,88 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(210, 360, 90, 23);
+        jButton1.setBounds(340, 490, 90, 23);
 
-        jButton2.setText("Proposer");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        BtnAjouterAnnonce.setText("Ajouter ");
+        BtnAjouterAnnonce.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                BtnAjouterAnnonceActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2);
-        jButton2.setBounds(80, 360, 90, 23);
+        getContentPane().add(BtnAjouterAnnonce);
+        BtnAjouterAnnonce.setBounds(180, 490, 90, 23);
+        getContentPane().add(DataDep);
+        DataDep.setBounds(190, 160, 110, 22);
+        getContentPane().add(DataRetour);
+        DataRetour.setBounds(190, 190, 110, 22);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pidev/song_of_freedom_by_mr_twingo.jpg"))); // NOI18N
+        CboxTransport.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "AVION", "BUS ", "MACRO-BUS", "MINI-BUS", "VOITURE" }));
+        getContentPane().add(CboxTransport);
+        CboxTransport.setBounds(190, 420, 130, 20);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setText("Ajouter Annonce ");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, -10, 640, 410);
+        jLabel1.setBounds(220, 10, 230, 29);
+
+        jLabel3.setText("le nom du responsable");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(520, 10, 110, 14);
+
+        jLabel12.setText("le nom de l'agence");
+        getContentPane().add(jLabel12);
+        jLabel12.setBounds(10, 10, 100, 14);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void TFdepartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFdepartActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_TFdepartActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void CboxThemeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CboxThemeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_CboxThemeActionPerformed
 
-    private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
+    private void TFdestinationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFdestinationActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox3ActionPerformed
+    }//GEN-LAST:event_TFdestinationActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void TFnomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFnomActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_TFnomActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void BtnAjouterAnnonceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAjouterAnnonceActionPerformed
+        Annonce a = new Annonce ();
+        AnnonceDAO aDAO = new AnnonceDAO();
+        a.setNom(TFnom.getText());
+        a.setType_annonce(CboxTheme.getSelectedItem().toString()) ;
+        Date dateDep = (Date) DataDep.getDate();
+      //  a.setDate_deb(dateDep);
+        Date dateRetour = (Date) DataRetour.getDate();
+       // a.setDate_fin(dateRetour);
+        a.setDepart(TFdepart.getText());
+        a.setDestination(TFdestination.getText());
+        a.setType_annonce(CboxTypeHeberg.getSelectedItem().toString());
+        a.setTransport(CboxTransport.getSelectedItem().toString());
+        
+        
+        aDAO.InsertAnnonce(a);
+    }//GEN-LAST:event_BtnAjouterAnnonceActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
                         new ResponsableAgence().setVisible(true);
 
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void CboxTypeHebergActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CboxTypeHebergActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CboxTypeHebergActionPerformed
 
     /**
      * @param args the command line arguments
@@ -248,15 +298,24 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnAjouterAnnonce;
+    private javax.swing.JComboBox CboxTheme;
+    private javax.swing.JComboBox CboxTransport;
+    private javax.swing.JComboBox CboxTypeHeberg;
+    private org.jdesktop.swingx.JXDatePicker DataDep;
+    private org.jdesktop.swingx.JXDatePicker DataRetour;
+    private javax.swing.JTextArea TAdesc;
+    private javax.swing.JTextField TFdepart;
+    private javax.swing.JTextField TFdestination;
+    private javax.swing.JTextField TFnom;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JComboBox jComboBox2;
-    private javax.swing.JComboBox jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -264,9 +323,5 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }

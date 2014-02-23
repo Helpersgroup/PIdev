@@ -14,18 +14,48 @@ import pidev.entities.TypeHebergement;
  * @author Eya
  */
 public class Annonce {
-    private String nom;
-    private Date date_deb;
-    private Date date_fin;
-    private String description;
-    private String destination;
-    private String depart;
-    private String hebergement;
-    private int    note;
-    private int    nbr_adultes;
-    private int    nbr_enfants;
-    private Transport transport;
-    
+    private String  nom;
+    private Date    date_deb;
+    private Date    date_fin;
+    private String  description;
+    private String  destination;
+    private String  depart;
+    private String  hebergement;
+    private int     note;
+    private int     nbr_adultes;
+    private int     nbr_enfants;
+    private String  transport;
+    private String  type_hebergement;
+    private String  type_annonce ;
+
+    public String getType_annonce() {
+        return type_annonce;
+    }
+
+    public void setType_annonce(String type_annonce) {
+        this.type_annonce = type_annonce;
+    }
+
+    public String getTransport() {
+        return transport;
+    }
+
+    public void setTransport(String transport) {
+        this.transport = transport;
+    }
+
+    public String getType_hebergement() {
+        return type_hebergement;
+    }
+
+    public void setType_hebergement(String type_hebergement) {
+        this.type_hebergement = type_hebergement;
+    }
+
+
+   
+
+   // private String [] transports = new String [5];
 
     public String getNom() {
         return nom;
@@ -106,20 +136,13 @@ public class Annonce {
     public void setNbr_enfants(int nbr_enfants) {
         this.nbr_enfants = nbr_enfants;
     }
+
     
-
-
-  
     
     public enum Type_hebergement {
     Villa,Hotel1,Hotel2,Hotel3,Hotel4,Hotel5;
     }
      
     }
- public enum type_annonce{
-     randonnée, voyage_de_noce, excursion, camping , affaire; 
- }
 
-    
-    
-}
+ 
