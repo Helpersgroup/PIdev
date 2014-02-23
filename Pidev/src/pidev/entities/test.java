@@ -8,10 +8,10 @@ package pidev.entities;
  *
  * @author Eya
  */
-
-    public enum Transport {
-    MICRO_BUS,MINI_BUS,BUS,VOITURE,AVION;
-    //Transport[] transports = Transport.values() ;
-
-
+public class test {
+  public static void main (String[] args ){
+      Annonce a = new Annonce ();
+      a.setDescription("gsgvs");
+      
+  }
 }

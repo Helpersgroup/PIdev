@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 package pidev.presentation;
-
+import javax.swing.*;
 /**
  *
  * @author chiheb
@@ -55,19 +55,19 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(44, 62, 80));
         jLabel2.setText("Date Depart :");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(20, 60, 110, 17);
+        jLabel2.setBounds(20, 300, 110, 17);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(44, 62, 80));
         jLabel4.setText("Nom :");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(20, 30, 60, 17);
+        jLabel4.setBounds(20, 90, 60, 17);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(44, 62, 80));
         jLabel5.setText("Date Retour :");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(20, 90, 100, 17);
+        jLabel5.setBounds(20, 330, 100, 17);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(44, 62, 80));
@@ -77,9 +77,9 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(44, 62, 80));
-        jLabel7.setText("Hebergement :");
+        jLabel7.setText("Type Hebergement :");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(20, 250, 110, 17);
+        jLabel7.setBounds(20, 250, 150, 17);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(44, 62, 80));
@@ -89,7 +89,7 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(44, 62, 80));
-        jLabel9.setText("Details :");
+        jLabel9.setText("Description");
         getContentPane().add(jLabel9);
         jLabel9.setBounds(20, 180, 100, 17);
 
@@ -101,16 +101,16 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(44, 62, 80));
-        jLabel11.setText("Type Annonce :");
+        jLabel11.setText("thème");
         getContentPane().add(jLabel11);
-        jLabel11.setBounds(20, 320, 120, 17);
+        jLabel11.setBounds(20, 60, 120, 17);
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(130, 176, 230, 60);
+        jScrollPane1.setBounds(180, 180, 230, 60);
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,7 +140,7 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jComboBox3);
-        jComboBox3.setBounds(190, 320, 130, 20);
+        jComboBox3.setBounds(180, 60, 130, 20);
 
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -156,20 +156,29 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTextField3);
-        jTextField3.setBounds(180, 30, 140, 20);
+        jTextField3.setBounds(180, 90, 140, 20);
 
         jButton1.setText("Annuler");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1);
         jButton1.setBounds(210, 360, 90, 23);
 
         jButton2.setText("Proposer");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton2);
         jButton2.setBounds(80, 360, 90, 23);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pidev/song_of_freedom_by_mr_twingo.jpg"))); // NOI18N
-        jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 560, 410);
+        jLabel1.setBounds(0, -10, 640, 410);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -193,6 +202,16 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+                        new ResponsableAgence().setVisible(true);
+
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

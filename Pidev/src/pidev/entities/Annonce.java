@@ -3,6 +3,9 @@
  * and open the template in the editor.
  */
 package pidev.entities;
+
+import java.sql.Date;
+//import java.util.Date;
 import pidev.entities.Transport;
 import pidev.entities.TypeHebergement;
 
@@ -12,8 +15,8 @@ import pidev.entities.TypeHebergement;
  */
 public class Annonce {
     private String nom;
-    private String date_deb;
-    private String date_fin;
+    private Date date_deb;
+    private Date date_fin;
     private String description;
     private String destination;
     private String depart;
@@ -21,12 +24,102 @@ public class Annonce {
     private int    note;
     private int    nbr_adultes;
     private int    nbr_enfants;
+    private Transport transport;
     
-    public enum Transport {
-    MICRO_BUS,MINI_BUS,BUS,VOITURE,AVION;
-    Transport[] transports = Transport.values() ;
 
-    TypeHebergement [] Heberg = TypeHebergement.values();
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public Date getDate_deb() {
+        return date_deb;
+    }
+
+    public void setDate_deb(Date date_deb) {
+        this.date_deb = date_deb;
+    }
+
+    public Date getDate_fin() {
+        return date_fin;
+    }
+
+    public void setDate_fin(Date date_fin) {
+        this.date_fin = date_fin;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getDestination() {
+        return destination;
+    }
+
+    public void setDestination(String destination) {
+        this.destination = destination;
+    }
+
+    public String getDepart() {
+        return depart;
+    }
+
+    public void setDepart(String depart) {
+        this.depart = depart;
+    }
+
+    public String getHebergement() {
+        return hebergement;
+    }
+
+    public void setHebergement(String hebergement) {
+        this.hebergement = hebergement;
+    }
+
+    public int getNote() {
+        return note;
+    }
+
+    public void setNote(int note) {
+        this.note = note;
+    }
+
+    public int getNbr_adultes() {
+        return nbr_adultes;
+    }
+
+    public void setNbr_adultes(int nbr_adultes) {
+        this.nbr_adultes = nbr_adultes;
+    }
+
+    public int getNbr_enfants() {
+        return nbr_enfants;
+    }
+
+    public void setNbr_enfants(int nbr_enfants) {
+        this.nbr_enfants = nbr_enfants;
+    }
+    
+
+
+  
+    
+    public enum Type_hebergement {
+    Villa,Hotel1,Hotel2,Hotel3,Hotel4,Hotel5;
+    }
+     
+    }
+ public enum type_annonce{
+     randonnée, voyage_de_noce, excursion, camping , affaire; 
+ }
+
     
     
-    }}
+}

@@ -8,12 +8,12 @@ package pidev.presentation;
  *
  * @author chiheb
  */
-public class Inscrption_Responsable extends javax.swing.JFrame {
+public class Inscription_Responsable extends javax.swing.JFrame {
 
     /**
      * Creates new form Inscrption
      */
-    public Inscrption_Responsable() {
+    public Inscription_Responsable() {
         initComponents();
     }
 
@@ -206,20 +206,20 @@ public class Inscrption_Responsable extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Inscrption_Responsable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Inscription_Responsable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Inscrption_Responsable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Inscription_Responsable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Inscrption_Responsable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Inscription_Responsable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Inscrption_Responsable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Inscription_Responsable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Inscrption_Responsable().setVisible(true);
+                new Inscription_Responsable().setVisible(true);
             }
         });
     }
