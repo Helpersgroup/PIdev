@@ -6,6 +6,7 @@ package pidev.presentation;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,7 +17,7 @@ import pidev.util.MyConnection;
  * @author chiheb
  */
 public class Chiheb_Inscription_Client extends javax.swing.JFrame {
-
+int ID_max;
     /**
      * Creates new form Chiheb_Inscription_Client
      */
@@ -200,8 +201,8 @@ public class Chiheb_Inscription_Client extends javax.swing.JFrame {
         String nom=jnom.getText().toString();
         String prenom=jprenom.getText().toString();        
         String cin=jcin.getText().toString();
-    //    String passe=jpass.getText().toString();
-      //  String passe2=jpass2.getText().toString();
+      String passe=jpass.getText().toString();
+       String passe2=jpass2.getText().toString();
         String email=jemail.getText().toString();
         String tel=jtel.getText().toString();
         
@@ -212,17 +213,29 @@ public class Chiheb_Inscription_Client extends javax.swing.JFrame {
                     +nom+"','"
                     +email+"',"
                     +tel+")";
+        
+             String insertStr2 = "insert into client (Id_Personne,mot_de_passe) select MAX(id_Personne) ,'"+passe+"'"
+                     + " from personne";
             
            try {
             PreparedStatement ps = MyConnection.getInstance().prepareStatement(insertStr);
-           
+            PreparedStatement ps2 = MyConnection.getInstance().prepareStatement(insertStr2);
             ps.executeUpdate();
+             ps2.executeUpdate();      
+           
+           
             System.out.println("Ajout effectuée avec succès");
         } catch (SQLException ex) {
            //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("erreur lors de l'insertion "+ex.getMessage());
         }
+           //select max id personne
+            
+            
+        
            
+        
+      
           
         
        
