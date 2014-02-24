@@ -4,6 +4,11 @@
  */
 package pidev.presentation;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import pidev.util.MyConnection;
+
 /**
  *
  * @author Abdelaziz
@@ -13,8 +18,16 @@ public class Chiheb_Authentification extends javax.swing.JFrame {
     /**
      * Creates new form Acceuil
      */
+    int variable2;
+    int  x=0 ;
+    String y="";
+       String password ;
+    
     public Chiheb_Authentification() {
         initComponents();
+          
+        this.setLocationRelativeTo(null);
+       this.pack();
     }
 
     /**
@@ -28,69 +41,129 @@ public class Chiheb_Authentification extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        jlogin = new javax.swing.JTextField();
+        jPassword = new javax.swing.JPasswordField();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 153, 153));
+        setPreferredSize(new java.awt.Dimension(600, 600));
         setResizable(false);
         getContentPane().setLayout(null);
 
-        jLabel1.setText("Login        :");
+        jLabel1.setText("Login(email) :");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(90, 70, 80, 30);
+        jLabel1.setBounds(80, 70, 90, 30);
 
         jLabel2.setText("Password :");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(90, 130, 90, 30);
+        jLabel2.setBounds(80, 130, 90, 30);
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jlogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jloginActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(190, 70, 101, 30);
-        getContentPane().add(jPasswordField1);
-        jPasswordField1.setBounds(190, 130, 101, 30);
+        getContentPane().add(jlogin);
+        jlogin.setBounds(190, 70, 101, 30);
+        getContentPane().add(jPassword);
+        jPassword.setBounds(190, 130, 101, 30);
 
-        jLabel3.setBackground(new java.awt.Color(44, 62, 80));
-        jLabel3.setForeground(new java.awt.Color(44, 62, 80));
-        jLabel3.setText("s'inscrire");
-        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
+        jButton1.setText("Inscription");
+        getContentPane().add(jButton1);
+        jButton1.setBounds(330, 130, 90, 23);
+
+        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\chiheb\\Desktop\\facebook_square-128.png")); // NOI18N
+        jButton2.setText("jButton2");
+        getContentPane().add(jButton2);
+        jButton2.setBounds(160, 220, 60, 70);
+
+        jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\chiheb\\Desktop\\twitter_square-128.png")); // NOI18N
+        jButton3.setText("jButton3");
+        getContentPane().add(jButton3);
+        jButton3.setBounds(250, 220, 60, 70);
+
+        jButton4.setText("Connexion");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(40, 210, 80, 23);
-
-        jLabel4.setForeground(new java.awt.Color(44, 62, 80));
-        jLabel4.setText("Connexion");
-        jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(210, 210, 110, 24);
-
-        jLabel5.setForeground(new java.awt.Color(44, 62, 80));
-        jLabel5.setText("(Mot de passe oublié)");
-        jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(340, 210, 140, 20);
+        getContentPane().add(jButton4);
+        jButton4.setBounds(330, 70, 90, 20);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+    private void jloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jloginActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel3MouseClicked
+    }//GEN-LAST:event_jloginActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+Chiheb_Choix_authentification auth = new  Chiheb_Choix_authentification();
+        variable2 = auth.get_variable();
+         String email=jlogin.getText().toString();
+          //String password=jPassword.getPassword().toString();
+           char[] s2 = jPassword.getPassword();
+    password = new String(s2);
+        if (variable2 ==0){
+            
+        }
+        else if (variable2 ==1){
+            String  insertStr = "select Id_Personne from personne where email='"+email+"'"; 
+             String  insertStr2 = "select mot_de_passe from client where Id_Personne='"+x+"'"; 
+            
+                    if(email.length()!=0 && password.length()!=0)
+                   {
+                       try {
+            PreparedStatement ps = MyConnection.getInstance().prepareStatement(insertStr);
+            
+           // PreparedStatement ps3 = MyConnection.getInstance().prepareStatement(insertStr3);
+               ResultSet resultat = ps.executeQuery();
+          
+                while (resultat.next())
+            {
+              x = resultat.getInt(1);
+            }
+              if (x>0){  
+           //si il ya un Id_personne selected
+           PreparedStatement ps2 = MyConnection.getInstance().prepareStatement(insertStr2);
+           
+            ResultSet resultat2 = ps2.executeQuery();
+             while (resultat2.next())
+            {
+              y = resultat2.getString(1);
+                System.out.println(resultat2.getString(1));
+                System.out.println(password);
+            }
+             //passe correct
+             if(y.equals(password)==true)
+             {
+                 System.out.println("connection avec succes");
+             }
+               if(y.equals(password)==false)
+             {
+                 System.out.println("connection non aboutie");
+             }
+              }
+           
+        } catch (SQLException ex) {
+           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors de connection "+ex.getMessage());
+        }
+                       
+                   }
+            
+            
+        }
+        else if (variable2 ==2){
+            
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -127,13 +200,14 @@ public class Chiheb_Authentification extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JPasswordField jPassword;
+    private javax.swing.JTextField jlogin;
     // End of variables declaration//GEN-END:variables
 }
                              
