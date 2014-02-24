@@ -56,11 +56,11 @@ public class AnnonceDAO {
                 Annonce annonce =new Annonce();
                 annonce.setId_Annonce(resultat.getInt(0));
                 annonce.setId_Annonceur(resultat.getInt(1));
-                annonce.setDate_deb(resultat.getDate(3);
+                annonce.setDate_deb(resultat.getDate(2));
 
-                listedepots.add(depot);
+                listeannonces.add(annonce);
             }
-            return listedepots;
+            return listeannonces;
         } catch (SQLException ex) {
            //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("erreur lors du chargement des depots "+ex.getMessage());
