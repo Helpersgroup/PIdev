@@ -14,6 +14,8 @@ import pidev.entities.TypeHebergement;
  * @author Eya
  */
 public class Annonce {
+    private int Id_Annonce;
+    private int Id_Annonceur;
     private String  nom;
     private Date    date_deb;
     private Date    date_fin;
@@ -135,6 +137,34 @@ public class Annonce {
 
     public void setNbr_enfants(int nbr_enfants) {
         this.nbr_enfants = nbr_enfants;
+    }
+
+    /**
+     * @return the Id_Annonce
+     */
+    public int getId_Annonce() {
+        return Id_Annonce;
+    }
+
+    /**
+     * @param Id_Annonce the Id_Annonce to set
+     */
+    public void setId_Annonce(int Id_Annonce) {
+        this.Id_Annonce = Id_Annonce;
+    }
+
+    /**
+     * @return the Id_Annonceur
+     */
+    public int getId_Annonceur() {
+        return Id_Annonceur;
+    }
+
+    /**
+     * @param Id_Annonceur the Id_Annonceur to set
+     */
+    public void setId_Annonceur(int Id_Annonceur) {
+        this.Id_Annonceur = Id_Annonceur;
     }
 
     

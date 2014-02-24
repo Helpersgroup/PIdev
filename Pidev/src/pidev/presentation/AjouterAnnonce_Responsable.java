@@ -10,6 +10,8 @@ import pidev.dao.AnnonceDAO;
 import pidev.entities.Annonce;
 import pidev.util.MyConnection;
 
+
+
 /**
  *
  * @author chiheb
@@ -33,6 +35,7 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
     private void initComponents() {
 
         jComboBox1 = new javax.swing.JComboBox();
+        jXDatePicker1 = new org.jdesktop.swingx.JXDatePicker();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -55,8 +58,9 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        JdateDeb = new org.jdesktop.swingx.JXDatePicker();
-        JdateRetour = new org.jdesktop.swingx.JXDatePicker();
+        JdateDeb = new org.netbeans.modules.form.InvalidComponent();
+        JdateRetour = new org.netbeans.modules.form.InvalidComponent();
+        jXDatePicker2 = new org.jdesktop.swingx.JXDatePicker();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Avion", "Camping-Car", "Bus", "Micro-Bus ", "Mini-Bus", "Voiture", " ", " " }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -217,6 +221,8 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
         JdateDeb.setBounds(180, 152, 190, 30);
         getContentPane().add(JdateRetour);
         JdateRetour.setBounds(182, 190, 190, 30);
+        getContentPane().add(jXDatePicker2);
+        jXDatePicker2.setBounds(430, 260, 110, 22);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -248,10 +254,10 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
 
 
     Date dateDep =  JdateDeb.getDate();
-        a.setDate_deb(dateDep);
+        a.setDate_deb(JdateDeb);
      
         Date dateRetour = JdateRetour.getDate();
-        a.setDate_fin(dateRetour);
+        a.setDate_fin(JdateRetour);
         a.setDepart(TFdepart.getText());
         a.setDestination(TFdestination.getText());
         a.setType_annonce(CboxTypeHeberg.getSelectedItem().toString());
@@ -271,7 +277,7 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
     }//GEN-LAST:event_CboxTypeHebergActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        Responsable_Agence RA = new Responsable_Agence();
+        ResponsableAgence RA = new ResponsableAgence();
         this.hide();
         RA.setVisible(true);
     }//GEN-LAST:event_jButton1MouseClicked
@@ -315,8 +321,8 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
     private javax.swing.JComboBox CboxTheme;
     private javax.swing.JComboBox CboxTransport;
     private javax.swing.JComboBox CboxTypeHeberg;
-    private org.jdesktop.swingx.JXDatePicker JdateDeb;
-    private org.jdesktop.swingx.JXDatePicker JdateRetour;
+    private org.netbeans.modules.form.InvalidComponent JdateDeb;
+    private org.netbeans.modules.form.InvalidComponent JdateRetour;
     private javax.swing.JTextArea TAdesc;
     private javax.swing.JTextField TFdepart;
     private javax.swing.JTextField TFdestination;
@@ -336,5 +342,7 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private org.jdesktop.swingx.JXDatePicker jXDatePicker1;
+    private org.jdesktop.swingx.JXDatePicker jXDatePicker2;
     // End of variables declaration//GEN-END:variables
 }
