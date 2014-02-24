@@ -18,16 +18,19 @@ public class Chiheb_Authentification extends javax.swing.JFrame {
     /**
      * Creates new form Acceuil
      */
-    int variable2;
+    int variable2 =0;
     int  x=0 ;
-    String y="";
-       String password ;
+   int y=0;
+       String password="" ;
+       String email="";
     
     public Chiheb_Authentification() {
         initComponents();
           
         this.setLocationRelativeTo(null);
        this.pack();
+       Chiheb_Choix_authentification auth = new  Chiheb_Choix_authentification();
+       variable2 = auth.get_variable();
     }
 
     /**
@@ -104,21 +107,22 @@ public class Chiheb_Authentification extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-Chiheb_Choix_authentification auth = new  Chiheb_Choix_authentification();
-        variable2 = auth.get_variable();
-         String email=jlogin.getText().toString();
+
+        
+          email=jlogin.getText().toString();
           //String password=jPassword.getPassword().toString();
-           char[] s2 = jPassword.getPassword();
-    password = new String(s2);
+           
+    password = new String(jPassword.getPassword());
         if (variable2 ==0){
             
         }
         else if (variable2 ==1){
-            String  insertStr = "select Id_Personne from personne where email='"+email+"'"; 
-             String  insertStr2 = "select mot_de_passe from client where Id_Personne='"+x+"'"; 
+          
             
                     if(email.length()!=0 && password.length()!=0)
-                   {
+                   {  
+            String  insertStr = "select id_Personne from Personne where email='"+email+"' and mdp ='"+password+"' "; 
+            String  insertStr2 = "select id_Client from Client where id_Client='"+x+"'"; 
                        try {
             PreparedStatement ps = MyConnection.getInstance().prepareStatement(insertStr);
             
@@ -136,18 +140,17 @@ Chiheb_Choix_authentification auth = new  Chiheb_Choix_authentification();
             ResultSet resultat2 = ps2.executeQuery();
              while (resultat2.next())
             {
-              y = resultat2.getString(1);
-                System.out.println(resultat2.getString(1));
-                System.out.println(password);
+           y = resultat2.getInt(1);
+                
             }
              //passe correct
-             if(y.equals(password)==true)
+             if(y==x)
              {
                  System.out.println("connection avec succes");
              }
-               if(y.equals(password)==false)
+               if(y != x)
              {
-                 System.out.println("connection non aboutie");
+                 System.out.println("email ou mot de passe incorrect");
              }
               }
            
