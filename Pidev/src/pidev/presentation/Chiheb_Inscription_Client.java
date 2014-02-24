@@ -289,15 +289,16 @@ int ID_max;
         String tel=jtel.getText().toString();
         
             
-          String  insertStr="insert into personne (cin,nom,prenom,email,tel) values("
+          String  insertStr="insert into Personne (cin,nom,prenom,email,tel,mdp) values("
+                  
                     +cin+",'"
                     +prenom+"','"
                     +nom+"','"
                     +email+"',"
-                    +tel+")";
+                    +tel+",'"
+                 +passe+ "')";
         
-             String insertStr2 = "insert into client (Id_Personne,mot_de_passe) select MAX(id_Personne) ,'"+passe+"'"
-                     + " from personne";
+             String insertStr2 = "insert into Client (id_Client) select MAX(id_Personne) from Personne";
           if( nom.length()!=0 && prenom.length()!=0 && cin.length()!=0 && email.length()!=0 && tel.length()!=0 && passe.length()!=0 && passe2.length()!=0 )
           {
               if (passe.equals(passe2)){

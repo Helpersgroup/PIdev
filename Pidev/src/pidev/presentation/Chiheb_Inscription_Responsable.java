@@ -50,7 +50,7 @@ public class Chiheb_Inscription_Responsable extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jnomage = new javax.swing.JTextField();
         jaddrage = new javax.swing.JTextField();
-        jemailage = new javax.swing.JTextField();
+        jvilleage = new javax.swing.JTextField();
         jtelage = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jtelres = new javax.swing.JTextField();
@@ -141,7 +141,7 @@ public class Chiheb_Inscription_Responsable extends javax.swing.JFrame {
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(44, 62, 80));
-        jLabel9.setText("E-mail :");
+        jLabel9.setText("Ville :");
         getContentPane().add(jLabel9);
         jLabel9.setBounds(30, 270, 50, 15);
 
@@ -160,8 +160,8 @@ public class Chiheb_Inscription_Responsable extends javax.swing.JFrame {
         });
         getContentPane().add(jaddrage);
         jaddrage.setBounds(130, 240, 151, 20);
-        getContentPane().add(jemailage);
-        jemailage.setBounds(130, 270, 151, 20);
+        getContentPane().add(jvilleage);
+        jvilleage.setBounds(130, 270, 151, 20);
         getContentPane().add(jtelage);
         jtelage.setBounds(130, 300, 151, 20);
 
@@ -221,28 +221,31 @@ public class Chiheb_Inscription_Responsable extends javax.swing.JFrame {
                
                 String nomage=jnomage.getText().toString();
                  String addrage=jaddrage.getText().toString();
-                  String emailage=jemailage.getText().toString();
+                  String villeage=jvilleage.getText().toString();
                    String telage=jtelage.getText().toString();
-                     String  insertStr="insert into personne (cin,nom,prenom,email,tel) values("
+                     String  insertStr="insert into Personne (cin,nom,prenom,email,tel,mdp) values("
+                            
                     +cinres+",'"
-                    +prenomres+"','"
                     +nomres+"','"
+                    +prenomres+"','"
                     +emailres+"',"
-                    +telres+")";
+                    +telres+",'"
+                    +passres+"')";
                      
-                    String  insertStr2="insert into agence (nom,adresse,email,telephone) values('"
+                    String  insertStr2="insert into Agence (nom,adresse,telephone,ville) values('"
                     +nomage+"','"
-                    +addrage+"','"
-                    +emailage+"',"
-                    +telage+")";
+                    +addrage+"',"
+                    +telage+",'"
+                    +villeage+"')";
                     
-                    String insertStr3 = "insert into responsableagence (Id_Personne,mot_de_passe,ID_Agence) "
-                            + "select MAX(id_Personne) ,'"+passres+"' ,"
-                            + "(select MAX(Id_Agence) from agence) from personne";
+                    String insertStr3 = "insert into ResponsableAgence "
+                            + "(id_Responsable,id_Agence) select MAX(id_Personne) "
+                            + ","
+                            + "(select MAX(id_Agence)from Agence) from Personne";
                    if(nomres.length() !=0 && prenomres.length() !=0 && cinres.length() !=0 
                            && emailres.length() !=0 && telres.length() !=0 
                            && passres.length() !=0 && passres2.length() !=0 && nomage.length() !=0 &&
-                           addrage.length() !=0 && emailage.length() !=0 && telage.length() !=0)
+                           addrage.length() !=0 && villeage.length() !=0 && telage.length() !=0)
                    {
                        try {
             PreparedStatement ps = MyConnection.getInstance().prepareStatement(insertStr);
@@ -323,7 +326,6 @@ public class Chiheb_Inscription_Responsable extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jaddrage;
     private javax.swing.JTextField jcinres;
-    private javax.swing.JTextField jemailage;
     private javax.swing.JTextField jemailres;
     private javax.swing.JTextField jnomage;
     private javax.swing.JTextField jnomres;
@@ -332,5 +334,6 @@ public class Chiheb_Inscription_Responsable extends javax.swing.JFrame {
     private javax.swing.JTextField jprenomres;
     private javax.swing.JTextField jtelage;
     private javax.swing.JTextField jtelres;
+    private javax.swing.JTextField jvilleage;
     // End of variables declaration//GEN-END:variables
 }
