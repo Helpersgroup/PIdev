@@ -18,8 +18,8 @@ import pidev.entities.Annonce;
 public class AnnonceDAO {
 
      public void InsertAnnonce(Annonce a){
-         a.toString();
-        String requete = "insert into annonce (nom,date_deb,date_fin,destination,description,hebergement,type_hebergement,transport,type_annonce,note) values (?,?,?,?,?,?,?,?,?,?)";
+         
+        String requete = "insert into annonce (Id_Annonceur,nom,date_deb,date_fin,destination,description,hebergement,type_hebergement,transport,type_annonce,note,depart) values ("+12+",?,?,?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
                 ps.setString(1,a.getNom());
@@ -32,7 +32,7 @@ public class AnnonceDAO {
                 ps.setString(8,a.getTransport());
                 ps.setString(9,a.getType_annonce());
                 ps.setInt   (10,a.getNote());
-                
+                ps.setString(11,a.getDepart());
                 ps.executeUpdate();
             System.out.println("Ajout effectuée avec succès");
         } catch (SQLException ex) {
