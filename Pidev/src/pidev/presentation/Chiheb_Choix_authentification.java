@@ -9,10 +9,19 @@ package pidev.presentation;
  * @author Abdelaziz
  */
 public class Chiheb_Choix_authentification extends javax.swing.JFrame {
-
+private static int variable;
     /**
      * Creates new form Choix_authentification
      */
+
+public void set_variable(int x){
+    
+    variable = x;
+}
+public int get_variable(){
+    
+   return  variable;
+}
     public Chiheb_Choix_authentification() {
         initComponents();
        
@@ -48,10 +57,20 @@ public class Chiheb_Choix_authentification extends javax.swing.JFrame {
         jButton1.setBounds(40, 130, 160, 23);
 
         jButton2.setText("Administrateur");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton2);
         jButton2.setBounds(310, 130, 160, 23);
 
         jButton3.setText("Client");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton3);
         jButton3.setBounds(180, 180, 160, 23);
 
@@ -60,7 +79,27 @@ public class Chiheb_Choix_authentification extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        set_variable(0);
+        Chiheb_Authentification auth = new Chiheb_Authentification();
+        auth.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        set_variable(1);
+          Chiheb_Authentification auth = new Chiheb_Authentification();
+        auth.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        set_variable(2);
+          Chiheb_Authentification auth = new Chiheb_Authentification();
+        auth.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

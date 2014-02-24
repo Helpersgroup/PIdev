@@ -2,13 +2,14 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package pidev.presentation;
+
 import java.util.Date;
 import javax.swing.*;
 import pidev.dao.AnnonceDAO;
 import pidev.entities.Annonce;
 import pidev.util.MyConnection;
+
 /**
  *
  * @author chiheb
@@ -54,6 +55,8 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        JdateDeb = new org.jdesktop.swingx.JXDatePicker();
+        JdateRetour = new org.jdesktop.swingx.JXDatePicker();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Avion", "Camping-Car", "Bus", "Micro-Bus ", "Mini-Bus", "Voiture", " ", " " }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -87,7 +90,7 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(44, 62, 80));
         jLabel6.setText("Depart ");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(30, 230, 70, 17);
+        jLabel6.setBounds(20, 230, 70, 17);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(44, 62, 80));
@@ -99,19 +102,19 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(44, 62, 80));
         jLabel8.setText("Destination ");
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(30, 260, 100, 17);
+        jLabel8.setBounds(20, 280, 100, 17);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(44, 62, 80));
         jLabel9.setText("Description");
         getContentPane().add(jLabel9);
-        jLabel9.setBounds(20, 310, 100, 17);
+        jLabel9.setBounds(20, 330, 100, 17);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(44, 62, 80));
         jLabel10.setText("Transport ");
         getContentPane().add(jLabel10);
-        jLabel10.setBounds(20, 420, 100, 17);
+        jLabel10.setBounds(20, 430, 100, 17);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(44, 62, 80));
@@ -127,7 +130,7 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
         jScrollPane1.setViewportView(TAdesc);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(180, 310, 230, 60);
+        jScrollPane1.setBounds(180, 310, 190, 60);
 
         TFdepart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,7 +138,7 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
             }
         });
         getContentPane().add(TFdepart);
-        TFdepart.setBounds(190, 230, 190, 20);
+        TFdepart.setBounds(180, 230, 190, 30);
 
         CboxTypeHeberg.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "Auberge", "Bungalow", "Hotel 1 etoile ", "Hotel 2 etoiles ", "Hotel 3 etoiles ", "Hotel 4 etoiles", "Hotel 5 etoiles", "Residence  ", "Villa", " " }));
         CboxTypeHeberg.addActionListener(new java.awt.event.ActionListener() {
@@ -144,7 +147,7 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
             }
         });
         getContentPane().add(CboxTypeHeberg);
-        CboxTypeHeberg.setBounds(190, 390, 130, 20);
+        CboxTypeHeberg.setBounds(180, 390, 190, 30);
 
         CboxTheme.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "Affaire", "Bien etre", "Camping", "Excursion", "Randonnée", "Voyage de découverte ", "Voyage de noce ", " " }));
         CboxTheme.addActionListener(new java.awt.event.ActionListener() {
@@ -161,7 +164,7 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
             }
         });
         getContentPane().add(TFdestination);
-        TFdestination.setBounds(190, 260, 190, 20);
+        TFdestination.setBounds(180, 270, 190, 30);
 
         TFnom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -169,9 +172,14 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
             }
         });
         getContentPane().add(TFnom);
-        TFnom.setBounds(180, 70, 190, 20);
+        TFnom.setBounds(180, 70, 190, 30);
 
         jButton1.setText("Annuler");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -191,7 +199,7 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
 
         CboxTransport.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "AVION", "BUS ", "MACRO-BUS", "MINI-BUS", "VOITURE" }));
         getContentPane().add(CboxTransport);
-        CboxTransport.setBounds(190, 420, 130, 20);
+        CboxTransport.setBounds(180, 430, 190, 30);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Ajouter Annonce ");
@@ -200,11 +208,15 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
 
         jLabel3.setText("le nom du responsable");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(520, 10, 110, 14);
+        jLabel3.setBounds(500, 10, 130, 14);
 
         jLabel12.setText("le nom de l'agence");
         getContentPane().add(jLabel12);
-        jLabel12.setBounds(10, 10, 100, 14);
+        jLabel12.setBounds(10, 10, 130, 14);
+        getContentPane().add(JdateDeb);
+        JdateDeb.setBounds(180, 152, 190, 30);
+        getContentPane().add(JdateRetour);
+        JdateRetour.setBounds(182, 190, 190, 30);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -226,15 +238,20 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
     }//GEN-LAST:event_TFnomActionPerformed
 
     private void BtnAjouterAnnonceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAjouterAnnonceActionPerformed
-        Annonce a = new Annonce ();
+        JOptionPane d = new JOptionPane();
+
+        Annonce a = new Annonce();
         AnnonceDAO aDAO = new AnnonceDAO();
         a.setNom(TFnom.getText());
-        a.setType_annonce(CboxTheme.getSelectedItem().toString()) ;
-        
-     //   Date dateDep = (Date) DataDep.getDate();
-      //  a.setDate_deb(dateDep);
-       // Date dateRetour = (Date) DataRetour.getDate();
-       // a.setDate_fin(dateRetour);
+        a.setType_annonce(CboxTheme.getSelectedItem().toString());
+
+
+
+    Date dateDep =  JdateDeb.getDate();
+        a.setDate_deb(dateDep);
+     
+        Date dateRetour = JdateRetour.getDate();
+        a.setDate_fin(dateRetour);
         a.setDepart(TFdepart.getText());
         a.setDestination(TFdestination.getText());
         a.setType_annonce(CboxTypeHeberg.getSelectedItem().toString());
@@ -243,9 +260,6 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnAjouterAnnonceActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-                        new ResponsableAgence().setVisible(true);
-
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
@@ -255,6 +269,12 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
     private void CboxTypeHebergActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CboxTypeHebergActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CboxTypeHebergActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        Responsable_Agence RA = new Responsable_Agence();
+        this.hide();
+        RA.setVisible(true);
+    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -295,6 +315,8 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
     private javax.swing.JComboBox CboxTheme;
     private javax.swing.JComboBox CboxTransport;
     private javax.swing.JComboBox CboxTypeHeberg;
+    private org.jdesktop.swingx.JXDatePicker JdateDeb;
+    private org.jdesktop.swingx.JXDatePicker JdateRetour;
     private javax.swing.JTextArea TAdesc;
     private javax.swing.JTextField TFdepart;
     private javax.swing.JTextField TFdestination;
