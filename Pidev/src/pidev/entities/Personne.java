@@ -10,4 +10,11 @@ package pidev.entities;
  */
 public class Personne {
     
+    private String nom;
+     private String prenom;
+      private String cin;
+       private String email;
+        private String nom;
+    
+    
 }

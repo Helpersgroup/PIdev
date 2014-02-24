@@ -3,6 +3,10 @@
  * and open the template in the editor.
  */
 package pidev.presentation;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import pidev.util.MyConnection;
 
 /**
  *
@@ -33,10 +37,10 @@ public class Chiheb_Inscription_Responsable extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        jnomres = new javax.swing.JTextField();
+        jprenomres = new javax.swing.JTextField();
+        jcinres = new javax.swing.JTextField();
+        jemailres = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
@@ -44,13 +48,17 @@ public class Chiheb_Inscription_Responsable extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
+        jnomage = new javax.swing.JTextField();
+        jaddrage = new javax.swing.JTextField();
+        jemailage = new javax.swing.JTextField();
+        jtelage = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
+        jtelres = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jpassres = new javax.swing.JTextField();
+        jpassres2 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(600, 600));
@@ -86,23 +94,23 @@ public class Chiheb_Inscription_Responsable extends javax.swing.JFrame {
         getContentPane().add(jLabel5);
         jLabel5.setBounds(30, 160, 40, 15);
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jnomres.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jnomresActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(180, 30, 150, 20);
-        getContentPane().add(jTextField2);
-        jTextField2.setBounds(180, 70, 150, 20);
-        getContentPane().add(jTextField3);
-        jTextField3.setBounds(180, 100, 150, 20);
-        getContentPane().add(jTextField4);
-        jTextField4.setBounds(180, 130, 150, 20);
+        getContentPane().add(jnomres);
+        jnomres.setBounds(130, 30, 150, 20);
+        getContentPane().add(jprenomres);
+        jprenomres.setBounds(130, 70, 150, 20);
+        getContentPane().add(jcinres);
+        jcinres.setBounds(130, 100, 150, 20);
+        getContentPane().add(jemailres);
+        jemailres.setBounds(130, 130, 150, 20);
 
         jButton1.setText("Annuler");
         getContentPane().add(jButton1);
-        jButton1.setBounds(310, 320, 90, 23);
+        jButton1.setBounds(400, 320, 90, 23);
 
         jButton2.setText("S'inscrire");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -111,7 +119,7 @@ public class Chiheb_Inscription_Responsable extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(130, 320, 100, 23);
+        jButton2.setBounds(290, 320, 100, 23);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(44, 62, 80));
@@ -142,28 +150,28 @@ public class Chiheb_Inscription_Responsable extends javax.swing.JFrame {
         jLabel10.setText("Tel :");
         getContentPane().add(jLabel10);
         jLabel10.setBounds(30, 300, 40, 15);
-        getContentPane().add(jTextField5);
-        jTextField5.setBounds(180, 210, 151, 20);
+        getContentPane().add(jnomage);
+        jnomage.setBounds(130, 210, 151, 20);
 
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+        jaddrage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
+                jaddrageActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField6);
-        jTextField6.setBounds(180, 240, 151, 20);
-        getContentPane().add(jTextField7);
-        jTextField7.setBounds(180, 270, 151, 20);
-        getContentPane().add(jTextField8);
-        jTextField8.setBounds(180, 300, 151, 20);
+        getContentPane().add(jaddrage);
+        jaddrage.setBounds(130, 240, 151, 20);
+        getContentPane().add(jemailage);
+        jemailage.setBounds(130, 270, 151, 20);
+        getContentPane().add(jtelage);
+        jtelage.setBounds(130, 300, 151, 20);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(44, 62, 80));
         jLabel1.setText("Données Personnelles");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 220, 22);
-        getContentPane().add(jTextField9);
-        jTextField9.setBounds(180, 160, 150, 20);
+        getContentPane().add(jtelres);
+        jtelres.setBounds(130, 160, 150, 20);
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(44, 62, 80));
@@ -171,20 +179,96 @@ public class Chiheb_Inscription_Responsable extends javax.swing.JFrame {
         getContentPane().add(jLabel12);
         jLabel12.setBounds(30, 100, 50, 15);
 
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(44, 62, 80));
+        jLabel11.setText("mot de passe :");
+        getContentPane().add(jLabel11);
+        jLabel11.setBounds(330, 40, 100, 15);
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(44, 62, 80));
+        jLabel13.setText("confirmer :");
+        getContentPane().add(jLabel13);
+        jLabel13.setBounds(330, 100, 80, 15);
+
+        jpassres.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jpassresActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jpassres);
+        jpassres.setBounds(330, 70, 150, 20);
+        getContentPane().add(jpassres2);
+        jpassres2.setBounds(330, 130, 150, 20);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jnomresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jnomresActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_jnomresActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+    
+         String nomres=jnomres.getText().toString();
+          String prenomres=jprenomres.getText().toString();
+           String cinres=jcinres.getText().toString();
+            String emailres=jemailres.getText().toString();
+             String telres=jtelres.getText().toString();
+              String passres=jpassres.getText().toString();
+               String passres2=jpassres2.getText().toString();
+               
+                String nomage=jnomage.getText().toString();
+                 String addrage=jaddrage.getText().toString();
+                  String emailage=jemailage.getText().toString();
+                   String telage=jtelage.getText().toString();
+                     String  insertStr="insert into personne (cin,nom,prenom,email,tel) values("
+                    +cinres+",'"
+                    +prenomres+"','"
+                    +nomres+"','"
+                    +emailres+"',"
+                    +telres+")";
+                     
+                    String  insertStr2="insert into agence (nom,adresse,email,telephone) values('"
+                    +nomage+"','"
+                    +addrage+"','"
+                    +emailage+"',"
+                    +telage+")";
+                    
+                    String insertStr3 = "insert into responsableagence (Id_Personne,mot_de_passe,ID_Agence) "
+                            + "select MAX(id_Personne) ,'"+passres+"' ,"
+                            + "(select MAX(Id_Agence) from agence) from personne";
+                   if(nomres.length() !=0 && prenomres.length() !=0 && cinres.length() !=0 
+                           && emailres.length() !=0 && telres.length() !=0 
+                           && passres.length() !=0 && passres2.length() !=0 && nomage.length() !=0 &&
+                           addrage.length() !=0 && emailage.length() !=0 && telage.length() !=0)
+                   {
+                       try {
+            PreparedStatement ps = MyConnection.getInstance().prepareStatement(insertStr);
+            PreparedStatement ps2 = MyConnection.getInstance().prepareStatement(insertStr2);
+            PreparedStatement ps3 = MyConnection.getInstance().prepareStatement(insertStr3);
+                ps.executeUpdate();
+                ps2.executeUpdate(); 
+                ps3.executeUpdate();
+           
+           
+            System.out.println("Ajout effectuée avec succès");
+        } catch (SQLException ex) {
+           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors de l'insertion "+ex.getMessage());
+        }
+                       
+                   }
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+    private void jaddrageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jaddrageActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+    }//GEN-LAST:event_jaddrageActionPerformed
+
+    private void jpassresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jpassresActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jpassresActionPerformed
 
     /**
      * @param args the command line arguments
@@ -225,7 +309,9 @@ public class Chiheb_Inscription_Responsable extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -235,14 +321,16 @@ public class Chiheb_Inscription_Responsable extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField jaddrage;
+    private javax.swing.JTextField jcinres;
+    private javax.swing.JTextField jemailage;
+    private javax.swing.JTextField jemailres;
+    private javax.swing.JTextField jnomage;
+    private javax.swing.JTextField jnomres;
+    private javax.swing.JTextField jpassres;
+    private javax.swing.JTextField jpassres2;
+    private javax.swing.JTextField jprenomres;
+    private javax.swing.JTextField jtelage;
+    private javax.swing.JTextField jtelres;
     // End of variables declaration//GEN-END:variables
 }
