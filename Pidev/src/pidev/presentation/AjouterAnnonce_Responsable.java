@@ -230,16 +230,15 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
         AnnonceDAO aDAO = new AnnonceDAO();
         a.setNom(TFnom.getText());
         a.setType_annonce(CboxTheme.getSelectedItem().toString()) ;
-        Date dateDep = (Date) DataDep.getDate();
+        
+     //   Date dateDep = (Date) DataDep.getDate();
       //  a.setDate_deb(dateDep);
-        Date dateRetour = (Date) DataRetour.getDate();
+       // Date dateRetour = (Date) DataRetour.getDate();
        // a.setDate_fin(dateRetour);
         a.setDepart(TFdepart.getText());
         a.setDestination(TFdestination.getText());
         a.setType_annonce(CboxTypeHeberg.getSelectedItem().toString());
         a.setTransport(CboxTransport.getSelectedItem().toString());
-        
-        
         aDAO.InsertAnnonce(a);
     }//GEN-LAST:event_BtnAjouterAnnonceActionPerformed
 
