@@ -250,7 +250,7 @@ public class Chiheb_Inscription_Responsable extends javax.swing.JFrame {
             PreparedStatement ps3 = MyConnection.getInstance().prepareStatement(insertStr3);
                 ps.executeUpdate();
                 ps2.executeUpdate(); 
-                ps3.executeUpdate();
+                ps3.executeUpdate(); 
            
            
             System.out.println("Ajout effectuée avec succès");
