@@ -41,4 +41,30 @@ public class AnnonceDAO {
         }
     }
                              
+    public List<Annonce> DisplayAllAnnonces (){
+
+
+        List<Annonce> listeannonces = new ArrayList<Annonce>();
+
+        String requete = "select * from annonce";
+        try {
+           Statement statement = MyConnection.getInstance()
+                   .createStatement();
+            ResultSet resultat = statement.executeQuery(requete);
+
+            while(resultat.next()){
+                Annonce annonce =new Annonce();
+                annonce.setId_Annonce(resultat.getInt(0));
+                annonce.setId_Annonceur(resultat.getInt(1));
+                annonce.setDate_deb(resultat.getDate(3);
+
+                listedepots.add(depot);
+            }
+            return listedepots;
+        } catch (SQLException ex) {
+           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors du chargement des depots "+ex.getMessage());
+            return null;
+        }
+    }
 }
