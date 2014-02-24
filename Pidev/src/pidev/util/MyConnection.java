@@ -8,13 +8,13 @@ import java.sql.SQLException;
 public class MyConnection {
 
    private static final  String driver = "com.mysql.jdbc.Driver";
-   private static final  String url = "jdbc:mysql://localhost:3306/voyage à la carte";
-   private static final  String login = "root";
-   private static final  String pwd = "root";
+   private static final  String url = "jdbc:mysql://41.231.22.153:3306/helpers";
+   private static final  String login = "helper";
+   private static final  String pwd = "helper";
    private static Connection con;
 
 
-   private MyConnection(){
+ public MyConnection(){
 
    }
 
