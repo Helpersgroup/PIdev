@@ -285,7 +285,7 @@ public static String SECRET = "9d15944887d10081452b7a41f9d01394";
             HTMLEditorKit.ParserCallback callback = 
             new HTMLEditorKit.ParserCallback() {
                 @Override
-              public void handleText(char[] data,int pos) {
+              public void handleText(char[] data,int pos) { 
                 System.out.println(data);
                 // because there is only one line with the access_token 
                 // in the html content you can parse it.
