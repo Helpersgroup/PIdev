@@ -71,7 +71,7 @@ public class AnnonceDAO {
             return listeannonces;
         } catch (SQLException ex) {
            //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("erreur lors du chargement des depots "+ex.getMessage());
+            System.out.println("erreur lors du chargement des annonces "+ex.getMessage());
             return null;
         }
     }
