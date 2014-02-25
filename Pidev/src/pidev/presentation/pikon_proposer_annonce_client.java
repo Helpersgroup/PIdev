@@ -4,11 +4,12 @@
  */
 
 package pidev.presentation;
+import javax.swing.JOptionPane;
 import pidev.dao.AnnonceDAO;
 import pidev.entities.Annonce;
 /**
  *
- * @author chiheb
+ * @author pikon
  */
 public class pikon_proposer_annonce_client extends javax.swing.JFrame {
 
@@ -16,8 +17,9 @@ public class pikon_proposer_annonce_client extends javax.swing.JFrame {
      * Creates new form AjouterAnnonce_Responsable
      */
     public pikon_proposer_annonce_client() {
-        initComponents();
-    }
+          initComponents();
+          this.setLocationRelativeTo(null);
+          this.pack();    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -201,21 +203,21 @@ public class pikon_proposer_annonce_client extends javax.swing.JFrame {
     private void BtnAjouterAnnonceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAjouterAnnonceActionPerformed
 
 
-        String theme= CboxTheme.getSelectedItem().toString();
-        String dep= TFdepart.getText();
-        String des= TFdestination.getText();
-        String desc =TAdesc.getText();
-        String heberge=CboxTypeHeberg.getSelectedItem().toString();
-        String transport=CboxTransport.getSelectedItem().toString();
         
-//String  insertStr="insert into annonce "
-//        + "(Id_Annonceur,date_deb,date_fin,depart,destination,hebergement,type_hebergement,type_hebergement,type_annonce,transport) "
-//        + "values("
-//                    +cin+",'"
-//                    +prenom+"','"
-//                    +nom+"','"
-//                    +email+"',"
-//                    +tel+")";
+JOptionPane d = new JOptionPane();
+
+        Annonce a = new Annonce();
+        AnnonceDAO aDAO = new AnnonceDAO();
+        a.setType_annonce(CboxTheme.getSelectedItem().toString());
+
+
+        a.setDate_deb(jXDatePicker1.getDate());
+        a.setDate_fin(jXDatePicker2.getDate());
+        a.setDepart(TFdepart.getText());
+        a.setDestination(TFdestination.getText());
+        a.setType_annonce(CboxTypeHeberg.getSelectedItem().toString());
+        a.setTransport(CboxTransport.getSelectedItem().toString());
+        aDAO.InsertAnnonce(a);
     }//GEN-LAST:event_BtnAjouterAnnonceActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
