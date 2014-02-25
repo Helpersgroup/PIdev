@@ -23,6 +23,7 @@ public class Annonce {
     private String  depart;
     private String  hebergement;
     private int     note;
+    private int     etat;
     private int     nbr_adultes;
     private int     nbr_enfants;
     private String  transport;
@@ -30,11 +31,11 @@ public class Annonce {
     private String  type_Annonce ;
 
     public String getType_annonce() {
-        return type_Annonce;
+        return getType_Annonce();
     }
 
     public void setType_annonce(String type_annonce) {
-        this.type_Annonce = type_annonce;
+        this.setType_Annonce(type_annonce);
     }
 
     public String getTransport() {
@@ -46,11 +47,11 @@ public class Annonce {
     }
 
     public String getType_hebergement() {
-        return type_Hebergement;
+        return getType_Hebergement();
     }
 
     public void setType_hebergement(String type_hebergement) {
-        this.type_Hebergement = type_hebergement;
+        this.setType_Hebergement(type_hebergement);
     }
 
 
@@ -67,19 +68,19 @@ public class Annonce {
     }
 
     public Date getDate_deb() {
-        return date_Deb;
+        return getDate_Deb();
     }
 
     public void setDate_deb(Date date_deb) {
-        this.date_Deb = date_deb;
+        this.setDate_Deb(date_deb);
     }
 
     public Date getDate_fin() {
-        return date_Fin;
+        return getDate_Fin();
     }
 
     public void setDate_fin( Date date_fin) {
-        this.date_Fin = date_fin;
+        this.setDate_Fin(date_fin);
     }
 
     public String getDescription() {
@@ -168,6 +169,76 @@ public class Annonce {
 
     public void setDate_deb() {
         
+    }
+
+    /**
+     * @return the date_Deb
+     */
+    public Date getDate_Deb() {
+        return date_Deb;
+    }
+
+    /**
+     * @param date_Deb the date_Deb to set
+     */
+    public void setDate_Deb(Date date_Deb) {
+        this.date_Deb = date_Deb;
+    }
+
+    /**
+     * @return the date_Fin
+     */
+    public Date getDate_Fin() {
+        return date_Fin;
+    }
+
+    /**
+     * @param date_Fin the date_Fin to set
+     */
+    public void setDate_Fin(Date date_Fin) {
+        this.date_Fin = date_Fin;
+    }
+
+    /**
+     * @return the etat
+     */
+    public int getEtat() {
+        return etat;
+    }
+
+    /**
+     * @param etat the etat to set
+     */
+    public void setEtat(int etat) {
+        this.etat = etat;
+    }
+
+    /**
+     * @return the type_Hebergement
+     */
+    public String getType_Hebergement() {
+        return type_Hebergement;
+    }
+
+    /**
+     * @param type_Hebergement the type_Hebergement to set
+     */
+    public void setType_Hebergement(String type_Hebergement) {
+        this.type_Hebergement = type_Hebergement;
+    }
+
+    /**
+     * @return the type_Annonce
+     */
+    public String getType_Annonce() {
+        return type_Annonce;
+    }
+
+    /**
+     * @param type_Annonce the type_Annonce to set
+     */
+    public void setType_Annonce(String type_Annonce) {
+        this.type_Annonce = type_Annonce;
     }
 
     
