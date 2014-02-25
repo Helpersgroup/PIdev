@@ -28,14 +28,8 @@ List<Client> listeClients;
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] { {new Client("a","b","c","d").getCin()},
-                {new Client("d","gdf","cdf","ddad").getCin()}
-            },
-            new String [] {
-                "Vos reservations"
-            }
-        ));
+        jTable2.setModel(new Test()
+        );
         jScrollPane2.setViewportView(jTable2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
