@@ -208,9 +208,10 @@ JOptionPane d = new JOptionPane();
 
         Annonce a = new Annonce();
         AnnonceDAO aDAO = new AnnonceDAO();
+       int s= a.getId_Annonceur();
+         a.setId_Annonceur(s);
+        
         a.setType_annonce(CboxTheme.getSelectedItem().toString());
-
-
         a.setDate_deb(jXDatePicker1.getDate());
         a.setDate_fin(jXDatePicker2.getDate());
         a.setDepart(TFdepart.getText());
