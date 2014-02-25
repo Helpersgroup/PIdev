@@ -19,18 +19,18 @@ public class Chiheb_Authentification extends javax.swing.JFrame {
      * Creates new form Acceuil
      */
     int variable2 =0;
-    int  x=0 ;
-   int y=0;
+   
        String password="" ;
        String email="";
-    
+     int  x=0 ;
+              int y=0;
     public Chiheb_Authentification() {
         initComponents();
           
         this.setLocationRelativeTo(null);
        this.pack();
-       Chiheb_Choix_authentification auth = new  Chiheb_Choix_authentification();
-       variable2 = auth.get_variable();
+       jLabel3.setVisible(false);
+     
     }
 
     /**
@@ -50,6 +50,7 @@ public class Chiheb_Authentification extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 153, 153));
@@ -76,6 +77,11 @@ public class Chiheb_Authentification extends javax.swing.JFrame {
         jPassword.setBounds(190, 130, 101, 30);
 
         jButton1.setText("Inscription");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1);
         jButton1.setBounds(330, 130, 90, 23);
 
@@ -98,6 +104,12 @@ public class Chiheb_Authentification extends javax.swing.JFrame {
         getContentPane().add(jButton4);
         jButton4.setBounds(330, 70, 90, 20);
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 51, 51));
+        jLabel3.setText("Email ou mot de passe incorrect");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(80, 170, 180, 15);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -107,7 +119,8 @@ public class Chiheb_Authentification extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-
+  Chiheb_Choix_authentification auth = new  Chiheb_Choix_authentification();
+       variable2 = auth.get_variable();
         
           email=jlogin.getText().toString();
           //String password=jPassword.getPassword().toString();
@@ -121,38 +134,50 @@ public class Chiheb_Authentification extends javax.swing.JFrame {
             
                     if(email.length()!=0 && password.length()!=0)
                    {  
-            String  insertStr = "select id_Personne from Personne where email='"+email+"' and mdp ='"+password+"' "; 
-            String  insertStr2 = "select id_Client from Client where id_Client='"+x+"'"; 
+          
                        try {
+                           String  insertStr = "select id_Personne from Personne where email='"+email+"' and mdp ='"+password+"' "; 
             PreparedStatement ps = MyConnection.getInstance().prepareStatement(insertStr);
             
            // PreparedStatement ps3 = MyConnection.getInstance().prepareStatement(insertStr3);
                ResultSet resultat = ps.executeQuery();
-          
+           
+                
+           
                 while (resultat.next())
             {
-              x = resultat.getInt(1);
+             x = resultat.getInt(1);
+                System.out.println("x"+x);
             }
-              if (x>0){  
+              if (x!=0){  
            //si il ya un Id_personne selected
+                   String  insertStr2 = "select id_Client from Client where id_Client="+x+""; 
            PreparedStatement ps2 = MyConnection.getInstance().prepareStatement(insertStr2);
            
             ResultSet resultat2 = ps2.executeQuery();
              while (resultat2.next())
             {
            y = resultat2.getInt(1);
-                
+                System.out.println("y"+y);
             }
              //passe correct
              if(y==x)
              {
-                 System.out.println("connection avec succes");
+                Chiheb_Espace_Client esp_cli = new Chiheb_Espace_Client();
+                esp_cli.setVisible(true);
+             this.dispose();
+             
              }
-               if(y != x)
+               if(y != x )
              {
                  System.out.println("email ou mot de passe incorrect");
+                  jLabel3.setVisible(true);
              }
+           
               }
+                  else 
+                   System.out.println("email ou mot de passe incorrect");
+               jLabel3.setVisible(true);
            
         } catch (SQLException ex) {
            //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
@@ -167,6 +192,13 @@ public class Chiheb_Authentification extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        Chiheb_Choix_Inscription ch_inscri = new Chiheb_Choix_Inscription();
+        ch_inscri.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -209,6 +241,7 @@ public class Chiheb_Authentification extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPasswordField jPassword;
     private javax.swing.JTextField jlogin;
     // End of variables declaration//GEN-END:variables
