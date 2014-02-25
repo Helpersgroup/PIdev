@@ -17,6 +17,8 @@ public class Chiheb_Espace_Client extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
        this.pack();
+       jnconnecté.setText(new GraphReaderExample("").get_firstname()+new GraphReaderExample("").get_lasttname());
+   jiconnecté.setText(""+new GraphReaderExample("").get_id());
     }
 
     /**
@@ -29,28 +31,47 @@ public class Chiheb_Espace_Client extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        jnconnecté = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jiconnecté = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(600, 600));
         setResizable(false);
 
-        jLabel1.setText("Espace client");
+        jLabel1.setText("Bienvenue :");
+
+        jnconnecté.setText("jLabel2");
+
+        jLabel2.setText("Votre id :");
+
+        jiconnecté.setText("jLabel3");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(144, 144, 144)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(156, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jnconnecté)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 153, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jiconnecté)
+                .addGap(44, 44, 44))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addComponent(jLabel1)
-                .addContainerGap(166, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jnconnecté)
+                    .addComponent(jLabel2)
+                    .addComponent(jiconnecté))
+                .addContainerGap(275, Short.MAX_VALUE))
         );
 
         pack();
@@ -92,5 +113,8 @@ public class Chiheb_Espace_Client extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jiconnecté;
+    private javax.swing.JLabel jnconnecté;
     // End of variables declaration//GEN-END:variables
 }

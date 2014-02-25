@@ -268,9 +268,7 @@ public static String SECRET = "9d15944887d10081452b7a41f9d01394";
             String[] splits = e.getNewResourceLocation().split("=");
             String stage2temp = secondRequest + splits[1];
               System.out.println("First ="+splits[1]);
-             
-              webBrowser.navigate(stage2temp);
-           
+            webBrowser.navigate(stage2temp);
             firstRequestDone = true;
           }
         } else {
@@ -279,13 +277,12 @@ public static String SECRET = "9d15944887d10081452b7a41f9d01394";
           if (!secondRequestDone) {
            // System.out.println(webBrowser.getHTMLContent());
             // Create reader with the html content
-            
-              StringReader readerSTR = new StringReader(webBrowser.getHTMLContent());
+            StringReader readerSTR = new StringReader(webBrowser.getHTMLContent());
             // Create a callback for html parser
             HTMLEditorKit.ParserCallback callback = 
             new HTMLEditorKit.ParserCallback() {
                 @Override
-              public void handleText(char[] data,int pos) { 
+              public void handleText(char[] data,int pos) {
                 System.out.println(data);
                 // because there is only one line with the access_token 
                 // in the html content you can parse it.
@@ -294,10 +291,14 @@ public static String SECRET = "9d15944887d10081452b7a41f9d01394";
                 String[] temp2 = temp1[0].split("=");
                     System.out.println("access tocken="+temp2[1]);
                 access_token = temp2[1];
-              authFrame.dispose();
+                authFrame.dispose();
                 new GraphReaderExample(access_token).runEverything();
-                
+           
+           close();
+           
               }
+
+               
             };
             try {
               // Call the parse method 
@@ -321,6 +322,11 @@ public static String SECRET = "9d15944887d10081452b7a41f9d01394";
     
         });
     }
+     private void close() {
+            Chiheb_Espace_Client cli = new Chiheb_Espace_Client();
+           cli.setVisible(true);
+                     this.dispose();
+                }
     /**
      * @param args the command line arguments
      */
