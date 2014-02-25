@@ -4,11 +4,10 @@
  */
 package pidev.entities;
 
-import java.sql.Date;
-//import java.util.Date;
+//import java.sql.Date;
+import java.util.Date;
 import pidev.entities.Transport;
 import pidev.entities.TypeHebergement;
-
 /**
  *
  * @author Eya
@@ -17,8 +16,8 @@ public class Annonce {
     private int Id_Annonce;
     private int Id_Annonceur;
     private String  nom;
-    private Date    date_deb;
-    private Date    date_fin;
+    private Date     date_Deb;
+    private Date    date_Fin;
     private String  description;
     private String  destination;
     private String  depart;
@@ -27,15 +26,15 @@ public class Annonce {
     private int     nbr_adultes;
     private int     nbr_enfants;
     private String  transport;
-    private String  type_hebergement;
-    private String  type_annonce ;
+    private String  type_Hebergement;
+    private String  type_Annonce ;
 
     public String getType_annonce() {
-        return type_annonce;
+        return type_Annonce;
     }
 
     public void setType_annonce(String type_annonce) {
-        this.type_annonce = type_annonce;
+        this.type_Annonce = type_annonce;
     }
 
     public String getTransport() {
@@ -47,11 +46,11 @@ public class Annonce {
     }
 
     public String getType_hebergement() {
-        return type_hebergement;
+        return type_Hebergement;
     }
 
     public void setType_hebergement(String type_hebergement) {
-        this.type_hebergement = type_hebergement;
+        this.type_Hebergement = type_hebergement;
     }
 
 
@@ -68,19 +67,19 @@ public class Annonce {
     }
 
     public Date getDate_deb() {
-        return date_deb;
+        return date_Deb;
     }
 
     public void setDate_deb(Date date_deb) {
-        this.date_deb = date_deb;
+        this.date_Deb = date_deb;
     }
 
     public Date getDate_fin() {
-        return date_fin;
+        return date_Fin;
     }
 
-    public void setDate_fin(Date date_fin) {
-        this.date_fin = date_fin;
+    public void setDate_fin( Date date_fin) {
+        this.date_Fin = date_fin;
     }
 
     public String getDescription() {
@@ -167,9 +166,13 @@ public class Annonce {
         this.Id_Annonceur = Id_Annonceur;
     }
 
+    public void setDate_deb() {
+        
+    }
+
     
     
-    public enum Type_hebergement {
+    public enum Type_Hebergement {
     Villa,Hotel1,Hotel2,Hotel3,Hotel4,Hotel5;
     }
      

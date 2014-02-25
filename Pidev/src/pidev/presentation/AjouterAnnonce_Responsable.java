@@ -23,6 +23,8 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
      */
     public AjouterAnnonce_Responsable() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.pack();
     }
 
     /**
@@ -58,9 +60,12 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        JdateDeb = new org.netbeans.modules.form.InvalidComponent();
-        JdateRetour = new org.netbeans.modules.form.InvalidComponent();
-        jXDatePicker2 = new org.jdesktop.swingx.JXDatePicker();
+        JXDateDepart = new org.jdesktop.swingx.JXDatePicker();
+        JXDateRetour = new org.jdesktop.swingx.JXDatePicker();
+        CboxNote = new javax.swing.JComboBox();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        TfHebergement = new javax.swing.JTextField();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Avion", "Camping-Car", "Bus", "Micro-Bus ", "Mini-Bus", "Voiture", " ", " " }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -69,62 +74,64 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
             }
         });
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(700, 700));
+        setResizable(false);
         getContentPane().setLayout(null);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(44, 62, 80));
         jLabel2.setText("Date Depart ");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(20, 160, 110, 17);
+        jLabel2.setBounds(60, 170, 110, 17);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(44, 62, 80));
         jLabel4.setText("Nom ");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(20, 70, 60, 17);
+        jLabel4.setBounds(60, 80, 60, 17);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(44, 62, 80));
         jLabel5.setText("Date Retour ");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(20, 190, 100, 17);
+        jLabel5.setBounds(60, 200, 100, 17);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(44, 62, 80));
         jLabel6.setText("Depart ");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(20, 230, 70, 17);
+        jLabel6.setBounds(60, 240, 70, 17);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(44, 62, 80));
         jLabel7.setText("Type Hebergement ");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(20, 390, 150, 17);
+        jLabel7.setBounds(60, 400, 150, 17);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(44, 62, 80));
         jLabel8.setText("Destination ");
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(20, 280, 100, 17);
+        jLabel8.setBounds(60, 290, 100, 17);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(44, 62, 80));
         jLabel9.setText("Description");
         getContentPane().add(jLabel9);
-        jLabel9.setBounds(20, 330, 100, 17);
+        jLabel9.setBounds(60, 340, 100, 17);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(44, 62, 80));
         jLabel10.setText("Transport ");
         getContentPane().add(jLabel10);
-        jLabel10.setBounds(20, 430, 100, 17);
+        jLabel10.setBounds(60, 440, 100, 17);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(44, 62, 80));
         jLabel11.setText("Thème");
         getContentPane().add(jLabel11);
-        jLabel11.setBounds(20, 120, 120, 17);
+        jLabel11.setBounds(60, 130, 120, 17);
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
@@ -134,7 +141,7 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
         jScrollPane1.setViewportView(TAdesc);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(180, 310, 190, 60);
+        jScrollPane1.setBounds(220, 320, 190, 60);
 
         TFdepart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,7 +149,7 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
             }
         });
         getContentPane().add(TFdepart);
-        TFdepart.setBounds(180, 230, 190, 30);
+        TFdepart.setBounds(220, 240, 190, 30);
 
         CboxTypeHeberg.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "Auberge", "Bungalow", "Hotel 1 etoile ", "Hotel 2 etoiles ", "Hotel 3 etoiles ", "Hotel 4 etoiles", "Hotel 5 etoiles", "Residence  ", "Villa", " " }));
         CboxTypeHeberg.addActionListener(new java.awt.event.ActionListener() {
@@ -151,7 +158,7 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
             }
         });
         getContentPane().add(CboxTypeHeberg);
-        CboxTypeHeberg.setBounds(180, 390, 190, 30);
+        CboxTypeHeberg.setBounds(220, 400, 190, 30);
 
         CboxTheme.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "Affaire", "Bien etre", "Camping", "Excursion", "Randonnée", "Voyage de découverte ", "Voyage de noce ", " " }));
         CboxTheme.addActionListener(new java.awt.event.ActionListener() {
@@ -160,7 +167,7 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
             }
         });
         getContentPane().add(CboxTheme);
-        CboxTheme.setBounds(180, 120, 190, 20);
+        CboxTheme.setBounds(220, 120, 190, 30);
 
         TFdestination.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -168,7 +175,7 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
             }
         });
         getContentPane().add(TFdestination);
-        TFdestination.setBounds(180, 270, 190, 30);
+        TFdestination.setBounds(220, 280, 190, 30);
 
         TFnom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -176,7 +183,7 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
             }
         });
         getContentPane().add(TFnom);
-        TFnom.setBounds(180, 70, 190, 30);
+        TFnom.setBounds(220, 80, 190, 30);
 
         jButton1.setText("Annuler");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -190,7 +197,7 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(340, 490, 90, 23);
+        jButton1.setBounds(460, 570, 90, 23);
 
         BtnAjouterAnnonce.setText("Ajouter ");
         BtnAjouterAnnonce.addActionListener(new java.awt.event.ActionListener() {
@@ -199,11 +206,11 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
             }
         });
         getContentPane().add(BtnAjouterAnnonce);
-        BtnAjouterAnnonce.setBounds(180, 490, 90, 23);
+        BtnAjouterAnnonce.setBounds(200, 570, 90, 23);
 
         CboxTransport.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "AVION", "BUS ", "MACRO-BUS", "MINI-BUS", "VOITURE" }));
         getContentPane().add(CboxTransport);
-        CboxTransport.setBounds(180, 430, 190, 30);
+        CboxTransport.setBounds(220, 440, 190, 30);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Ajouter Annonce ");
@@ -217,12 +224,28 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
         jLabel12.setText("le nom de l'agence");
         getContentPane().add(jLabel12);
         jLabel12.setBounds(10, 10, 130, 14);
-        getContentPane().add(JdateDeb);
-        JdateDeb.setBounds(180, 152, 190, 30);
-        getContentPane().add(JdateRetour);
-        JdateRetour.setBounds(182, 190, 190, 30);
-        getContentPane().add(jXDatePicker2);
-        jXDatePicker2.setBounds(430, 260, 110, 22);
+        getContentPane().add(JXDateDepart);
+        JXDateDepart.setBounds(220, 170, 190, 22);
+        getContentPane().add(JXDateRetour);
+        JXDateRetour.setBounds(220, 200, 190, 22);
+
+        CboxNote.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", " 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", " 10", " 11", " 12", " 13", " 14", " 15", " 16", " 17", " 18", " 19", " 20" }));
+        getContentPane().add(CboxNote);
+        CboxNote.setBounds(220, 490, 190, 20);
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(44, 62, 80));
+        jLabel13.setText("Note");
+        getContentPane().add(jLabel13);
+        jLabel13.setBounds(70, 490, 50, 17);
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(44, 62, 80));
+        jLabel14.setText("Hebergement");
+        getContentPane().add(jLabel14);
+        jLabel14.setBounds(430, 400, 110, 20);
+        getContentPane().add(TfHebergement);
+        TfHebergement.setBounds(540, 400, 140, 30);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -252,12 +275,8 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
         a.setType_annonce(CboxTheme.getSelectedItem().toString());
 
 
-
-    Date dateDep =  JdateDeb.getDate();
-        a.setDate_deb(JdateDeb);
-     
-        Date dateRetour = JdateRetour.getDate();
-        a.setDate_fin(JdateRetour);
+        a.setDate_deb(JXDateDepart.getDate());
+        a.setDate_fin(JXDateRetour.getDate());
         a.setDepart(TFdepart.getText());
         a.setDestination(TFdestination.getText());
         a.setType_annonce(CboxTypeHeberg.getSelectedItem().toString());
@@ -278,7 +297,7 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         ResponsableAgence RA = new ResponsableAgence();
-        this.hide();
+        this.dispose();
         RA.setVisible(true);
     }//GEN-LAST:event_jButton1MouseClicked
 
@@ -318,21 +337,25 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnAjouterAnnonce;
+    private javax.swing.JComboBox CboxNote;
     private javax.swing.JComboBox CboxTheme;
     private javax.swing.JComboBox CboxTransport;
     private javax.swing.JComboBox CboxTypeHeberg;
-    private org.netbeans.modules.form.InvalidComponent JdateDeb;
-    private org.netbeans.modules.form.InvalidComponent JdateRetour;
+    private org.jdesktop.swingx.JXDatePicker JXDateDepart;
+    private org.jdesktop.swingx.JXDatePicker JXDateRetour;
     private javax.swing.JTextArea TAdesc;
     private javax.swing.JTextField TFdepart;
     private javax.swing.JTextField TFdestination;
     private javax.swing.JTextField TFnom;
+    private javax.swing.JTextField TfHebergement;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -343,6 +366,5 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private org.jdesktop.swingx.JXDatePicker jXDatePicker1;
-    private org.jdesktop.swingx.JXDatePicker jXDatePicker2;
     // End of variables declaration//GEN-END:variables
 }
