@@ -25,20 +25,48 @@ import com.restfb.types.User;
 import static java.lang.String.format;
 import static java.lang.System.currentTimeMillis;
 import static java.lang.System.out;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import pidev.util.MyConnection;
+import sun.java2d.Disposer;
 
 @SuppressWarnings("deprecation")
 public class GraphReaderExample {
   private final FacebookClient facebookClient;
-
+private static String firstname;
+private static String lastname;
+private static int id;
 
   public static void main(String[] args) {
-    new GraphReaderExample("CAADMRglqW40BAHTboMiaZB0SsZAZAZB5edqkEr3ZCIhSRCdEH1671vZBqBVdMQUb3VwOwhF7MfXbGGQ78vdhTx26jTKSrD3K6oDFjkaSnrJ8pCWO9B3pUu08Ai8L7O8ZBZAvXKegUjwxjeXzWxTQZBBtb1VaTeBsVwY9J2Ob0AVkdpTVZAF5aExMMU").runEverything();
+    new GraphReaderExample("").runEverything();
   }
-
+public void set_firstname(String x){
+        firstname=x;
+    }
+ public String get_firstname()
+ {
+     return firstname; 
+ } 
+ public void set_lasttname(String x){
+        lastname=x;
+    }
+ public String get_lasttname()
+ {
+     return lastname; 
+ }
+  public void set_id(int x){
+        id=x;
+    }
+ public int get_id()
+ {
+     return id; 
+ }
   GraphReaderExample(String accessToken) {
     facebookClient = new DefaultFacebookClient(accessToken);
+   
   }
-
+ 
   void runEverything() {
       fetchObject();
 //    fetchObjects();
@@ -61,14 +89,45 @@ public class GraphReaderExample {
     User user = facebookClient.fetchObject("me", User.class);
     Page page = facebookClient.fetchObject("cocacola", Page.class);
 
-    out.println("Name: " + user.getName());
-    out.println("Username: " + user.getUsername());
+    out.println("Name: " + user.getFirstName());
+    out.println("Username: " + user.getLastName());
     out.println("Email: " + user.getEmail());
     out.println("ID Facebook: " + user.getId());
     out.println("About: " + user.getAbout());
     out.println("Birthday: " + user.getBirthday());
     
-    //out.println("Page likes: " + page.getLikes());
+ 
+     try {
+             String  insertStr = "insert into Personne (nom,prenom,email,tel,etat,id_RS) values ('"+user.getFirstName()+"','"
+         + user.getLastName()  + "','"+user.getEmail()+"',"+0+","+1+","+user.getId()+")"; 
+             
+            PreparedStatement ps = MyConnection.getInstance().prepareStatement(insertStr);
+           
+            ps.executeUpdate();
+            String  insertStr2 = "select (id_Personne) from Personne where id_RS="+user.getId()+""; 
+             PreparedStatement ps2 = MyConnection.getInstance().prepareStatement(insertStr2);
+             ResultSet resultat = ps2.executeQuery();
+            while (resultat.next())
+            {
+         set_id(resultat.getInt(1));
+            }
+              set_firstname(user.getFirstName());
+              set_lasttname(user.getLastName());
+               String  insertStr3 = "insert into Client (id_Client) values ("+get_id()+")"; 
+             
+            PreparedStatement ps3 = MyConnection.getInstance().prepareStatement(insertStr3);
+           
+            ps3.executeUpdate();
+           
+             
+         
+           
+            System.out.println("Ajout effectuée avec succès");
+        } catch (SQLException ex) {
+           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors de l'insertion "+ex.getMessage());
+        }
+    out.println("Page likes: " + page.getLikes());
   }
 
   void fetchObjectsAsJsonObject() {

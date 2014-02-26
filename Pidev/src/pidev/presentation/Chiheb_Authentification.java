@@ -29,8 +29,8 @@ import pidev.util.MyConnection;
  * @author Abdelaziz
  */
 public class Chiheb_Authentification extends javax.swing.JFrame {
-public static String API_KEY = "224601177742221";
-public static String SECRET = "9d15944887d10081452b7a41f9d01394";
+public static String API_KEY = "786334718062138";
+public static String SECRET = "32b8b5c1d66e2bed7a2a98669e6f8cf8";
 
   public static String firstRequest = "https://graph.facebook.com/oauth/authorize?"
   + "client_id="
@@ -267,10 +267,8 @@ public static String SECRET = "9d15944887d10081452b7a41f9d01394";
             // and go for a second request
             String[] splits = e.getNewResourceLocation().split("=");
             String stage2temp = secondRequest + splits[1];
-              System.out.println("First ="+splits[1]);
-             
-              webBrowser.navigate(stage2temp);
-           
+              System.out.println("First ="+splits);
+            webBrowser.navigate(stage2temp);
             firstRequestDone = true;
           }
         } else {
@@ -279,25 +277,28 @@ public static String SECRET = "9d15944887d10081452b7a41f9d01394";
           if (!secondRequestDone) {
            // System.out.println(webBrowser.getHTMLContent());
             // Create reader with the html content
-            
-              StringReader readerSTR = new StringReader(webBrowser.getHTMLContent());
+            StringReader readerSTR = new StringReader(webBrowser.getHTMLContent());
             // Create a callback for html parser
             HTMLEditorKit.ParserCallback callback = 
             new HTMLEditorKit.ParserCallback() {
                 @Override
-              public void handleText(char[] data,int pos) { 
+              public void handleText(char[] data,int pos) {
                 System.out.println(data);
                 // because there is only one line with the access_token 
                 // in the html content you can parse it.
                 String string = new String(data);
                 String[] temp1 = string.split("&");
                 String[] temp2 = temp1[0].split("=");
-                    System.out.println("access tocken="+temp2[1]);
+                    System.out.println("access tocken="+temp2);
                 access_token = temp2[1];
-              authFrame.dispose();
+                authFrame.dispose();
                 new GraphReaderExample(access_token).runEverything();
-                
+           
+           close();
+           
               }
+
+               
             };
             try {
               // Call the parse method 
@@ -321,6 +322,11 @@ public static String SECRET = "9d15944887d10081452b7a41f9d01394";
     
         });
     }
+     private void close() {
+            Chiheb_Espace_Client cli = new Chiheb_Espace_Client();
+           cli.setVisible(true);
+                     this.dispose();
+                }
     /**
      * @param args the command line arguments
      */
