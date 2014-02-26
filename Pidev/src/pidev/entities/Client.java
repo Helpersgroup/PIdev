@@ -10,6 +10,7 @@ package pidev.entities;
  */
 public class Client extends Personne {
     private int Id_Client;
+    
     public Client(String a1,String b1,String c1,String d1)
     {
         super(a1,b1,c1,d1);

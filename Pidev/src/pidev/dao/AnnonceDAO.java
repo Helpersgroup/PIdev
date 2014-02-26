@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import pidev.entities.Annonce;
 import java.util.Date;
+import pidev.entities.Client;
 /**
  *
  * @author Eya
@@ -92,11 +93,11 @@ public class AnnonceDAO {
         }
     }
      public List<Annonce> DisplayAnnonceByClient (int id){
-
-
+        
+           
         List<Annonce> listeannonces = new ArrayList<Annonce>();
 
-        String requete = "select * from annonce where Id";
+        String requete = "select * from annonce";
         try {
            Statement statement = MyConnection.getInstance()
                    .createStatement();
