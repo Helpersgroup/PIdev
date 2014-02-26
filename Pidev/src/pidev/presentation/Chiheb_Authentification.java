@@ -22,6 +22,8 @@ import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 import javax.swing.text.html.HTMLEditorKit;
 import javax.swing.text.html.parser.ParserDelegator;
+import pidev.dao.ClientDAO;
+import pidev.dao.PersonneDAO;
 import pidev.util.MyConnection;
 
 /**
@@ -173,31 +175,13 @@ public static String SECRET = "a462c570f017b3d260dc21d8a1944255";
             
                     if(email.length()!=0 && password.length()!=0)
                    {  
-          
-                       try {
-                           String  insertStr = "select id_Personne from Personne where email='"+email+"' and mdp ='"+password+"' "; 
-            PreparedStatement ps = MyConnection.getInstance().prepareStatement(insertStr);
-            
-           // PreparedStatement ps3 = MyConnection.getInstance().prepareStatement(insertStr3);
-               ResultSet resultat = ps.executeQuery();
-           
-                
-           
-                while (resultat.next())
-            {
-             x = resultat.getInt(1);
-                System.out.println("x"+x);
-            }
+          PersonneDAO pd = new PersonneDAO();
+       x= pd.selectPersonne(email, password);
+                       
               if (x!=0){  
            //si il ya un Id_personne selected
-                   String  insertStr2 = "select id_Client from Client where id_Client="+x+""; 
-           PreparedStatement ps2 = MyConnection.getInstance().prepareStatement(insertStr2);
-           
-            ResultSet resultat2 = ps2.executeQuery();
-             while (resultat2.next())
-            {
-           y = resultat2.getInt(1);
-                System.out.println("y"+y);
+                  ClientDAO cld= new ClientDAO();
+                  y=cld.selectClient(x);
             }
              //passe correct
              if(y==x)
@@ -218,14 +202,11 @@ public static String SECRET = "a462c570f017b3d260dc21d8a1944255";
                    System.out.println("email ou mot de passe incorrect");
                jLabel3.setVisible(true);
            
-        } catch (SQLException ex) {
-           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("erreur lors de connection "+ex.getMessage());
-        }
+        
                        
-                   }
+                   
             
-            
+
         }
         else if (variable2 ==2){
             

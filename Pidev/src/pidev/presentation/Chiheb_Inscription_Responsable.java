@@ -6,6 +6,11 @@ package pidev.presentation;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import pidev.dao.AgenceDAO;
+import pidev.dao.PersonneDAO;
+import pidev.dao.ResponsableDAO;
+import pidev.entities.Agence;
+import pidev.entities.Personne;
 import pidev.util.MyConnection;
 
 /**
@@ -223,45 +228,24 @@ public class Chiheb_Inscription_Responsable extends javax.swing.JFrame {
                  String addrage=jaddrage.getText().toString();
                   String villeage=jvilleage.getText().toString();
                    String telage=jtelage.getText().toString();
-                     String  insertStr="insert into Personne (cin,nom,prenom,email,tel,mdp) values("
-                            
-                    +cinres+",'"
-                    +nomres+"','"
-                    +prenomres+"','"
-                    +emailres+"',"
-                    +telres+",'"
-                    +passres+"')";
-                     
-                    String  insertStr2="insert into Agence (nom,adresse,telephone,ville) values('"
-                    +nomage+"','"
-                    +addrage+"',"
-                    +telage+",'"
-                    +villeage+"')";
                     
-                    String insertStr3 = "insert into ResponsableAgence "
-                            + "(id_Responsable,id_Agence) select MAX(id_Personne) "
-                            + ","
-                            + "(select MAX(id_Agence)from Agence) from Personne";
+                   
+                    
+                    
+                   
                    if(nomres.length() !=0 && prenomres.length() !=0 && cinres.length() !=0 
                            && emailres.length() !=0 && telres.length() !=0 
                            && passres.length() !=0 && passres2.length() !=0 && nomage.length() !=0 &&
                            addrage.length() !=0 && villeage.length() !=0 && telage.length() !=0)
                    {
-                       try {
-            PreparedStatement ps = MyConnection.getInstance().prepareStatement(insertStr);
-            PreparedStatement ps2 = MyConnection.getInstance().prepareStatement(insertStr2);
-            PreparedStatement ps3 = MyConnection.getInstance().prepareStatement(insertStr3);
-                ps.executeUpdate();
-                ps2.executeUpdate(); 
-                ps3.executeUpdate(); 
-           
-           
-            System.out.println("Ajout effectuée avec succès");
-        } catch (SQLException ex) {
-           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("erreur lors de l'insertion "+ex.getMessage());
-        }
-                       
+                         Personne p = new Personne(cinres,nomres,prenomres, emailres,Integer.parseInt(telres), passres);
+                    PersonneDAO dp = new PersonneDAO();
+                    dp.ajouterPersonne(p.getCin(), p.getNom(), p.getPrenom(), p.getEmail(), p.getTel(), p.getMdp());
+                    Agence a =new Agence(nomage,addrage,Integer.parseInt(telage),villeage);
+                    AgenceDAO agd = new AgenceDAO();
+                    agd.ajouterAgence(a.getNom(), a.getAdresse(), a.getTelephone(), a.getVille());
+                    ResponsableDAO rsd = new ResponsableDAO();
+                    rsd.ajouterResponsable();
                    }
     }//GEN-LAST:event_jButton2ActionPerformed
 
