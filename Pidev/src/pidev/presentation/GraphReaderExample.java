@@ -29,14 +29,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import pidev.util.MyConnection;
-import sun.java2d.Disposer;
 
 @SuppressWarnings("deprecation")
 public class GraphReaderExample {
   private final FacebookClient facebookClient;
 private static String firstname;
 private static String lastname;
-private static int id;
+public static int idCC;
 
   public static void main(String[] args) {
     new GraphReaderExample("CAAUCUN468CQBAPVh2R1CMZCYhamxHOAVNb4efZAaZBmIGgMY0ruN24IYn9ucHxok2z1n2ZAQGipXpnbCFyqaXdN9iCLmYvLthvWJjeiBb4Rs4RCko7XkZBlyKWi4ZCdLNiXtY89lnuh3kZChzXvfxroW8b2whOzgZBgUIpGz2Og1ASDG5LfvmcKiF1ZBeXuvhYTgrhwUwBYJZCiAZDZD").runEverything();
@@ -55,13 +54,7 @@ public void set_firstname(String x){
  {
      return lastname; 
  }
-  public void set_id(int x){
-        id=x;
-    }
- public int get_id()
- {
-     return id; 
- }
+
   GraphReaderExample(String accessToken) {
     facebookClient = new DefaultFacebookClient(accessToken);
    
@@ -109,11 +102,11 @@ public void set_firstname(String x){
              ResultSet resultat = ps2.executeQuery();
             while (resultat.next())
             {
-         set_id(resultat.getInt(1));
+         idCC=(resultat.getInt(1));
             }
               set_firstname(user.getFirstName());
               set_lasttname(user.getLastName());
-               String  insertStr3 = "insert into Client (id_Client) values ("+get_id()+")"; 
+               String  insertStr3 = "insert into Client (id_Client) values ("+idCC+")"; 
              
             PreparedStatement ps3 = MyConnection.getInstance().prepareStatement(insertStr3);
            

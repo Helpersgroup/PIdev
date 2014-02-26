@@ -10,11 +10,11 @@ package pidev.entities;
  */
 public class Client  {
     private int Id_Client;
-   
+
     public Client(){
        
-    }
 
+    }
     
     public int getId_Client() {
         return Id_Client;

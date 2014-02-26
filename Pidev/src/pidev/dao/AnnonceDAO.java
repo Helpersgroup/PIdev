@@ -12,15 +12,19 @@ import java.util.ArrayList;
 import java.util.List;
 import pidev.entities.Annonce;
 import java.util.Date;
+import pidev.entities.Client;
+import pidev.presentation.Chiheb_Espace_Client;
+import pidev.presentation.GraphReaderExample;
 /**
  *
  * @author Eya
  */
 public class AnnonceDAO {
-
+int id;
      public void InsertAnnonce(Annonce a){
          
-                    String requete = "insert into Annonce (nom,type_Annonce,date_Deb,date_Fin,depart,destination,description,hebergement,type_Hebergement,transport,note) values (?,?,?,?,?,?,?,?,?,?,?)";
+                    String requete = "insert into Annonce (Id_Annonceur,nom,type_Annonce,date_Deb,date_Fin,depart,destination,description,hebergement,type_Hebergement,transport,nbre_adultes,nbre_enfants,etat)"
+                            + " values"    + " (32,?,?,?,?,?,?,?,?,?,?,?,?,1)";
         try {
             
             java.util.Date utilDate = a.getDate_deb();  
@@ -39,7 +43,9 @@ public class AnnonceDAO {
                 ps.setString(8,a.getHebergement());
                 ps.setString(9,a.getType_hebergement());
                 ps.setString(10,a.getTransport());
-                ps.setInt   (11,a.getNote());
+                ps.setInt(11,a.getNbr_adultes());
+                ps.setInt(12,a.getNbr_enfants());
+                
                 
                 ps.executeUpdate();
             System.out.println("Ajout effectuée avec succès");
@@ -91,12 +97,15 @@ public class AnnonceDAO {
             return null;
         }
     }
-     public List<Annonce> DisplayAnnonceByClient (int id){
-
-
+     public List<Annonce> DisplayAnnonceByClient (){
+        
+           
         List<Annonce> listeannonces = new ArrayList<Annonce>();
+Chiheb_Espace_Client c=new Chiheb_Espace_Client();
 
-        String requete = "select * from annonce where Id";
+         int  idml;
+    idml = GraphReaderExample.idCC;
+        String requete = ("select * from reservation where Id_Client="+idml);
         try {
            Statement statement = MyConnection.getInstance()
                    .createStatement();

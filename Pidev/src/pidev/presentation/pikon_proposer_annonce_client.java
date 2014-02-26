@@ -51,6 +51,8 @@ public class pikon_proposer_annonce_client extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jXDatePicker1 = new org.jdesktop.swingx.JXDatePicker();
         jXDatePicker2 = new org.jdesktop.swingx.JXDatePicker();
+        jLabel4 = new javax.swing.JLabel();
+        TFnom2 = new javax.swing.JTextField();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Avion", "Camping-Car", "Bus", "Micro-Bus ", "Mini-Bus", "Voiture", " ", " " }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -161,7 +163,7 @@ public class pikon_proposer_annonce_client extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(340, 490, 90, 23);
+        jButton1.setBounds(380, 490, 90, 23);
 
         BtnAjouterAnnonce.setText("Ajouter ");
         BtnAjouterAnnonce.addActionListener(new java.awt.event.ActionListener() {
@@ -185,6 +187,20 @@ public class pikon_proposer_annonce_client extends javax.swing.JFrame {
         getContentPane().add(jXDatePicker2);
         jXDatePicker2.setBounds(190, 190, 190, 22);
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(44, 62, 80));
+        jLabel4.setText("Nom ");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(20, 70, 60, 17);
+
+        TFnom2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TFnom2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(TFnom2);
+        TFnom2.setBounds(190, 70, 190, 30);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -202,22 +218,23 @@ public class pikon_proposer_annonce_client extends javax.swing.JFrame {
 
     private void BtnAjouterAnnonceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAjouterAnnonceActionPerformed
 
-
-        
-JOptionPane d = new JOptionPane();
+ JOptionPane d = new JOptionPane();
 
         Annonce a = new Annonce();
         AnnonceDAO aDAO = new AnnonceDAO();
-       int s= a.getId_Annonceur();
-         a.setId_Annonceur(s);
-        
+                a.setNom(TFnom2.getText());
+        a.setId_Annonceur(32);
         a.setType_annonce(CboxTheme.getSelectedItem().toString());
+
+
         a.setDate_deb(jXDatePicker1.getDate());
         a.setDate_fin(jXDatePicker2.getDate());
         a.setDepart(TFdepart.getText());
-        a.setDestination(TFdestination.getText());
+        a.setDestination(TAdesc.getText());
         a.setType_annonce(CboxTypeHeberg.getSelectedItem().toString());
         a.setTransport(CboxTransport.getSelectedItem().toString());
+  
+
         aDAO.InsertAnnonce(a);
     }//GEN-LAST:event_BtnAjouterAnnonceActionPerformed
 
@@ -234,6 +251,10 @@ JOptionPane d = new JOptionPane();
     private void CboxTypeHebergActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CboxTypeHebergActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CboxTypeHebergActionPerformed
+
+    private void TFnom2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFnom2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TFnom2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -278,12 +299,16 @@ JOptionPane d = new JOptionPane();
     private javax.swing.JTextArea TAdesc;
     private javax.swing.JTextField TFdepart;
     private javax.swing.JTextField TFdestination;
+    private javax.swing.JTextField TFnom;
+    private javax.swing.JTextField TFnom1;
+    private javax.swing.JTextField TFnom2;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;

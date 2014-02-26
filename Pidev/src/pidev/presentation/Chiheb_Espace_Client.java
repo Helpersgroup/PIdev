@@ -18,7 +18,7 @@ public class Chiheb_Espace_Client extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
        this.pack();
        jnconnecté.setText(new GraphReaderExample("").get_firstname()+new GraphReaderExample("").get_lasttname());
-   jiconnecté.setText(""+new GraphReaderExample("").get_id());
+   jiconnecté.setText(""+GraphReaderExample.idCC);
     }
 
     /**
