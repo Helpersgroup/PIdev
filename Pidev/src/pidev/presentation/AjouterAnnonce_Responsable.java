@@ -240,11 +240,11 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
 
         jSpinner1.setModel(new javax.swing.SpinnerNumberModel(1, 1, 10, 1));
         getContentPane().add(jSpinner1);
-        jSpinner1.setBounds(270, 600, 60, 20);
+        jSpinner1.setBounds(240, 600, 90, 20);
 
         jSpinner2.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10, 1));
         getContentPane().add(jSpinner2);
-        jSpinner2.setBounds(490, 600, 60, 20);
+        jSpinner2.setBounds(490, 600, 100, 20);
 
         jLabel15.setText("Nombre Enfants ");
         getContentPane().add(jLabel15);
