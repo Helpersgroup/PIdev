@@ -6,6 +6,7 @@
 package pidev.presentation;
 import javax.swing.JOptionPane;
 import pidev.dao.AnnonceDAO;
+import pidev.dao.PropositionDAO;
 import pidev.entities.Annonce;
 /**
  *
@@ -221,7 +222,7 @@ public class pikon_proposer_annonce_client extends javax.swing.JFrame {
  JOptionPane d = new JOptionPane();
 
         Annonce a = new Annonce();
-        AnnonceDAO aDAO = new AnnonceDAO();
+        PropositionDAO aDAO = new PropositionDAO();
                 a.setNom(TFnom2.getText());
         a.setId_Annonceur(32);
         a.setType_annonce(CboxTheme.getSelectedItem().toString());
@@ -235,7 +236,7 @@ public class pikon_proposer_annonce_client extends javax.swing.JFrame {
         a.setTransport(CboxTransport.getSelectedItem().toString());
   
 
-        aDAO.InsertAnnonce(a);
+        aDAO.ProposerAnnonce(a);
     }//GEN-LAST:event_BtnAjouterAnnonceActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
