@@ -28,7 +28,7 @@ public class ResponsableDAO {
             }
               } catch (SQLException ex) {
            //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("erreur lors de connection "+ex.getMessage());
+            System.out.println("erreur lors de connection "+ex.getMessage()+insertStr2);
         }
         return y;
     }
