@@ -13,12 +13,14 @@ import java.util.List;
 import pidev.entities.Annonce;
 import java.util.Date;
 import pidev.entities.Client;
+import pidev.presentation.Chiheb_Espace_Client;
+import pidev.presentation.GraphReaderExample;
 /**
  *
  * @author Eya
  */
 public class AnnonceDAO {
-
+int id;
      public void InsertAnnonce(Annonce a){
          
                     String requete = "insert into Annonce (nom,type_Annonce,date_Deb,date_Fin,depart,destination,description,hebergement,type_Hebergement,transport,note) values (?,?,?,?,?,?,?,?,?,?,?)";
@@ -92,12 +94,15 @@ public class AnnonceDAO {
             return null;
         }
     }
-     public List<Annonce> DisplayAnnonceByClient (int id){
+     public List<Annonce> DisplayAnnonceByClient (){
         
            
         List<Annonce> listeannonces = new ArrayList<Annonce>();
+Chiheb_Espace_Client c=new Chiheb_Espace_Client();
 
-        String requete = "select * from annonce";
+         int  idml;
+    idml = GraphReaderExample.idCC;
+        String requete = ("select * from reservation where Id_Client="+idml);
         try {
            Statement statement = MyConnection.getInstance()
                    .createStatement();
