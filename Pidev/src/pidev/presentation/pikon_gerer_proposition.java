@@ -4,6 +4,12 @@
  */
 package pidev.presentation;
 
+//import com.sun.xml.internal.ws.message.stream.StreamAttachment;
+//import java.util.List;
+import java.util.Date;
+import pidev.dao.PropositionDAO;
+import pidev.entities.Annonce;
+
 /**
  *
  * @author pikon
@@ -14,7 +20,12 @@ public class pikon_gerer_proposition extends javax.swing.JFrame {
      * Creates new form pikon_gerer_proposition
      */
     public pikon_gerer_proposition() {
-        initComponents();
+          initComponents();
+          this.setLocationRelativeTo(null);
+          this.pack();     
+    
+                affich();
+    
     }
 
     /**
@@ -41,7 +52,7 @@ public class pikon_gerer_proposition extends javax.swing.JFrame {
         CboxTheme = new javax.swing.JComboBox();
         TFdestination = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        BtnAjouterAnnonce = new javax.swing.JButton();
+        BtnvaliderProposition = new javax.swing.JButton();
         CboxTransport = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
         jXDatePicker1 = new org.jdesktop.swingx.JXDatePicker();
@@ -125,17 +136,17 @@ public class pikon_gerer_proposition extends javax.swing.JFrame {
             }
         });
 
-        BtnAjouterAnnonce.setText("Ajouter ");
-        BtnAjouterAnnonce.addActionListener(new java.awt.event.ActionListener() {
+        BtnvaliderProposition.setText("mise ajour & repondre par mail");
+        BtnvaliderProposition.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnAjouterAnnonceActionPerformed(evt);
+                BtnvaliderPropositionActionPerformed(evt);
             }
         });
 
         CboxTransport.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "AVION", "BUS ", "MACRO-BUS", "MINI-BUS", "VOITURE" }));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("Proposer Annonce ");
+        jLabel1.setText(" Annonce Proposée");
 
         TFprix.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -162,58 +173,55 @@ public class pikon_gerer_proposition extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(115, 115, 115)
-                        .addComponent(BtnAjouterAnnonce, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(113, 113, 113)
+                        .addComponent(BtnvaliderProposition, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(39, 39, 39)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(60, 60, 60)
+                        .addComponent(jXDatePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(70, 70, 70)
+                        .addComponent(jXDatePicker2, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(60, 60, 60)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(CboxTypeHeberg, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(70, 70, 70)
+                        .addComponent(CboxTransport, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(60, 60, 60)
+                        .addComponent(TFprix, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(90, 90, 90)
+                                .addComponent(TFdepart, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(60, 60, 60)
-                                .addComponent(jXDatePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(70, 70, 70)
-                                .addComponent(jXDatePicker2, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(60, 60, 60)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(20, 20, 20)
-                                .addComponent(CboxTypeHeberg, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(70, 70, 70)
-                                .addComponent(CboxTransport, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(60, 60, 60)
-                                .addComponent(TFprix, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(90, 90, 90)
-                                        .addComponent(TFdepart, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(60, 60, 60)
-                                        .addComponent(TFdestination, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(50, 50, 50)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(TFnom, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(CboxTheme, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                .addComponent(TFdestination, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(50, 50, 50)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(TFnom, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CboxTheme, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(66, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -266,11 +274,13 @@ public class pikon_gerer_proposition extends javax.swing.JFrame {
                     .addComponent(TFprix, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12))
                 .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BtnAjouterAnnonce)
-                    .addComponent(jButton1))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BtnvaliderProposition, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
+
+        BtnvaliderProposition.getAccessibleContext().setAccessibleName("proposer");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -296,10 +306,34 @@ public class pikon_gerer_proposition extends javax.swing.JFrame {
         new ResponsableAgence().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void BtnAjouterAnnonceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAjouterAnnonceActionPerformed
+    private void BtnvaliderPropositionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnvaliderPropositionActionPerformed
+    
+       //Annonce a = new Annonce();
+        
+        
+        
+          Annonce a = new Annonce();
+        PropositionDAO aDAO = new PropositionDAO();
+        
+        a.setNom(TFnom.getText());
+        a.setId_Annonceur(32);
+        a.setType_annonce(CboxTheme.getSelectedItem().toString());
+
+
+        a.setDate_deb(jXDatePicker1.getDate());
+        a.setDate_fin(jXDatePicker2.getDate());
+        a.setDepart(TFdepart.getText());
+        a.setDestination(TAdesc.getText());
+        a.setType_annonce(CboxTypeHeberg.getSelectedItem().toString());
+        a.setTransport(CboxTransport.getSelectedItem().toString());
+        a.setPrix(TFprix.getText());
+        
+        aDAO.ProposerAnnonce(a);
+      
+
 
         
-    }//GEN-LAST:event_BtnAjouterAnnonceActionPerformed
+    }//GEN-LAST:event_BtnvaliderPropositionActionPerformed
 
     private void TFprixActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFprixActionPerformed
         // TODO add your handling code here:
@@ -307,6 +341,7 @@ public class pikon_gerer_proposition extends javax.swing.JFrame {
 
     private void TFnomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFnomActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_TFnomActionPerformed
 
     /**
@@ -335,17 +370,123 @@ public class pikon_gerer_proposition extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(pikon_gerer_proposition.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
+                
+              
                 new pikon_gerer_proposition().setVisible(true);
+                
+                
             }
         });
+        
     }
+
+public  void affich(){
+      PropositionDAO aDAO = new PropositionDAO();
+               Annonce annonce =aDAO.DisplayAnnoncesById();
+                System.out.println("lmkmlk");
+                 String   a=annonce.getNom();
+                 TFnom.setText(a) ;
+                 String b=annonce.getType_Hebergement();
+                if (b.equals("Affaire")){
+//                    CboxTheme.setSelectedItem(1);}
+                    CboxTheme.setSelectedIndex(1);    
+                }
+               
+                else if (b.equals("Bien etre")){
+                    CboxTheme.setSelectedIndex(2);   
+                }
+                 else if (b.equals("Camping")){
+                    CboxTheme.setSelectedIndex(3);   
+                 }
+                else if (b.equals("Excursion")){
+                    CboxTheme.setSelectedIndex(4);   
+                }
+                 else if (b.equals("Randonnée")){
+                    CboxTheme.setSelectedIndex(5);   
+                 }
+                else if (b.equals("Voyage de découverte")){
+                    CboxTheme.setSelectedIndex(6);   
+                }
+                else if (b.equals("Voyage de noce")){
+                    CboxTheme.setSelectedIndex(7);   
+                }
+                
+                 Date c1=annonce.getDate_Deb();
+                 jXDatePicker1.setDate(c1);
+                 
+                  Date c2=annonce.getDate_Fin();
+                 jXDatePicker2.setDate(c2);
+                 
+                 String   d=annonce.getDepart();
+                 TFdepart.setText(d) ;
+                     String   e=annonce.getDestination();
+                 TFdestination.setText(e) ;
+                        String   f=annonce.getDescription();
+                 TAdesc.setText(f) ;
+                 
+                 //type hebergement
+                 String j=annonce.getType_Hebergement();
+                if (j.equals("Affaire")){
+//                    CboxTheme.setSelectedItem(1);}
+                    CboxTypeHeberg.setSelectedIndex(1);    
+                }
+               
+                else if (j.equals("Auberge")){
+                    CboxTypeHeberg.setSelectedIndex(2);   
+                }
+                 else if (j.equals("Bungalow")){
+                    CboxTypeHeberg.setSelectedIndex(3);   
+                 }
+                else if (j.equals("Hotel 1 etoile")){
+                    CboxTypeHeberg.setSelectedIndex(4);   
+                }
+                 else if (j.equals("Hotel 2 etoiles")){
+                    CboxTypeHeberg.setSelectedIndex(5);   
+                 }
+                else if (j.equals("Hotel 3 etoiles")){
+                    CboxTypeHeberg.setSelectedIndex(6);   
+                }
+                else if (j.equals("Hotel 4 etoiles")){
+                    CboxTypeHeberg.setSelectedIndex(7);   
+                }
+                 else if (j.equals("Hotel 5 etoiles")){
+                    CboxTypeHeberg.setSelectedIndex(7);   
+                }
+                 else if (j.equals("Residence")){
+                    CboxTypeHeberg.setSelectedIndex(7);   
+                }
+                  else if (j.equals("Villa")){
+                    CboxTypeHeberg.setSelectedIndex(7);   
+                }
+                //transport
+                 String h=annonce.getTransport();
+                if (h.equals("AVION")){
+                    CboxTransport.setSelectedIndex(1);    
+                }
+               
+                else if (h.equals("BUS")){
+                    CboxTransport.setSelectedIndex(2);   
+                }
+                 else if (h.equals("MACRO-BUS")){
+                    CboxTransport.setSelectedIndex(3);   
+                 }
+                else if (h.equals("MINI-BUS")){
+                    CboxTransport.setSelectedIndex(4);   
+                }
+                 else if (h.equals("VOITURE")){
+                    CboxTransport.setSelectedIndex(5);   
+                 }
+    
+    
+}
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnAjouterAnnonce;
+    private javax.swing.JButton BtnvaliderProposition;
     private javax.swing.JComboBox CboxTheme;
     private javax.swing.JComboBox CboxTransport;
     private javax.swing.JComboBox CboxTypeHeberg;
