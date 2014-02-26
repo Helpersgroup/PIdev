@@ -119,7 +119,6 @@ public static String SECRET = "a462c570f017b3d260dc21d8a1944255";
         getContentPane().add(jButton1);
         jButton1.setBounds(330, 130, 90, 23);
 
-        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\chiheb\\Desktop\\facebook_square-128.png")); // NOI18N
         jButton2.setText("jButton2");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,7 +128,6 @@ public static String SECRET = "a462c570f017b3d260dc21d8a1944255";
         getContentPane().add(jButton2);
         jButton2.setBounds(160, 220, 60, 70);
 
-        jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\chiheb\\Desktop\\twitter_square-128.png")); // NOI18N
         jButton3.setText("jButton3");
         getContentPane().add(jButton3);
         jButton3.setBounds(250, 220, 60, 70);
