@@ -29,8 +29,10 @@ import pidev.util.MyConnection;
  * @author Abdelaziz
  */
 public class Chiheb_Authentification extends javax.swing.JFrame {
-public static String API_KEY = "786334718062138";
-public static String SECRET = "32b8b5c1d66e2bed7a2a98669e6f8cf8";
+public static String API_KEY = "1409921232597028";
+public static String SECRET = "a462c570f017b3d260dc21d8a1944255";
+
+
 
   public static String firstRequest = "https://graph.facebook.com/oauth/authorize?"
   + "client_id="
@@ -44,7 +46,7 @@ public static String SECRET = "32b8b5c1d66e2bed7a2a98669e6f8cf8";
   + "&redirect_uri=http://www.facebook.com/connect/login_success.html&"
   + "client_secret=" + SECRET + "&code=";
 
-  public static String access_token = "";
+  public static String access_token = "CAAUCUN468CQBAPVh2R1CMZCYhamxHOAVNb4efZAaZBmIGgMY0ruN24IYn9ucHxok2z1n2ZAQGipXpnbCFyqaXdN9iCLmYvLthvWJjeiBb4Rs4RCko7XkZBlyKWi4ZCdLNiXtY89lnuh3kZChzXvfxroW8b2whOzgZBgUIpGz2Og1ASDG5LfvmcKiF1ZBeXuvhYTgrhwUwBYJZCiAZDZD";
   public static boolean firstRequestDone = false;
   public static boolean secondRequestDone = false;
     /**

@@ -39,7 +39,7 @@ private static String lastname;
 private static int id;
 
   public static void main(String[] args) {
-    new GraphReaderExample("").runEverything();
+    new GraphReaderExample("CAAUCUN468CQBAPVh2R1CMZCYhamxHOAVNb4efZAaZBmIGgMY0ruN24IYn9ucHxok2z1n2ZAQGipXpnbCFyqaXdN9iCLmYvLthvWJjeiBb4Rs4RCko7XkZBlyKWi4ZCdLNiXtY89lnuh3kZChzXvfxroW8b2whOzgZBgUIpGz2Og1ASDG5LfvmcKiF1ZBeXuvhYTgrhwUwBYJZCiAZDZD").runEverything();
   }
 public void set_firstname(String x){
         firstname=x;
