@@ -223,7 +223,6 @@ public class pikon_proposer_annonce_client extends javax.swing.JFrame {
         Annonce a = new Annonce();
         AnnonceDAO aDAO = new AnnonceDAO();
                 a.setNom(TFnom2.getText());
-
         a.setId_Annonceur(32);
         a.setType_annonce(CboxTheme.getSelectedItem().toString());
 
