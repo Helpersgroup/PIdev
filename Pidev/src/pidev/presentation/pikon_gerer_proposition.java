@@ -6,7 +6,7 @@ package pidev.presentation;
 
 /**
  *
- * @author dell
+ * @author pikon
  */
 public class pikon_gerer_proposition extends javax.swing.JFrame {
 
