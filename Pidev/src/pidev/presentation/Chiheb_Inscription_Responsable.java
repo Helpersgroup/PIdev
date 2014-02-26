@@ -61,38 +61,36 @@ public class Chiheb_Inscription_Responsable extends javax.swing.JFrame {
         jpassres2 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(600, 600));
         setResizable(false);
-        setType(java.awt.Window.Type.POPUP);
         getContentPane().setLayout(null);
 
         jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(jSeparator1);
-        jSeparator1.setBounds(0, 180, 497, 10);
+        jSeparator1.setBounds(100, 260, 497, 10);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(44, 62, 80));
         jLabel2.setText("Nom :");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(30, 30, 40, 15);
+        jLabel2.setBounds(130, 110, 40, 15);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(44, 62, 80));
         jLabel3.setText("Prénom :");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(30, 70, 60, 15);
+        jLabel3.setBounds(130, 150, 60, 15);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(44, 62, 80));
         jLabel4.setText("E-mail :");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(30, 130, 50, 15);
+        jLabel4.setBounds(130, 210, 50, 15);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(44, 62, 80));
         jLabel5.setText("Tel :");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(30, 160, 40, 15);
+        jLabel5.setBounds(130, 240, 40, 15);
 
         jnomres.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,17 +98,17 @@ public class Chiheb_Inscription_Responsable extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jnomres);
-        jnomres.setBounds(130, 30, 150, 20);
+        jnomres.setBounds(230, 110, 150, 20);
         getContentPane().add(jprenomres);
-        jprenomres.setBounds(130, 70, 150, 20);
+        jprenomres.setBounds(230, 150, 150, 20);
         getContentPane().add(jcinres);
-        jcinres.setBounds(130, 100, 150, 20);
+        jcinres.setBounds(230, 180, 150, 20);
         getContentPane().add(jemailres);
-        jemailres.setBounds(130, 130, 150, 20);
+        jemailres.setBounds(230, 210, 150, 20);
 
         jButton1.setText("Annuler");
         getContentPane().add(jButton1);
-        jButton1.setBounds(400, 320, 90, 23);
+        jButton1.setBounds(500, 400, 90, 23);
 
         jButton2.setText("S'inscrire");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -119,39 +117,39 @@ public class Chiheb_Inscription_Responsable extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(290, 320, 100, 23);
+        jButton2.setBounds(390, 400, 100, 23);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(44, 62, 80));
         jLabel6.setText("Données Agence");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(0, 180, 180, 22);
+        jLabel6.setBounds(100, 260, 180, 22);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(44, 62, 80));
         jLabel7.setText("Nom :");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(30, 210, 40, 15);
+        jLabel7.setBounds(130, 290, 40, 15);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(44, 62, 80));
         jLabel8.setText("Adresse :");
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(30, 240, 60, 15);
+        jLabel8.setBounds(130, 320, 60, 15);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(44, 62, 80));
         jLabel9.setText("Ville :");
         getContentPane().add(jLabel9);
-        jLabel9.setBounds(30, 270, 50, 15);
+        jLabel9.setBounds(130, 350, 50, 15);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(44, 62, 80));
         jLabel10.setText("Tel :");
         getContentPane().add(jLabel10);
-        jLabel10.setBounds(30, 300, 40, 15);
+        jLabel10.setBounds(130, 380, 40, 15);
         getContentPane().add(jnomage);
-        jnomage.setBounds(130, 210, 151, 20);
+        jnomage.setBounds(230, 290, 151, 20);
 
         jaddrage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,37 +157,37 @@ public class Chiheb_Inscription_Responsable extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jaddrage);
-        jaddrage.setBounds(130, 240, 151, 20);
+        jaddrage.setBounds(230, 320, 151, 20);
         getContentPane().add(jvilleage);
-        jvilleage.setBounds(130, 270, 151, 20);
+        jvilleage.setBounds(230, 350, 151, 20);
         getContentPane().add(jtelage);
-        jtelage.setBounds(130, 300, 151, 20);
+        jtelage.setBounds(230, 380, 151, 20);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(44, 62, 80));
         jLabel1.setText("Données Personnelles");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 220, 22);
+        jLabel1.setBounds(130, 70, 220, 22);
         getContentPane().add(jtelres);
-        jtelres.setBounds(130, 160, 150, 20);
+        jtelres.setBounds(230, 240, 150, 20);
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(44, 62, 80));
         jLabel12.setText("CIN :");
         getContentPane().add(jLabel12);
-        jLabel12.setBounds(30, 100, 50, 15);
+        jLabel12.setBounds(130, 180, 50, 15);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(44, 62, 80));
-        jLabel11.setText("mot de passe :");
+        jLabel11.setText("Mot de passe :");
         getContentPane().add(jLabel11);
-        jLabel11.setBounds(330, 40, 100, 15);
+        jLabel11.setBounds(430, 130, 100, 15);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(44, 62, 80));
-        jLabel13.setText("confirmer :");
+        jLabel13.setText("Confirmer :");
         getContentPane().add(jLabel13);
-        jLabel13.setBounds(330, 100, 80, 15);
+        jLabel13.setBounds(430, 180, 80, 15);
 
         jpassres.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -197,9 +195,9 @@ public class Chiheb_Inscription_Responsable extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jpassres);
-        jpassres.setBounds(330, 70, 150, 20);
+        jpassres.setBounds(430, 150, 150, 20);
         getContentPane().add(jpassres2);
-        jpassres2.setBounds(330, 130, 150, 20);
+        jpassres2.setBounds(430, 210, 150, 20);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
