@@ -23,7 +23,7 @@ public class AnnonceDAO {
 int id;
      public void InsertAnnonce(Annonce a){
          
-                    String requete = "insert into Annonce (nom,type_Annonce,date_Deb,date_Fin,depart,destination,description,hebergement,type_Hebergement,transport,note) values (?,?,?,?,?,?,?,?,?,?,?)";
+                    String requete = "insert into Annonce (Id_Annonceur,nom,type_Annonce,date_Deb,date_Fin,depart,destination,description,hebergement,type_Hebergement,transport,nbre_adultes,nbre_enfants,etat) values (8,?,?,?,?,?,?,?,?,?,?,?,1)";
         try {
             
             java.util.Date utilDate = a.getDate_deb();  
@@ -42,7 +42,9 @@ int id;
                 ps.setString(8,a.getHebergement());
                 ps.setString(9,a.getType_hebergement());
                 ps.setString(10,a.getTransport());
-                ps.setInt   (11,a.getNote());
+                ps.setInt(11,a.getNbr_adultes());
+                ps.setInt(12,a.getNbr_enfants());
+                
                 
                 ps.executeUpdate();
             System.out.println("Ajout effectuée avec succès");
