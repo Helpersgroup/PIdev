@@ -268,8 +268,8 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
         a.setType_annonce(CboxTheme.getSelectedItem().toString());
 
 
-        a.setDate_deb(JXDateDepart.getDate());
-        a.setDate_fin(JXDateRetour.getDate());
+//        a.setDate_deb(JXDateDepart.getDate());
+//        a.setDate_fin(JXDateRetour.getDate());
         a.setDepart(TFdepart.getText());
         a.setDestination(TFdestination.getText());
         a.setType_annonce(CboxTypeHeberg.getSelectedItem().toString());

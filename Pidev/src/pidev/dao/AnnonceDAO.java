@@ -13,8 +13,10 @@ import java.util.List;
 import pidev.entities.Annonce;
 import java.util.Date;
 import pidev.entities.Client;
+import pidev.entities.Reservation;
 import pidev.presentation.Chiheb_Espace_Client;
 import pidev.presentation.GraphReaderExample;
+//import sun.org.mozilla.javascript.internal.ObjToIntMap;
 /**
  *
  * @author Eya
@@ -57,7 +59,7 @@ int id;
 
         List<Annonce> listeannonces = new ArrayList<Annonce>();
 
-        String requete = "select * from annonce";
+        String requete = "select * from Annonce";
         try {
            Statement statement = MyConnection.getInstance()
                    .createStatement();
@@ -81,62 +83,15 @@ int id;
                 annonce.setEtat(resultat.getInt(14));
                 annonce.setNbr_enfants(resultat.getInt(15));
                 annonce.setNbr_adultes(resultat.getInt(16));
-               
-                
-                
 
                 listeannonces.add(annonce);
             }
             return listeannonces;
         } catch (SQLException ex) {
            //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("erreur lors du chargement des annonces "+ex.getMessage());
+            System.out.println("erreur lors du chargement des nizar "+ex.getMessage());
             return null;
         }
-    }
-     public List<Annonce> DisplayAnnonceByClient (){
-        
-           
-        List<Annonce> listeannonces = new ArrayList<Annonce>();
-Chiheb_Espace_Client c=new Chiheb_Espace_Client();
-
-         int  idml;
-    idml = GraphReaderExample.idCC;
-        String requete = ("select * from reservation where Id_Client="+idml);
-        try {
-           Statement statement = MyConnection.getInstance()
-                   .createStatement();
-            ResultSet resultat = statement.executeQuery(requete);
-
-            while(resultat.next()){
-                Annonce annonce =new Annonce();
-                annonce.setId_Annonce(resultat.getInt(1));
-                annonce.setId_Annonceur(resultat.getInt(2));
-                annonce.setNom(resultat.getString(3));
-                annonce.setDate_deb(resultat.getDate(4));
-                annonce.setDate_fin(resultat.getDate(5));
-                annonce.setDepart(resultat.getString(6));
-                annonce.setDestination(resultat.getString(7));
-                annonce.setDescription(resultat.getString(8));
-                annonce.setHebergement(resultat.getString(9));
-                annonce.setType_hebergement(resultat.getString(10));
-                annonce.setType_annonce(resultat.getString(11));
-                annonce.setTransport(resultat.getString(12));
-                annonce.setNote(resultat.getInt(13));
-                annonce.setEtat(resultat.getInt(14));
-                annonce.setNbr_enfants(resultat.getInt(15));
-                annonce.setNbr_adultes(resultat.getInt(16));
-               
-                
-                
-
-                listeannonces.add(annonce);
-            }
-            return listeannonces;
-        } catch (SQLException ex) {
-           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("erreur lors du chargement des annonces "+ex.getMessage());
-            return null;
-        }
-    }
-}
+    }}
+    //cette methode DisplayReservationByClient permet de retourner les reservation du client connecté
+ 
