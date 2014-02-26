@@ -221,25 +221,18 @@ public class Chiheb_Inscription_Responsable extends javax.swing.JFrame {
                  String addrage=jaddrage.getText().toString();
                   String villeage=jvilleage.getText().toString();
                    String telage=jtelage.getText().toString();
-                     String  insertStr="insert into Personne (cin,nom,prenom,email,tel,mdp) values("
+                     String  insertStr="insert into Personne (cin,nom,prenom,email,tel,etat,mdp) values("
                             
                     +cinres+",'"
                     +nomres+"','"
                     +prenomres+"','"
                     +emailres+"',"
-                    +telres+",'"
+                    +telres+",0,'"
                     +passres+"')";
                      
-                    String  insertStr2="insert into Agence (nom,adresse,telephone,ville) values('"
-                    +nomage+"','"
-                    +addrage+"',"
-                    +telage+",'"
-                    +villeage+"')";
-                    
-                    String insertStr3 = "insert into ResponsableAgence "
-                            + "(id_Responsable,id_Agence) select MAX(id_Personne) "
-                            + ","
-                            + "(select MAX(id_Agence)from Agence) from Personne";
+                    String  insertStr2="insert into ResponsableAgence (id_Responsable) select MAX(id_Personne) from Personne";
+                    String  insertStr3="insert into Agence (nom,adresse,tel,ville) values("+nomage+","+addrage+","+telage+","+villeage+")";
+                    String insertStr4 = "insert into ResponsableAgence (id_Agence) select MAX(id_Agence)from Agence";
                    if(nomres.length() !=0 && prenomres.length() !=0 && cinres.length() !=0 
                            && emailres.length() !=0 && telres.length() !=0 
                            && passres.length() !=0 && passres2.length() !=0 && nomage.length() !=0 &&
@@ -249,10 +242,11 @@ public class Chiheb_Inscription_Responsable extends javax.swing.JFrame {
             PreparedStatement ps = MyConnection.getInstance().prepareStatement(insertStr);
             PreparedStatement ps2 = MyConnection.getInstance().prepareStatement(insertStr2);
             PreparedStatement ps3 = MyConnection.getInstance().prepareStatement(insertStr3);
-                ps.executeUpdate();
+            PreparedStatement ps4 = MyConnection.getInstance().prepareStatement(insertStr4);
+            ps.executeUpdate();
                 ps2.executeUpdate(); 
                 ps3.executeUpdate(); 
-           
+                ps4.executeUpdate();
            
             System.out.println("Ajout effectuée avec succès");
         } catch (SQLException ex) {
