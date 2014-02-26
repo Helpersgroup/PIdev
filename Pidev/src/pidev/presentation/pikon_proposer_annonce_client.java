@@ -161,7 +161,7 @@ public class pikon_proposer_annonce_client extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(340, 490, 90, 23);
+        jButton1.setBounds(380, 490, 90, 23);
 
         BtnAjouterAnnonce.setText("Ajouter ");
         BtnAjouterAnnonce.addActionListener(new java.awt.event.ActionListener() {
