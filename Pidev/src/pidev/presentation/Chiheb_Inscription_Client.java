@@ -10,6 +10,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import pidev.dao.ClientDAO;
+import pidev.dao.PersonneDAO;
+import pidev.entities.Personne;
 import pidev.util.MyConnection;
 
 /**
@@ -289,32 +292,20 @@ int ID_max;
         String tel=jtel.getText().toString();
         
             
-          String  insertStr="insert into Personne (cin,nom,prenom,email,tel,mdp) values("
-                  
-                    +cin+",'"
-                    +prenom+"','"
-                    +nom+"','"
-                    +email+"',"
-                    +tel+",'"
-                 +passe+ "')";
+          
         
-             String insertStr2 = "insert into Client (id_Client) select MAX(id_Personne) from Personne";
+            
           if( nom.length()!=0 && prenom.length()!=0 && cin.length()!=0 && email.length()!=0 && tel.length()!=0 && passe.length()!=0 && passe2.length()!=0 )
           {
               if (passe.equals(passe2)){
                     jLabel15.setVisible(false);
-           try {
-            PreparedStatement ps = MyConnection.getInstance().prepareStatement(insertStr);
-            PreparedStatement ps2 = MyConnection.getInstance().prepareStatement(insertStr2);
-            ps.executeUpdate();
-             ps2.executeUpdate();      
-           
-           
-            System.out.println("Ajout effectuée avec succès");
-        } catch (SQLException ex) {
-           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("erreur lors de l'insertion "+ex.getMessage());
-        }
+                    Personne p = new Personne(cin,nom, prenom,email,Integer.parseInt(tel),passe);
+                   PersonneDAO d = new PersonneDAO();
+                   d.ajouterPersonne(p.getCin(),p.getNom(), p.getPrenom(), p.getEmail(), p.getTel(), p.getMdp());
+                   ClientDAO c = new ClientDAO();
+                   c.ajouterClient();
+          //insert personne 
+                    //insert client 
            //select max id personne
             
               }else

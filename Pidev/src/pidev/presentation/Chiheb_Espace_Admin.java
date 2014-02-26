@@ -8,22 +8,19 @@ package pidev.presentation;
  *
  * @author chiheb
  */
-public class Chiheb_Espace_Responsable extends javax.swing.JFrame {
+public class Chiheb_Espace_Admin extends javax.swing.JFrame {
 
     /**
-     * Creates new form Chiheb_Espace_Responsable
+     * Creates new form Chiheb_Espace_Admin
      */
-    public Chiheb_Espace_Responsable() {
+    public Chiheb_Espace_Admin() {
         initComponents();
-         
-        this.setLocationRelativeTo(null);
+           this.setLocationRelativeTo(null);
        this.pack();
-        if (Chiheb_Authentification.connecté==0){
-            jiconnecté0.setText(""+Chiheb_Authentification.id_connecté_normal);
+     if (Chiheb_Authentification.connecté==0){
+            jiconnecté2.setText(""+Chiheb_Authentification.id_connecté_normal);
         //System.out.println(""+Chiheb_Authentification.id_connecté_normal);
      }
- 
-           
     }
 
     /**
@@ -36,56 +33,56 @@ public class Chiheb_Espace_Responsable extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jnconnecté = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jiconnecté2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jiconnecté0 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(600, 600));
         setResizable(false);
 
-        jLabel1.setText("Espace responsable");
-
-        jLabel2.setText("Bienvenue :");
+        jLabel1.setText("Bienvenue :");
 
         jnconnecté.setText("jLabel2");
 
-        jLabel3.setText("Votre id :");
+        jLabel2.setText("Votre id :");
 
-        jiconnecté0.setText("jLabel3");
+        jiconnecté2.setText("jLabel3");
+
+        jLabel3.setText("Espace Admin");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(164, 164, 164)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1)
-                .addContainerGap(141, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jnconnecté)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 182, Short.MAX_VALUE)
-                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 153, Short.MAX_VALUE)
+                .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jiconnecté0)
-                .addContainerGap())
+                .addComponent(jiconnecté2)
+                .addGap(44, 44, 44))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(158, 158, 158)
+                .addComponent(jLabel3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                    .addComponent(jLabel1)
                     .addComponent(jnconnecté)
-                    .addComponent(jLabel3)
-                    .addComponent(jiconnecté0))
-                .addGap(94, 94, 94)
-                .addComponent(jLabel1)
-                .addContainerGap(167, Short.MAX_VALUE))
+                    .addComponent(jLabel2)
+                    .addComponent(jiconnecté2))
+                .addGap(27, 27, 27)
+                .addComponent(jLabel3)
+                .addContainerGap(234, Short.MAX_VALUE))
         );
 
         pack();
@@ -108,20 +105,20 @@ public class Chiheb_Espace_Responsable extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Chiheb_Espace_Responsable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Chiheb_Espace_Admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Chiheb_Espace_Responsable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Chiheb_Espace_Admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Chiheb_Espace_Responsable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Chiheb_Espace_Admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Chiheb_Espace_Responsable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Chiheb_Espace_Admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Chiheb_Espace_Responsable().setVisible(true);
+                new Chiheb_Espace_Admin().setVisible(true);
             }
         });
     }
@@ -129,7 +126,7 @@ public class Chiheb_Espace_Responsable extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jiconnecté0;
+    private javax.swing.JLabel jiconnecté2;
     private javax.swing.JLabel jnconnecté;
     // End of variables declaration//GEN-END:variables
 }
