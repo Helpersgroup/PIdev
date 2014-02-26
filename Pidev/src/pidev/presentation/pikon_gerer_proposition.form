@@ -22,124 +22,146 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="115" max="32767" attributes="0"/>
-              <Component id="jLabel1" min="-2" pref="230" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="105" max="-2" attributes="0"/>
-          </Group>
-          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="jLabel11" min="-2" pref="120" max="-2" attributes="0"/>
-                          <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
-                          <Component id="CboxTheme" min="-2" pref="190" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="jLabel2" min="-2" pref="110" max="-2" attributes="0"/>
-                          <EmptySpace min="60" pref="60" max="-2" attributes="0"/>
-                          <Component id="jXDatePicker1" min="-2" pref="190" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="jLabel5" min="-2" pref="100" max="-2" attributes="0"/>
-                          <EmptySpace min="70" pref="70" max="-2" attributes="0"/>
-                          <Component id="jXDatePicker2" min="-2" pref="190" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                          <Component id="jLabel6" min="-2" pref="70" max="-2" attributes="0"/>
-                          <EmptySpace min="90" pref="90" max="-2" attributes="0"/>
-                          <Component id="TFdepart" min="-2" pref="190" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                          <Component id="jLabel8" min="-2" pref="100" max="-2" attributes="0"/>
-                          <EmptySpace min="60" pref="60" max="-2" attributes="0"/>
-                          <Component id="TFdestination" min="-2" pref="190" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="jLabel9" min="-2" pref="100" max="-2" attributes="0"/>
-                          <EmptySpace min="60" pref="60" max="-2" attributes="0"/>
-                          <Component id="jScrollPane1" min="-2" pref="230" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="jLabel7" min="-2" pref="150" max="-2" attributes="0"/>
-                          <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                          <Component id="CboxTypeHeberg" min="-2" pref="130" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="jLabel10" min="-2" pref="100" max="-2" attributes="0"/>
-                          <EmptySpace min="70" pref="70" max="-2" attributes="0"/>
-                          <Component id="CboxTransport" min="-2" pref="130" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="160" pref="160" max="-2" attributes="0"/>
-                          <Component id="BtnAjouterAnnonce" min="-2" pref="90" max="-2" attributes="0"/>
-                          <EmptySpace min="110" pref="110" max="-2" attributes="0"/>
-                          <Component id="jButton1" min="-2" pref="90" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
+                      <Component id="BtnAjouterAnnonce" min="-2" pref="90" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
+                      <Component id="jButton1" min="-2" pref="90" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel2" min="-2" pref="110" max="-2" attributes="0"/>
+                              <EmptySpace min="60" pref="60" max="-2" attributes="0"/>
+                              <Component id="jXDatePicker1" min="-2" pref="190" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel5" min="-2" pref="100" max="-2" attributes="0"/>
+                              <EmptySpace min="70" pref="70" max="-2" attributes="0"/>
+                              <Component id="jXDatePicker2" min="-2" pref="190" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel9" min="-2" pref="100" max="-2" attributes="0"/>
+                              <EmptySpace min="60" pref="60" max="-2" attributes="0"/>
+                              <Component id="jScrollPane1" min="-2" pref="230" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel7" min="-2" pref="150" max="-2" attributes="0"/>
+                              <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                              <Component id="CboxTypeHeberg" min="-2" pref="130" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel10" min="-2" pref="100" max="-2" attributes="0"/>
+                              <EmptySpace min="70" pref="70" max="-2" attributes="0"/>
+                              <Component id="CboxTransport" min="-2" pref="130" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel12" min="-2" pref="100" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                              <Component id="TFprix" min="-2" pref="190" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabel6" min="-2" pref="70" max="-2" attributes="0"/>
+                                      <EmptySpace min="90" pref="90" max="-2" attributes="0"/>
+                                      <Component id="TFdepart" min="-2" pref="190" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabel8" min="-2" pref="100" max="-2" attributes="0"/>
+                                      <EmptySpace min="60" pref="60" max="-2" attributes="0"/>
+                                      <Component id="TFdestination" min="-2" pref="190" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel11" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
+                                  <Component id="jLabel4" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="TFnom" min="-2" pref="190" max="-2" attributes="0"/>
+                                  <Component id="CboxTheme" min="-2" pref="190" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                   </Group>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
+              <EmptySpace pref="66" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Component id="jLabel1" min="-2" pref="230" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="474" max="32767" attributes="0"/>
-          </Group>
-          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace min="0" pref="110" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                      <Component id="CboxTheme" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                      <Component id="jXDatePicker1" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="8" pref="8" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                      <Component id="jXDatePicker2" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                      <Component id="TFdepart" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                      <Component id="TFdestination" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" pref="60" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                      <Component id="CboxTypeHeberg" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                      <Component id="CboxTransport" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="BtnAjouterAnnonce" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <EmptySpace pref="52" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="TFnom" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                  <Component id="CboxTheme" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                  <Component id="jXDatePicker1" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="8" pref="8" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                  <Component id="jXDatePicker2" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                  <Component id="TFdepart" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                  <Component id="TFdestination" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" pref="60" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                  <Component id="CboxTypeHeberg" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                  <Component id="CboxTransport" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="TFprix" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="BtnAjouterAnnonce" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -339,12 +361,44 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="24" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="gererproposition "/>
+        <Property name="text" type="java.lang.String" value="Proposer Annonce "/>
       </Properties>
     </Component>
     <Component class="org.jdesktop.swingx.JXDatePicker" name="jXDatePicker1">
     </Component>
     <Component class="org.jdesktop.swingx.JXDatePicker" name="jXDatePicker2">
+    </Component>
+    <Component class="javax.swing.JTextField" name="TFprix">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TFprixActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel12">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="1"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="50" green="3e" red="2c" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="prix"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel4">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="1"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="50" green="3e" red="2c" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Nom "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="TFnom">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TFnomActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
