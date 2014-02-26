@@ -10,4 +10,14 @@ package pidev.entities;
  */
 public class ResponsableAgence {
     
+    
+    int id_Responsable;
+    int id_Agence;
+    
+    public ResponsableAgence(){
+        
+        
+        
+        
+    }
 }

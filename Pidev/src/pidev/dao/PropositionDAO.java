@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 package pidev.dao;
-import pidev.util.MyConnection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,22 +11,19 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import pidev.entities.Annonce;
-import java.util.Date;
-import pidev.entities.Client;
-import pidev.entities.Reservation;
-import pidev.presentation.Chiheb_Espace_Client;
-import pidev.presentation.GraphReaderExample;
-//import sun.org.mozilla.javascript.internal.ObjToIntMap;
+import pidev.util.MyConnection;
+
 /**
  *
- * @author Eya
+ * @author pikon
  */
-public class AnnonceDAO {
-int id;
-     public void InsertAnnonce(Annonce a){
+public class PropositionDAO  {
+    
+    int id;
+     public void ProposerAnnonce(Annonce a){
          
                     String requete = "insert into Annonce (Id_Annonceur,nom,type_Annonce,date_Deb,date_Fin,depart,destination,description,hebergement,type_Hebergement,transport,nbre_adultes,nbre_enfants,etat)"
-                            + " values"    + " (32,?,?,?,?,?,?,?,?,?,?,?,?,1)";
+                            + " values"    + " (36,?,?,?,?,?,?,?,?,?,?,?,?,0)";
         try {
             
             java.util.Date utilDate = a.getDate_deb();  
@@ -56,20 +53,25 @@ int id;
             System.out.println("erreur lors de l'insertion "+ex.getMessage());
         }
     }
-                             
-    public List<Annonce> DisplayAllAnnonces (){
+      public Annonce DisplayAnnoncesById (){
 
 
-        List<Annonce> listeannonces = new ArrayList<Annonce>();
-
-        String requete = "select * from Annonce";
+       // List<Annonce> listeannonces = new ArrayList<Annonce>();
+                Annonce annonce =new Annonce();
+          
+        String requete = "select * from Annonce where id_Annonce=24";
         try {
            Statement statement = MyConnection.getInstance()
                    .createStatement();
+                           System.out.println("1");
+
             ResultSet resultat = statement.executeQuery(requete);
 
             while(resultat.next()){
-                Annonce annonce =new Annonce();
+                                System.out.println("2");
+
+                System.out.println(resultat.getString(3));
+                
                 annonce.setId_Annonce(resultat.getInt(1));
                 annonce.setId_Annonceur(resultat.getInt(2));
                 annonce.setNom(resultat.getString(3));
@@ -82,19 +84,67 @@ int id;
                 annonce.setType_hebergement(resultat.getString(10));
                 annonce.setType_annonce(resultat.getString(11));
                 annonce.setTransport(resultat.getString(12));
+               
                 annonce.setNote(resultat.getInt(13));
                 annonce.setEtat(resultat.getInt(14));
                 annonce.setNbr_enfants(resultat.getInt(15));
                 annonce.setNbr_adultes(resultat.getInt(16));
-
-                listeannonces.add(annonce);
-            }
-            return listeannonces;
+                
+//              listannonces.add(annonce);
+           }
+            return annonce;
         } catch (SQLException ex) {
            //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("erreur lors du chargement des nizar "+ex.getMessage());
+            System.out.println("erreur lors du chargement des annonces "+ex.getMessage());
             return null;
         }
-    }}
-    //cette methode DisplayReservationByClient permet de retourner les reservation du client connecté
- 
+    }
+      
+      
+      
+      
+      
+      
+      
+       public void miseAJourAnnonce(Annonce a){
+         
+                    String requete = "UPDATE Annonce SET    Id_Annonceur=?,nom=?,type_Annonce=?,date_Deb=?,date_Fin=?,depart=?,destination=?,description=?,hebergement=?,type_Hebergement=?,transport=?,nbre_adultes=?,nbre_enfants=?,etat=?";
+        try {
+            
+            java.util.Date utilDate = a.getDate_deb();  
+            java.util.Date utilDate1 = a.getDate_fin();     
+            java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());  
+            java.sql.Date sqlDate1 = new java.sql.Date(utilDate1.getTime());
+
+            PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
+                ps.setString(1,a.getNom());
+                ps.setString(2,a.getType_annonce());
+                ps.setDate(3,sqlDate);
+                ps.setDate(4,sqlDate1);
+                ps.setString(5,a.getDepart());
+                ps.setString(6,a.getDestination());
+                ps.setString(7,a.getDescription());
+                ps.setString(8,a.getHebergement());
+                ps.setString(9,a.getType_hebergement());
+                ps.setString(10,a.getTransport());
+                ps.setInt(11,a.getNbr_adultes());
+                ps.setInt(12,a.getNbr_enfants());
+                
+                
+                ps.executeUpdate();
+            System.out.println("Ajout effectuée avec succès");
+        } catch (SQLException ex) {
+           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors de l'insertion "+ex.getMessage());
+        }
+    }
+
+    /**
+     * Initialization method that will be called after the applet is loaded into
+     * the browser.
+     */
+    public void init() {
+        // TODO start asynchronous download of heavy resources
+    }
+    // TODO overwrite start(), stop() and destroy() methods
+}

@@ -5,7 +5,7 @@
 
 package pidev.presentation;
 import javax.swing.JOptionPane;
-import pidev.dao.AnnonceDAO;
+import pidev.dao.PropositionDAO;
 import pidev.entities.Annonce;
 /**
  *
@@ -51,6 +51,8 @@ public class pikon_proposer_annonce_client extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jXDatePicker1 = new org.jdesktop.swingx.JXDatePicker();
         jXDatePicker2 = new org.jdesktop.swingx.JXDatePicker();
+        jLabel4 = new javax.swing.JLabel();
+        TFnom2 = new javax.swing.JTextField();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Avion", "Camping-Car", "Bus", "Micro-Bus ", "Mini-Bus", "Voiture", " ", " " }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -66,43 +68,43 @@ public class pikon_proposer_annonce_client extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(44, 62, 80));
         jLabel2.setText("Date Depart ");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(20, 160, 110, 17);
+        jLabel2.setBounds(20, 170, 110, 17);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(44, 62, 80));
         jLabel5.setText("Date Retour ");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(20, 190, 100, 17);
+        jLabel5.setBounds(20, 220, 100, 17);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(44, 62, 80));
         jLabel6.setText("Depart ");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(30, 230, 70, 17);
+        jLabel6.setBounds(30, 260, 70, 17);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(44, 62, 80));
         jLabel7.setText("Type Hebergement ");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(20, 390, 150, 17);
+        jLabel7.setBounds(10, 400, 150, 17);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(44, 62, 80));
         jLabel8.setText("Destination ");
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(30, 260, 100, 17);
+        jLabel8.setBounds(30, 300, 100, 17);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(44, 62, 80));
         jLabel9.setText("Description");
         getContentPane().add(jLabel9);
-        jLabel9.setBounds(20, 310, 100, 17);
+        jLabel9.setBounds(30, 350, 100, 17);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(44, 62, 80));
         jLabel10.setText("Transport ");
         getContentPane().add(jLabel10);
-        jLabel10.setBounds(20, 420, 100, 17);
+        jLabel10.setBounds(30, 440, 100, 17);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(44, 62, 80));
@@ -118,7 +120,7 @@ public class pikon_proposer_annonce_client extends javax.swing.JFrame {
         jScrollPane1.setViewportView(TAdesc);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(180, 310, 230, 60);
+        jScrollPane1.setBounds(190, 330, 230, 60);
 
         TFdepart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,7 +128,7 @@ public class pikon_proposer_annonce_client extends javax.swing.JFrame {
             }
         });
         getContentPane().add(TFdepart);
-        TFdepart.setBounds(190, 230, 190, 20);
+        TFdepart.setBounds(190, 250, 180, 30);
 
         CboxTypeHeberg.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "Auberge", "Bungalow", "Hotel 1 etoile ", "Hotel 2 etoiles ", "Hotel 3 etoiles ", "Hotel 4 etoiles", "Hotel 5 etoiles", "Residence  ", "Villa", " " }));
         CboxTypeHeberg.addActionListener(new java.awt.event.ActionListener() {
@@ -135,7 +137,7 @@ public class pikon_proposer_annonce_client extends javax.swing.JFrame {
             }
         });
         getContentPane().add(CboxTypeHeberg);
-        CboxTypeHeberg.setBounds(190, 390, 130, 20);
+        CboxTypeHeberg.setBounds(190, 400, 130, 20);
 
         CboxTheme.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "Affaire", "Bien etre", "Camping", "Excursion", "Randonnée", "Voyage de découverte ", "Voyage de noce ", " " }));
         CboxTheme.addActionListener(new java.awt.event.ActionListener() {
@@ -144,7 +146,7 @@ public class pikon_proposer_annonce_client extends javax.swing.JFrame {
             }
         });
         getContentPane().add(CboxTheme);
-        CboxTheme.setBounds(190, 120, 190, 20);
+        CboxTheme.setBounds(190, 110, 190, 30);
 
         TFdestination.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,7 +154,7 @@ public class pikon_proposer_annonce_client extends javax.swing.JFrame {
             }
         });
         getContentPane().add(TFdestination);
-        TFdestination.setBounds(190, 260, 190, 20);
+        TFdestination.setBounds(190, 290, 180, 30);
 
         jButton1.setText("Annuler");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -161,7 +163,7 @@ public class pikon_proposer_annonce_client extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(340, 490, 90, 23);
+        jButton1.setBounds(380, 490, 90, 23);
 
         BtnAjouterAnnonce.setText("Ajouter ");
         BtnAjouterAnnonce.addActionListener(new java.awt.event.ActionListener() {
@@ -174,16 +176,30 @@ public class pikon_proposer_annonce_client extends javax.swing.JFrame {
 
         CboxTransport.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "AVION", "BUS ", "MACRO-BUS", "MINI-BUS", "VOITURE" }));
         getContentPane().add(CboxTransport);
-        CboxTransport.setBounds(190, 420, 130, 20);
+        CboxTransport.setBounds(190, 440, 130, 20);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Proposer Annonce ");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(220, 10, 230, 29);
         getContentPane().add(jXDatePicker1);
-        jXDatePicker1.setBounds(190, 160, 190, 22);
+        jXDatePicker1.setBounds(190, 152, 190, 40);
         getContentPane().add(jXDatePicker2);
-        jXDatePicker2.setBounds(190, 190, 190, 22);
+        jXDatePicker2.setBounds(190, 200, 190, 40);
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(44, 62, 80));
+        jLabel4.setText("Nom ");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(20, 70, 60, 17);
+
+        TFnom2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TFnom2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(TFnom2);
+        TFnom2.setBounds(190, 70, 190, 30);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -203,22 +219,23 @@ public class pikon_proposer_annonce_client extends javax.swing.JFrame {
     private void BtnAjouterAnnonceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAjouterAnnonceActionPerformed
 
 
-        
-JOptionPane d = new JOptionPane();
-
         Annonce a = new Annonce();
-        AnnonceDAO aDAO = new AnnonceDAO();
-       int s= a.getId_Annonceur();
-         a.setId_Annonceur(s);
+        PropositionDAO aDAO = new PropositionDAO();
         
+        a.setNom(TFnom2.getText());
+        a.setId_Annonceur(32);
         a.setType_annonce(CboxTheme.getSelectedItem().toString());
+
+
         a.setDate_deb(jXDatePicker1.getDate());
         a.setDate_fin(jXDatePicker2.getDate());
         a.setDepart(TFdepart.getText());
-        a.setDestination(TFdestination.getText());
+        a.setDestination(TAdesc.getText());
         a.setType_annonce(CboxTypeHeberg.getSelectedItem().toString());
         a.setTransport(CboxTransport.getSelectedItem().toString());
-        aDAO.InsertAnnonce(a);
+  
+
+        aDAO.ProposerAnnonce(a);
     }//GEN-LAST:event_BtnAjouterAnnonceActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -234,6 +251,10 @@ JOptionPane d = new JOptionPane();
     private void CboxTypeHebergActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CboxTypeHebergActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CboxTypeHebergActionPerformed
+
+    private void TFnom2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFnom2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TFnom2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -278,12 +299,16 @@ JOptionPane d = new JOptionPane();
     private javax.swing.JTextArea TAdesc;
     private javax.swing.JTextField TFdepart;
     private javax.swing.JTextField TFdestination;
+    private javax.swing.JTextField TFnom;
+    private javax.swing.JTextField TFnom1;
+    private javax.swing.JTextField TFnom2;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;

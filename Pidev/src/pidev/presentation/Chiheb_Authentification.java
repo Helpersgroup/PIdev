@@ -22,6 +22,10 @@ import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 import javax.swing.text.html.HTMLEditorKit;
 import javax.swing.text.html.parser.ParserDelegator;
+import pidev.dao.AdministrateurDAO;
+import pidev.dao.ClientDAO;
+import pidev.dao.PersonneDAO;
+import pidev.dao.ResponsableDAO;
 import pidev.util.MyConnection;
 
 /**
@@ -31,8 +35,8 @@ import pidev.util.MyConnection;
 public class Chiheb_Authentification extends javax.swing.JFrame {
 public static String API_KEY = "1409921232597028";
 public static String SECRET = "a462c570f017b3d260dc21d8a1944255";
-
-
+public static int id_connecté_normal=0;
+public static int connecté = 0;
 
   public static String firstRequest = "https://graph.facebook.com/oauth/authorize?"
   + "client_id="
@@ -165,43 +169,23 @@ public static String SECRET = "a462c570f017b3d260dc21d8a1944255";
     password = new String(jPassword.getPassword());
         if (variable2 ==0){
             
-        }
-        else if (variable2 ==1){
-          
-            
-                    if(email.length()!=0 && password.length()!=0)
+            if(email.length()!=0 && password.length()!=0)
                    {  
-          
-                       try {
-                           String  insertStr = "select id_Personne from Personne where email='"+email+"' and mdp ='"+password+"' "; 
-            PreparedStatement ps = MyConnection.getInstance().prepareStatement(insertStr);
-            
-           // PreparedStatement ps3 = MyConnection.getInstance().prepareStatement(insertStr3);
-               ResultSet resultat = ps.executeQuery();
-           
-                
-           
-                while (resultat.next())
-            {
-             x = resultat.getInt(1);
-                System.out.println("x"+x);
-            }
+          PersonneDAO pd = new PersonneDAO();
+       x= pd.selectPersonne(email, password);
+                       
               if (x!=0){  
            //si il ya un Id_personne selected
-                   String  insertStr2 = "select id_Client from Client where id_Client="+x+""; 
-           PreparedStatement ps2 = MyConnection.getInstance().prepareStatement(insertStr2);
-           
-            ResultSet resultat2 = ps2.executeQuery();
-             while (resultat2.next())
-            {
-           y = resultat2.getInt(1);
-                System.out.println("y"+y);
+                  ResponsableDAO rsd= new ResponsableDAO();
+                  y=rsd.selectResponsable(x);
             }
              //passe correct
-             if(y==x)
-             {
-                Chiheb_Espace_Client esp_cli = new Chiheb_Espace_Client();
-                esp_cli.setVisible(true);
+             if(y==x) {
+                 connecté=1;
+             id_connecté_normal=y;
+                Chiheb_Espace_Responsable esp_res = new Chiheb_Espace_Responsable();
+                esp_res.setVisible(true);
+             
              this.dispose();
              
              }
@@ -216,16 +200,69 @@ public static String SECRET = "a462c570f017b3d260dc21d8a1944255";
                    System.out.println("email ou mot de passe incorrect");
                jLabel3.setVisible(true);
            
-        } catch (SQLException ex) {
-           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("erreur lors de connection "+ex.getMessage());
         }
+        else if (variable2 ==1){
+          
+            
+                    if(email.length()!=0 && password.length()!=0)
+                   {  
+          PersonneDAO pd = new PersonneDAO();
+       x= pd.selectPersonne(email, password);
                        
-                   }
+              if (x!=0){  
+           //si il ya un Id_personne selected
+                  ClientDAO cld= new ClientDAO();
+                  y=cld.selectClient(x);
+            }
+             //passe correct
+             if(y==x)
+             {connecté=1;
+                  id_connecté_normal=y;
+                Chiheb_Espace_Client esp_cli = new Chiheb_Espace_Client();
+                esp_cli.setVisible(true);
+               
+             this.dispose();
+             
+             }
+               if(y != x )
+             {
+                 System.out.println("email ou mot de passe incorrect");
+                  jLabel3.setVisible(true);
+             }
+           
+              }
+                  else 
+                   System.out.println("email ou mot de passe incorrect");
+               jLabel3.setVisible(true);
+           
+        
+                       
+                   
             
-            
+
         }
         else if (variable2 ==2){
+             if(email.length()!=0 && password.length()!=0)
+                   {  
+          PersonneDAO pd = new PersonneDAO();
+       x= pd.selectPersonne(email, password);
+                       
+              if (x!=0){ 
+                  connecté=1;
+                   id_connecté_normal=x;
+           Chiheb_Espace_Admin eadm= new Chiheb_Espace_Admin();
+           eadm.setVisible(true);
+           
+           this.dispose();
+            }
+              else {
+                   jLabel3.setVisible(true);
+              }
+           
+                   }
+                  else 
+                   System.out.println("email ou mot de passe incorrect");
+               jLabel3.setVisible(true);
             
         }
     }//GEN-LAST:event_jButton4ActionPerformed

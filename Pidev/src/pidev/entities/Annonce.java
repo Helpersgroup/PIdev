@@ -29,6 +29,8 @@ public class Annonce {
     private String  transport;
     private String  type_Hebergement;
     private String  type_Annonce ;
+    private String  prix ;
+    
 
     public String getType_annonce() {
         return getType_Annonce();
@@ -240,7 +242,16 @@ public class Annonce {
     public void setType_Annonce(String type_Annonce) {
         this.type_Annonce = type_Annonce;
     }
+  public void setPrix(String prix) {
+        this.prix = prix;
+    }
 
+    /**
+     * @return the type_Annonce
+     */
+    public String getPrix() {
+        return prix;
+    }
     
     
     public enum Type_Hebergement {

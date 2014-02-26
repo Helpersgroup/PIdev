@@ -29,7 +29,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import pidev.util.MyConnection;
-import sun.java2d.Disposer;
 
 @SuppressWarnings("deprecation")
 public class GraphReaderExample {

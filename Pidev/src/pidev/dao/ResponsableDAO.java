@@ -11,12 +11,12 @@ import pidev.util.MyConnection;
 
 /**
  *
- * @author Abdelaziz
+ * @author chiheb
  */
-public class ClientDAO {
-    int y=0;
-    public int selectClient(int x){
-               String  insertStr2 = "select id_Client from Client where id_Client="+x+""; 
+public class ResponsableDAO {
+     int y=0;
+    public int selectResponsable(int x){
+               String  insertStr2 = "select id_Responsable from ResponsableAgence where id_Responsable="+x+""; 
             try {
                PreparedStatement ps2 = MyConnection.getInstance().prepareStatement(insertStr2);
            
@@ -28,26 +28,29 @@ public class ClientDAO {
             }
               } catch (SQLException ex) {
            //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("erreur lors de connection "+ex.getMessage());
+            System.out.println("erreur lors de connection "+ex.getMessage()+insertStr2);
         }
         return y;
     }
- public void   ajouterClient(){
+    public void ajouterResponsable(){
+     String insertStr3 = "insert into ResponsableAgence "
+                            + "(id_Responsable,id_Agence) select MAX(id_Personne) "
+                            + ","
+                            + "(select MAX(id_Agence)from Agence) from Personne";
      
-      String insertStr2 = "insert into Client (id_Client) select MAX(id_Personne) from Personne";
-      
-       try {
+        try {
+            
            
-            PreparedStatement ps2 = MyConnection.getInstance().prepareStatement(insertStr2);
+            PreparedStatement ps = MyConnection.getInstance().prepareStatement(insertStr3);
+               
+                
+                ps.executeUpdate(); 
            
-             ps2.executeUpdate();      
            
-           
-            System.out.println("Ajout effectuée avec succès");
+            System.out.println("Ajout effectuée avec succès3");
         } catch (SQLException ex) {
            //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("erreur lors de l'insertion "+ex.getMessage());
         }
- }
-    
+    }           
 }
