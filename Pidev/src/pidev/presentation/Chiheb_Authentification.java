@@ -24,6 +24,7 @@ import javax.swing.text.html.HTMLEditorKit;
 import javax.swing.text.html.parser.ParserDelegator;
 import pidev.dao.ClientDAO;
 import pidev.dao.PersonneDAO;
+import pidev.dao.ResponsableDAO;
 import pidev.util.MyConnection;
 
 /**
@@ -166,7 +167,35 @@ public static String SECRET = "a462c570f017b3d260dc21d8a1944255";
            
     password = new String(jPassword.getPassword());
         if (variable2 ==0){
-            
+            if(email.length()!=0 && password.length()!=0)
+                   {  
+          PersonneDAO pd = new PersonneDAO();
+       x= pd.selectPersonne(email, password);
+                       
+              if (x!=0){  
+           //si il ya un Id_personne selected
+                  ResponsableDAO rsd= new ResponsableDAO();
+                  y=rsd.selectResponsable(x);
+            }
+             //passe correct
+             if(y==x)
+             {
+                Chiheb_Espace_Responsable esp_res = new Chiheb_Espace_Responsable();
+                esp_res.setVisible(true);
+             this.dispose();
+             
+             }
+               if(y != x )
+             {
+                 System.out.println("email ou mot de passe incorrect");
+                  jLabel3.setVisible(true);
+             }
+           
+              }
+                  else 
+                   System.out.println("email ou mot de passe incorrect");
+               jLabel3.setVisible(true);
+           
         }
         else if (variable2 ==1){
           

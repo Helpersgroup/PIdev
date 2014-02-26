@@ -16,6 +16,7 @@ public class Client  {
 
     }
     
+    
     public int getId_Client() {
         return Id_Client;
     }

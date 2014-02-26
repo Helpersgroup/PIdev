@@ -66,6 +66,7 @@ public class Chiheb_Inscription_Responsable extends javax.swing.JFrame {
         jpassres2 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(600, 600));
         setResizable(false);
         getContentPane().setLayout(null);
 
