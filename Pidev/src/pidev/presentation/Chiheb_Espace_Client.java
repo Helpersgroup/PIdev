@@ -17,8 +17,14 @@ public class Chiheb_Espace_Client extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
        this.pack();
+        if (Chiheb_Authentification.connecté==1){
+            jiconnecté1.setText(""+Chiheb_Authentification.id_connecté_normal);
+        //System.out.println(""+Chiheb_Authentification.id_connecté_normal);
+     }
+        else if (Chiheb_Authentification.connecté==0){
        jnconnecté.setText(new GraphReaderExample("").get_firstname()+new GraphReaderExample("").get_lasttname());
    jiconnecté1.setText(""+GraphReaderExample.idCC);
+        }
     }
 
     /**

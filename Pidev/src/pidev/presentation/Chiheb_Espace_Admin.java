@@ -17,10 +17,10 @@ public class Chiheb_Espace_Admin extends javax.swing.JFrame {
         initComponents();
            this.setLocationRelativeTo(null);
        this.pack();
-     
-            //jiconnecté2.setText(""+Chiheb_Authentification.id_connecté_normal);
-        System.out.println(""+Chiheb_Authentification.id_connecté_normal);
-       
+     if (Chiheb_Authentification.connecté==0){
+            jiconnecté2.setText(""+Chiheb_Authentification.id_connecté_normal);
+        //System.out.println(""+Chiheb_Authentification.id_connecté_normal);
+     }
     }
 
     /**

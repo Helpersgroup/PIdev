@@ -15,10 +15,13 @@ public class Chiheb_Espace_Responsable extends javax.swing.JFrame {
      */
     public Chiheb_Espace_Responsable() {
         initComponents();
-         jiconnecté0.setText(""+Chiheb_Authentification.id_connecté_normal);
-        System.out.println("lol"+Chiheb_Authentification.id_connecté_normal);
+         
         this.setLocationRelativeTo(null);
        this.pack();
+        if (Chiheb_Authentification.connecté==0){
+            jiconnecté0.setText(""+Chiheb_Authentification.id_connecté_normal);
+        //System.out.println(""+Chiheb_Authentification.id_connecté_normal);
+     }
  
            
     }

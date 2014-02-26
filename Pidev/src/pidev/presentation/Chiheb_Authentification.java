@@ -180,11 +180,12 @@ public static int connecté = 0;
                   y=rsd.selectResponsable(x);
             }
              //passe correct
-             if(y==x)
-             {
+             if(y==x) {
+                 connecté=1;
+             id_connecté_normal=y;
                 Chiheb_Espace_Responsable esp_res = new Chiheb_Espace_Responsable();
                 esp_res.setVisible(true);
-                id_connecté_normal=y;
+             
              this.dispose();
              
              }
@@ -215,10 +216,11 @@ public static int connecté = 0;
             }
              //passe correct
              if(y==x)
-             {
+             {connecté=1;
+                  id_connecté_normal=y;
                 Chiheb_Espace_Client esp_cli = new Chiheb_Espace_Client();
                 esp_cli.setVisible(true);
-                id_connecté_normal=y;
+               
              this.dispose();
              
              }
@@ -245,10 +247,12 @@ public static int connecté = 0;
           PersonneDAO pd = new PersonneDAO();
        x= pd.selectPersonne(email, password);
                        
-              if (x!=0){  
+              if (x!=0){ 
+                  connecté=1;
+                   id_connecté_normal=x;
            Chiheb_Espace_Admin eadm= new Chiheb_Espace_Admin();
            eadm.setVisible(true);
-            id_connecté_normal=x;
+           
            this.dispose();
             }
               else {
