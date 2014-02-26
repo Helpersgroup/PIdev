@@ -37,7 +37,6 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
     private void initComponents() {
 
         jComboBox1 = new javax.swing.JComboBox();
-        jXDatePicker1 = new org.jdesktop.swingx.JXDatePicker();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -60,8 +59,6 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        JXDateDepart = new org.jdesktop.swingx.JXDatePicker();
-        JXDateRetour = new org.jdesktop.swingx.JXDatePicker();
         CboxNote = new javax.swing.JComboBox();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -224,14 +221,10 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
         jLabel12.setText("le nom de l'agence");
         getContentPane().add(jLabel12);
         jLabel12.setBounds(10, 10, 130, 14);
-        getContentPane().add(JXDateDepart);
-        JXDateDepart.setBounds(220, 170, 190, 22);
-        getContentPane().add(JXDateRetour);
-        JXDateRetour.setBounds(220, 200, 190, 22);
 
         CboxNote.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", " 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", " 10", " 11", " 12", " 13", " 14", " 15", " 16", " 17", " 18", " 19", " 20" }));
         getContentPane().add(CboxNote);
-        CboxNote.setBounds(220, 490, 190, 20);
+        CboxNote.setBounds(220, 490, 190, 22);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(44, 62, 80));
@@ -341,8 +334,6 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
     private javax.swing.JComboBox CboxTheme;
     private javax.swing.JComboBox CboxTransport;
     private javax.swing.JComboBox CboxTypeHeberg;
-    private org.jdesktop.swingx.JXDatePicker JXDateDepart;
-    private org.jdesktop.swingx.JXDatePicker JXDateRetour;
     private javax.swing.JTextArea TAdesc;
     private javax.swing.JTextField TFdepart;
     private javax.swing.JTextField TFdestination;
@@ -365,6 +356,5 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private org.jdesktop.swingx.JXDatePicker jXDatePicker1;
     // End of variables declaration//GEN-END:variables
 }
