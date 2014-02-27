@@ -123,6 +123,7 @@ public static int connecté = 0;
         getContentPane().add(jButton1);
         jButton1.setBounds(330, 130, 90, 23);
 
+        jButton2.setIcon(new javax.swing.ImageIcon("D:\\ESPRIT\\PIDev\\Pidev\\PIdev\\Pidev\\src\\pidev\\presentation\\facebook_square-128.png")); // NOI18N
         jButton2.setText("jButton2");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -132,6 +133,7 @@ public static int connecté = 0;
         getContentPane().add(jButton2);
         jButton2.setBounds(160, 220, 60, 70);
 
+        jButton3.setIcon(new javax.swing.ImageIcon("D:\\ESPRIT\\PIDev\\Pidev\\PIdev\\Pidev\\src\\pidev\\presentation\\twitter_square-128.png")); // NOI18N
         jButton3.setText("jButton3");
         getContentPane().add(jButton3);
         jButton3.setBounds(250, 220, 60, 70);

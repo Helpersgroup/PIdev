@@ -13,7 +13,6 @@
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
-    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -84,6 +83,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton2">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="2" name="D:\ESPRIT\PIDev\Pidev\PIdev\Pidev\src\pidev\presentation\facebook_square-128.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="jButton2"/>
       </Properties>
       <Events>
@@ -97,6 +99,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton3">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="2" name="D:\ESPRIT\PIDev\Pidev\PIdev\Pidev\src\pidev\presentation\twitter_square-128.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="jButton3"/>
       </Properties>
       <Constraints>
