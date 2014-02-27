@@ -238,7 +238,7 @@ public static int connecté = 0;
              }
              else if(cli!=x &&res!=x){
                  connecté=1;
-             id_connecté_normal=x;
+             id_connecté_normal=x; 
                 Chiheb_Espace_Admin esp_adm = new Chiheb_Espace_Admin();
                 esp_adm.setVisible(true);
                 this.dispose();
