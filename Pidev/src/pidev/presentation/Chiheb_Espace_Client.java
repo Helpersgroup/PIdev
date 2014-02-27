@@ -4,6 +4,10 @@
  */
 package pidev.presentation;
 
+import java.awt.Color;
+import static pidev.presentation.GraphReaderExample.firstname;
+import static pidev.presentation.GraphReaderExample.lastname;
+
 /**
  *
  * @author chiheb
@@ -17,13 +21,14 @@ public class Chiheb_Espace_Client extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
        this.pack();
-        if (Chiheb_Authentification.connecté==1){
-            jiconnecté1.setText(""+Chiheb_Authentification.id_connecté_normal);
-        //System.out.println(""+Chiheb_Authentification.id_connecté_normal);
-     }
-        else if (Chiheb_Authentification.connecté==0){
-       jnconnecté.setText(new GraphReaderExample("").get_firstname()+new GraphReaderExample("").get_lasttname());
-   jiconnecté1.setText(""+GraphReaderExample.idCC);
+        this.getContentPane().setBackground(new Color(52, 152, 219));
+//        if (Chiheb_Authentification.connecté==1){
+//            jiconnecté1.setText(""+Chiheb_Authentification.id_connecté_normal);
+//        //System.out.println(""+Chiheb_Authentification.id_connecté_normal);
+//     }
+         if (Chiheb_Authentification.connecté==1){
+       jnconnecté.setText(firstname+lastname);
+  // jiconnecté1.setText(""+GraphReaderExample.idCC);
         }
     }
 
@@ -38,55 +43,55 @@ public class Chiheb_Espace_Client extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jnconnecté = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jiconnecté1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(600, 600));
         setResizable(false);
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Bienvenue :");
 
+        jnconnecté.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jnconnecté.setText("jLabel2");
 
-        jLabel2.setText("Votre id :");
-
-        jiconnecté1.setText("jLabel3");
-
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setText("Espace Client");
+
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton1.setText("Deconnexion");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jnconnecté)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 153, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jiconnecté1)
-                .addGap(44, 44, 44))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(166, 166, 166)
-                .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jnconnecté)
+                        .addContainerGap(113, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel3))
+                    .addComponent(jButton1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jnconnecté)
-                    .addComponent(jLabel2)
-                    .addComponent(jiconnecté1))
-                .addGap(84, 84, 84)
-                .addComponent(jLabel3)
-                .addContainerGap(177, Short.MAX_VALUE))
+                    .addComponent(jnconnecté))
+                .addContainerGap(246, Short.MAX_VALUE))
         );
 
         pack();
@@ -127,10 +132,9 @@ public class Chiheb_Espace_Client extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jiconnecté1;
     private javax.swing.JLabel jnconnecté;
     // End of variables declaration//GEN-END:variables
 }

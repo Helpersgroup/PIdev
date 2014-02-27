@@ -19,6 +19,8 @@ import pidev.dao.ResponsableDAO;
 import pidev.entities.Personne;
 import static pidev.presentation.Chiheb_Authentification.connecté;
 import static pidev.presentation.Chiheb_Authentification.id_connecté_normal;
+import static pidev.presentation.GraphReaderExample.firstname;
+import static pidev.presentation.GraphReaderExample.lastname;
 import pidev.util.MyConnection;
 
 /**
@@ -356,7 +358,7 @@ int ID_max;
           {
               
               PersonneDAO psd = new PersonneDAO();
-              em = psd.selectPersonne(email);
+              em = psd.selectPersonneByemail(email);
               if (passe.equals(passe2)){
                    if(cin.length()>8){
                           jLabel18.setVisible(true);
@@ -390,11 +392,15 @@ int ID_max;
                    ClientDAO c = new ClientDAO();
                    c.ajouterClient();
                     PersonneDAO pd = new PersonneDAO();
-       int x= pd.selectPersonne(email, passe);
+       int x= pd.selectPersonneByemailpass(email, passe);
                      ClientDAO cld= new ClientDAO();
                 int  y=cld.selectClient(x);
             connecté=1;
              id_connecté_normal=y;
+            
+             firstname = psd.selectNomPersonneByid(y);
+             lastname = psd.selectPrenomPersonneByid(y);
+             psd.selectPersonneByemailpass(email, passe);
                 Chiheb_Espace_Client esp_cli = new Chiheb_Espace_Client();
                 esp_cli.setVisible(true);
              

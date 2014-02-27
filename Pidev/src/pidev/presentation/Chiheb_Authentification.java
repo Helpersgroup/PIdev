@@ -209,7 +209,7 @@ public static int connecté = 0;
             if(email.length()!=0 && password.length()!=0)
                    {  
           PersonneDAO pd = new PersonneDAO();
-       x= pd.selectPersonne(email, password);
+       x= pd.selectPersonneByemailpass(email, password);
                        
               if (x!=0){  
            //si il ya un Id_personne selected
@@ -218,7 +218,7 @@ public static int connecté = 0;
                      ClientDAO cld= new ClientDAO();
                 cli=cld.selectClient(x);
            
-             //passe correct
+          
              if(res==x) {
                  connecté=1;
              id_connecté_normal=res;

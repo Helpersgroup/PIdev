@@ -4,6 +4,10 @@
  */
 package pidev.presentation;
 
+import java.awt.Color;
+import static pidev.presentation.GraphReaderExample.firstname;
+import static pidev.presentation.GraphReaderExample.lastname;
+
 /**
  *
  * @author chiheb
@@ -18,9 +22,10 @@ public class Chiheb_Espace_Responsable extends javax.swing.JFrame {
          
         this.setLocationRelativeTo(null);
        this.pack();
-        if (Chiheb_Authentification.connecté==1){
-            jiconnecté0.setText(""+Chiheb_Authentification.id_connecté_normal);
-        //System.out.println(""+Chiheb_Authentification.id_connecté_normal);
+        this.getContentPane().setBackground(new Color(52, 152, 219));
+    if (Chiheb_Authentification.connecté==1){
+            jnconnecté3.setText(firstname+lastname);
+//        //System.out.println(""+Chiheb_Authentification.id_connecté_normal);
      }
  
            
@@ -37,72 +42,65 @@ public class Chiheb_Espace_Responsable extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jnconnecté = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jiconnecté0 = new javax.swing.JLabel();
+        jnconnecté3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(600, 600));
         setResizable(false);
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Espace responsable");
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Bienvenue :");
 
-        jnconnecté.setText("jLabel2");
+        jnconnecté3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jnconnecté3.setText("jLabel2");
 
-        jLabel3.setText("Votre id :");
-
-        jiconnecté0.setText("jLabel3");
-
-        jButton1.setText("jButton1");
+        jButton1.setText("ajouter annonce");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton2.setText("Deconnexion");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addComponent(jButton2)
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
+                        .addGap(20, 20, 20)
                         .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jnconnecté)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 182, Short.MAX_VALUE)
-                        .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jiconnecté0))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(164, 164, 164)
-                                .addComponent(jLabel1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(156, 156, 156)
-                                .addComponent(jButton1)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(jnconnecté3))
+                    .addComponent(jButton1))
+                .addGap(0, 122, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1))
+                    .addComponent(jButton2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jnconnecté)
-                    .addComponent(jLabel3)
-                    .addComponent(jiconnecté0))
-                .addGap(94, 94, 94)
-                .addComponent(jLabel1)
-                .addGap(46, 46, 46)
+                    .addComponent(jnconnecté3))
+                .addGap(60, 60, 60)
                 .addComponent(jButton1)
-                .addContainerGap(98, Short.MAX_VALUE))
+                .addContainerGap(163, Short.MAX_VALUE))
         );
 
         pack();
@@ -151,10 +149,9 @@ public class Chiheb_Espace_Responsable extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jiconnecté0;
-    private javax.swing.JLabel jnconnecté;
+    private javax.swing.JLabel jnconnecté3;
     // End of variables declaration//GEN-END:variables
 }
