@@ -6,8 +6,13 @@ package pidev.presentation;
 
 import java.awt.Color;
 import pidev.dao.AgenceDAO;
+import pidev.dao.PersonneDAO;
 import pidev.dao.ResponsableDAO;
 import pidev.entities.Agence;
+import static pidev.presentation.Chiheb_Authentification.connecté;
+import static pidev.presentation.Chiheb_Authentification.id_connecté_normal;
+import static pidev.presentation.Chiheb_Inscription.email;
+import static pidev.presentation.Chiheb_Inscription.passe;
 
 /**
  *
@@ -212,7 +217,16 @@ public class Chiheb_Inscription_Suite extends javax.swing.JFrame {
             agd.ajouterAgence(a.getNom(), a.getAdresse(), a.getTelephone(), a.getVille());
             ResponsableDAO rsd = new ResponsableDAO();
             rsd.ajouterResponsable();
-
+ PersonneDAO pd = new PersonneDAO();
+       int x= pd.selectPersonne(email, passe);
+        
+                int  y=rsd.selectResponsable(x);
+                  connecté=1;
+             id_connecté_normal=y;
+                Chiheb_Espace_Responsable esp_res = new Chiheb_Espace_Responsable();
+                esp_res.setVisible(true);
+             
+             this.dispose();
         }
         else{
                 jLabel1.setVisible(true);

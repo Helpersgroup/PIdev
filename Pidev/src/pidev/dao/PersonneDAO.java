@@ -41,8 +41,33 @@ public class PersonneDAO {
                return x;    
     }
     
+    public int selectPersonne(String email){
+        String res ="select id_Personne from Personne where email='"+email+"'";
+        try {
+                           
+            PreparedStatement ps = MyConnection.getInstance().prepareStatement(res);
+            
+           // PreparedStatement ps3 = MyConnection.getInstance().prepareStatement(insertStr3);
+               ResultSet resultat = ps.executeQuery();
+           
+                
+           
+                while (resultat.next())
+            {
+             x = resultat.getInt(1);
+                System.out.println("x"+x);
+            }
+        
+        } catch (SQLException ex) {
+           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors de connection "+ex.getMessage());
+        }
+                       
+        return x;
+    }
    public void ajouterPersonne(String cin,String nom,String prenom,String email,int tel,String mdp){
         
+       
        String  insertStr="insert into Personne (cin,nom,prenom,email,tel,mdp) values("
                   
                     +cin+",'"

@@ -15,7 +15,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import pidev.dao.ClientDAO;
 import pidev.dao.PersonneDAO;
+import pidev.dao.ResponsableDAO;
 import pidev.entities.Personne;
+import static pidev.presentation.Chiheb_Authentification.connecté;
+import static pidev.presentation.Chiheb_Authentification.id_connecté_normal;
 import pidev.util.MyConnection;
 
 /**
@@ -24,6 +27,14 @@ import pidev.util.MyConnection;
  */
 public class Chiheb_Inscription extends javax.swing.JFrame {
 int ID_max;
+ public static String nom="";
+    public static    String prenom="";     
+     public static     String cin="";
+    public static    String passe="";
+    public static     String passe2="";
+    public static      String email="";
+        int em=0;
+     public static     String tel="";
     /**
      * Creates new form Chiheb_Inscription
      */
@@ -32,6 +43,8 @@ int ID_max;
         initComponents();
         jLabel15.setVisible(false);
         jLabel1.setVisible(false);
+         jLabel18.setVisible(false);
+         jLabel19.setVisible(false);
               jLabel6.setVisible(false);
               jLabel7.setVisible(false);
               jLabel8.setVisible(false);
@@ -68,9 +81,7 @@ int ID_max;
         jButton1 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         jemail = new javax.swing.JTextField();
-        jpass = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        jpass2 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -83,6 +94,10 @@ int ID_max;
         jRadio1 = new javax.swing.JRadioButton();
         jRadio2 = new javax.swing.JRadioButton();
         jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jpass = new javax.swing.JPasswordField();
+        jpass2 = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(500, 500));
@@ -133,13 +148,6 @@ int ID_max;
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel13.setText("mot de passe :");
-
-        jpass.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jpass.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jpassActionPerformed(evt);
-            }
-        });
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel14.setText("confirmer :");
@@ -194,6 +202,14 @@ int ID_max;
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel17.setText("Données Personnelles");
 
+        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(236, 240, 241));
+        jLabel18.setText("(8 chiffres maximum)");
+
+        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(236, 240, 241));
+        jLabel19.setText("Email Incorrect");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -202,42 +218,47 @@ int ID_max;
                 .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel16)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel13)
-                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(37, 37, 37)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jpass2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jpass, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jemail, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jtel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(67, 67, 67)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jcin, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jnom, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jprenom, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addComponent(jLabel15))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel1)
-                                .addComponent(jLabel6)
-                                .addComponent(jLabel7)
-                                .addComponent(jLabel8)
-                                .addComponent(jLabel9)
-                                .addComponent(jLabel10)
-                                .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel13)
+                                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(37, 37, 37)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jemail, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                            .addComponent(jtel, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                            .addComponent(jpass2)
+                                            .addComponent(jpass)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(67, 67, 67)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jcin, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jnom, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jprenom, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jLabel15))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel10)
+                                    .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel18)
+                            .addComponent(jLabel19))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(145, 145, 145)
@@ -250,7 +271,7 @@ int ID_max;
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(36, 36, 36)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 61, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -262,33 +283,35 @@ int ID_max;
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
                             .addComponent(jnom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jprenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3)
                             .addComponent(jLabel6))
-                        .addGap(18, 18, 18)
+                        .addGap(17, 17, 17)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel12)
                             .addComponent(jcin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7))
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel18))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel13)
-                            .addComponent(jpass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8))
+                            .addComponent(jLabel8)
+                            .addComponent(jpass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(1, 1, 1)
                         .addComponent(jLabel15)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jpass2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel14)
-                            .addComponent(jLabel9))
+                            .addComponent(jLabel9)
+                            .addComponent(jpass2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
                             .addComponent(jemail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10))
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel19))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jtel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -300,7 +323,7 @@ int ID_max;
                     .addComponent(jLabel16)
                     .addComponent(jRadio1)
                     .addComponent(jRadio2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(jButton1))
@@ -317,13 +340,13 @@ int ID_max;
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         
-        String nom=jnom.getText().toString();
-        String prenom=jprenom.getText().toString();        
-        String cin=jcin.getText().toString();
-      String passe=jpass.getText().toString();
-       String passe2=jpass2.getText().toString();
-        String email=jemail.getText().toString();
-        String tel=jtel.getText().toString();
+         nom=jnom.getText().toString();
+         prenom=jprenom.getText().toString();        
+         cin=jcin.getText().toString();
+       passe=new String(jpass.getPassword());
+       passe2=new String(jpass2.getPassword());
+       email=jemail.getText().toString();
+       tel=jtel.getText().toString();
         
             
           
@@ -331,15 +354,53 @@ int ID_max;
             
           if( nom.length()!=0 && prenom.length()!=0 && cin.length()!=0 && email.length()!=0 && tel.length()!=0 && passe.length()!=0 && passe2.length()!=0 &&(jRadio1.isSelected()||jRadio2.isSelected()) )
           {
+              
+              PersonneDAO psd = new PersonneDAO();
+              em = psd.selectPersonne(email);
               if (passe.equals(passe2)){
+                   if(cin.length()>8){
+                          jLabel18.setVisible(true);
+                   }
+                    else{
+                       jLabel18.setVisible(false);
+                   
+                      if(isValid(email)==false){
+                          jLabel19.setVisible(true);
+                      }
+                     
+                      else{
+                        jLabel19.setVisible(false);
+                   
+                           if(em >0){
+                         jLabel19.setText("cet email existe deja");
+                         jLabel19.setVisible(true);
+                      }
+                      if(em==0){
+                         jLabel19.setVisible(false); 
+                      
                   if (jRadio1.isSelected()){
+                     
+                      
+                      
+                      
                     jLabel15.setVisible(false);
                     Personne p = new Personne(cin,nom, prenom,email,Integer.parseInt(tel),passe);
                    PersonneDAO d = new PersonneDAO();
                    d.ajouterPersonne(p.getCin(),p.getNom(), p.getPrenom(), p.getEmail(), p.getTel(), p.getMdp());
                    ClientDAO c = new ClientDAO();
                    c.ajouterClient();
-                   }
+                    PersonneDAO pd = new PersonneDAO();
+       int x= pd.selectPersonne(email, passe);
+                     ClientDAO cld= new ClientDAO();
+                int  y=cld.selectClient(x);
+            connecté=1;
+             id_connecté_normal=y;
+                Chiheb_Espace_Client esp_cli = new Chiheb_Espace_Client();
+                esp_cli.setVisible(true);
+             
+             this.dispose();
+                      
+                      }
                   if (jRadio2.isSelected()){
                    Personne p = new Personne(cin,nom, prenom,email,Integer.parseInt(tel),passe);
                        PersonneDAO d = new PersonneDAO();
@@ -349,6 +410,11 @@ int ID_max;
                    
                    
                   }
+                  }
+                      }
+                   }
+    
+                  
           //insert personne 
                     //insert client 
            //select max id personne
@@ -376,7 +442,12 @@ int ID_max;
         
        
     }//GEN-LAST:event_jButton2ActionPerformed
-
+public static boolean isValid(String email)
+{
+	if( email!=null && email.trim().length()>0 )
+		return email.matches("^[a-zA-Z0-9\\.\\-\\_]+@([a-zA-Z0-9\\-\\_\\.]+\\.)+([a-zA-Z]{2,4})$");
+	return false;
+}
     private void jprenomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jprenomActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jprenomActionPerformed
@@ -387,10 +458,6 @@ int ID_max;
         acc.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jpassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jpassActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jpassActionPerformed
 
     private void jRadio1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadio1ActionPerformed
         // TODO add your handling code here:
@@ -446,6 +513,8 @@ int ID_max;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -459,8 +528,8 @@ int ID_max;
     private javax.swing.JTextField jcin;
     private javax.swing.JTextField jemail;
     private javax.swing.JTextField jnom;
-    private javax.swing.JTextField jpass;
-    private javax.swing.JTextField jpass2;
+    private javax.swing.JPasswordField jpass;
+    private javax.swing.JPasswordField jpass2;
     private javax.swing.JTextField jprenom;
     private javax.swing.JTextField jtel;
     // End of variables declaration//GEN-END:variables
