@@ -42,7 +42,7 @@ public class Envoi_Mail extends javax.swing.JPanel {
         //</editor-fold>
 
         
-           String[] to ={"hakim.kh@hotmail.com"};
+           String[] to ={"abdelaziz.benyahia@esprit.tn"};
             if(sendMail("hakim.khanchouch@esprit.tn","08974683H","message to sdfsdf",to)){
             System.out.println("messag sent");
             }
@@ -76,7 +76,7 @@ toAddress[i]=new InternetAddress(to[i]);
 for(int i=0;i<toAddress.length;i++){
 mime.addRecipient(RecipientType.TO,toAddress[i]);
 }
-mime.setSubject("mail using javamil");
+mime.setSubject("hi ^^");
 mime.setText(message);
         javax.mail.Transport transport=session.getTransport("smtp");
 transport.connect(host,from,password);
