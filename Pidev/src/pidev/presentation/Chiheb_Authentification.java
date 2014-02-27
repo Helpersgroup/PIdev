@@ -58,11 +58,11 @@ public static int connecté = 0;
      * Creates new form Acceuil
      */
     int variable2 =0;
-   
+     int   res,cli=0;
        String password="" ;
        String email="";
      int  x=0 ;
-              int y=0;
+              
     public Chiheb_Authentification() {
         initComponents();
           
@@ -197,14 +197,14 @@ public static int connecté = 0;
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-  Chiheb_Choix_authentification auth = new  Chiheb_Choix_authentification();
-       variable2 = auth.get_variable();
+
+      
         
           email=jlogin.getText().toString();
           //String password=jPassword.getPassword().toString();
            
     password = new String(jPassword.getPassword());
-        if (variable2 ==0){
+        
             
             if(email.length()!=0 && password.length()!=0)
                    {  
@@ -214,57 +214,39 @@ public static int connecté = 0;
               if (x!=0){  
            //si il ya un Id_personne selected
                   ResponsableDAO rsd= new ResponsableDAO();
-                  y=rsd.selectResponsable(x);
-            }
+                  res=rsd.selectResponsable(x);
+                     ClientDAO cld= new ClientDAO();
+                cli=cld.selectClient(x);
+           
              //passe correct
-             if(y==x) {
+             if(res==x) {
                  connecté=1;
-             id_connecté_normal=y;
+             id_connecté_normal=res;
                 Chiheb_Espace_Responsable esp_res = new Chiheb_Espace_Responsable();
                 esp_res.setVisible(true);
              
              this.dispose();
              
              }
-               if(y != x )
+             else if(cli == x)
              {
-                 System.out.println("email ou mot de passe incorrect");
-                  jLabel3.setVisible(true);
-             }
-           
-              }
-                  else 
-                   System.out.println("email ou mot de passe incorrect");
-               jLabel3.setVisible(true);
-           
-        }
-        else if (variable2 ==1){
-          
-            
-                    if(email.length()!=0 && password.length()!=0)
-                   {  
-          PersonneDAO pd = new PersonneDAO();
-       x= pd.selectPersonne(email, password);
-                       
-              if (x!=0){  
-           //si il ya un Id_personne selected
-                  ClientDAO cld= new ClientDAO();
-                  y=cld.selectClient(x);
-            }
-             //passe correct
-             if(y==x)
-             {connecté=1;
-                  id_connecté_normal=y;
+                 connecté=1;
+             id_connecté_normal=cli;
                 Chiheb_Espace_Client esp_cli = new Chiheb_Espace_Client();
                 esp_cli.setVisible(true);
-               
-             this.dispose();
-             
+                this.dispose();
              }
-               if(y != x )
-             {
-                 System.out.println("email ou mot de passe incorrect");
-                  jLabel3.setVisible(true);
+             else if(cli!=x &&res!=x){
+                 connecté=1;
+             id_connecté_normal=x;
+                Chiheb_Espace_Admin esp_adm = new Chiheb_Espace_Admin();
+                esp_adm.setVisible(true);
+                this.dispose();
+             }
+              }
+             else{
+                  System.out.println("email ou mot de passe incorrect");
+               jLabel3.setVisible(true);
              }
            
               }
@@ -272,36 +254,7 @@ public static int connecté = 0;
                    System.out.println("email ou mot de passe incorrect");
                jLabel3.setVisible(true);
            
-        
-                       
-                   
-            
-
-        }
-        else if (variable2 ==2){
-             if(email.length()!=0 && password.length()!=0)
-                   {  
-          PersonneDAO pd = new PersonneDAO();
-       x= pd.selectPersonne(email, password);
-                       
-              if (x!=0){ 
-                  connecté=1;
-                   id_connecté_normal=x;
-           Chiheb_Espace_Admin eadm= new Chiheb_Espace_Admin();
-           eadm.setVisible(true);
-           
-           this.dispose();
-            }
-              else {
-                   jLabel3.setVisible(true);
-              }
-           
-                   }
-                  else 
-                   System.out.println("email ou mot de passe incorrect");
-               jLabel3.setVisible(true);
-            
-        }
+     
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
