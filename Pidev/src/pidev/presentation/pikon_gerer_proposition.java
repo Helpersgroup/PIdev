@@ -316,19 +316,20 @@ public class pikon_gerer_proposition extends javax.swing.JFrame {
         PropositionDAO aDAO = new PropositionDAO();
         
         a.setNom(TFnom.getText());
-        a.setId_Annonceur(32);
+        a.setId_Annonceur(36);
         a.setType_annonce(CboxTheme.getSelectedItem().toString());
 
 
         a.setDate_deb(jXDatePicker1.getDate());
         a.setDate_fin(jXDatePicker2.getDate());
+        
         a.setDepart(TFdepart.getText());
         a.setDestination(TAdesc.getText());
         a.setType_annonce(CboxTypeHeberg.getSelectedItem().toString());
         a.setTransport(CboxTransport.getSelectedItem().toString());
         a.setPrix(TFprix.getText());
         
-        aDAO.ProposerAnnonce(a);
+        aDAO.miseAJourAnnonce(a);
       
 
 
