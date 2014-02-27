@@ -6,6 +6,7 @@ package pidev.presentation;
 
 import java.util.Date;
 import javax.swing.*;
+import pidev.dao.AgenceDAO;
 import pidev.dao.AnnonceDAO;
 import pidev.entities.Annonce;
 import pidev.util.MyConnection;
@@ -17,14 +18,22 @@ import pidev.util.MyConnection;
  * @author chiheb
  */
 public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
-
+int x=0;
+String y="";
     /**
      * Creates new form AjouterAnnonce_Responsable
      */
     public AjouterAnnonce_Responsable() {
+        
         initComponents();
+         
         this.setLocationRelativeTo(null);
         this.pack();
+        AgenceDAO agd = new AgenceDAO();
+     x=    agd.selectIdAgence(Chiheb_Authentification.id_connecté_normal);
+        System.out.println(x);
+        y=agd.selectNomAgence(x);
+    jLabel12.setText("vide"+y);
     }
 
     /**
@@ -234,9 +243,9 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
         getContentPane().add(TfHebergement);
         TfHebergement.setBounds(560, 510, 140, 30);
         getContentPane().add(jXDateRetour);
-        jXDateRetour.setBounds(260, 310, 114, 22);
+        jXDateRetour.setBounds(260, 310, 110, 22);
         getContentPane().add(JXDateDepart);
-        JXDateDepart.setBounds(260, 280, 114, 22);
+        JXDateDepart.setBounds(260, 280, 110, 22);
 
         jSpinner1.setModel(new javax.swing.SpinnerNumberModel(1, 1, 10, 1));
         getContentPane().add(jSpinner1);
@@ -291,7 +300,7 @@ public class AjouterAnnonce_Responsable extends javax.swing.JFrame {
         a.setNbr_adultes (Integer.parseInt(jSpinner1.getValue().toString()));
         a.setNbr_enfants(Integer.parseInt(jSpinner2.getValue().toString()));
 
-        aDAO.InsertAnnonce(a);
+      //  aDAO.InsertAnnonce(a);
     }//GEN-LAST:event_BtnAjouterAnnonceActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
