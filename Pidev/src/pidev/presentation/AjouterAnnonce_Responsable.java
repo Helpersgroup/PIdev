@@ -33,7 +33,7 @@ String y="";
      x=    agd.selectIdAgence(Chiheb_Authentification.id_connecté_normal);
         System.out.println(x);
         y=agd.selectNomAgence(x);
-    jLabel12.setText("vide"+y);
+    jLabel12.setText(""+y);
     }
 
     /**
@@ -243,9 +243,9 @@ String y="";
         getContentPane().add(TfHebergement);
         TfHebergement.setBounds(560, 510, 140, 30);
         getContentPane().add(jXDateRetour);
-        jXDateRetour.setBounds(260, 310, 110, 22);
+        jXDateRetour.setBounds(260, 310, 111, 22);
         getContentPane().add(JXDateDepart);
-        JXDateDepart.setBounds(260, 280, 110, 22);
+        JXDateDepart.setBounds(260, 280, 111, 22);
 
         jSpinner1.setModel(new javax.swing.SpinnerNumberModel(1, 1, 10, 1));
         getContentPane().add(jSpinner1);

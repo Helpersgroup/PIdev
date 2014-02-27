@@ -9,6 +9,7 @@ import chrriis.dj.nativeswing.swtimpl.components.JWebBrowser;
 import chrriis.dj.nativeswing.swtimpl.components.WebBrowserAdapter;
 import chrriis.dj.nativeswing.swtimpl.components.WebBrowserNavigationEvent;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -67,7 +68,9 @@ public static int connecté = 0;
           
         this.setLocationRelativeTo(null);
        this.pack();
+       this.getContentPane().setBackground(new Color(52, 152, 219));
        jLabel3.setVisible(false);
+          
      
     }
 
