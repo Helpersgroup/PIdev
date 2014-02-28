@@ -13,6 +13,8 @@ import static pidev.presentation.Chiheb_Authentification.connecté;
 import static pidev.presentation.Chiheb_Authentification.id_connecté_normal;
 import static pidev.presentation.Chiheb_Inscription.email;
 import static pidev.presentation.Chiheb_Inscription.passe;
+import static pidev.presentation.GraphReaderExample.firstname;
+import static pidev.presentation.GraphReaderExample.lastname;
 
 /**
  *
@@ -218,11 +220,13 @@ public class Chiheb_Inscription_Suite extends javax.swing.JFrame {
             ResponsableDAO rsd = new ResponsableDAO();
             rsd.ajouterResponsable();
  PersonneDAO pd = new PersonneDAO();
-       int x= pd.selectPersonne(email, passe);
+       int x= pd.selectPersonneByemailpass(email, passe);
         
                 int  y=rsd.selectResponsable(x);
                   connecté=1;
              id_connecté_normal=y;
+             firstname = pd.selectNomPersonneByid(y);
+             lastname = pd.selectPrenomPersonneByid(y);
                 Chiheb_Espace_Responsable esp_res = new Chiheb_Espace_Responsable();
                 esp_res.setVisible(true);
              
