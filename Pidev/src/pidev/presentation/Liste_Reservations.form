@@ -34,7 +34,6 @@
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
-    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -183,7 +182,7 @@
         </Property>
         <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;u&gt;annuler&lt;/u&gt;"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Curseur en forme de main"/>
+          <Color id="Pointeur par d&#xe9;faut"/>
         </Property>
       </Properties>
       <Events>
@@ -197,7 +196,7 @@
         </Property>
         <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;u&gt;annuler&lt;/u&gt;"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Curseur en forme de main"/>
+          <Color id="Pointeur par d&#xe9;faut"/>
         </Property>
       </Properties>
     </Component>
@@ -208,7 +207,7 @@
         </Property>
         <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;u&gt;annuler&lt;/u&gt;"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Curseur en forme de main"/>
+          <Color id="Pointeur par d&#xe9;faut"/>
         </Property>
       </Properties>
     </Component>
@@ -219,7 +218,7 @@
         </Property>
         <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;u&gt;annuler&lt;/u&gt;"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Curseur en forme de main"/>
+          <Color id="Pointeur par d&#xe9;faut"/>
         </Property>
       </Properties>
     </Component>
@@ -230,7 +229,7 @@
         </Property>
         <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;u&gt;annuler&lt;/u&gt;"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Curseur en forme de main"/>
+          <Color id="Pointeur par d&#xe9;faut"/>
         </Property>
       </Properties>
     </Component>
@@ -238,6 +237,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="retour"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel13">
       <Properties>
@@ -246,7 +248,7 @@
         </Property>
         <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;u&gt;voir&lt;/u&gt;"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Curseur en forme de main"/>
+          <Color id="Pointeur par d&#xe9;faut"/>
         </Property>
       </Properties>
       <Events>
@@ -260,7 +262,7 @@
         </Property>
         <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;u&gt;voir&lt;/u&gt;"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Curseur en forme de main"/>
+          <Color id="Pointeur par d&#xe9;faut"/>
         </Property>
       </Properties>
     </Component>
@@ -271,7 +273,7 @@
         </Property>
         <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;u&gt;voir&lt;/u&gt;"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Curseur en forme de main"/>
+          <Color id="Pointeur par d&#xe9;faut"/>
         </Property>
       </Properties>
     </Component>
@@ -282,7 +284,7 @@
         </Property>
         <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;u&gt;voir&lt;/u&gt;"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Curseur en forme de main"/>
+          <Color id="Pointeur par d&#xe9;faut"/>
         </Property>
       </Properties>
     </Component>
@@ -293,7 +295,7 @@
         </Property>
         <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;u&gt;voir&lt;/u&gt;"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Curseur en forme de main"/>
+          <Color id="Pointeur par d&#xe9;faut"/>
         </Property>
       </Properties>
     </Component>

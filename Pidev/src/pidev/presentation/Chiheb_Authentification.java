@@ -121,7 +121,7 @@ public static int connecté = 0;
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(330, 130, 90, 23);
+        jButton1.setBounds(390, 40, 90, 23);
 
         jButton2.setIcon(new javax.swing.ImageIcon("D:\\ESPRIT\\PIDev\\Pidev\\PIdev\\Pidev\\src\\pidev\\presentation\\facebook_square-128.png")); // NOI18N
         jButton2.setText("jButton2");
@@ -145,7 +145,7 @@ public static int connecté = 0;
             }
         });
         getContentPane().add(jButton4);
-        jButton4.setBounds(330, 70, 90, 20);
+        jButton4.setBounds(330, 100, 90, 30);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 51, 51));

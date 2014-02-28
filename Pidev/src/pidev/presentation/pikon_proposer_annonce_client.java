@@ -62,6 +62,7 @@ public class pikon_proposer_annonce_client extends javax.swing.JFrame {
         });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(600, 600));
         getContentPane().setLayout(null);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -137,7 +138,7 @@ public class pikon_proposer_annonce_client extends javax.swing.JFrame {
             }
         });
         getContentPane().add(CboxTypeHeberg);
-        CboxTypeHeberg.setBounds(190, 400, 130, 20);
+        CboxTypeHeberg.setBounds(190, 400, 130, 22);
 
         CboxTheme.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "Affaire", "Bien etre", "Camping", "Excursion", "Randonnée", "Voyage de découverte ", "Voyage de noce ", " " }));
         CboxTheme.addActionListener(new java.awt.event.ActionListener() {
@@ -176,7 +177,7 @@ public class pikon_proposer_annonce_client extends javax.swing.JFrame {
 
         CboxTransport.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "AVION", "BUS ", "MACRO-BUS", "MINI-BUS", "VOITURE" }));
         getContentPane().add(CboxTransport);
-        CboxTransport.setBounds(190, 440, 130, 20);
+        CboxTransport.setBounds(190, 440, 130, 22);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Proposer Annonce ");
@@ -240,8 +241,8 @@ public class pikon_proposer_annonce_client extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-                        new ResponsableAgence().setVisible(true);
-
+            new Chiheb_Espace_Client().setVisible(true);
+            //this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
@@ -299,8 +300,6 @@ public class pikon_proposer_annonce_client extends javax.swing.JFrame {
     private javax.swing.JTextArea TAdesc;
     private javax.swing.JTextField TFdepart;
     private javax.swing.JTextField TFdestination;
-    private javax.swing.JTextField TFnom;
-    private javax.swing.JTextField TFnom1;
     private javax.swing.JTextField TFnom2;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox jComboBox1;

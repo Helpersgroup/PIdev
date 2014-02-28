@@ -83,7 +83,7 @@ public class Liste_Reservations extends javax.swing.JFrame {
 
         jLabel8.setForeground(new java.awt.Color(41, 128, 185));
         jLabel8.setText("<html><u>annuler</u>");
-        jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel8MouseClicked(evt);
@@ -92,25 +92,30 @@ public class Liste_Reservations extends javax.swing.JFrame {
 
         jLabel9.setForeground(new java.awt.Color(41, 128, 185));
         jLabel9.setText("<html><u>annuler</u>");
-        jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel10.setForeground(new java.awt.Color(41, 128, 185));
         jLabel10.setText("<html><u>annuler</u>");
-        jLabel10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel10.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel11.setForeground(new java.awt.Color(41, 128, 185));
         jLabel11.setText("<html><u>annuler</u>");
-        jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel12.setForeground(new java.awt.Color(41, 128, 185));
         jLabel12.setText("<html><u>annuler</u>");
-        jLabel12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel12.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jButton2.setText("retour");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel13.setForeground(new java.awt.Color(41, 128, 185));
         jLabel13.setText("<html><u>voir</u>");
-        jLabel13.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel13.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel13MouseClicked(evt);
@@ -119,19 +124,19 @@ public class Liste_Reservations extends javax.swing.JFrame {
 
         jLabel14.setForeground(new java.awt.Color(41, 128, 185));
         jLabel14.setText("<html><u>voir</u>");
-        jLabel14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel14.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel15.setForeground(new java.awt.Color(41, 128, 185));
         jLabel15.setText("<html><u>voir</u>");
-        jLabel15.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel15.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel16.setForeground(new java.awt.Color(41, 128, 185));
         jLabel16.setText("<html><u>voir</u>");
-        jLabel16.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel16.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel17.setForeground(new java.awt.Color(41, 128, 185));
         jLabel17.setText("<html><u>voir</u>");
-        jLabel17.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel17.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -228,6 +233,11 @@ public class Liste_Reservations extends javax.swing.JFrame {
         l.setVisible(true);
                 
     }//GEN-LAST:event_jLabel13MouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        new ResponsableAgence().setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

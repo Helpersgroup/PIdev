@@ -328,7 +328,7 @@ public class pikon_gerer_proposition extends javax.swing.JFrame {
         a.setType_annonce(CboxTypeHeberg.getSelectedItem().toString());
         a.setTransport(CboxTransport.getSelectedItem().toString());
         a.setPrix(TFprix.getText());
-        
+        System.out.println("ici");
         aDAO.miseAJourAnnonce(a);
       
 
@@ -389,11 +389,14 @@ public class pikon_gerer_proposition extends javax.swing.JFrame {
 public  void affich(){
       PropositionDAO aDAO = new PropositionDAO();
                Annonce annonce =aDAO.DisplayAnnoncesById();
-                System.out.println("lmkmlk");
                  String   a=annonce.getNom();
-                 TFnom.setText(a) ;
+
+                 TFnom.setText(a);
+
                  String b=annonce.getType_Hebergement();
-                if (b.equals("Affaire")){
+                 System.out.println(b);
+
+                 if (b.equals("Affaire")){
 //                    CboxTheme.setSelectedItem(1);}
                     CboxTheme.setSelectedIndex(1);    
                 }
@@ -416,7 +419,8 @@ public  void affich(){
                 else if (b.equals("Voyage de noce")){
                     CboxTheme.setSelectedIndex(7);   
                 }
-                
+                System.out.println("lmkmlk");
+
                  Date c1=annonce.getDate_Deb();
                  jXDatePicker1.setDate(c1);
                  

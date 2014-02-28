@@ -26,7 +26,7 @@ int id;
      public void InsertAnnonce(Annonce a){
          
                     String requete = "insert into Annonce (Id_Annonceur,nom,type_Annonce,date_Deb,date_Fin,depart,destination,description,hebergement,type_Hebergement,transport,nbre_adultes,nbre_enfants,etat)"
-                            + " values"    + " (32,?,?,?,?,?,?,?,?,?,?,?,?,1)";
+                            + " values"    + " (36,?,?,?,?,?,?,?,?,?,?,?,?,1)";
         try {
             
             java.util.Date utilDate = a.getDate_deb();  

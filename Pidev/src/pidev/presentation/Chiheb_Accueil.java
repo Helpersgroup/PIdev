@@ -4,6 +4,8 @@
  */
 package pidev.presentation;
 
+import javax.swing.*;
+
 
 
 
@@ -17,10 +19,15 @@ public class Chiheb_Accueil extends javax.swing.JFrame {
     /**
      * Creates new form chiheb_Accueil
      */
-    public Chiheb_Accueil(){
+    
+        private JLabel monLabel;
+        private ImageIcon monIcone;
+    
+        
+        public Chiheb_Accueil(){
          
         initComponents();
-        this.setLocationRelativeTo(null);
+       this.setLocationRelativeTo(null);
        this.pack();
     }
 
@@ -37,6 +44,7 @@ public class Chiheb_Accueil extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setIconImage(getIconImage());
         setPreferredSize(new java.awt.Dimension(600, 600));
         setResizable(false);
 
@@ -70,7 +78,7 @@ public class Chiheb_Accueil extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addGap(0, 277, Short.MAX_VALUE))
+                .addContainerGap(277, Short.MAX_VALUE))
         );
 
         pack();

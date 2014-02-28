@@ -59,7 +59,7 @@ public class PropositionDAO  {
        // List<Annonce> listeannonces = new ArrayList<Annonce>();
                 Annonce annonce =new Annonce();
           
-        String requete = "select * from Annonce where id_Annonce=24";
+        String requete = "select * from Annonce where id_Annonce=23";
         try {
            Statement statement = MyConnection.getInstance()
                    .createStatement();
@@ -68,7 +68,7 @@ public class PropositionDAO  {
             ResultSet resultat = statement.executeQuery(requete);
 
             while(resultat.next()){
-                                System.out.println("2");
+                System.out.println("2");
 
                 System.out.println(resultat.getString(3));
                 
@@ -99,12 +99,7 @@ public class PropositionDAO  {
             return null;
         }
     }
-      
-      
-      
-      
-      
-      
+  
       
        public void miseAJourAnnonce(Annonce a){
          
