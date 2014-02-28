@@ -59,7 +59,7 @@ public class PropositionDAO  {
        // List<Annonce> listeannonces = new ArrayList<Annonce>();
                 Annonce annonce =new Annonce();
           
-        String requete = "select * from Annonce where id_Annonce=24";
+        String requete = "select * from Annonce where id_Annonce=23";
         try {
            Statement statement = MyConnection.getInstance()
                    .createStatement();
@@ -108,7 +108,10 @@ public class PropositionDAO  {
       
        public void miseAJourAnnonce(Annonce a){
          
-                    String requete = "UPDATE Annonce SET    Id_Annonceur=?,nom=?,type_Annonce=?,date_Deb=?,date_Fin=?,depart=?,destination=?,description=?,hebergement=?,type_Hebergement=?,transport=?,nbre_adultes=?,nbre_enfants=?,etat=?";
+                    String requete = "UPDATE Annonce SET   "
+                            + " nom=?,type_Annonce=?,date_Deb=?,date_Fin=?,depart=?,"
+                            + "destination=?,description=?,hebergement=?,type_Hebergement=?"
+                            + ",transport=?,nbre_adultes=?,nbre_enfants=?,prix=? where id_Annonce = 23";
         try {
             
             java.util.Date utilDate = a.getDate_deb();  
@@ -129,6 +132,10 @@ public class PropositionDAO  {
                 ps.setString(10,a.getTransport());
                 ps.setInt(11,a.getNbr_adultes());
                 ps.setInt(12,a.getNbr_enfants());
+                                ps.setString(13,a.getPrix());
+
+
+
                 
                 
                 ps.executeUpdate();

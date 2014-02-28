@@ -30,6 +30,8 @@ public class Annonce {
     private String  type_Hebergement;
     private String  type_Annonce ;
     private String  prix ;
+        private String  theme ;
+
     
 
     public String getType_annonce() {
@@ -252,7 +254,16 @@ public class Annonce {
     public String getPrix() {
         return prix;
     }
-    
+        public String getTheme() {
+        return theme;
+    }
+
+    /**
+     * @param  the type_Hebergement to set
+     */
+    public void setTheme(String theme) {
+        this.theme = theme;
+    }
     
     public enum Type_Hebergement {
     Villa,Hotel1,Hotel2,Hotel3,Hotel4,Hotel5;
