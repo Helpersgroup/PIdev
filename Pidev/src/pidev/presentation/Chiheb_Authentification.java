@@ -118,14 +118,11 @@ public static int connecté = 0;
             }
         });
 
-        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\chiheb\\Documents\\NetBeansProjects\\pidev\\Pidev\\src\\pidev\\presentation\\facebook_square-128.png")); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-
-        jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\chiheb\\Documents\\NetBeansProjects\\pidev\\Pidev\\src\\pidev\\presentation\\twitter_square-128.png")); // NOI18N
 
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton4.setText("Connexion");
