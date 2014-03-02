@@ -91,4 +91,25 @@ public void note(int n,int id_Annonce){
             System.out.println("erreur lors de l'insertion "+ex.getMessage());
         }
     }
-}
+
+            public String getCommentaire(int id_Annonceur,int id_Annonce) 
+            {
+                 String requete = "select message from Commentaire where(id_Personne="+id_Annonceur+" and id_Annonce="+id_Annonce+" )";
+                 String com="";   
+                 try { 
+                        PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
+                        ResultSet r=ps.executeQuery();
+                        while(r.next()){
+                           com+="<i>"+r.getString(1)+"<i><br>";
+                        }
+                        System.out.println("Jaime c bon"+com);
+                        return com;
+                        
+                    } catch (SQLException ex) {
+                        
+                        System.out.println("erreur get commentaire "+ex.getMessage());
+                    }
+                 return "";
+            }
+
+        }
