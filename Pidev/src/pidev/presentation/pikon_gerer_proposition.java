@@ -6,6 +6,7 @@ package pidev.presentation;
 
 //import com.sun.xml.internal.ws.message.stream.StreamAttachment;
 //import java.util.List;
+import com.sun.org.apache.bcel.internal.generic.Select;
 import java.util.Date;
 import java.util.Properties;
 import javax.mail.Message;
@@ -13,6 +14,8 @@ import javax.mail.MessagingException;
 import javax.mail.Session;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.swing.JOptionPane;
+import org.jdesktop.swingx.JXDatePicker;
 import pidev.dao.PropositionDAO;
 import pidev.entities.Annonce;
 
@@ -314,9 +317,37 @@ public class pikon_gerer_proposition extends javax.swing.JFrame {
     private void BtnvaliderPropositionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnvaliderPropositionActionPerformed
     
        //Annonce a = new Annonce();
+
         
         
         
+        
+        
+        
+       if (("".equals(TFnom.getText()))){
+                  JOptionPane.showMessageDialog(this, "champ nom invalide");}
+                    
+                  else if (CboxTheme.getSelectedItem().toString().length()<2){
+                  JOptionPane.showMessageDialog(this, "champ theme invalide");}
+                   else if (jXDatePicker1.getDate()==null){
+                  JOptionPane.showMessageDialog(this, "date aller obligatoir");}
+                   else if (jXDatePicker2.getDate()==null){
+                  JOptionPane.showMessageDialog(this, "date retour obligatoir");}
+                
+                  
+                  else if ("".equals(TFdepart.getText())){
+                  JOptionPane.showMessageDialog(this.TFdepart, "lieu depart obligatoir");}
+                  
+                   else if ("".equals(TFdestination.getText())){
+                  JOptionPane.showMessageDialog(this.TFdestination, "lieu arrvivé obligatoir");}
+                    else if (CboxTypeHeberg.getSelectedItem().toString().length()<2){
+                  JOptionPane.showMessageDialog(this, "type hebergement  invalide");}
+                   
+                  
+                   
+                   else {
+                  
+
           Annonce a = new Annonce();
         PropositionDAO aDAO = new PropositionDAO();
         
@@ -342,12 +373,12 @@ public class pikon_gerer_proposition extends javax.swing.JFrame {
         
            String azer=""+TFnom.getText()+"\n date aller"+jXDatePicker1.getDate()+"\n date retour"+jXDatePicker2.getDate()+"\n destination"+ TFdestination.getText();
 
-           String[] to ={"eya.bassoum@esprit.tn"};
+           String[] to ={"med.bouaouina89@gmail.com"};
             if(sendMail("mohamed.bouaouina@esprit.tn","nounanom",azer,to)){
             System.out.println("messag sent");
             }
             else 
-            System.out.println("non envoyer");
+            System.out.println("non envoyer");}
       
 
 
