@@ -57,7 +57,8 @@ int ID_max;
        this.pack();
             this.getContentPane().setBackground(new Color(52, 152, 219));
             
-            
+            buttonGroup1.add(jRadio1);
+            buttonGroup1.add(jRadio2);
     }
 
     /**
@@ -70,6 +71,7 @@ int ID_max;
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
         jLabel2 = new javax.swing.JLabel();
         jnom = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -221,8 +223,7 @@ int ID_max;
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel16)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
@@ -256,7 +257,10 @@ int ID_max;
                                     .addComponent(jLabel8)
                                     .addComponent(jLabel9)
                                     .addComponent(jLabel10)
-                                    .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING))))
+                                    .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(82, 82, 82)
+                                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel18)
@@ -413,7 +417,7 @@ int ID_max;
                    d.ajouterPersonne(p.getCin(),p.getNom(), p.getPrenom(), p.getEmail(), p.getTel(), p.getMdp());
                    Chiheb_Inscription_Suite ins= new Chiheb_Inscription_Suite();
                    ins.setVisible(true);
-                   
+                   this.dispose();
                    
                   }
                   }
@@ -458,16 +462,16 @@ public static boolean isValid(String email)
         // TODO add your handling code here:
     }//GEN-LAST:event_jprenomActionPerformed
 
+    private void jRadio1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadio1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadio1ActionPerformed
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         Chiheb_Accueil acc = new Chiheb_Accueil();
         acc.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jRadio1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadio1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadio1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -508,6 +512,7 @@ public static boolean isValid(String email)
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
