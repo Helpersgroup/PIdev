@@ -57,7 +57,8 @@ int ID_max;
        this.pack();
             this.getContentPane().setBackground(new Color(52, 152, 219));
             
-            
+            buttonGroup1.add(jRadio1);
+            buttonGroup1.add(jRadio2);
     }
 
     /**
@@ -70,6 +71,7 @@ int ID_max;
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
         jLabel2 = new javax.swing.JLabel();
         jnom = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -510,6 +512,7 @@ public static boolean isValid(String email)
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
