@@ -107,8 +107,11 @@ public class Evaluation extends javax.swing.JFrame {
         
         String text=jTextArea1.getText();
         e.AjouterCommentaire(text, 36, 49);
+        jTextArea1.setText(text);
+        //jTextArea1.revalidate();
+        this.setVisible(false);
+        new Evaluation().setVisible(true);
         
-        new Evaluation().dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
