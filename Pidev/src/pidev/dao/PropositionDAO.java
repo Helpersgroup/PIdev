@@ -59,7 +59,7 @@ public class PropositionDAO  {
        // List<Annonce> listeannonces = new ArrayList<Annonce>();
                 Annonce annonce =new Annonce();
           
-        String requete = "select * from Annonce where id_Annonce=24";
+        String requete = "select * from Annonce where id_Annonce=23";
         try {
            Statement statement = MyConnection.getInstance()
                    .createStatement();
@@ -108,7 +108,10 @@ public class PropositionDAO  {
       
        public void miseAJourAnnonce(Annonce a){
          
-                    String requete = "UPDATE Annonce SET    Id_Annonceur=?,nom=?,type_Annonce=?,date_Deb=?,date_Fin=?,depart=?,destination=?,description=?,hebergement=?,type_Hebergement=?,transport=?,nbre_adultes=?,nbre_enfants=?,etat=?";
+                    String requete = "UPDATE Annonce SET   "
+                            + " nom=?,type_Annonce=?,date_Deb=?,date_Fin=?,depart=?,"
+                            + "destination=?,description=?,hebergement=?,type_Hebergement=?"
+                            + ",transport=?,nbre_adultes=?,nbre_enfants=?,prix=? where id_Annonce = 23";
         try {
             
             java.util.Date utilDate = a.getDate_deb();  
@@ -129,6 +132,10 @@ public class PropositionDAO  {
                 ps.setString(10,a.getTransport());
                 ps.setInt(11,a.getNbr_adultes());
                 ps.setInt(12,a.getNbr_enfants());
+                                ps.setString(13,a.getPrix());
+
+
+
                 
                 
                 ps.executeUpdate();
@@ -139,6 +146,60 @@ public class PropositionDAO  {
         }
     }
 
+        public Annonce DisplayAnnoncesByIdEtNom (String name){
+
+
+       // List<Annonce> listeannonces = new ArrayList<Annonce>();
+                Annonce annonce =new Annonce();
+          
+        String requete = "select * from Annonce where id_Annonce=23 and nom ="+name;
+        try {
+           Statement statement = MyConnection.getInstance()
+                   .createStatement();
+                           System.out.println("1");
+
+            ResultSet resultat = statement.executeQuery(requete);
+
+            while(resultat.next()){
+                                System.out.println("2");
+
+                System.out.println(resultat.getString(3));
+                
+                annonce.setId_Annonce(resultat.getInt(1));
+                annonce.setId_Annonceur(resultat.getInt(2));
+                annonce.setNom(resultat.getString(3));
+                annonce.setDate_deb(resultat.getDate(4));
+                annonce.setDate_fin(resultat.getDate(5));
+                annonce.setDepart(resultat.getString(6));
+                annonce.setDestination(resultat.getString(7));
+                annonce.setDescription(resultat.getString(8));
+                annonce.setHebergement(resultat.getString(9));
+                annonce.setType_hebergement(resultat.getString(10));
+                annonce.setType_annonce(resultat.getString(11));
+                annonce.setTransport(resultat.getString(12));
+               
+                annonce.setNote(resultat.getInt(13));
+                annonce.setEtat(resultat.getInt(14));
+                annonce.setNbr_enfants(resultat.getInt(15));
+                annonce.setNbr_adultes(resultat.getInt(16));
+                
+//              listannonces.add(annonce);
+           }
+            return annonce;
+        } catch (SQLException ex) {
+           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors du chargement des annonces "+ex.getMessage());
+            return null;
+        }
+    }
+      
+      
+      
+      
+      
+       
+       
+       
     /**
      * Initialization method that will be called after the applet is loaded into
      * the browser.
