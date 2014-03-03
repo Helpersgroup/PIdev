@@ -4,6 +4,8 @@
   <NonVisualComponents>
     <Component class="javax.swing.ButtonGroup" name="buttonGroup1">
     </Component>
+    <Component class="javax.swing.ButtonGroup" name="buttonGroup2">
+    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
@@ -36,9 +38,8 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jLabel17" min="-2" pref="220" max="-2" attributes="0"/>
-                          <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -80,6 +81,10 @@
                                   <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel11" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
+                              <Component id="jLabel17" min="-2" pref="220" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>

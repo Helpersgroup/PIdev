@@ -5,6 +5,7 @@
 package pidev.presentation;
 
 import java.awt.Color;
+import pidev.dao.PersonneDAO;
 import static pidev.presentation.GraphReaderExample.firstname;
 import static pidev.presentation.GraphReaderExample.lastname;
 
@@ -27,7 +28,7 @@ public class Chiheb_Espace_Client extends javax.swing.JFrame {
 //        //System.out.println(""+Chiheb_Authentification.id_connecté_normal);
 //     }
          if (Chiheb_Authentification.connecté==1){
-       jnconnecté.setText(firstname+lastname);
+       jnconnecté.setText(firstname+" "+lastname);
   // jiconnecté1.setText(""+GraphReaderExample.idCC);
         }
     }
@@ -61,6 +62,11 @@ public class Chiheb_Espace_Client extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.setText("Deconnexion");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -70,14 +76,12 @@ public class Chiheb_Espace_Client extends javax.swing.JFrame {
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel3)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jnconnecté)
-                        .addContainerGap(113, Short.MAX_VALUE))))
+                        .addComponent(jnconnecté)))
+                .addContainerGap(113, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -96,6 +100,15 @@ public class Chiheb_Espace_Client extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+ PersonneDAO psd = new PersonneDAO();
+        psd.deconnexion(Chiheb_Authentification.id_connecté_normal);
+        Chiheb_Accueil chacc = new Chiheb_Accueil();
+        chacc.setVisible(true);
+        this.dispose();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

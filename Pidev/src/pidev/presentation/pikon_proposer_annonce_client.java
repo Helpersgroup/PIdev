@@ -5,8 +5,10 @@
 
 package pidev.presentation;
 import javax.swing.JOptionPane;
+import org.jdesktop.swingx.JXDatePicker;
 import pidev.dao.PropositionDAO;
 import pidev.entities.Annonce;
+import java.util.Date;
 /**
  *
  * @author pikon
@@ -182,6 +184,12 @@ public class pikon_proposer_annonce_client extends javax.swing.JFrame {
         jLabel1.setText("Proposer Annonce ");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(220, 10, 230, 29);
+
+        jXDatePicker1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jXDatePicker1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jXDatePicker1);
         jXDatePicker1.setBounds(190, 152, 190, 40);
         getContentPane().add(jXDatePicker2);
@@ -218,6 +226,31 @@ public class pikon_proposer_annonce_client extends javax.swing.JFrame {
 
     private void BtnAjouterAnnonceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAjouterAnnonceActionPerformed
 
+                    if (("".equals(TFnom2.getText()))){
+                  JOptionPane.showMessageDialog(this, "champ nom invalide");}
+                    
+                  else if (CboxTheme.getSelectedItem().toString().length()<2){
+                  JOptionPane.showMessageDialog(this, "champ theme invalide");}
+                    
+                  
+                   else if ( (jXDatePicker1.getDate()==null ) ){
+                  JOptionPane.showMessageDialog(this, "date aller obligatoir");}
+                   else if ( (jXDatePicker2.getDate()==null)){
+                  JOptionPane.showMessageDialog(this, "date retour obligatoir");}
+                
+                  
+                  else if ("".equals(TFdepart.getText())){
+                  JOptionPane.showMessageDialog(this.TFdepart, "lieu depart obligatoir");}
+                  
+                   else if ("".equals(TFdestination.getText())){
+                  JOptionPane.showMessageDialog(this.TFdestination, "lieu arrvivé obligatoir");}
+                    else if (CboxTypeHeberg.getSelectedItem().toString().length()<2){
+                  JOptionPane.showMessageDialog(this, "type hebergement  invalide");}
+                   
+                  
+                   
+                   else {
+
 
         Annonce a = new Annonce();
         PropositionDAO aDAO = new PropositionDAO();
@@ -233,9 +266,9 @@ public class pikon_proposer_annonce_client extends javax.swing.JFrame {
         a.setDestination(TAdesc.getText());
         a.setType_annonce(CboxTypeHeberg.getSelectedItem().toString());
         a.setTransport(CboxTransport.getSelectedItem().toString());
-  
+     
 
-        aDAO.ProposerAnnonce(a);
+        aDAO.ProposerAnnonce(a);}
     }//GEN-LAST:event_BtnAjouterAnnonceActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -255,6 +288,10 @@ public class pikon_proposer_annonce_client extends javax.swing.JFrame {
     private void TFnom2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFnom2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TFnom2ActionPerformed
+
+    private void jXDatePicker1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jXDatePicker1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jXDatePicker1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -299,8 +336,6 @@ public class pikon_proposer_annonce_client extends javax.swing.JFrame {
     private javax.swing.JTextArea TAdesc;
     private javax.swing.JTextField TFdepart;
     private javax.swing.JTextField TFdestination;
-    private javax.swing.JTextField TFnom;
-    private javax.swing.JTextField TFnom1;
     private javax.swing.JTextField TFnom2;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox jComboBox1;

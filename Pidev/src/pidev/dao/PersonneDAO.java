@@ -43,7 +43,7 @@ public class PersonneDAO {
     }
     
     public void deconnexion(int id){
-        String  insertStr="update table personne set etat=0 where id_personne ="+id+"";
+        String  insertStr="update  Personne set etat=0 where id_Personne="+id+"";
          try {
            
        PreparedStatement ps = MyConnection.getInstance().prepareStatement(insertStr);
@@ -128,7 +128,7 @@ public class PersonneDAO {
         return nc;
     }
     public String selectPrenomPersonneByid(int id){
-        String res ="select nom from Personne where id_Personne='"+id+"'";
+        String res ="select prenom from Personne where id_Personne='"+id+"'";
         try {
                            
             PreparedStatement ps = MyConnection.getInstance().prepareStatement(res);
@@ -150,5 +150,19 @@ public class PersonneDAO {
         }
                        
         return pc;
+    }
+
+    public void connexion(int x) {
+        String  insertStr="update  Personne set etat=1 where id_Personne="+x+"";
+         try {
+           
+       PreparedStatement ps = MyConnection.getInstance().prepareStatement(insertStr);
+         ps.executeUpdate();
+         
+           System.out.println("etat modifié");
+        } catch (SQLException ex) {
+           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors de la modification "+ex.getMessage());
+        }
     }
 }

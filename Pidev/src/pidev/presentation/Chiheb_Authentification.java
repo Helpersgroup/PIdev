@@ -27,6 +27,8 @@ import pidev.dao.AdministrateurDAO;
 import pidev.dao.ClientDAO;
 import pidev.dao.PersonneDAO;
 import pidev.dao.ResponsableDAO;
+import static pidev.presentation.GraphReaderExample.firstname;
+import static pidev.presentation.GraphReaderExample.lastname;
 import pidev.util.MyConnection;
 
 /**
@@ -118,14 +120,11 @@ public static int connecté = 0;
             }
         });
 
-        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\chiheb\\Documents\\NetBeansProjects\\pidev\\Pidev\\src\\pidev\\presentation\\facebook_square-128.png")); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-
-        jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\chiheb\\Documents\\NetBeansProjects\\pidev\\Pidev\\src\\pidev\\presentation\\twitter_square-128.png")); // NOI18N
 
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton4.setText("Connexion");
@@ -222,9 +221,11 @@ public static int connecté = 0;
              if(res==x) {
                  connecté=1;
              id_connecté_normal=res;
+             firstname = pd.selectNomPersonneByid(res);
+             lastname = pd.selectPrenomPersonneByid(res);
                 Chiheb_Espace_Responsable esp_res = new Chiheb_Espace_Responsable();
                 esp_res.setVisible(true);
-             
+             pd.connexion(res);
              this.dispose();
              
              }
@@ -232,13 +233,19 @@ public static int connecté = 0;
              {
                  connecté=1;
              id_connecté_normal=cli;
+               firstname = pd.selectNomPersonneByid(cli);
+             lastname = pd.selectPrenomPersonneByid(cli);
+               pd.connexion(cli);
                 Chiheb_Espace_Client esp_cli = new Chiheb_Espace_Client();
                 esp_cli.setVisible(true);
                 this.dispose();
              }
              else if(cli!=x &&res!=x){
                  connecté=1;
-             id_connecté_normal=x; 
+             id_connecté_normal=x;
+               firstname = pd.selectNomPersonneByid(x);
+             lastname = pd.selectPrenomPersonneByid(x);
+               pd.connexion(x);
                 Chiheb_Espace_Admin esp_adm = new Chiheb_Espace_Admin();
                 esp_adm.setVisible(true);
                 this.dispose();

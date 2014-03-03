@@ -10,6 +10,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import pidev.entities.Annonce;
 import pidev.util.MyConnection;
 
@@ -146,13 +148,16 @@ public class PropositionDAO  {
         }
     }
 
+       
+       
+       
         public Annonce DisplayAnnoncesByIdEtNom (String name){
 
 
        // List<Annonce> listeannonces = new ArrayList<Annonce>();
                 Annonce annonce =new Annonce();
           
-        String requete = "select * from Annonce where id_Annonce=23 and nom ="+name;
+        String requete = "select * from Annonce where  nom ="+name;
         try {
            Statement statement = MyConnection.getInstance()
                    .createStatement();
@@ -195,6 +200,38 @@ public class PropositionDAO  {
       
       
       
+        
+        
+        
+        
+        
+         public int  countID (){
+
+
+       // List<Annonce> listeannonces = new ArrayList<Annonce>();
+                Annonce annonce =new Annonce();
+          
+        String requete = "select count(id_Annonce) from Annonce" ;
+      
+           Statement statement;
+        try {
+            statement = MyConnection.getInstance()
+          .createStatement();
+                        ResultSet res= statement.executeQuery(requete);
+                          return res.getInt(0) ;
+
+        } catch (SQLException ex) {
+            Logger.getLogger(PropositionDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+                           System.out.println("1");
+        return 0;
+
+
+            
+  
+           }
+        
+    
       
       
        
