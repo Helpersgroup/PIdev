@@ -250,8 +250,8 @@ public class pikon_proposer_annonce_client extends javax.swing.JFrame {
                   
                    
                    else {
-        
-        
+
+
         Annonce a = new Annonce();
         PropositionDAO aDAO = new PropositionDAO();
         
