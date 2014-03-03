@@ -33,27 +33,13 @@ import pidev.util.MyConnection;
 @SuppressWarnings("deprecation")
 public class GraphReaderExample {
   private final FacebookClient facebookClient;
-private static String firstname;
-private static String lastname;
+public static String firstname;
+public static String lastname;
 public static int idCC;
 
   public static void main(String[] args) {
     new GraphReaderExample("CAAUCUN468CQBAPVh2R1CMZCYhamxHOAVNb4efZAaZBmIGgMY0ruN24IYn9ucHxok2z1n2ZAQGipXpnbCFyqaXdN9iCLmYvLthvWJjeiBb4Rs4RCko7XkZBlyKWi4ZCdLNiXtY89lnuh3kZChzXvfxroW8b2whOzgZBgUIpGz2Og1ASDG5LfvmcKiF1ZBeXuvhYTgrhwUwBYJZCiAZDZD").runEverything();
   }
-public void set_firstname(String x){
-        firstname=x;
-    }
- public String get_firstname()
- {
-     return firstname; 
- } 
- public void set_lasttname(String x){
-        lastname=x;
-    }
- public String get_lasttname()
- {
-     return lastname; 
- }
 
   GraphReaderExample(String accessToken) {
     facebookClient = new DefaultFacebookClient(accessToken);
@@ -104,8 +90,8 @@ public void set_firstname(String x){
             {
          idCC=(resultat.getInt(1));
             }
-              set_firstname(user.getFirstName());
-              set_lasttname(user.getLastName());
+              firstname =user.getFirstName();
+             lastname= user.getLastName();
                String  insertStr3 = "insert into Client (id_Client) values ("+idCC+")"; 
              
             PreparedStatement ps3 = MyConnection.getInstance().prepareStatement(insertStr3);

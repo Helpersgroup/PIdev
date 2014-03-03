@@ -7,6 +7,12 @@ package pidev.presentation;
 //import com.sun.xml.internal.ws.message.stream.StreamAttachment;
 //import java.util.List;
 import java.util.Date;
+import java.util.Properties;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import pidev.dao.PropositionDAO;
 import pidev.entities.Annonce;
 
@@ -22,9 +28,8 @@ public class pikon_gerer_proposition extends javax.swing.JFrame {
     public pikon_gerer_proposition() {
           initComponents();
           this.setLocationRelativeTo(null);
-          this.pack();     
-    
-                affich();
+          this.pack();  
+               affich();
     
     }
 
@@ -324,12 +329,26 @@ public class pikon_gerer_proposition extends javax.swing.JFrame {
         a.setDate_fin(jXDatePicker2.getDate());
         
         a.setDepart(TFdepart.getText());
-        a.setDestination(TAdesc.getText());
-        a.setType_annonce(CboxTypeHeberg.getSelectedItem().toString());
+        a.setDestination(TFdestination.getText());
+        a.setDescription(TAdesc.getText());
+        
+        a.setType_Hebergement(CboxTypeHeberg.getSelectedItem().toString());
         a.setTransport(CboxTransport.getSelectedItem().toString());
+
+        
         a.setPrix(TFprix.getText());
-        System.out.println("ici");
+        
+
         aDAO.miseAJourAnnonce(a);
+        
+           String azer=""+TFnom.getText()+"\n date aller"+jXDatePicker1.getDate()+"\n date retour"+jXDatePicker2.getDate()+"\n destination"+ TFdestination.getText();
+
+           String[] to ={"eya.bassoum@esprit.tn"};
+            if(sendMail("mohamed.bouaouina@esprit.tn","nounanom",azer,to)){
+            System.out.println("messag sent");
+            }
+            else 
+            System.out.println("non envoyer");
       
 
 
@@ -385,18 +404,54 @@ public class pikon_gerer_proposition extends javax.swing.JFrame {
         });
         
     }
-
+public static boolean sendMail(String from,String password,String message,String to[]){
+String host="smtp.gmail.com";
+Properties props=System.getProperties();
+props.put("mail.smtp.starttls.enable","true");
+props.put("mail.smpt.host",host);
+props.put("mail.smtp.user",from);
+props.put("mail.smtp.password",password);
+props.put("mail.smtp.port",587);
+props.put("mail.smtp.auth","true");
+Session session=Session.getDefaultInstance(props,null);
+MimeMessage mime=new MimeMessage(session);
+try{
+mime.setFrom(new InternetAddress(from));
+InternetAddress[] toAddress=new InternetAddress[to.length];
+for(int i=0;i<to.length;i++){
+toAddress[i]=new InternetAddress(to[i]);
+}
+for(int i=0;i<toAddress.length;i++){
+mime.addRecipient(Message.RecipientType.TO,toAddress[i]);
+}
+mime.setSubject("hi ^^");
+mime.setText(message);
+        javax.mail.Transport transport=session.getTransport("smtp");
+transport.connect(host,from,password);
+transport.sendMessage(mime,mime.getAllRecipients());
+transport.close();
+return true;
+}
+catch(MessagingException me){
+	me.printStackTrace();
+}
+return false;
+}
+    
+    
+    
 public  void affich(){
       PropositionDAO aDAO = new PropositionDAO();
                Annonce annonce =aDAO.DisplayAnnoncesById();
                  String   a=annonce.getNom();
+                 TFnom.setText(a) ;
+                 String   w=annonce.getDestination();
+                 TFdestination.setText(w) ;
+                 
+                                 System.out.println(a);
 
-                 TFnom.setText(a);
-
-                 String b=annonce.getType_Hebergement();
-                 System.out.println(b);
-
-                 if (b.equals("Affaire")){
+                 String b=annonce.getType_Annonce();
+                if (b.equals("Affaire")){
 //                    CboxTheme.setSelectedItem(1);}
                     CboxTheme.setSelectedIndex(1);    
                 }
@@ -429,8 +484,7 @@ public  void affich(){
                  
                  String   d=annonce.getDepart();
                  TFdepart.setText(d) ;
-                     String   e=annonce.getDestination();
-                 TFdestination.setText(e) ;
+           
                         String   f=annonce.getDescription();
                  TAdesc.setText(f) ;
                  
@@ -442,31 +496,31 @@ public  void affich(){
                 }
                
                 else if (j.equals("Auberge")){
-                    CboxTypeHeberg.setSelectedIndex(2);   
+                    CboxTypeHeberg.setSelectedIndex(1);   
                 }
                  else if (j.equals("Bungalow")){
-                    CboxTypeHeberg.setSelectedIndex(3);   
+                    CboxTypeHeberg.setSelectedIndex(2);   
                  }
                 else if (j.equals("Hotel 1 etoile")){
-                    CboxTypeHeberg.setSelectedIndex(4);   
+                    CboxTypeHeberg.setSelectedIndex(3);   
                 }
                  else if (j.equals("Hotel 2 etoiles")){
-                    CboxTypeHeberg.setSelectedIndex(5);   
+                    CboxTypeHeberg.setSelectedIndex(4);   
                  }
                 else if (j.equals("Hotel 3 etoiles")){
-                    CboxTypeHeberg.setSelectedIndex(6);   
+                    CboxTypeHeberg.setSelectedIndex(5);   
                 }
                 else if (j.equals("Hotel 4 etoiles")){
-                    CboxTypeHeberg.setSelectedIndex(7);   
+                    CboxTypeHeberg.setSelectedIndex(6);   
                 }
                  else if (j.equals("Hotel 5 etoiles")){
                     CboxTypeHeberg.setSelectedIndex(7);   
                 }
                  else if (j.equals("Residence")){
-                    CboxTypeHeberg.setSelectedIndex(7);   
+                    CboxTypeHeberg.setSelectedIndex(8);   
                 }
                   else if (j.equals("Villa")){
-                    CboxTypeHeberg.setSelectedIndex(7);   
+                    CboxTypeHeberg.setSelectedIndex(9);   
                 }
                 //transport
                  String h=annonce.getTransport();
@@ -486,7 +540,6 @@ public  void affich(){
                  else if (h.equals("VOITURE")){
                     CboxTransport.setSelectedIndex(5);   
                  }
-    
     
 }
 
