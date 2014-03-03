@@ -27,7 +27,7 @@ public class Afficher_Annonce extends javax.swing.JFrame {
         AnnonceDAO dao=new AnnonceDAO();
        
           //  listeannonce=AnnonceDAO.getInstance().
-                     listeannonce=dao.DisplayAllAnnonces();
+                     listeannonce=dao.DisplayAllAnnonce();
        
         Object[][] data={}; //tableau qui va contenir les donnees
         Object[] name={"Nom","Depart","Destination","Date depart","Prix"}; 
