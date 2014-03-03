@@ -239,7 +239,9 @@ public class pikon_proposer_annonce_client extends javax.swing.JFrame {
                    else if ( (jXDatePicker2.getDate()==null)){
                   JOptionPane.showMessageDialog(this, "date retour obligatoir");}
                 
-                  
+                   else if (jXDatePicker2.getDate().before(jXDatePicker1.getDate()) || (jXDatePicker1.getDate().after(jXDatePicker2.getDate()))){
+                  JOptionPane.showMessageDialog(this, "date retour ghalta");}
+                   
                   else if ("".equals(TFdepart.getText())){
                   JOptionPane.showMessageDialog(this.TFdepart, "lieu depart obligatoir");}
                   
