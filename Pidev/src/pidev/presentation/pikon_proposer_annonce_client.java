@@ -266,7 +266,7 @@ public class pikon_proposer_annonce_client extends javax.swing.JFrame {
         a.setDestination(TAdesc.getText());
         a.setType_annonce(CboxTypeHeberg.getSelectedItem().toString());
         a.setTransport(CboxTransport.getSelectedItem().toString());
-  
+     
 
         aDAO.ProposerAnnonce(a);}
     }//GEN-LAST:event_BtnAjouterAnnonceActionPerformed
