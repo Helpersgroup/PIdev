@@ -5,6 +5,8 @@
 package pidev.presentation;
 
 import java.awt.Color;
+import pidev.dao.PersonneDAO;
+import pidev.dao.ResponsableDAO;
 import static pidev.presentation.GraphReaderExample.firstname;
 import static pidev.presentation.GraphReaderExample.lastname;
 
@@ -24,8 +26,9 @@ public class Chiheb_Espace_Responsable extends javax.swing.JFrame {
        this.pack();
         this.getContentPane().setBackground(new Color(52, 152, 219));
     if (Chiheb_Authentification.connecté==1){
-            jnconnecté3.setText(firstname+lastname);
-//        //System.out.println(""+Chiheb_Authentification.id_connecté_normal);
+            jnconnecté3.setText(firstname+" "+lastname);
+//System.out.println(""+Chiheb_Authentification.id_connecté_normal);
+            
      }
  
            
@@ -68,6 +71,11 @@ public class Chiheb_Espace_Responsable extends javax.swing.JFrame {
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton2.setText("Deconnexion");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -112,6 +120,15 @@ public class Chiheb_Espace_Responsable extends javax.swing.JFrame {
         aa.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        PersonneDAO psd = new PersonneDAO();
+        psd.deconnexion(Chiheb_Authentification.id_connecté_normal);
+        Chiheb_Accueil chacc = new Chiheb_Accueil();
+        chacc.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
