@@ -54,7 +54,6 @@ public class Chiheb_Accueil extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(800, 600));
         setResizable(false);
 
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\chiheb\\Documents\\NetBeansProjects\\pidev\\Pidev\\src\\pidev\\presentation\\icon-full-register.png")); // NOI18N
         jButton1.setAlignmentY(0.0F);
         jButton1.setBorderPainted(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -63,7 +62,6 @@ public class Chiheb_Accueil extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\chiheb\\Documents\\NetBeansProjects\\pidev\\Pidev\\src\\pidev\\presentation\\email-icon.png")); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
