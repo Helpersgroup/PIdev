@@ -21,7 +21,9 @@ public class pikon_proposer_annonce_client extends javax.swing.JFrame {
     public pikon_proposer_annonce_client() {
           initComponents();
           this.setLocationRelativeTo(null);
-          this.pack();    }
+          this.pack();   
+    
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -259,15 +261,20 @@ public class pikon_proposer_annonce_client extends javax.swing.JFrame {
         PropositionDAO aDAO = new PropositionDAO();
         
         a.setNom(TFnom2.getText());
-        a.setId_Annonceur(32);
+        a.setId_Annonceur(Chiheb_Authentification.id_connecté_normal);
         a.setType_annonce(CboxTheme.getSelectedItem().toString());
 
 
         a.setDate_deb(jXDatePicker1.getDate());
         a.setDate_fin(jXDatePicker2.getDate());
+        
+        a.setType_Annonce(CboxTheme.getSelectedItem().toString());
+       
         a.setDepart(TFdepart.getText());
-        a.setDestination(TAdesc.getText());
-        a.setType_annonce(CboxTypeHeberg.getSelectedItem().toString());
+        a.setDestination(TFdestination.getText());
+                a.setDescription(TAdesc.getText());
+
+        a.setType_Hebergement(CboxTypeHeberg.getSelectedItem().toString());
         a.setTransport(CboxTransport.getSelectedItem().toString());
      
 
@@ -276,7 +283,7 @@ public class pikon_proposer_annonce_client extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-            new Chiheb_Espace_Client().setVisible(true);
+            new pikon_liste_proposition().setVisible(true);
             //this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 

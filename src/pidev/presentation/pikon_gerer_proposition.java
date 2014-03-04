@@ -19,6 +19,7 @@ import org.jdesktop.swingx.JXDatePicker;
 import pidev.dao.PropositionDAO;
 import pidev.entities.Annonce;
 
+
 /**
  *
  * @author pikon
@@ -117,7 +118,7 @@ public class pikon_gerer_proposition extends javax.swing.JFrame {
             }
         });
 
-        CboxTypeHeberg.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "Auberge", "Bungalow", "Hotel 1 etoile ", "Hotel 2 etoiles ", "Hotel 3 etoiles ", "Hotel 4 etoiles", "Hotel 5 etoiles", "Residence  ", "Villa", " " }));
+        CboxTypeHeberg.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "Auberge", "Bungalow", "Hotel 1 etoile ", "Hotel 2 etoiles ", "Hotel 3 etoiles ", "Hotel 4 etoiles", "Hotel 5 etoiles", "Residence  ", "Villa" }));
         CboxTypeHeberg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CboxTypeHebergActionPerformed(evt);
@@ -311,7 +312,7 @@ public class pikon_gerer_proposition extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        new ResponsableAgence().setVisible(true);
+        new pikon_liste_proposition().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void BtnvaliderPropositionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnvaliderPropositionActionPerformed
@@ -363,14 +364,16 @@ public class pikon_gerer_proposition extends javax.swing.JFrame {
         a.setDepart(TFdepart.getText());
         a.setDestination(TFdestination.getText());
         a.setDescription(TAdesc.getText());
+        
         a.setType_Hebergement(CboxTypeHeberg.getSelectedItem().toString());
         a.setTransport(CboxTransport.getSelectedItem().toString());
 
-        double d=Double.parseDouble(TFprix.getText());
-        a.setPrix((double)d);
         
+        a.setPrix(Double.parseDouble(TFprix.getText()));
+        
+      int oui = Integer.parseInt(pikon_liste_proposition.s);
 
-        aDAO.miseAJourAnnonce(a);
+        aDAO.miseAJourAnnonce(a,oui);
         
            String azer=""+TFnom.getText()+"\n date aller"+jXDatePicker1.getDate()+"\n date retour"+jXDatePicker2.getDate()+"\n destination"+ TFdestination.getText();
 
@@ -380,10 +383,7 @@ public class pikon_gerer_proposition extends javax.swing.JFrame {
             }
             else 
             System.out.println("non envoyer");}
-      
-
-
-        
+   
     }//GEN-LAST:event_BtnvaliderPropositionActionPerformed
 
     private void TFprixActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFprixActionPerformed
@@ -473,7 +473,8 @@ return false;
     
 public  void affich(){
       PropositionDAO aDAO = new PropositionDAO();
-               Annonce annonce =aDAO.DisplayAnnoncesById();
+      int ko = Integer.parseInt(pikon_liste_proposition.s);
+               Annonce annonce =aDAO.DisplayAnnoncesById(ko);
                 System.out.println("lmkmlk");
                  String   a=annonce.getNom();
                  TFnom.setText(a) ;
@@ -519,22 +520,30 @@ public  void affich(){
                         String   f=annonce.getDescription();
                  TAdesc.setText(f) ;
                  
-                 //type hebergement
+                 //type hebergement              
+//Auberge
+//Bungalow
+//Hotel 1 etoile 
+//Hotel 2 etoiles 
+//Hotel 3 etoiles 
+//Hotel 4 etoiles
+//Hotel 5 etoiles
+//Residence  
+//Villa
+
                  String j=annonce.getType_Hebergement();
-                if (j.equals("Affaire")){
-//                    CboxTheme.setSelectedItem(1);}
-                    CboxTypeHeberg.setSelectedIndex(1);    
-                }
-               
-                else if (j.equals("Auberge")){
+                 if (j.equals("Auberge")){
                     CboxTypeHeberg.setSelectedIndex(1);   
                 }
+                  
                  else if (j.equals("Bungalow")){
                     CboxTypeHeberg.setSelectedIndex(2);   
                  }
-                else if (j.equals("Hotel 1 etoile")){
+                  else if (j.equals("Hotel 1 etoile")){
                     CboxTypeHeberg.setSelectedIndex(3);   
-                }
+                 }
+                 
+               
                  else if (j.equals("Hotel 2 etoiles")){
                     CboxTypeHeberg.setSelectedIndex(4);   
                  }
