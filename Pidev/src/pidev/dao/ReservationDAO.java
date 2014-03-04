@@ -133,6 +133,34 @@ public class ReservationDAO {
                 return null;
             }
         }
+public List<Reservation> getMailByID(int id){
+    List<Reservation> listereservations = new ArrayList<Reservation>();
+       
         
+        String requete1 = ("select email from Personne where Id_Client=" + id);
+        try {
+            Statement statement1 = MyConnection.getInstance()
+                    .createStatement();
+            ResultSet resultat1 = statement1.executeQuery(requete1);
+
+            while (resultat1.next()) {
+                //Reservation res = new Reservation(resultat1.getInt(1), resultat1.getInt(2), resultat1.getInt(3), resultat1.getDate(4));
+                Reservation reservation = new Reservation();
+                reservation.setId_Client(resultat1.getInt(1));
+                reservation.setId_Annonce(resultat1.getInt(2));
+                reservation.setEtat(resultat1.getInt(3));
+                reservation.setDate(resultat1.getDate(4));
+                System.out.println("Réservation test: " + reservation.toString());
+                listereservations.add(reservation);
+            }
+            return listereservations;
+        } catch (SQLException ex) {
+            //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors du chargement des annonces " + ex.getMessage());
+            return null;
+        }
+    
+    
+}        
 
     }

@@ -55,6 +55,11 @@ public class pikon_liste_proposition extends javax.swing.JFrame {
         });
 
         jButton1.setText("annuler");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -91,10 +96,14 @@ public class pikon_liste_proposition extends javax.swing.JFrame {
                                            System.out.println(s);
                                             pikon_gerer_proposition aa = new pikon_gerer_proposition();
         aa.setVisible(true);
-        this.dispose();
+        //this.dispose();
 
 // TODO add your handling code here:
     }//GEN-LAST:event_voirActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        new ResponsableAgence().setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
