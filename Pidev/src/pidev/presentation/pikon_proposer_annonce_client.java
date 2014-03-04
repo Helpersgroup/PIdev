@@ -267,9 +267,14 @@ public class pikon_proposer_annonce_client extends javax.swing.JFrame {
 
         a.setDate_deb(jXDatePicker1.getDate());
         a.setDate_fin(jXDatePicker2.getDate());
+        
+        a.setType_Annonce(CboxTheme.getSelectedItem().toString());
+       
         a.setDepart(TFdepart.getText());
-        a.setDestination(TAdesc.getText());
-        a.setType_annonce(CboxTypeHeberg.getSelectedItem().toString());
+        a.setDestination(TFdestination.getText());
+                a.setDescription(TAdesc.getText());
+
+        a.setType_Hebergement(CboxTypeHeberg.getSelectedItem().toString());
         a.setTransport(CboxTransport.getSelectedItem().toString());
      
 
