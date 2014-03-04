@@ -118,7 +118,7 @@ public class pikon_gerer_proposition extends javax.swing.JFrame {
             }
         });
 
-        CboxTypeHeberg.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "Auberge", "Bungalow", "Hotel 1 etoile ", "Hotel 2 etoiles ", "Hotel 3 etoiles ", "Hotel 4 etoiles", "Hotel 5 etoiles", "Residence  ", "Villa", " " }));
+        CboxTypeHeberg.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "Auberge", "Bungalow", "Hotel 1 etoile ", "Hotel 2 etoiles ", "Hotel 3 etoiles ", "Hotel 4 etoiles", "Hotel 5 etoiles", "Residence  ", "Villa" }));
         CboxTypeHeberg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CboxTypeHebergActionPerformed(evt);
@@ -520,17 +520,30 @@ public  void affich(){
                         String   f=annonce.getDescription();
                  TAdesc.setText(f) ;
                  
-                 //type hebergement
+                 //type hebergement              
+//Auberge
+//Bungalow
+//Hotel 1 etoile 
+//Hotel 2 etoiles 
+//Hotel 3 etoiles 
+//Hotel 4 etoiles
+//Hotel 5 etoiles
+//Residence  
+//Villa
+
                  String j=annonce.getType_Hebergement();
                  if (j.equals("Auberge")){
                     CboxTypeHeberg.setSelectedIndex(1);   
                 }
+                  
                  else if (j.equals("Bungalow")){
                     CboxTypeHeberg.setSelectedIndex(2);   
                  }
-                else if (j.equals("Hotel 1 etoile")){
+                  else if (j.equals("Hotel 1 etoile")){
                     CboxTypeHeberg.setSelectedIndex(3);   
-                }
+                 }
+                 
+               
                  else if (j.equals("Hotel 2 etoiles")){
                     CboxTypeHeberg.setSelectedIndex(4);   
                  }

@@ -278,7 +278,7 @@
     <Component class="javax.swing.JComboBox" name="CboxTypeHeberg">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="11">
+          <StringArray count="10">
             <StringItem index="0" value="&#xa0;"/>
             <StringItem index="1" value="Auberge"/>
             <StringItem index="2" value="Bungalow"/>
@@ -289,7 +289,6 @@
             <StringItem index="7" value="Hotel 5 etoiles"/>
             <StringItem index="8" value="Residence  "/>
             <StringItem index="9" value="Villa"/>
-            <StringItem index="10" value=" "/>
           </StringArray>
         </Property>
       </Properties>
