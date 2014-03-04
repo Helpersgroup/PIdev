@@ -109,7 +109,9 @@ public class Evaluation extends javax.swing.JFrame {
         e.AjouterCommentaire(text, 36, 49);
         jTextArea1.setText(text);
         //jTextArea1.revalidate();
-       // e.setModel(jTextArea1);
+        
+       //jTextArea1.set(jTextArea1);
+       
 //this.setVisible(false);
         //new Evaluation().setVisible(true);
         
