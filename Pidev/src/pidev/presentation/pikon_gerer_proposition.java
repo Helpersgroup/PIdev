@@ -522,12 +522,7 @@ public  void affich(){
                  
                  //type hebergement
                  String j=annonce.getType_Hebergement();
-                if (j.equals("Affaire")){
-//                    CboxTheme.setSelectedItem(1);}
-                    CboxTypeHeberg.setSelectedIndex(1);    
-                }
-               
-                else if (j.equals("Auberge")){
+                 if (j.equals("Auberge")){
                     CboxTypeHeberg.setSelectedIndex(1);   
                 }
                  else if (j.equals("Bungalow")){
