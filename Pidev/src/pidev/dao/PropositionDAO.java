@@ -55,13 +55,13 @@ public class PropositionDAO  {
             System.out.println("erreur lors de l'insertion "+ex.getMessage());
         }
     }
-      public Annonce DisplayAnnoncesById (){
+      public Annonce DisplayAnnoncesById (int m){
 
 
        // List<Annonce> listeannonces = new ArrayList<Annonce>();
                 Annonce annonce =new Annonce();
           
-        String requete = "select * from Annonce where id_Annonce=23";
+        String requete = "select * from Annonce where id_Annonce="+m;
         try {
            Statement statement = MyConnection.getInstance()
                    .createStatement();
@@ -108,12 +108,12 @@ public class PropositionDAO  {
       
       
       
-       public void miseAJourAnnonce(Annonce a){
+       public void miseAJourAnnonce(Annonce a,int b){
          
                     String requete = "UPDATE Annonce SET   "
                             + " nom=?,type_Annonce=?,date_Deb=?,date_Fin=?,depart=?,"
                             + "destination=?,description=?,hebergement=?,type_Hebergement=?"
-                            + ",transport=?,nbre_adultes=?,nbre_enfants=?,prix=? where id_Annonce = 23";
+                            + ",transport=?,nbre_adultes=?,nbre_enfants=?,prix=?,etat=? where id_Annonce ="+b;
         try {
             
             java.util.Date utilDate = a.getDate_deb();  
@@ -135,7 +135,7 @@ public class PropositionDAO  {
                 ps.setInt(11,a.getNbr_adultes());
                 ps.setInt(12,a.getNbr_enfants());
                                 ps.setString(13,a.getPrix());
-
+ps.setInt(14, 1);
 
 
                 
@@ -151,14 +151,15 @@ public class PropositionDAO  {
        
        
        
-        public Annonce DisplayAnnoncesByIdEtNom (String name){
+        public List<Annonce> DisplayAnnoncesByIdEtNom (String name,int id){
 
 
-       // List<Annonce> listeannonces = new ArrayList<Annonce>();
-                Annonce annonce =new Annonce();
+       List<Annonce> listeannonces = new ArrayList<Annonce>();
           
-        String requete = "select * from Annonce where  nom ="+name;
+        String requete = "select * from Annonce where etat=0 ";
         try {
+            
+            
            Statement statement = MyConnection.getInstance()
                    .createStatement();
                            System.out.println("1");
@@ -166,6 +167,9 @@ public class PropositionDAO  {
             ResultSet resultat = statement.executeQuery(requete);
 
             while(resultat.next()){
+                                Annonce annonce =new Annonce();
+
+                
                                 System.out.println("2");
 
                 System.out.println(resultat.getString(3));
@@ -188,9 +192,9 @@ public class PropositionDAO  {
                 annonce.setNbr_enfants(resultat.getInt(15));
                 annonce.setNbr_adultes(resultat.getInt(16));
                 
-//              listannonces.add(annonce);
+              listeannonces.add(annonce);
            }
-            return annonce;
+            return listeannonces;
         } catch (SQLException ex) {
            //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("erreur lors du chargement des annonces "+ex.getMessage());
@@ -205,32 +209,7 @@ public class PropositionDAO  {
         
         
         
-         public int  countID (){
-
-
-       // List<Annonce> listeannonces = new ArrayList<Annonce>();
-                Annonce annonce =new Annonce();
-          
-        String requete = "select count(id_Annonce) from Annonce" ;
-      
-           Statement statement;
-        try {
-            statement = MyConnection.getInstance()
-          .createStatement();
-                        ResultSet res= statement.executeQuery(requete);
-                          return res.getInt(0) ;
-
-        } catch (SQLException ex) {
-            Logger.getLogger(PropositionDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-                           System.out.println("1");
-        return 0;
-
-
-            
-  
-           }
-        
+         
     
       
       

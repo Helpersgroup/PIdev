@@ -19,6 +19,7 @@ import org.jdesktop.swingx.JXDatePicker;
 import pidev.dao.PropositionDAO;
 import pidev.entities.Annonce;
 
+
 /**
  *
  * @author pikon
@@ -370,8 +371,9 @@ public class pikon_gerer_proposition extends javax.swing.JFrame {
         
         a.setPrix(TFprix.getText());
         
+      int oui = Integer.parseInt(pikon_liste_proposition.s);
 
-        aDAO.miseAJourAnnonce(a);
+        aDAO.miseAJourAnnonce(a,oui);
         
            String azer=""+TFnom.getText()+"\n date aller"+jXDatePicker1.getDate()+"\n date retour"+jXDatePicker2.getDate()+"\n destination"+ TFdestination.getText();
 
@@ -474,7 +476,8 @@ return false;
     
 public  void affich(){
       PropositionDAO aDAO = new PropositionDAO();
-               Annonce annonce =aDAO.DisplayAnnoncesById();
+      int ko = Integer.parseInt(pikon_liste_proposition.s);
+               Annonce annonce =aDAO.DisplayAnnoncesById(ko);
                 System.out.println("lmkmlk");
                  String   a=annonce.getNom();
                  TFnom.setText(a) ;

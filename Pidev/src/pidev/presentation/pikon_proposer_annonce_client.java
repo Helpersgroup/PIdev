@@ -21,7 +21,9 @@ public class pikon_proposer_annonce_client extends javax.swing.JFrame {
     public pikon_proposer_annonce_client() {
           initComponents();
           this.setLocationRelativeTo(null);
-          this.pack();    }
+          this.pack();   
+    
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -259,7 +261,7 @@ public class pikon_proposer_annonce_client extends javax.swing.JFrame {
         PropositionDAO aDAO = new PropositionDAO();
         
         a.setNom(TFnom2.getText());
-        a.setId_Annonceur(32);
+        a.setId_Annonceur(Chiheb_Authentification.id_connecté_normal);
         a.setType_annonce(CboxTheme.getSelectedItem().toString());
 
 

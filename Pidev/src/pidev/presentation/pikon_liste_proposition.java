@@ -21,27 +21,12 @@ public class pikon_liste_proposition extends javax.swing.JFrame {
             initComponents();
           this.setLocationRelativeTo(null);
           this.pack();        
-int i;
 
-Annonce a = new Annonce();
-        PropositionDAO aDAO = new PropositionDAO();
-        int b =aDAO.countID();
-                               System.out.println(b+"wéwé");
 
     
     }   
     
-//
-//for (i=1; i<10 ; i++) {
-//   System.out.println(i);}
-//   
-//}        
-////                PropositionDAO aDAO = new PropositionDAO();
-////               Annonce annonce =aDAO.DisplayAnnoncesById();
-////                System.out.println("lmkmlk");
-////                 String   a=annonce.getNom();
-////                 TFnom.setText(a) ;
-//    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -52,28 +37,74 @@ Annonce a = new Annonce();
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        voir = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jTable1.setModel(new berrassmi());
+        jScrollPane1.setViewportView(jTable1);
+
+        voir.setText("afficher");
+        voir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                voirActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("annuler");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(voir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 42, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 303, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 25, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(voir)
+                .addGap(69, 69, 69)
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    public static String s;
+    private void voirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voirActionPerformed
+ int ligneSelectionne = jTable1.getSelectedRow();
+         s=(String)jTable1.getValueAt(ligneSelectionne,1).toString();
+
+                                           System.out.println(s);
+                                            pikon_gerer_proposition aa = new pikon_gerer_proposition();
+        aa.setVisible(true);
+        this.dispose();
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_voirActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        
+       
+
+//<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
@@ -106,6 +137,8 @@ Annonce a = new Annonce();
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JButton voir;
     // End of variables declaration//GEN-END:variables
 }
