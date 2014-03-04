@@ -22,8 +22,6 @@ public class pikon_liste_proposition extends javax.swing.JFrame {
           this.setLocationRelativeTo(null);
           this.pack();        
 
-
-    
     }   
     
 

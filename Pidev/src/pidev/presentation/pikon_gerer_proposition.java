@@ -383,10 +383,7 @@ public class pikon_gerer_proposition extends javax.swing.JFrame {
             }
             else 
             System.out.println("non envoyer");}
-      
-
-
-        
+   
     }//GEN-LAST:event_BtnvaliderPropositionActionPerformed
 
     private void TFprixActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFprixActionPerformed
