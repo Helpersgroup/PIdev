@@ -76,6 +76,8 @@ String y="";
         jSpinner2 = new javax.swing.JSpinner();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
+        TfPrix = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Avion", "Camping-Car", "Bus", "Micro-Bus ", "Mini-Bus", "Voiture", " ", " " }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -85,7 +87,7 @@ String y="";
         });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(700, 700));
+        setPreferredSize(new java.awt.Dimension(800, 800));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -207,7 +209,7 @@ String y="";
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(470, 650, 90, 23);
+        jButton1.setBounds(380, 720, 90, 23);
 
         BtnAjouterAnnonce.setText("Ajouter ");
         BtnAjouterAnnonce.addActionListener(new java.awt.event.ActionListener() {
@@ -216,7 +218,7 @@ String y="";
             }
         });
         getContentPane().add(BtnAjouterAnnonce);
-        BtnAjouterAnnonce.setBounds(360, 650, 90, 23);
+        BtnAjouterAnnonce.setBounds(270, 720, 90, 23);
 
         CboxTransport.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "AVION", "BUS ", "MACRO-BUS", "MINI-BUS", "VOITURE" }));
         getContentPane().add(CboxTransport);
@@ -243,17 +245,17 @@ String y="";
         getContentPane().add(TfHebergement);
         TfHebergement.setBounds(560, 510, 140, 30);
         getContentPane().add(jXDateRetour);
-        jXDateRetour.setBounds(260, 310, 111, 22);
+        jXDateRetour.setBounds(240, 310, 130, 22);
         getContentPane().add(JXDateDepart);
-        JXDateDepart.setBounds(260, 280, 111, 22);
+        JXDateDepart.setBounds(240, 280, 130, 22);
 
         jSpinner1.setModel(new javax.swing.SpinnerNumberModel(1, 1, 10, 1));
         getContentPane().add(jSpinner1);
-        jSpinner1.setBounds(240, 600, 90, 20);
+        jSpinner1.setBounds(240, 600, 90, 18);
 
         jSpinner2.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10, 1));
         getContentPane().add(jSpinner2);
-        jSpinner2.setBounds(490, 600, 100, 20);
+        jSpinner2.setBounds(490, 600, 100, 18);
 
         jLabel15.setText("Nombre Enfants ");
         getContentPane().add(jLabel15);
@@ -262,6 +264,12 @@ String y="";
         jLabel16.setText("Nombre Adultes");
         getContentPane().add(jLabel16);
         jLabel16.setBounds(150, 600, 90, 20);
+        getContentPane().add(TfPrix);
+        TfPrix.setBounds(250, 640, 90, 30);
+
+        jLabel13.setText("Budget");
+        getContentPane().add(jLabel13);
+        jLabel13.setBounds(110, 650, 40, 14);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -284,7 +292,7 @@ String y="";
 
     private void BtnAjouterAnnonceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAjouterAnnonceActionPerformed
         JOptionPane d = new JOptionPane();
-
+int id =Chiheb_Authentification.id_connecté_normal;
         Annonce a = new Annonce();
         AnnonceDAO aDAO = new AnnonceDAO();
         a.setNom(TFnom.getText());
@@ -300,7 +308,11 @@ String y="";
         a.setNbr_adultes (Integer.parseInt(jSpinner1.getValue().toString()));
         a.setNbr_enfants(Integer.parseInt(jSpinner2.getValue().toString()));
 
-      //  aDAO.InsertAnnonce(a);
+         if(aDAO.InsertAnnonce(a,id))
+             System.out.println("bien");
+         else 
+             System.out.println("insertion non effectuée");
+                   
     }//GEN-LAST:event_BtnAjouterAnnonceActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -365,12 +377,14 @@ String y="";
     private javax.swing.JTextField TFdestination;
     private javax.swing.JTextField TFnom;
     private javax.swing.JTextField TfHebergement;
+    private javax.swing.JTextField TfPrix;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;

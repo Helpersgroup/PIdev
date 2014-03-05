@@ -17,24 +17,76 @@ import pidev.util.MyConnection;
  *
  * @author chiheb
  */
-public class AjouterAnnonce_Responsable1 extends javax.swing.JFrame {
+public class ModifierAnnonce_Responsable extends javax.swing.JFrame {
 int x=0;
 String y="";
     /**
-     * Creates new form AjouterAnnonce_Responsable
+     * Creates new form ModifierAnnonce_Responsable
      */
-    public AjouterAnnonce_Responsable1() {
+    public ModifierAnnonce_Responsable() {
         
         initComponents();
          
         this.setLocationRelativeTo(null);
         this.pack();
         AgenceDAO agd = new AgenceDAO();
-     x=    agd.selectIdAgence(Chiheb_Authentification.id_connecté_normal);
+     x=agd.selectIdAgence(Chiheb_Authentification.id_connecté_normal);
         System.out.println(x);
         y=agd.selectNomAgence(x);
     jLabel12.setText(""+y);
+    
+   // récupération de données    
+               AnnonceDAO aDAO =new AnnonceDAO();
+             //  int id =Chiheb_Authentification.id_connecté_normal;
+                Annonce a= aDAO.selectAnnonce(23);
+
+                if(a.getNom() != null) {
+                    TFnom.setText(a.getNom());
+                 } 
+                
+                 if(a.getTransport() != null) {
+            CboxTransport.setSelectedItem(a.getTransport().toString());
+        }
+                 
+                 if (a.getHebergement() != null) {
+            TfHebergement.setText(a.getHebergement());
+        }
+                
+                 if(a.getType_Hebergement() != null) {
+            CboxTypeHeberg.setSelectedItem(a.getType_Hebergement().toString());
+        }
+                   
+                 if(a.getDepart() != null) {
+            TFdepart.setText(a.getDepart());
+        }
+                 
+                 if(a.getDepart() != null) {
+            TFdestination.setText(a.getDestination());
+        }
+                 
+                 if(a.getType_Hebergement() != null) {
+            TfHebergement.setText(a.getHebergement());
+        }
+                 
+                 if(a.getDate_Deb() != null) {
+            JXDateDepart.setDate(a.getDate_Deb());
+        }
+                 
+                 if(a.getDate_Fin() != null) {
+            jXDateRetour.setDate(a.getDate_Fin());
+        }
+                
+                 if(a.getType_Annonce() != null) {
+            CboxTheme.setSelectedItem(a.getType_Annonce().toString());
+        }
+                  
+                if(a.getDescription() != null) {
+            TAdesc.setText(a.getDescription());
+        }
+                
+    
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -76,8 +128,8 @@ String y="";
         jSpinner2 = new javax.swing.JSpinner();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        TfPrix = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
+        tfPrix = new javax.swing.JTextField();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Avion", "Camping-Car", "Bus", "Micro-Bus ", "Mini-Bus", "Voiture", " ", " " }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -87,6 +139,8 @@ String y="";
         });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(800, 800));
+        setPreferredSize(new java.awt.Dimension(700, 700));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -94,55 +148,55 @@ String y="";
         jLabel2.setForeground(new java.awt.Color(44, 62, 80));
         jLabel2.setText("Date Depart ");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(80, 280, 110, 17);
+        jLabel2.setBounds(80, 170, 110, 17);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(44, 62, 80));
         jLabel4.setText("Nom ");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(80, 190, 60, 17);
+        jLabel4.setBounds(80, 80, 60, 17);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(44, 62, 80));
         jLabel5.setText("Date Retour ");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(80, 310, 100, 17);
+        jLabel5.setBounds(80, 200, 100, 17);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(44, 62, 80));
         jLabel6.setText("Depart ");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(80, 350, 70, 17);
+        jLabel6.setBounds(80, 240, 70, 17);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(44, 62, 80));
         jLabel7.setText("Type Hebergement ");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(80, 510, 150, 17);
+        jLabel7.setBounds(80, 400, 150, 17);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(44, 62, 80));
         jLabel8.setText("Destination ");
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(80, 400, 100, 17);
+        jLabel8.setBounds(80, 290, 100, 17);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(44, 62, 80));
         jLabel9.setText("Description");
         getContentPane().add(jLabel9);
-        jLabel9.setBounds(80, 450, 100, 17);
+        jLabel9.setBounds(80, 340, 100, 17);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(44, 62, 80));
         jLabel10.setText("Transport ");
         getContentPane().add(jLabel10);
-        jLabel10.setBounds(80, 550, 100, 17);
+        jLabel10.setBounds(80, 440, 100, 17);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(44, 62, 80));
         jLabel11.setText("Thème");
         getContentPane().add(jLabel11);
-        jLabel11.setBounds(80, 240, 120, 17);
+        jLabel11.setBounds(80, 130, 120, 17);
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
@@ -152,7 +206,7 @@ String y="";
         jScrollPane1.setViewportView(TAdesc);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(240, 430, 190, 60);
+        jScrollPane1.setBounds(240, 320, 190, 60);
 
         TFdepart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -160,7 +214,7 @@ String y="";
             }
         });
         getContentPane().add(TFdepart);
-        TFdepart.setBounds(240, 350, 190, 30);
+        TFdepart.setBounds(240, 240, 190, 30);
 
         CboxTypeHeberg.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "Auberge", "Bungalow", "Hotel 1 etoile ", "Hotel 2 etoiles ", "Hotel 3 etoiles ", "Hotel 4 etoiles", "Hotel 5 etoiles", "Residence  ", "Villa", " " }));
         CboxTypeHeberg.addActionListener(new java.awt.event.ActionListener() {
@@ -169,7 +223,7 @@ String y="";
             }
         });
         getContentPane().add(CboxTypeHeberg);
-        CboxTypeHeberg.setBounds(240, 510, 190, 30);
+        CboxTypeHeberg.setBounds(240, 400, 190, 30);
 
         CboxTheme.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "Affaire", "Bien etre", "Camping", "Excursion", "Randonnée", "Voyage de découverte ", "Voyage de noce ", " " }));
         CboxTheme.addActionListener(new java.awt.event.ActionListener() {
@@ -178,7 +232,7 @@ String y="";
             }
         });
         getContentPane().add(CboxTheme);
-        CboxTheme.setBounds(240, 230, 190, 30);
+        CboxTheme.setBounds(240, 120, 190, 30);
 
         TFdestination.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -186,7 +240,7 @@ String y="";
             }
         });
         getContentPane().add(TFdestination);
-        TFdestination.setBounds(240, 390, 190, 30);
+        TFdestination.setBounds(240, 280, 190, 30);
 
         TFnom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -194,7 +248,7 @@ String y="";
             }
         });
         getContentPane().add(TFnom);
-        TFnom.setBounds(240, 190, 190, 30);
+        TFnom.setBounds(240, 80, 190, 30);
 
         jButton1.setText("Annuler");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -208,7 +262,7 @@ String y="";
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(380, 720, 90, 23);
+        jButton1.setBounds(320, 610, 90, 23);
 
         BtnAjouterAnnonce.setText("Ajouter ");
         BtnAjouterAnnonce.addActionListener(new java.awt.event.ActionListener() {
@@ -217,58 +271,65 @@ String y="";
             }
         });
         getContentPane().add(BtnAjouterAnnonce);
-        BtnAjouterAnnonce.setBounds(270, 720, 90, 23);
+        BtnAjouterAnnonce.setBounds(210, 610, 90, 23);
 
         CboxTransport.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "AVION", "BUS ", "MACRO-BUS", "MINI-BUS", "VOITURE" }));
         getContentPane().add(CboxTransport);
-        CboxTransport.setBounds(240, 550, 190, 30);
+        CboxTransport.setBounds(240, 440, 190, 30);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("Ajouter Annonce ");
+        jLabel1.setText("Modifier Annonce ");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(240, 120, 230, 29);
+        jLabel1.setBounds(260, 20, 230, 29);
 
         jLabel3.setText("le nom du responsable");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(520, 120, 130, 14);
+        jLabel3.setBounds(540, 20, 130, 14);
 
         jLabel12.setText("le nom de l'agence");
         getContentPane().add(jLabel12);
-        jLabel12.setBounds(30, 120, 130, 14);
+        jLabel12.setBounds(50, 20, 130, 14);
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(44, 62, 80));
         jLabel14.setText("Hebergement");
         getContentPane().add(jLabel14);
-        jLabel14.setBounds(450, 510, 110, 20);
+        jLabel14.setBounds(450, 400, 110, 20);
         getContentPane().add(TfHebergement);
-        TfHebergement.setBounds(560, 510, 140, 30);
+        TfHebergement.setBounds(560, 400, 140, 30);
         getContentPane().add(jXDateRetour);
-        jXDateRetour.setBounds(240, 310, 130, 22);
+        jXDateRetour.setBounds(240, 200, 190, 30);
         getContentPane().add(JXDateDepart);
-        JXDateDepart.setBounds(240, 280, 130, 22);
+        JXDateDepart.setBounds(240, 162, 190, 30);
 
         jSpinner1.setModel(new javax.swing.SpinnerNumberModel(1, 1, 10, 1));
         getContentPane().add(jSpinner1);
-        jSpinner1.setBounds(240, 600, 90, 20);
+        jSpinner1.setBounds(240, 490, 90, 18);
 
         jSpinner2.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10, 1));
         getContentPane().add(jSpinner2);
-        jSpinner2.setBounds(490, 600, 100, 20);
+        jSpinner2.setBounds(490, 490, 100, 18);
 
         jLabel15.setText("Nombre Enfants ");
         getContentPane().add(jLabel15);
-        jLabel15.setBounds(380, 600, 100, 20);
+        jLabel15.setBounds(380, 490, 100, 20);
 
         jLabel16.setText("Nombre Adultes");
         getContentPane().add(jLabel16);
-        jLabel16.setBounds(150, 600, 90, 20);
-        getContentPane().add(TfPrix);
-        TfPrix.setBounds(250, 640, 90, 30);
+        jLabel16.setBounds(150, 490, 90, 20);
 
-        jLabel13.setText("Budget");
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel13.setText("prix");
         getContentPane().add(jLabel13);
-        jLabel13.setBounds(110, 650, 40, 14);
+        jLabel13.setBounds(90, 530, 100, 30);
+
+        tfPrix.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfPrixActionPerformed(evt);
+            }
+        });
+        getContentPane().add(tfPrix);
+        tfPrix.setBounds(240, 530, 80, 30);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -291,7 +352,7 @@ String y="";
 
     private void BtnAjouterAnnonceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAjouterAnnonceActionPerformed
         JOptionPane d = new JOptionPane();
-int id =Chiheb_Authentification.id_connecté_normal;
+
         Annonce a = new Annonce();
         AnnonceDAO aDAO = new AnnonceDAO();
         a.setNom(TFnom.getText());
@@ -306,12 +367,12 @@ int id =Chiheb_Authentification.id_connecté_normal;
         a.setTransport(CboxTransport.getSelectedItem().toString());
         a.setNbr_adultes (Integer.parseInt(jSpinner1.getValue().toString()));
         a.setNbr_enfants(Integer.parseInt(jSpinner2.getValue().toString()));
+        a.setPrix (Integer.parseInt(tfPrix.getText()));
 
-         if(aDAO.InsertAnnonce(a,id))
-             System.out.println("bien");
-         else 
-             System.out.println("insertion non effectuée");
-                   
+      if (aDAO.modifierAnnonce(a))
+              System.out.println("modification effectuée ");
+      else
+            System.out.println("modification non effectuée ");
     }//GEN-LAST:event_BtnAjouterAnnonceActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -331,6 +392,10 @@ int id =Chiheb_Authentification.id_connecté_normal;
         RA.setVisible(true);
     }//GEN-LAST:event_jButton1MouseClicked
 
+    private void tfPrixActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPrixActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfPrixActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -348,20 +413,20 @@ int id =Chiheb_Authentification.id_connecté_normal;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AjouterAnnonce_Responsable1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModifierAnnonce_Responsable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AjouterAnnonce_Responsable1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModifierAnnonce_Responsable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AjouterAnnonce_Responsable1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModifierAnnonce_Responsable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AjouterAnnonce_Responsable1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModifierAnnonce_Responsable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AjouterAnnonce_Responsable1().setVisible(true);
+               new ModifierAnnonce_Responsable().setVisible(true);
             }
         });
     }
@@ -376,7 +441,6 @@ int id =Chiheb_Authentification.id_connecté_normal;
     private javax.swing.JTextField TFdestination;
     private javax.swing.JTextField TFnom;
     private javax.swing.JTextField TfHebergement;
-    private javax.swing.JTextField TfPrix;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
@@ -399,5 +463,6 @@ int id =Chiheb_Authentification.id_connecté_normal;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JSpinner jSpinner2;
     private org.jdesktop.swingx.JXDatePicker jXDateRetour;
+    private javax.swing.JTextField tfPrix;
     // End of variables declaration//GEN-END:variables
 }

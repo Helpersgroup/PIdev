@@ -188,41 +188,47 @@ public class AnnonceDAO {
             return null;
         }
     }
-//   public selectAnnonce (Annonce ann){
-//      
-//       
-//       String requete = "select * from Annonce where id_Annonce="+id;
-//        
-//        try {
-//           Statement statement = MyConnection.getInstance().createStatement();
-//            ResultSet resultat = statement.executeQuery(requete);
-//                    while(resultat.next()){
-//                         
-//                ann.setId_Annonce(resultat.getInt(1));
-//                ann.setId_Annonceur(resultat.getInt(2));
-//                ann.setNom(resultat.getString(3));
-//                ann.setDate_deb(resultat.getDate(4));
-//                ann.setDate_fin(resultat.getDate(5));
-//                ann.setDepart(resultat.getString(6));
-//                ann.setDestination(resultat.getString(7));
-//                ann.setDestination(resultat.getString(8));
-//                ann.setType_Hebergement(resultat.getString(9));
-//                ann.setHebergement(resultat.getString(10));
-//                ann.setType_annonce(resultat.getString(11));
-//                ann.setEtat(resultat.getInt(14));
-//                ann.setNbr_enfants(resultat.getInt(15));
-//                ann.setNbr_adultes(resultat.getInt(16));
-//                ann.setPrix(resultat.getInt(17));
-//               
-//            return a; 
-//                    }
-//        } catch (SQLException ex) {
-//           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
-//            System.out.println("erreur lors du chargement des stocks "+ex.getMessage());
-//            return null;
-//                
-//
-//                    }
+   public Annonce selectAnnonce ( int id ){
+      
+       
+       String requete = "select * from Annonce where id_Annonce="+id;
+        
+        try {
+           Statement statement = MyConnection.getInstance().createStatement();
+            ResultSet resultat = statement.executeQuery(requete);
+            Annonce ann = new Annonce();
+                    while(resultat.next()){
+                      
+
+                            ann.setId_Annonce(resultat.getInt(1));
+                            ann.setId_Annonceur(resultat.getInt(2));
+                            ann.setNom(resultat.getString(3));
+                            ann.setDate_deb(resultat.getDate(4));
+                            ann.setDate_fin(resultat.getDate(5));
+                            ann.setDepart(resultat.getString(6));
+                            ann.setDestination(resultat.getString(7));
+                            ann.setDestination(resultat.getString(8));
+                            ann.setType_Hebergement(resultat.getString(9));
+                            ann.setHebergement(resultat.getString(10));
+                            ann.setType_annonce(resultat.getString(11));
+                            
+                            ann.setEtat(resultat.getInt(14));
+                            ann.setNbr_enfants(resultat.getInt(15));
+                            ann.setNbr_adultes(resultat.getInt(16));
+                            ann.setPrix(resultat.getInt(17));
+
+             
+                    }
+        
+                    return ann;
+        } catch (SQLException ex) {
+           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors du chargement des stocks "+ex.getMessage());
+            return null;
+                
+
+                    }
+   }
 }
 //    public List<Annonce> DisplayAllAnnonces (){
 //
