@@ -42,7 +42,7 @@ public class pikon_liste_proposition extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable1.setModel(new berrassmi());
+        jTable1.setModel(new ListeReservation());
         jScrollPane1.setViewportView(jTable1);
 
         voir.setText("afficher");

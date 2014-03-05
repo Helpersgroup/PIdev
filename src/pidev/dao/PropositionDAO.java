@@ -134,7 +134,7 @@ public class PropositionDAO  {
                 ps.setString(10,a.getTransport());
                 ps.setInt(11,a.getNbr_adultes());
                 ps.setInt(12,a.getNbr_enfants());
-                                ps.setDouble(13,a.getPrix());
+                ps.setDouble(13,a.getPrix());
 ps.setInt(14, 1);
 
 

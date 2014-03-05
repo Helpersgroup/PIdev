@@ -16,13 +16,13 @@ import pidev.entities.Annonce;
  *
  * @author pikon
  */
-public class berrassmi extends AbstractTableModel {
+public class ListeReservation extends AbstractTableModel {
 
     PropositionDAO  r = new PropositionDAO();
     List<Annonce> listeAnnonces = r.DisplayAnnoncesByIdEtNom("azzouzz i7Eb achouek" ,23);
     String[] columTab = {"nom","id"};
 
-    public berrassmi() {
+    public ListeReservation() {
 //ReservationDAO r = new ReservationDAO();
 //List<Annonce> listeAnnonces = r.DisplayAnnonceByReservation();
     }

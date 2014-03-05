@@ -283,7 +283,7 @@ public class pikon_proposer_annonce_client extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-            new pikon_liste_proposition().setVisible(true);
+            new Chiheb_Espace_Client().dispose();
             //this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 

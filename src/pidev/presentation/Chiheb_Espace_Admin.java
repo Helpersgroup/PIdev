@@ -79,7 +79,7 @@ public class Chiheb_Espace_Admin extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jnconnecté2)))
-                .addContainerGap(126, Short.MAX_VALUE))
+                .addContainerGap(424, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -91,7 +91,7 @@ public class Chiheb_Espace_Admin extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jnconnecté2))
-                .addContainerGap(254, Short.MAX_VALUE))
+                .addContainerGap(390, Short.MAX_VALUE))
         );
 
         pack();
