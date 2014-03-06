@@ -65,7 +65,7 @@ public class pikon_proposer_annonce_client extends javax.swing.JFrame {
             }
         });
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(600, 600));
         getContentPane().setLayout(null);
 
@@ -142,7 +142,7 @@ public class pikon_proposer_annonce_client extends javax.swing.JFrame {
             }
         });
         getContentPane().add(CboxTypeHeberg);
-        CboxTypeHeberg.setBounds(190, 400, 130, 22);
+        CboxTypeHeberg.setBounds(190, 400, 130, 20);
 
         CboxTheme.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "Affaire", "Bien etre", "Camping", "Excursion", "Randonnée", "Voyage de découverte ", "Voyage de noce ", " " }));
         CboxTheme.addActionListener(new java.awt.event.ActionListener() {
@@ -181,7 +181,7 @@ public class pikon_proposer_annonce_client extends javax.swing.JFrame {
 
         CboxTransport.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "AVION", "BUS ", "MACRO-BUS", "MINI-BUS", "VOITURE" }));
         getContentPane().add(CboxTransport);
-        CboxTransport.setBounds(190, 440, 130, 22);
+        CboxTransport.setBounds(190, 440, 130, 20);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Proposer Annonce ");

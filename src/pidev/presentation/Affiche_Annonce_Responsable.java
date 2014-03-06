@@ -16,11 +16,16 @@ import pidev.entities.Annonce;
  * @author Eya
  */
 public class Affiche_Annonce_Responsable extends AbstractTableModel{
-     List <Annonce> annonces ;
-     String [] columTab = {"Nom","theme","Destination","Date depart","Date de retour"};
+     public List <Annonce> annonces ;
+     String [] columTab = {"id","Nom","theme","Destination","Date depart","Date de retour"};
+     AnnonceDAO aDAO = new AnnonceDAO();
      public Affiche_Annonce_Responsable(){
-         AnnonceDAO aDAO = new AnnonceDAO();
-         annonces=aDAO.DisplayAllAnnonce();
+         System.out.println("---");
+     }
+  public Affiche_Annonce_Responsable(int id_Responsable){
+         
+         annonces=aDAO.DisplayAllAnnonceResp(id_Responsable);
+        
      }
      
      
@@ -39,11 +44,12 @@ public class Affiche_Annonce_Responsable extends AbstractTableModel{
     public Object getValueAt(int rowIndex, int columnIndex) {
         switch(columnIndex)
        {
-          case 0 : return annonces.get(rowIndex).getNom();
-          case 1 : return annonces.get(rowIndex).getType_Annonce();
-          case 2 : return annonces.get(rowIndex).getDestination();
-          case 3 : return annonces.get(rowIndex).getDate_deb();
-          case 4 : return annonces.get(rowIndex).getDate_fin();
+          case 0 : return annonces.get(rowIndex).getId_Annonce();
+          case 1 : return annonces.get(rowIndex).getNom();
+          case 2 : return annonces.get(rowIndex).getType_Annonce();
+          case 3 : return annonces.get(rowIndex).getDestination();
+          case 4 : return annonces.get(rowIndex).getDate_deb();
+          case 5 : return annonces.get(rowIndex).getDate_fin();
           default: return null;
        }
     

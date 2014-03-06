@@ -18,15 +18,24 @@ import pidev.util.MyConnection;
  * @author chiheb
  */
 public class ModifierAnnonce_Responsable extends javax.swing.JFrame {
-int x=0;
-String y="";
-    /**
+        int x=0;
+        String y="";
+        static int id;
+//int id ;    
+/**
      * Creates new form ModifierAnnonce_Responsable
      */
-    public ModifierAnnonce_Responsable() {
+        public int getId(){
+            return id;
+        }
+        public void setId(int i){
+            id=i;
+        }
+        
+    public ModifierAnnonce_Responsable(int id) {
         
         initComponents();
-         
+         this.setId(id);
         this.setLocationRelativeTo(null);
         this.pack();
         AgenceDAO agd = new AgenceDAO();
@@ -38,7 +47,8 @@ String y="";
    // récupération de données    
                AnnonceDAO aDAO =new AnnonceDAO();
              //  int id =Chiheb_Authentification.id_connecté_normal;
-                Annonce a= aDAO.selectAnnonce(23);
+               
+                Annonce a= aDAO.selectAnnonce(id);
 
                 if(a.getNom() != null) {
                     TFnom.setText(a.getNom());
@@ -115,7 +125,7 @@ String y="";
         TFdestination = new javax.swing.JTextField();
         TFnom = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        BtnAjouterAnnonce = new javax.swing.JButton();
+        BtnModifierA = new javax.swing.JButton();
         CboxTransport = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -264,14 +274,14 @@ String y="";
         getContentPane().add(jButton1);
         jButton1.setBounds(320, 610, 90, 23);
 
-        BtnAjouterAnnonce.setText("Ajouter ");
-        BtnAjouterAnnonce.addActionListener(new java.awt.event.ActionListener() {
+        BtnModifierA.setText("Modifier");
+        BtnModifierA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnAjouterAnnonceActionPerformed(evt);
+                BtnModifierAActionPerformed(evt);
             }
         });
-        getContentPane().add(BtnAjouterAnnonce);
-        BtnAjouterAnnonce.setBounds(210, 610, 90, 23);
+        getContentPane().add(BtnModifierA);
+        BtnModifierA.setBounds(210, 610, 90, 23);
 
         CboxTransport.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "AVION", "BUS ", "MACRO-BUS", "MINI-BUS", "VOITURE" }));
         getContentPane().add(CboxTransport);
@@ -304,11 +314,11 @@ String y="";
 
         jSpinner1.setModel(new javax.swing.SpinnerNumberModel(1, 1, 10, 1));
         getContentPane().add(jSpinner1);
-        jSpinner1.setBounds(240, 490, 90, 18);
+        jSpinner1.setBounds(240, 490, 90, 20);
 
         jSpinner2.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10, 1));
         getContentPane().add(jSpinner2);
-        jSpinner2.setBounds(490, 490, 100, 18);
+        jSpinner2.setBounds(490, 490, 100, 20);
 
         jLabel15.setText("Nombre Enfants ");
         getContentPane().add(jLabel15);
@@ -350,7 +360,7 @@ String y="";
         // TODO add your handling code here:
     }//GEN-LAST:event_TFnomActionPerformed
 
-    private void BtnAjouterAnnonceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAjouterAnnonceActionPerformed
+    private void BtnModifierAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnModifierAActionPerformed
         JOptionPane d = new JOptionPane();
 
         Annonce a = new Annonce();
@@ -368,14 +378,18 @@ String y="";
         a.setNbr_adultes (Integer.parseInt(jSpinner1.getValue().toString()));
         a.setNbr_enfants(Integer.parseInt(jSpinner2.getValue().toString()));
         a.setPrix (Integer.parseInt(tfPrix.getText()));
+    int id = Chiheb_Authentification.id_connecté_normal;
 
-      if (aDAO.modifierAnnonce(a))
+      if (aDAO.modifierAnnonce(id))
               System.out.println("modification effectuée ");
       else
             System.out.println("modification non effectuée ");
-    }//GEN-LAST:event_BtnAjouterAnnonceActionPerformed
+    }//GEN-LAST:event_BtnModifierAActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    AfficherAnnonceResponsable AAR = new AfficherAnnonceResponsable();
+    AAR.setVisible(true);
+    this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
@@ -426,12 +440,12 @@ String y="";
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-               new ModifierAnnonce_Responsable().setVisible(true);
+               new ModifierAnnonce_Responsable(id).setVisible(true);
             }
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnAjouterAnnonce;
+    private javax.swing.JButton BtnModifierA;
     private javax.swing.JComboBox CboxTheme;
     private javax.swing.JComboBox CboxTransport;
     private javax.swing.JComboBox CboxTypeHeberg;
