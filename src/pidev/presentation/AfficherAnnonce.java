@@ -23,7 +23,7 @@ import pidev.entities.Annonce;
  */
 public class AfficherAnnonce extends AbstractTableModel{
 
-List <Annonce> annonce;
+public List <Annonce> annonce;
 String [] columTab = {"Nom","Depart","Destination","Date depart","Prix"};
     public AfficherAnnonce() {
         AnnonceDAO annonceDAO = new AnnonceDAO();

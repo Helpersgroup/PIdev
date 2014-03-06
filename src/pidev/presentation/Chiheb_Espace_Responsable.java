@@ -178,7 +178,6 @@ public class Chiheb_Espace_Responsable extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-
         new AjouterAnnonce_Responsable().setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem4ActionPerformed
@@ -195,9 +194,9 @@ public class Chiheb_Espace_Responsable extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
-        
-         
-        // TODO add your handling code here:
+ AfficherAnnonceResponsable aar = new AfficherAnnonceResponsable();
+ aar.setVisible(true);
+ this.dispose();
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
     /**

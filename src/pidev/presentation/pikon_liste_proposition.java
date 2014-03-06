@@ -3,6 +3,7 @@
  * and open the template in the editor.
  */
 package pidev.presentation;
+
 import java.util.List;
 import pidev.dao.PropositionDAO;
 import pidev.dao.ReservationDAO;
@@ -18,13 +19,11 @@ public class pikon_liste_proposition extends javax.swing.JFrame {
      * Creates new form pikon_liste_proposition
      */
     public pikon_liste_proposition() {
-            initComponents();
-          this.setLocationRelativeTo(null);
-          this.pack();        
+        initComponents();
+        this.setLocationRelativeTo(null);
+        this.pack();
 
-    }   
-    
-
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -88,11 +87,11 @@ public class pikon_liste_proposition extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     public static String s;
     private void voirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voirActionPerformed
- int ligneSelectionne = jTable1.getSelectedRow();
-         s=(String)jTable1.getValueAt(ligneSelectionne,1).toString();
+        int ligneSelectionne = jTable1.getSelectedRow();
+        s = (String) jTable1.getValueAt(ligneSelectionne, 1).toString();
 
-                                           System.out.println(s);
-                                            pikon_gerer_proposition aa = new pikon_gerer_proposition();
+        System.out.println(s);
+        pikon_liste_proposition aa = new pikon_liste_proposition();
         aa.setVisible(true);
         //this.dispose();
 
@@ -108,8 +107,8 @@ public class pikon_liste_proposition extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-        
-       
+
+
 
 //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -137,7 +136,7 @@ public class pikon_liste_proposition extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-               
+
                 new pikon_liste_proposition().setVisible(true);
             }
         });
