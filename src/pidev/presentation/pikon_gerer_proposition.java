@@ -19,11 +19,6 @@ import org.jdesktop.swingx.JXDatePicker;
 import pidev.dao.PropositionDAO;
 import pidev.entities.Annonce;
 
-
-/**
- *
- * @author pikon
- */
 public class pikon_gerer_proposition extends javax.swing.JFrame {
 
     /**

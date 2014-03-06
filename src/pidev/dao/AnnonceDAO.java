@@ -229,51 +229,43 @@ public class AnnonceDAO {
 
                     }
    }
+
+    public List<Annonce> Annonce_Recherche(String by,String contnu) {
+
+
+        List<Annonce> listeAnnonce = new ArrayList<Annonce>();
+        String requete = "select * from Annonce where "+by+" like "+contnu;
+
+        try {
+            Statement statement = MyConnection.getInstance().createStatement();
+            ResultSet resultat = statement.executeQuery(requete);
+            while (resultat.next()) {
+                Annonce a = new Annonce();
+
+
+                //  a.setId_Annonce(resultat.getInt(1));
+                //  a.setId_Annonceur(resultat.getInt(2));
+
+                a.setNom(resultat.getString(3));
+                a.setDate_deb(resultat.getDate(4));
+                a.setDate_fin(resultat.getDate(5));
+                // a.setDepart(resultat.getString(6));
+                a.setDestination(resultat.getString(7));
+                a.setType_annonce(resultat.getString(11));
+                //a.setEtat(resultat.getInt(14));
+                //a.setNbr_enfants(resultat.getInt(15));
+                //a.setNbr_adultes(resultat.getInt(16));
+                //a.setPrix(resultat.getInt(17));
+                listeAnnonce.add(a);
+            }
+            return listeAnnonce;
+        } catch (SQLException ex) {
+            //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors du chargement des stocks " + ex.getMessage());
+            return null;
+        }
+    }
+
+
 }
-//    public List<Annonce> DisplayAllAnnonces (){
-//
-//
-//        List<Annonce> listeannonces = new ArrayList<Annonce>();
-//
-//        String requete = "select * from annonce";
-//        try {
-//           Statement statement = MyConnection.getInstance()
-//                   .createStatement();
-//            ResultSet resultat = statement.executeQuery(requete);
-//
-//            while(resultat.next()){
-//                Annonce annonce =new Annonce();
-//                annonce.setId_Annonce(resultat.getInt(1));
-//                annonce.setId_Annonceur(resultat.getInt(2));
-//                annonce.setNom(resultat.getString(3));
-//                annonce.setDate_deb(resultat.getDate(4));
-//                annonce.setDate_fin(resultat.getDate(5));
-//                annonce.setDepart(resultat.getString(6));
-//                annonce.setDestination(resultat.getString(7));
-//                annonce.setDescription(resultat.getString(8));
-//                annonce.setHebergement(resultat.getString(9));
-//                annonce.setType_hebergement(resultat.getString(10));
-//                annonce.setType_annonce(resultat.getString(11));
-//                annonce.setTransport(resultat.getString(12));
-//                annonce.setNote(resultat.getInt(13));
-//                annonce.setEtat(resultat.getInt(14));
-//                annonce.setNbr_enfants(resultat.getInt(15));
-//                annonce.setNbr_adultes(resultat.getInt(16));
-//               
-//                
-//                
-//
-//                listeannonces.add(annonce);
-//            }
-//            return listeannonces;
-//        } catch (SQLException ex) {
-//           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
-//            System.out.println("erreur lors du chargement des annonces "+ex.getMessage());
-//            return null;
-//        }
-//    }
-//import sun.org.mozilla.javascript.internal.ObjToIntMap;
-/**
- *
- * @author Eya
- */
+
