@@ -9,20 +9,22 @@ package pidev.entities;
  * @author Eya
  */
 public class Personne {
-       private String cin;
-       private String nom;
-       private String prenom;
+       String cin;
+       String nom;
+       String prenom;
        
-       private String email;
+       String email;
 
 
-       private int tel;
+       int tel;
        private int etat;
        private long id_RS;
-       private String mdp;
+       String mdp;
        
       int Id_Personne;
+     public Personne (){
 
+}
           public int getTel() {
         return tel;
     }

@@ -8,7 +8,7 @@ package pidev.entities;
  *
  * @author Eya
  */
-public class Agence {
+ public class Agence {
 
 
     
@@ -18,6 +18,11 @@ public class Agence {
   private  String ville;
   
   
+    public Agence(){
+       super();
+
+    }
+    
   public Agence(String a,String b,int c,String d){
       
       
@@ -26,6 +31,8 @@ public class Agence {
       this.telephone = c;
       this.ville = d;
   }
+
+  
       public String getNom() {
         return nom;
     }
@@ -57,4 +64,6 @@ public class Agence {
     public void setVille(String ville) {
         this.ville = ville;
     }  
+
+   
 }

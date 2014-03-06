@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package pidev.presentation;
 
 //import com.sun.xml.internal.ws.message.stream.StreamAttachment;
