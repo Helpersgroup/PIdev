@@ -6,6 +6,7 @@
 
 package pidev.presentation;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 import pidev.dao.EvalDAO;
@@ -18,8 +19,8 @@ import pidev.entities.Evaluer;
  * @author unknown
  */
 public class evaluer extends AbstractTableModel{
-        List<Evaluer> eval ;
-        String columTab [] = {"nom","Message","date"};
+        List<Evaluer> evals=new ArrayList<Evaluer>() ;
+        String columTab [] = {"nom","Message"};
         EvalDAO evaldao=new EvalDAO();
 
     /**
@@ -27,11 +28,11 @@ public class evaluer extends AbstractTableModel{
      */
     public evaluer(int i) 
         {   
-           eval = evaldao.getCommentaire(i);
+           evals = evaldao.getCommentaire(i);
         }
   @Override
     public int getRowCount() {
-        return eval.size();
+        return evals.size();
     }
   @Override
     public int getColumnCount() {
@@ -51,8 +52,8 @@ public class evaluer extends AbstractTableModel{
      switch(columnIndex)
      {
          
-         case 0 : return eval.get(rowIndex).getNom();
-         case 1 : return eval.get(rowIndex).getMessage();
+         case 0 : return evals.get(rowIndex).getNom();
+         case 1 : return evals.get(rowIndex).getMessage();
          //case 2 : return eval.get(rowIndex).get
          
             

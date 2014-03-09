@@ -25,12 +25,13 @@ public static   EvalDAO   evalDAO=null;
     
     public void AjouterCommentaire(String msg,int id_Personne,int id_Annonce){
 
-         String requete = "insert into Commentaire (id_Annonce,id_Personne,message) values (?,?,?)";
+         String requete = "insert into Commentaire (id_Personne,id_Annonce,message) values (?,?,?)";
         try { 
             PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
-            ps.setInt(1, id_Annonce);
-            ps.setInt(2, id_Personne);
+            ps.setInt(1, id_Personne);
+            ps.setInt(2, id_Annonce);
             ps.setString(3,msg);
+            System.out.println(requete);
             ps.executeUpdate();
             System.out.println("insertion c bon");
         } catch (SQLException ex) {
@@ -54,16 +55,17 @@ public static   EvalDAO   evalDAO=null;
     }
 public void jaime(int id_Personne,int id_Annonce){
 
-         String requete = "insert into Jaime (id_Annonce,id_Personne) values (?,?)";
+         String requete = "insert into Jaime (id_Personne,id_Annonce) values (?,?)";
         try { 
             PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
-            ps.setInt(1, id_Annonce);
-            ps.setInt(2, id_Personne);
+            ps.setInt(2, id_Annonce);
+            ps.setInt(1, id_Personne);
+            System.out.println(requete);
             ps.executeUpdate();
             System.out.println("Jaime c bon");
         } catch (SQLException ex) {
            
-            System.out.println("erreur lors de l'insertion "+ex.getMessage());
+            System.out.println("erreur lors de l'insertionn "+ex.getMessage());
         }
     }
 
@@ -158,6 +160,26 @@ public void note(int n,int id_Annonce){
                     }
                  return 0;
             }
+     
+      public int getNbJaime(int id_Annonce) 
+            {
+                 String requete = "select count(id_Annonce) from Jaime where id_Annonce="+id_Annonce;
+                 Evaluer e=new Evaluer();
+                 int nb=0;
+                 try { 
+                        PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
+                        ResultSet r=ps.executeQuery();
+                        while(r.next()){
+                           nb=r.getInt(1); 
+                        }
+                        return nb;
+                        
+                    } catch (SQLException ex) {
+                        
+                        System.out.println("erreur get nb signal "+ex.getMessage());
+                    }
+                    return 0;
+            }
           public List<Annonce> getAnnonce_signaler() 
             {
                 List<Annonce> annonces = new ArrayList<Annonce>();
@@ -183,7 +205,28 @@ public void note(int n,int id_Annonce){
                     }
                  return null;
             }
-                         
+  public boolean getIfJaime(int id_Annonce,int id_Annonceur) 
+            {
+                 String requete = "select count(id_Jaime) from Jaime where id_Annonce="+id_Annonce+" and id_Personne="+id_Annonceur;
+                 Evaluer e=new Evaluer();
+                 int nb=0;
+                 try { 
+                        PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
+                        ResultSet r=ps.executeQuery();
+                        while(r.next()){
+                           nb=r.getInt(1);
+                        }
+                        if(nb==1)
+                            return true;
+                        else
+                            return false;
+                        
+                    } catch (SQLException ex) {
+                        
+                        System.out.println("erreur get nb signal "+ex.getMessage());
+                    }
+                    return false;
+            }                        
             
 
         }

@@ -30,8 +30,8 @@ public class Annonce {
     private String  type_Hebergement;
     private String  type_Annonce ;
     private double  prix ;
-        private String  theme ;
-        private int nbre_signal;
+    private String  theme ;
+    private int nbre_signal;
 
     
 
@@ -40,7 +40,7 @@ public class Annonce {
     }
 
     public void setType_annonce(String type_annonce) {
-        this.setType_Annonce(type_annonce);
+       this.type_Annonce=type_annonce;
     }
 
     public String getTransport() {
@@ -56,7 +56,7 @@ public class Annonce {
     }
 
     public void setType_hebergement(String type_hebergement) {
-        this.setType_Hebergement(type_hebergement);
+        this.type_Hebergement=type_hebergement;
     }
 
 

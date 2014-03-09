@@ -140,13 +140,12 @@ public class AnnonceDAO {
         List<Annonce> listeAnnonce = new ArrayList<Annonce>();
         
         String requete = "select * from Annonce where etat=1 limit "+min+","+max;
-        System.out.println(requete);
+        //System.out.println(requete);
         try {
             Statement statement = MyConnection.getInstance().createStatement();
             ResultSet resultat = statement.executeQuery(requete);
             while (resultat.next()) {
                 Annonce a = new Annonce();
-
 
                 a.setId_Annonce(resultat.getInt(1));
                 a.setId_Annonceur(resultat.getInt(2));
@@ -464,18 +463,18 @@ public List<Annonce> DisplayAllAnnonce() {
         List<Annonce> listeAnnonce = new ArrayList<Annonce>();
         if(contenu.equals(""))
         {
-             requete = "SELECT id_Annonce,nom, destination,type_Annonce ,date_deb, date_fin "
+             requete = "SELECT id_Annonce,nom, destination,depart ,date_deb, prix "
                      + "FROM Annonce WHERE id_Annonceur="+id_Responsable;
         }else{
-                 requete = "SELECT id_Annonce,nom, destination,type_Annonce ,date_deb, date_fin"
+                 requete = "SELECT id_Annonce,nom, destination,type_Annonce ,date_deb, prix"
                          + " FROM Annonce WHERE "
-                        + "(nom LIKE '"+contenu+"' "
-                        + "or type_Annonce like '"+contenu+"' "
-                        + "or description like '"+contenu+"' "
-                        + "or type_Hebergement like '"+contenu+"' "
-                        + "or hebergement like '"+contenu+"' "
-                        + "or destination like '"+contenu+"' "
-                        + "or depart like '"+contenu+"') "
+                        + "(nom LIKE '%"+contenu+"%' "
+                        + "or upper(type_Annonce) like upper('%"+contenu+"%') "
+                        + "or upper(description) like upper('%"+contenu+"%') "
+                        + "or upper(type_Hebergement) like upper('%"+contenu+"%') "
+                        + "or upper(hebergement) like upper('%"+contenu+"%') "
+                        + "or upper(destination) like upper('%"+contenu+"%') "
+                        + "or upper(depart) like upper('%"+contenu+"%')) "
                         + "and id_Annonceur="+id_Responsable+"";
         }
         try {
@@ -486,18 +485,19 @@ public List<Annonce> DisplayAllAnnonce() {
 
 
                 a.setId_Annonce(resultat.getInt(1));
-                //a.setId_Annonceur(resultat.getInt(2));
+                //  a.setId_Annonceur(resultat.getInt(2));
 
                 a.setNom(resultat.getString(2));
-                a.setDate_deb(resultat.getDate(5));
-                a.setDate_fin(resultat.getDate(6));
-                //a.setDepart(resultat.getString(4));
                 a.setDestination(resultat.getString(3));
-                a.setType_annonce(resultat.getString(4));
+                a.setDepart(resultat.getString(4));
+                a.setDate_deb(resultat.getDate(5));
+                //a.setDate_fin(resultat.getDate(6));
+                 
+                //a.setType_annonce(resultat.getString(4));
                 //a.setEtat(resultat.getInt(14));
                 //a.setNbr_enfants(resultat.getInt(15));
                 //a.setNbr_adultes(resultat.getInt(16));
-                //a.setPrix(resultat.getInt(17));
+                a.setPrix(resultat.getInt(6));
                 listeAnnonce.add(a);
             }
             return listeAnnonce;
@@ -513,18 +513,18 @@ public List<Annonce> rech_annonce(String contenu) {
         List<Annonce> listeAnnonce = new ArrayList<Annonce>();
         if(contenu.equals(""))
         {
-             requete = "SELECT id_Annonce,nom, destination,type_Annonce ,date_deb, date_fin "
+             requete = "SELECT id_Annonce,nom, depart,destination ,date_deb, prix "
                      + "FROM Annonce WHERE etat=1";
         }else{
-                 requete = "SELECT id_Annonce,nom, destination,type_Annonce ,date_deb, date_fin"
+                 requete = "SELECT id_Annonce,nom, destination,type_Annonce ,date_deb, prix"
                          + " FROM Annonce WHERE "
-                        + "(nom LIKE '"+contenu+"' "
-                        + "or type_Annonce like '"+contenu+"' "
-                        + "or description like '"+contenu+"' "
-                        + "or type_Hebergement like '"+contenu+"' "
-                        + "or hebergement like '"+contenu+"' "
-                        + "or destination like '"+contenu+"' "
-                        + "or depart like '"+contenu+"') "
+                        + "(UPPER(nom) LIKE upper('%"+contenu+"%') "
+                        + "or UPPER(type_Annonce) like upper('%"+contenu+"%') "
+                        + "or UPPER(description) like upper('%"+contenu+"%') "
+                        + "or upper(type_Hebergement) like upper('%"+contenu+"%') "
+                        + "or upper(hebergement) like upper('%"+contenu+"%') "
+                        + "or upper(destination) like upper('%"+contenu+"%') "
+                        + "or upper(depart) like upper('%"+contenu+"%')) "
                         + "and etat=1";
         }
         try {
@@ -535,18 +535,19 @@ public List<Annonce> rech_annonce(String contenu) {
 
 
                 a.setId_Annonce(resultat.getInt(1));
-                //a.setId_Annonceur(resultat.getInt(2));
+                //  a.setId_Annonceur(resultat.getInt(2));
 
                 a.setNom(resultat.getString(2));
+                a.setDestination(resultat.getString(4));
+                a.setDepart(resultat.getString(3));
                 a.setDate_deb(resultat.getDate(5));
-                a.setDate_fin(resultat.getDate(6));
-                //a.setDepart(resultat.getString(4));
-                a.setDestination(resultat.getString(3));
-                a.setType_annonce(resultat.getString(4));
+                //a.setDate_fin(resultat.getDate(6));
+                 
+                //a.setType_annonce(resultat.getString(4));
                 //a.setEtat(resultat.getInt(14));
                 //a.setNbr_enfants(resultat.getInt(15));
                 //a.setNbr_adultes(resultat.getInt(16));
-                //a.setPrix(resultat.getInt(17));
+                a.setPrix(resultat.getInt(6));
                 listeAnnonce.add(a);
             }
             return listeAnnonce;
@@ -560,7 +561,7 @@ public List<Annonce> rech_annonce(String contenu) {
 
 
         List<Annonce> listeAnnonce = new ArrayList<Annonce>();
-        String requete = "select id_Annonce,nom, destination,type_Annonce ,date_deb, date_fin  from Annonce where id_Annonceur=" + id_Responsable + "";
+        String requete = "select id_Annonce,nom, destination,depart ,date_deb, prix  from Annonce where id_Annonceur=" + id_Responsable + "";
 
         try {
             Statement statement = MyConnection.getInstance().createStatement();
@@ -573,15 +574,16 @@ public List<Annonce> rech_annonce(String contenu) {
                 //  a.setId_Annonceur(resultat.getInt(2));
 
                 a.setNom(resultat.getString(2));
-                a.setDate_deb(resultat.getDate(5));
-                a.setDate_fin(resultat.getDate(6));
-                // a.setDepart(resultat.getString(6));
                 a.setDestination(resultat.getString(3));
-                a.setType_annonce(resultat.getString(4));
+                a.setDepart(resultat.getString(4));
+                a.setDate_deb(resultat.getDate(5));
+                //a.setDate_fin(resultat.getDate(6));
+                 
+                //a.setType_annonce(resultat.getString(4));
                 //a.setEtat(resultat.getInt(14));
                 //a.setNbr_enfants(resultat.getInt(15));
                 //a.setNbr_adultes(resultat.getInt(16));
-                //a.setPrix(resultat.getInt(17));
+                a.setPrix(resultat.getInt(6));
                 listeAnnonce.add(a);
             }
             return listeAnnonce;
@@ -603,7 +605,7 @@ public List<Annonce> rech_annonce(String contenu) {
             Annonce ann = new Annonce();
             while (resultat.next()) {
 
-
+                
                 ann.setId_Annonce(resultat.getInt(1));
                 ann.setId_Annonceur(resultat.getInt(2));
                 ann.setNom(resultat.getString(3));
@@ -615,7 +617,7 @@ public List<Annonce> rech_annonce(String contenu) {
                 ann.setDescription(resultat.getString(8));
                 ann.setType_Hebergement(resultat.getString(10));
                 ann.setType_annonce(resultat.getString(11));
-               
+                ann.setTransport(resultat.getString(12));
                 ann.setEtat(resultat.getInt(14));
                 ann.setNbr_enfants(resultat.getInt(15));
                 ann.setNbr_adultes(resultat.getInt(16));
