@@ -5,6 +5,8 @@
 package pidev.presentation;
 
 import java.awt.Color;
+import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.showMessageDialog;
 import pidev.dao.AnnonceDAO;
 import pidev.dao.PersonneDAO;
 import pidev.dao.ResponsableDAO;
@@ -262,17 +264,20 @@ static int id_Responsable =Chiheb_Authentification.id_connecté_normal;
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jBtnModifierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnModifierActionPerformed
-        int ligneSelectionne = jTable1.getSelectedRow();
-        int id = Integer.parseInt(jTable1.getValueAt(ligneSelectionne, 0).toString());
+         int ligneSelectionne = jTable1.getSelectedRow();
+        int ligneSelectionne_tab2 = jTable2.getSelectedRow();
+         if(ligneSelectionne!=-1){
+               int id = Integer.parseInt(jTable1.getValueAt(ligneSelectionne, 0).toString());
+                new Detail_annonce((id)).setVisible(true);
+         }else if(ligneSelectionne_tab2!=-1){
+               int id = Integer.parseInt(jTable2.getValueAt(ligneSelectionne, 0).toString());
+                new Detail_annonce((id)).setVisible(true);
+         }
+         else{ 
+                   showMessageDialog(this, "Rien n'est selectionner", "Attention", JOptionPane.INFORMATION_MESSAGE);
 
-        System.out.println("on va effectuer la modification ");
-        new ModifierAnnonce_Responsable(id).setVisible(true);
-        //        if (aDAO.modifierAnnonce(id)) {
-            //            System.out.println("mod effectuée");
-            //            jTable1.setModel(new Affiche_Annonce_Responsable());
-            //        } else {
-            //            System.out.println("mod nn effectuée");
-            //        }
+         }
+  
     }//GEN-LAST:event_jBtnModifierActionPerformed
 
     private void btnSuppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuppActionPerformed

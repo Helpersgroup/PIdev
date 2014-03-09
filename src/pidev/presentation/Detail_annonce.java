@@ -105,18 +105,20 @@ public class Detail_annonce extends javax.swing.JFrame {
 
         //transport
        t= annonce.getTransport();
-        if (t.equals("AVION")) {
-            LabTrans.setText(t);
-        } else if (t.equals("BUS")) {
-            LabTrans.setText(t);
-        } else if (t.equals("MACRO-BUS")) {
-            LabTrans.setText(t);
-        } else if (t.equals("MINI-BUS")) {
-            LabTrans.setText(t);
-        } else if (t.equals("VOITURE")) {
-            LabTrans.setText(t);
+        if(t.equals(null))
+        {
+            if (t.equals("AVION")) {
+                LabTrans.setText(t);
+            } else if (t.equals("BUS")) {
+                LabTrans.setText(t);
+            } else if (t.equals("MACRO-BUS")) {
+                LabTrans.setText(t);
+            } else if (t.equals("MINI-BUS")) {
+                LabTrans.setText(t);
+            } else if (t.equals("VOITURE")) {
+                LabTrans.setText(t);
+            }
         }
-
 
 
     }
