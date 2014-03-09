@@ -15,11 +15,11 @@ package pidev.entities;
    private String nom;
    private String adresse;
    private int telephone;
-  private  String ville;
+   private  String ville;
   
   
     public Agence(){
-       super();
+       
 
     }
     

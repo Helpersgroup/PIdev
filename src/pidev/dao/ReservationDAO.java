@@ -13,11 +13,13 @@ import java.util.ArrayList;
 import java.util.List;
 import pidev.entities.Annonce;
 import pidev.entities.Reservation;
+import pidev.presentation.Chiheb_Authentification;
 import pidev.presentation.GraphReaderExample;
 import pidev.presentation.fiche_reservation;
 import pidev.util.*;
 
 public class ReservationDAO {
+static int id_CC =Chiheb_Authentification.id_connecté_normal; 
 
     public List<Reservation> DisplayReservationByClient(int id) {
 
@@ -25,7 +27,7 @@ public class ReservationDAO {
         List<Reservation> listereservations = new ArrayList<Reservation>();
         //int idml=36;
        // idml = GraphReaderExample.idCC;
-        String requete1 = ("select * from reservation where Id_Client=" + id);
+        String requete1 = ("select * from reservation R,Annonce A where A.id_Annonce=R.id_Annonce and R.id_Client="+id);
         try {
             Statement statement1 = MyConnection.getInstance()
                     .createStatement();
@@ -38,7 +40,7 @@ public class ReservationDAO {
                 reservation.setId_Annonce(resultat1.getInt(2));
                 reservation.setEtat(resultat1.getInt(3));
                 reservation.setDate(resultat1.getDate(4));
-                System.out.println("Réservation test: " + reservation.toString());
+                reservation.setNomAnnonce(resultat1.getString(7));
                 listereservations.add(reservation);
             }
             return listereservations;
@@ -49,39 +51,23 @@ public class ReservationDAO {
         }
     }
 
-    public List<Annonce> DisplayAnnonceByReservation() {
+    public List<Reservation> DisplayReservationbyAnnonce(int id_Annonce) {
 
-        List<Reservation> l = DisplayReservationByClient(36);
+        List<Reservation> listeannonces1 = new ArrayList<Reservation>();
         
-        List<Annonce> listeannonces1 = new ArrayList<Annonce>();
-        for (Reservation r : l) {
-            System.out.println("testing: " + r.getId_Annonce());
-            String requete2 = ("select nom from Annonce where Id_Annonce=" + r.getId_Annonce());
+            String requete2 = ("select * from reservation R,Annonce A,Client C where C.id_Client=R.id_Client and A.id_Annonce="+id_Annonce);
+            
             try {
                 Statement statement = MyConnection.getInstance().createStatement();
                 ResultSet resultat = statement.executeQuery(requete2);
 
                 while (resultat.next()) {
-                    Annonce annonce1 = new Annonce();
-                    System.out.println(resultat.getString(1));
-                    annonce1.setNom(resultat.getString(1));
-//                    annonce1.setId_Annonce(resultat1.getInt(1));
-//                    annonce1.setId_Annonceur(resultat1.getInt(2));
-//                    annonce1.setNom(resultat1.getString(3));
-//                    annonce1.setDate_deb(resultat1.getDate(4));
-//                    annonce1.setDate_fin(resultat1.getDate(5));
-//                    annonce1.setDepart(resultat1.getString(6));
-//                    annonce1.setDestination(resultat1.getString(7));
-//                    annonce1.setDescription(resultat1.getString(8));
-//                    annonce1.setHebergement(resultat1.getString(9));
-//                    annonce1.setType_hebergement(resultat1.getString(10));
-//                    annonce1.setType_annonce(resultat1.getString(11));
-//                    annonce1.setTransport(resultat1.getString(12));
-//                    annonce1.setNote(resultat1.getInt(13));
-//                    annonce1.setEtat(resultat1.getInt(14));
-//                    annonce1.setNbr_enfants(resultat1.getInt(15));
-//                    annonce1.setNbr_adultes(resultat1.getInt(16));
-                    listeannonces1.add(annonce1);
+                    Reservation res = new Reservation();
+                    res.setNomAnnonce(resultat.getString(1));
+                    res.setNomclient(resultat.getString(3));
+                    res.setTel(resultat.getInt(4));
+                    res.setMail(resultat.getString(5));                    
+                    listeannonces1.add(res);
                 }
 
             } catch (SQLException ex) {
@@ -90,7 +76,7 @@ public class ReservationDAO {
                 return null;
             }
 
-        }
+        
         return listeannonces1;
 
     }

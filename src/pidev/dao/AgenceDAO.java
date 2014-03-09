@@ -8,6 +8,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import pidev.entities.Agence;
 import pidev.util.MyConnection;
 
 /**
@@ -81,6 +84,35 @@ public class AgenceDAO {
         }
             
             return y;
+    }
+      
+      
+         public List<Agence> afficher_Agence (){
+        String req= "select * from Agence ";
+        List<Agence> agences=new ArrayList<Agence>();
+        try{
+            Statement statement = MyConnection.getInstance().createStatement();
+            ResultSet resultat = statement.executeQuery(req);
+           
+            while (resultat.next()){
+                Agence a =new Agence();
+                
+                a.setNom(resultat.getString(2));
+                a.setAdresse(resultat.getString(3));
+                a.setTelephone(resultat.getInt(4));
+                a.setVille(resultat.getString(5));
+                
+                
+                
+                agences.add(a);
+            }
+            return agences;
+        }
+            catch(SQLException ex){
+            
+        }
+            
+            return null;
     }
 
 }

@@ -8,7 +8,11 @@ public class Reservation {
     private int id_Annonce;
     private int etat;
     private Date date;
-
+    private String nomannonce;
+    private String nomclient;
+    private int tel;
+    private String mail;
+    
     public Reservation() {
     }
 
@@ -78,5 +82,61 @@ public class Reservation {
         b = this.id_Annonce;
         c = this.etat;
         d = this.date;
+    }
+
+    /**
+     * @return the nom
+     */
+    public String getNomAnnonce() {
+        return nomannonce;
+    }
+
+    /**
+     * @param nom the nom to set
+     */
+    public void setNomAnnonce(String nom) {
+        this.nomannonce = nom;
+    }
+
+    /**
+     * @return the nomclient
+     */
+    public String getNomclient() {
+        return nomclient;
+    }
+
+    /**
+     * @param nomclient the nomclient to set
+     */
+    public void setNomclient(String nomclient) {
+        this.nomclient = nomclient;
+    }
+
+    /**
+     * @return the tel
+     */
+    public int getTel() {
+        return tel;
+    }
+
+    /**
+     * @param tel the tel to set
+     */
+    public void setTel(int tel) {
+        this.tel = tel;
+    }
+
+    /**
+     * @return the mail
+     */
+    public String getMail() {
+        return mail;
+    }
+
+    /**
+     * @param mail the mail to set
+     */
+    public void setMail(String mail) {
+        this.mail = mail;
     }
 }

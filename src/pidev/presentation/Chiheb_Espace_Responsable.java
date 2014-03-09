@@ -5,6 +5,7 @@
 package pidev.presentation;
 
 import java.awt.Color;
+import pidev.dao.AnnonceDAO;
 import pidev.dao.PersonneDAO;
 import pidev.dao.ResponsableDAO;
 import static pidev.presentation.GraphReaderExample.firstname;
@@ -15,7 +16,7 @@ import static pidev.presentation.GraphReaderExample.lastname;
  * @author chiheb
  */
 public class Chiheb_Espace_Responsable extends javax.swing.JFrame {
-
+static int id_Responsable =Chiheb_Authentification.id_connecté_normal;
     /**
      * Creates new form Chiheb_Espace_Responsable
      */
@@ -48,6 +49,14 @@ public class Chiheb_Espace_Responsable extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jnconnecté3 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jBtnModifier = new javax.swing.JButton();
+        btnSupp = new javax.swing.JButton();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
@@ -57,12 +66,11 @@ public class Chiheb_Espace_Responsable extends javax.swing.JFrame {
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenu8 = new javax.swing.JMenu();
         jMenuItem9 = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
 
         jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(600, 600));
+        setPreferredSize(new java.awt.Dimension(800, 700));
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -81,6 +89,37 @@ public class Chiheb_Espace_Responsable extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+
+        jButton1.setText("Voir Statistiques");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jBtnModifier.setText("Details");
+        jBtnModifier.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnModifierActionPerformed(evt);
+            }
+        });
+
+        btnSupp.setText("Effacer");
+        btnSupp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSuppActionPerformed(evt);
+            }
+        });
+
+        jTable1.setModel(new AfficherAnnonce());
+        jScrollPane1.setViewportView(jTable1);
+
+        jTabbedPane1.addTab("Liste Annonces", jScrollPane1);
+
+        jTable2.setModel(new Affiche_Annonce_Responsable(id_Responsable));
+        jScrollPane2.setViewportView(jTable2);
+
+        jTabbedPane1.addTab("Mes Annonces", jScrollPane2);
 
         jMenu4.setText("Gestion Annonces");
 
@@ -127,9 +166,6 @@ public class Chiheb_Espace_Responsable extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu8);
 
-        jMenu1.setText("voir satistiques");
-        jMenuBar1.add(jMenu1);
-
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -137,18 +173,30 @@ public class Chiheb_Espace_Responsable extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(142, 142, 142)
+                .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(100, 100, 100)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jnconnecté3)))
-                .addGap(0, 80, Short.MAX_VALUE))
+                        .addComponent(jButton2)
+                        .addGap(0, 299, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jnconnecté3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btnSupp, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jBtnModifier, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(29, 29, 29))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,8 +209,18 @@ public class Chiheb_Espace_Responsable extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jnconnecté3))
-                .addContainerGap(225, Short.MAX_VALUE))
+                    .addComponent(jnconnecté3)
+                    .addComponent(jButton1))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(78, 78, 78)
+                        .addComponent(jBtnModifier, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(60, 60, 60)
+                        .addComponent(btnSupp, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
 
         pack();
@@ -199,6 +257,38 @@ public class Chiheb_Espace_Responsable extends javax.swing.JFrame {
  this.dispose();
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jBtnModifierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnModifierActionPerformed
+        int ligneSelectionne = jTable1.getSelectedRow();
+        int id = Integer.parseInt(jTable1.getValueAt(ligneSelectionne, 0).toString());
+
+        System.out.println("on va effectuer la modification ");
+        new ModifierAnnonce_Responsable(id).setVisible(true);
+        //        if (aDAO.modifierAnnonce(id)) {
+            //            System.out.println("mod effectuée");
+            //            jTable1.setModel(new Affiche_Annonce_Responsable());
+            //        } else {
+            //            System.out.println("mod nn effectuée");
+            //        }
+    }//GEN-LAST:event_jBtnModifierActionPerformed
+
+    private void btnSuppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuppActionPerformed
+        int ligneSelectionne = jTable1.getSelectedRow();
+        int id = Integer.parseInt(jTable1.getValueAt(ligneSelectionne, 0).toString());
+
+        AnnonceDAO aDAO = new AnnonceDAO();
+        System.out.println("on va effectuer la suppression ");
+        if (aDAO.deleteAnnonce(id)) {
+            System.out.println("suppression effectuée");
+            jTable1.setModel(new Affiche_Annonce_Responsable());
+        } else {
+            System.out.println("supp nn effectuée");
+        }
+    }//GEN-LAST:event_btnSuppActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -234,10 +324,12 @@ public class Chiheb_Espace_Responsable extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSupp;
+    private javax.swing.JButton jBtnModifier;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
@@ -248,6 +340,11 @@ public class Chiheb_Espace_Responsable extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     private javax.swing.JLabel jnconnecté3;
     // End of variables declaration//GEN-END:variables
 }

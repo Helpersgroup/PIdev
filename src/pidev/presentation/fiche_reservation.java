@@ -4,12 +4,11 @@
  */
 package pidev.presentation;
 
-/**
- *
- * @author Abdelaziz
- */
-public class fiche_reservation extends javax.swing.JFrame {
+import pidev.entities.Annonce;
 
+
+public class fiche_reservation extends javax.swing.JFrame {
+public static int id_Annonce;
     /**
      * Creates new form fiche_reservation
      */
@@ -26,6 +25,7 @@ public class fiche_reservation extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDialog1 = new javax.swing.JDialog();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -56,6 +56,17 @@ public class fiche_reservation extends javax.swing.JFrame {
         jTextField12 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
 
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -82,6 +93,11 @@ public class fiche_reservation extends javax.swing.JFrame {
         jLabel20.setText("Prix total");
 
         jTextField1.setText("nbadults");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         jLabel21.setText("nombre d'enfants");
 
@@ -100,6 +116,11 @@ public class fiche_reservation extends javax.swing.JFrame {
 
         jTextField4.setText("jTextField4");
         jTextField4.setEnabled(false);
+        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField4ActionPerformed(evt);
+            }
+        });
 
         jTextField5.setText("jTextField5");
         jTextField5.setEnabled(false);
@@ -266,9 +287,13 @@ public class fiche_reservation extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        Liste_Reservations l=new Liste_Reservations();
-        this.setVisible(false);
-        l.setVisible(true);
+        System.out.println(id_Annonce);
+        GenererPDF G=new GenererPDF();
+        if(G.genrer(id_Annonce))
+        jToggleButton1.setText("Facture genere avec succés sous c:/");
+        //Liste_Reservations l=new Liste_Reservations();
+        //this.setVisible(false);
+       // l.setVisible(true);
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -276,10 +301,21 @@ public class fiche_reservation extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField7ActionPerformed
 
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField4ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(Annonce A) {
+        final Annonce k=A;
+        
+        // id_Annonce = args[0];
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -306,12 +342,39 @@ public class fiche_reservation extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new fiche_reservation().setVisible(true);
+                fiche_reservation f=new fiche_reservation();
+                String s1;
+                s1 = (""+(k.getId_Annonce()));
+                f.getjTextField4().setText("36");
+                f.getjTextField5().setText(s1);
+                f.getjTextField6().setText(k.getDate_Deb().toString());
+                f.getjTextField7().setText(k.getDate_Fin().toString());
+                f.getjTextField8().setText(k.getDestination());
+                f.getjTextField9().setText(k.getHebergement());
+                f.getjTextField10().setText(k.getTransport());
+                String s2;
+        s2 = ""+(k.getNbr_adultes());
+                f.getjTextField1().setText(s2);
+                String s3;
+        s3 = ""+(k.getNbr_enfants());
+                f.getjTextField3().setText(s3);
+                String s4;
+                s4=""+(k.getNbr_adultes()*20+k.getNbr_enfants()*40);
+                f.getjTextField12().setText(s4);
+                
+                f.getjTextField2().setText(k.getDescription());
+                id_Annonce=k.getId_Annonce();
+                f.setVisible(true);
+                
+                
+                
+                
             }
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton2;
+    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel16;

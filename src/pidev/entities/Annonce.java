@@ -31,6 +31,7 @@ public class Annonce {
     private String  type_Annonce ;
     private double  prix ;
         private String  theme ;
+        private int nbre_signal;
 
     
 
@@ -263,6 +264,20 @@ public class Annonce {
      */
     public void setTheme(String theme) {
         this.theme = theme;
+    }
+
+    /**
+     * @return the nbre_signal
+     */
+    public int getNbre_signal() {
+        return nbre_signal;
+    }
+
+    /**
+     * @param nbre_signal the nbre_signal to set
+     */
+    public void setNbre_signal(int nbre_signal) {
+        this.nbre_signal = nbre_signal;
     }
     
     public enum Type_Hebergement {

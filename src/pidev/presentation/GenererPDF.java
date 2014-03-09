@@ -13,13 +13,13 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
-/**
- *
- * @author VOSTRO
- */
+
 public class GenererPDF {
-public static void main(String[] args) {
+
+    
+    public  boolean genrer(int id_Annonce) {
         // - Paramètres de connexion à la base de données
         String url = "jdbc:mysql://41.231.22.153:3306/helpers";     
         String login = "helper"; 
@@ -29,22 +29,28 @@ public static void main(String[] args) {
             // - Connexion à la base
             connection=DriverManager.getConnection(url, login, password);
             // - Chargement et compilation du rapport
-            JasperDesign jasperDesign = JRXmlLoader.load("D:\\ESPRIT\\PIDev\\Pidev\\PIdev\\Pidev\\classic.jrxml");
+            JasperDesign jasperDesign = JRXmlLoader.load("D:\\ESPRIT\\PIDev\\p\\PIdev\\classic.jrxml");
             JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
+            
             // - Paramètres à envoyer au rapport
             Map  parameters = new HashMap();
-            parameters.put("Titre", "Titre");
+            parameters.put("id_Annonce", id_Annonce);
             // - Execution du rapport
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, connection);
             // - Création du rapport au format PDF
-            JasperExportManager.exportReportToPdfFile(jasperPrint, "D:\\ESPRIT\\PIDev\\Pidev\\PIdev\\Pidev\\classic.pdf");
+            //JasperViewer.viewReport (jasperPrint);
+            JasperExportManager.exportReportToPdfFile(jasperPrint, "D:\\ESPRIT\\PIDev\\p\\PIdev\\classic.pdf");
+            return true;
         }
 
         catch (JRException e) {
             System.out.println("erreur de compilation"+ e.getMessage());
+            
          } catch (SQLException e) {
             System.out.println("erreur SQL"+e.getMessage());
+            
         }
+        return false;
 }
 
 }

@@ -1,10 +1,9 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package pidev.presentation;
 
 import java.awt.Color;
+import java.awt.Label;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import pidev.dao.PersonneDAO;
 import static pidev.presentation.GraphReaderExample.firstname;
 import static pidev.presentation.GraphReaderExample.lastname;
@@ -14,12 +13,24 @@ import static pidev.presentation.GraphReaderExample.lastname;
  * @author chiheb
  */
 public class Chiheb_Espace_Admin extends javax.swing.JFrame {
+    
 
-    /**
-     * Creates new form Chiheb_Espace_Admin
-     */
+    
     public Chiheb_Espace_Admin() {
         initComponents();
+            var.setVisible(false);
+            agences.setVisible(false);
+            supprimer.setVisible(false);
+            clients.setVisible(false);
+            supprimer.setVisible(false);
+             num1.setVisible(false);
+              num2.setVisible(false);
+               num3.setVisible(false);
+                num4.setVisible(false);
+                supp_signal.setVisible(false);
+                details.setVisible(false);
+
+           
            this.setLocationRelativeTo(null);
        this.pack();
         this.getContentPane().setBackground(new Color(52, 152, 219));
@@ -38,13 +49,52 @@ public class Chiheb_Espace_Admin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu3 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
+        jDialog1 = new javax.swing.JDialog();
         jLabel1 = new javax.swing.JLabel();
         jnconnecté2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        supprimer = new javax.swing.JButton();
+        num1 = new javax.swing.JButton();
+        num2 = new javax.swing.JButton();
+        num4 = new javax.swing.JButton();
+        num3 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tableau = new javax.swing.JTable();
+        var = new javax.swing.JButton();
+        agences = new javax.swing.JButton();
+        clients = new javax.swing.JButton();
+        l = new javax.swing.JLabel();
+        details = new javax.swing.JButton();
+        supp_signal = new javax.swing.JButton();
+
+        jMenu3.setText("File");
+        jMenuBar2.add(jMenu3);
+
+        jMenu4.setText("Edit");
+        jMenuBar2.add(jMenu4);
+
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(600, 600));
+        setTitle("Espace Admin");
+        setBackground(new java.awt.Color(244, 219, 171));
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -64,34 +114,201 @@ public class Chiheb_Espace_Admin extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Générer statiqtiques");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        supprimer.setText("Supprimer");
+        supprimer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                supprimerActionPerformed(evt);
+            }
+        });
+
+        num1.setText("1");
+        num1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                num1ActionPerformed(evt);
+            }
+        });
+
+        num2.setText("2");
+        num2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                num2ActionPerformed(evt);
+            }
+        });
+
+        num4.setText("4");
+        num4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                num4ActionPerformed(evt);
+            }
+        });
+
+        num3.setText("3");
+        num3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                num3ActionPerformed(evt);
+            }
+        });
+
+        jButton8.setText("Gestion des Comptes");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+
+        jButton9.setText("Gestion des Annonces");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+
+        jButton10.setText("Gestion des Signalisations");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
+
+        jScrollPane1.setViewportView(tableau);
+
+        var.setText("Affcher la liste des Agents");
+        var.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                varActionPerformed(evt);
+            }
+        });
+
+        agences.setText("Liste des Agences");
+        agences.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agencesActionPerformed(evt);
+            }
+        });
+
+        clients.setText("Afficher la lsites des Clients");
+        clients.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clientsActionPerformed(evt);
+            }
+        });
+
+        details.setText("Afficher Details");
+        details.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                detailsActionPerformed(evt);
+            }
+        });
+
+        supp_signal.setText("Supprimer");
+        supp_signal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                supp_signalActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(num1)
+                .addGap(4, 4, 4)
+                .addComponent(num2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(num3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(num4)
+                .addGap(37, 37, 37)
+                .addComponent(l)
+                .addGap(311, 311, 311))
             .addGroup(layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
+                    .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE))
+                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton2)
-                        .addGap(38, 38, 38)
-                        .addComponent(jLabel3))
+                        .addComponent(var, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(agences, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addComponent(clients, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(137, 137, 137)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jnconnecté2)))
-                .addContainerGap(424, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(supprimer, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(supp_signal, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(57, 57, 57))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(151, 151, 151)
+                .addComponent(jLabel3)
+                .addGap(90, 90, 90)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(jnconnecté2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton2)
+                    .addComponent(details, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
                     .addComponent(jLabel1)
                     .addComponent(jnconnecté2))
-                .addContainerGap(390, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(124, 124, 124)
+                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(var)
+                            .addComponent(agences)
+                            .addComponent(clients))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(23, 23, 23))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(details, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(37, 37, 37)
+                                .addComponent(supprimer, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(supp_signal, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(135, 135, 135)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(num1)
+                            .addComponent(num2)
+                            .addComponent(num4)
+                            .addComponent(num3)
+                            .addComponent(l)))))
         );
 
         pack();
@@ -110,6 +327,171 @@ public class Chiheb_Espace_Admin extends javax.swing.JFrame {
 //        psd.deconnexion(Chiheb_Authentification.id_connecté_normal);
 //        this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        supp_signal.setVisible(false);
+        new Statistiques().setVisible(true);
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void num1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num1ActionPerformed
+    tableau.setModel(new AfficherAnnonce(0,10));
+            num1.setVisible(false);
+            num2.setVisible(true);
+            num3.setVisible(true);
+            num4.setVisible(true);
+// TODO add your handling code here:
+    }//GEN-LAST:event_num1ActionPerformed
+
+    private void num2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num2ActionPerformed
+               tableau.setModel(new AfficherAnnonce(10,20));
+               num1.setVisible(true);
+            num2.setVisible(false);
+            num3.setVisible(true);
+            num4.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_num2ActionPerformed
+
+    private void num3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num3ActionPerformed
+                tableau.setModel(new AfficherAnnonce(20,30));
+                num1.setVisible(true);
+            num2.setVisible(true);
+            num3.setVisible(false);
+            num4.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_num3ActionPerformed
+
+    private void num4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num4ActionPerformed
+        // TODO add your handling code here:
+                       tableau.setModel(new AfficherAnnonce(30,40));
+                       num1.setVisible(true);
+            num2.setVisible(true);
+            num3.setVisible(true);
+            num4.setVisible(false);
+    }//GEN-LAST:event_num4ActionPerformed
+
+    private void supprimerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supprimerActionPerformed
+        int ligneSelectionne = tableau.getSelectedRow();        
+            if(ligneSelectionne!=-1){
+                   String s = tableau.getValueAt(ligneSelectionne, 0).toString();    
+                    PersonneDAO p=new PersonneDAO();
+                    l.setText("");
+                    if (p.delete(Integer.parseInt(s)))
+                    {
+                        OP.showMessageDialog(this, "Suppression effectuer avec succés", "Done !", JOptionPane.INFORMATION_MESSAGE);
+                        tableau.setModel(new AfficherAgent());
+                    }
+                    else{
+
+                        OP.showMessageDialog(this, "Erreur , reessayer", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                }
+                else{ 
+                   OP.showMessageDialog(this, "Rien n'est selectionner", "Attention", JOptionPane.INFORMATION_MESSAGE);
+
+                }
+            
+        // TODO add your handling code here:
+    }//GEN-LAST:event_supprimerActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+            
+            var.setText("Afficher les Responsables Agents");
+            agences.setText("Listes des Agences");
+            agences.setVisible(true);
+            supprimer.setVisible(true);
+            clients.setVisible(true);
+            supp_signal.setVisible(false);
+            supp_signal.setVisible(false);
+            var.setVisible(true);
+            tableau.setModel(new AfficherAgent());
+            // TODO add your handling code here:
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+            supprimer.setVisible(false);
+            agences.setVisible(false);
+            clients.setVisible(false);
+            var.setVisible(false);
+            num1.setVisible(false);
+            num2.setVisible(true);
+            num3.setVisible(true);
+            num4.setVisible(true);
+            tableau.setModel(new AfficherAnnonce(0,10));
+
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+            num1.setVisible(false);
+            num2.setVisible(false);
+            num3.setVisible(false);
+            num4.setVisible(false);
+            supprimer.setVisible(false);
+            supp_signal.setVisible(true);
+            details.setVisible(true);
+            tableau.setModel(new signalisation());
+        
+// TODO add your handling code here:
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void varActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_varActionPerformed
+
+                
+                tableau.setModel(new AfficherAgent());
+                supprimer.setVisible(true);
+            
+        // TODO add your handling code here:
+    }//GEN-LAST:event_varActionPerformed
+
+    private void agencesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agencesActionPerformed
+        tableau.setModel(new afficherAgence());
+        supprimer.setVisible(false);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_agencesActionPerformed
+
+    private void clientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientsActionPerformed
+        tableau.setModel(new AfficherClient());
+        supprimer.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clientsActionPerformed
+
+    private void detailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_detailsActionPerformed
+
+        int ligneSelectionne = tableau.getSelectedRow();
+        if(ligneSelectionne!=-1){
+            int id = Integer.parseInt(tableau.getValueAt(ligneSelectionne, 0).toString());
+            new Detail_annonce_admin((id)).setVisible(true);
+         }
+                else{ 
+                   OP.showMessageDialog(this, "Rien n'est selectionner", "Attention", JOptionPane.INFORMATION_MESSAGE);
+                }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_detailsActionPerformed
+
+    private void supp_signalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supp_signalActionPerformed
+             int ligneSelectionne = tableau.getSelectedRow();        
+            if(ligneSelectionne!=-1){
+                   String s = tableau.getValueAt(ligneSelectionne, 0).toString();    
+                    PersonneDAO p=new PersonneDAO();
+                    l.setText("");
+                    if (p.delete_Annonce(Integer.parseInt(s)))
+                    {
+                        OP.showMessageDialog(this, "Suppression effectuer avec succés", "Done !", JOptionPane.INFORMATION_MESSAGE);
+                        tableau.setModel(new AfficherAgent());
+                    }
+                    else{
+
+                        OP.showMessageDialog(this, "Erreur , reessayer", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                }
+                else{ 
+                   OP.showMessageDialog(this, "Rien n'est selectionner", "Attention", JOptionPane.INFORMATION_MESSAGE);
+
+                }
+        
+// TODO add your handling code here:
+    }//GEN-LAST:event_supp_signalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -147,9 +529,31 @@ public class Chiheb_Espace_Admin extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton agences;
+    private javax.swing.JButton clients;
+    private javax.swing.JButton details;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
+    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel jnconnecté2;
+    private javax.swing.JLabel l;
+    private javax.swing.JButton num1;
+    private javax.swing.JButton num2;
+    private javax.swing.JButton num3;
+    private javax.swing.JButton num4;
+    private javax.swing.JButton supp_signal;
+    private javax.swing.JButton supprimer;
+    private javax.swing.JTable tableau;
+    private javax.swing.JButton var;
     // End of variables declaration//GEN-END:variables
+    JOptionPane OP = new JOptionPane();
 }

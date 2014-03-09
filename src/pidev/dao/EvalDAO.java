@@ -13,6 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import pidev.entities.Annonce;
+import pidev.entities.Evaluer;
 import pidev.util.MyConnection;
 
 
@@ -92,25 +94,96 @@ public void note(int n,int id_Annonce){
         }
     }
 
-            public String getCommentaire(int id_Annonceur,int id_Annonce) 
+            public List<Evaluer> getCommentaire(int id_Annonce) 
             {
-                 String requete = "select message from Commentaire where(id_Personne="+id_Annonceur+" and id_Annonce="+id_Annonce+" )";
-                 String com="";
+                List<Evaluer> eval = new ArrayList<Evaluer>();
+                 String requete = "select * from Commentaire C,Personne P where (P.id_Personne=C.id_Personne and C.id_Annonce="+id_Annonce+" )";
+                
                  String nl=System.getProperty("line.separator"); 
                  try { 
                         PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
                         ResultSet r=ps.executeQuery();
                         while(r.next()){
-                           com+=""+r.getString(1)+nl;
+                           Evaluer e=new Evaluer();
+                           e.setId_personne(r.getInt(2));
+                           e.setId_annonce(r.getInt(3));
+                           
+                           e.setMessage(r.getString(4));
+                           e.setNom(r.getString(7));
+                           eval.add(e);
                         }
-                        System.out.println("Jaime c bon"+com);
-                        return com;
+                        
+                        return eval;
                         
                     } catch (SQLException ex) {
                         
                         System.out.println("erreur get commentaire "+ex.getMessage());
                     }
-                 return "";
+                 return null;
             }
+            
+       public void signaler(int id_Annonce){
+            
+         String req = "update Annonce set nbre_signal=nbre_signal+1";
+        
+
+         try {
+           PreparedStatement ps = MyConnection.getInstance().prepareStatement(req);
+           ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(EvalDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+               
+         
+    }     
+     public int getnb_signal(int id_Annonce) 
+            {
+                List<Evaluer> eval = new ArrayList<Evaluer>();
+                 String requete = "select * from Annonce where id_Annonce="+id_Annonce;
+                 Evaluer e=new Evaluer();
+                 try { 
+                        PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
+                        ResultSet r=ps.executeQuery();
+                        while(r.next()){
+                           
+                           e.setNb_signal(r.getInt(18));
+                           
+                        }
+                        
+                        return e.getNb_signal() ;
+                        
+                    } catch (SQLException ex) {
+                        
+                        System.out.println("erreur get nb signal "+ex.getMessage());
+                    }
+                 return 0;
+            }
+          public List<Annonce> getAnnonce_signaler() 
+            {
+                List<Annonce> annonces = new ArrayList<Annonce>();
+                 String requete = "select * from Annonce where nbre_signal>0";
+                 
+                 try { 
+                        PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
+                        ResultSet r=ps.executeQuery();
+                        while(r.next()){
+                           Annonce annonce=new Annonce();
+                           annonce.setId_Annonce(r.getInt(1));
+                           annonce.setNom(r.getString(3));
+                           annonce.setNbre_signal(r.getInt(18));
+                           annonces.add(annonce);
+                           
+
+                        }
+                        return annonces ;
+                        
+                    } catch (SQLException ex) {
+                        
+                        System.out.println("erreur get nb signal "+ex.getMessage());
+                    }
+                 return null;
+            }
+                         
+            
 
         }

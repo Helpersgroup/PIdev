@@ -11,6 +11,7 @@ import pidev.entities.*;
  * @author Abdelaziz
  */
 public class Liste_Reservations extends javax.swing.JFrame {
+static int id_CC =Chiheb_Authentification.id_connecté_normal; 
 
     /**
      * Creates new form Liste_reservation_Test
@@ -31,7 +32,7 @@ List<Client> listeClients;
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable2.setModel(new Test()
+        jTable2.setModel(new Liste_Reservation_Client(id_CC)
         );
         jScrollPane2.setViewportView(jTable2);
 
@@ -78,30 +79,9 @@ List<Client> listeClients;
         int ligneSelectionne = jTable2.getSelectedRow();
         String s=(String)jTable2.getValueAt(ligneSelectionne,0);
        Annonce k = new ReservationDAO().DisplayAnnonceByNom(s);
-                fiche_reservation f= new fiche_reservation();
-                String s1;
-        s1 = (""+(k.getId_Annonce()));
-                f.getjTextField4().setText("36");
-                f.getjTextField5().setText(s1);
-                f.getjTextField6().setText(k.getDate_Deb().toString());
-                f.getjTextField7().setText(k.getDate_Fin().toString());
-                f.getjTextField8().setText(k.getDestination());
-                f.getjTextField9().setText(k.getHebergement());
-                f.getjTextField10().setText(k.getTransport());
-                String s2;
-        s2 = ""+(k.getNbr_adultes());
-                f.getjTextField1().setText(s2);
-                String s3;
-        s3 = ""+(k.getNbr_enfants());
-                f.getjTextField3().setText(s3);
-                String s4;
-                s4=""+(k.getNbr_adultes()*20+k.getNbr_enfants()*40);
-                f.getjTextField12().setText(s4);
-                
-                f.getjTextField2().setText(k.getDescription());
-                this.hide();
-                f.setVisible(true);
-        System.out.println(s);
+                 
+               
+                fiche_reservation.main(k);
     }//GEN-LAST:event_jButton1ActionPerformed
 
    

@@ -13,6 +13,7 @@ public class ResponsableAgence extends Personne {
     
     private int id_Responsable;
     private int id_Agence;
+    private String nom_Agence;
     
     public ResponsableAgence(){
         
@@ -48,6 +49,20 @@ public class ResponsableAgence extends Personne {
    
     public void setId_Agence(int id_Agence) {
         this.id_Agence = id_Agence;
+    }
+
+    /**
+     * @return the nom_Agence
+     */
+    public String getNom_Agence() {
+        return nom_Agence;
+    }
+
+    /**
+     * @param nom_Agence the nom_Agence to set
+     */
+    public void setNom_Agence(String nom_Agence) {
+        this.nom_Agence = nom_Agence;
     }
 
    

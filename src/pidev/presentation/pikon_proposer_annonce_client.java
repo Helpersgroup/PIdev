@@ -9,6 +9,7 @@ import org.jdesktop.swingx.JXDatePicker;
 import pidev.dao.PropositionDAO;
 import pidev.entities.Annonce;
 import java.util.Date;
+import static javax.swing.JOptionPane.showMessageDialog;
 /**
  *
  * @author pikon
@@ -278,12 +279,16 @@ public class pikon_proposer_annonce_client extends javax.swing.JFrame {
         a.setTransport(CboxTransport.getSelectedItem().toString());
      
 
-        aDAO.ProposerAnnonce(a);}
+        aDAO.ProposerAnnonce(a);
+                                         JOptionPane.showMessageDialog(this, "Proposition envoyer avec succés un Agent va traiter votre offre ", "Done !", JOptionPane.CANCEL_OPTION);
+                                         this.setVisible(false);
+      }
     }//GEN-LAST:event_BtnAjouterAnnonceActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-            new Chiheb_Espace_Client().dispose();
+            this.dispose();
+            
             //this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 

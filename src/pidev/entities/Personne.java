@@ -12,16 +12,13 @@ public class Personne {
        String cin;
        String nom;
        String prenom;
-       
        String email;
-
-
        int tel;
        private int etat;
        private long id_RS;
        String mdp;
        
-      int Id_Personne;
+       int Id_Personne;
      public Personne (){
 
 }

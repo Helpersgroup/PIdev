@@ -251,11 +251,11 @@ String y="";
 
         jSpinner1.setModel(new javax.swing.SpinnerNumberModel(1, 1, 10, 1));
         getContentPane().add(jSpinner1);
-        jSpinner1.setBounds(240, 600, 90, 20);
+        jSpinner1.setBounds(240, 600, 90, 18);
 
         jSpinner2.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10, 1));
         getContentPane().add(jSpinner2);
-        jSpinner2.setBounds(490, 600, 100, 20);
+        jSpinner2.setBounds(490, 600, 100, 18);
 
         jLabel15.setText("Nombre Enfants ");
         getContentPane().add(jLabel15);
@@ -292,12 +292,12 @@ String y="";
 
     private void BtnAjouterAnnonceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAjouterAnnonceActionPerformed
         JOptionPane d = new JOptionPane();
-int id =Chiheb_Authentification.id_connecté_normal;
+        int id =Chiheb_Authentification.id_connecté_normal;
         Annonce a = new Annonce();
         AnnonceDAO aDAO = new AnnonceDAO();
+        a.setId_Annonceur(id);
         a.setNom(TFnom.getText());
         a.setType_annonce(CboxTheme.getSelectedItem().toString());
-
 
         a.setDate_deb(JXDateDepart.getDate());
         a.setDate_fin(jXDateRetour.getDate());
