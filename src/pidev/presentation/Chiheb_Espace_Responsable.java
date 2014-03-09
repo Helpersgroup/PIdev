@@ -284,6 +284,8 @@ static int id_Responsable =Chiheb_Authentification.id_connecté_normal;
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         new Statistiques().setVisible(true);
         // TODO add your handling code here:
+        Statistiques st = new Statistiques();
+        st.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jBtnModifierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnModifierActionPerformed

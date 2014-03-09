@@ -4,11 +4,6 @@
  */
 package pidev.presentation;
 
-import java.util.List;
-import pidev.dao.PropositionDAO;
-import pidev.dao.ReservationDAO;
-import pidev.entities.*;
-
 /**
  *
  * @author dell
