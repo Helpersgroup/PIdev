@@ -11,6 +11,8 @@ import javax.swing.JOptionPane;
 import pidev.dao.AnnonceDAO;
 import pidev.dao.EvalDAO;
 import pidev.entities.Annonce;
+import static pidev.presentation.Detail_annonce.id_CC;
+import static pidev.presentation.Detail_annonce.id_annonce;
 
 /**
  *
@@ -418,15 +420,15 @@ public class Detail_annonce_agent extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        new AfficherAnnonceResponsable().setVisible(true);
+        new Chiheb_Espace_Responsable().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-
         String text=jTextArea1.getText();
-        e.AjouterCommentaire(text, 36, 49);
+        e.AjouterCommentaire(text, id_CC, id_annonce);
         tab.setModel(new evaluer(id_annonce));
+        jTextArea1.setText("");
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
