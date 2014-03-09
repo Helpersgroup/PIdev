@@ -91,7 +91,7 @@ public class pikon_liste_proposition extends javax.swing.JFrame {
         s = (String) jTable1.getValueAt(ligneSelectionne, 1).toString();
 
         System.out.println(s);
-        pikon_liste_proposition aa = new pikon_liste_proposition();
+        pikon_gerer_proposition aa = new pikon_gerer_proposition();
         aa.setVisible(true);
         //this.dispose();
 

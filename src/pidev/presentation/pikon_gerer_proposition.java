@@ -347,7 +347,6 @@ public class pikon_gerer_proposition extends javax.swing.JFrame {
         PropositionDAO aDAO = new PropositionDAO();
         
         a.setNom(TFnom.getText());
-        a.setId_Annonceur(36);
         a.setType_annonce(CboxTheme.getSelectedItem().toString());
 
 
