@@ -12,6 +12,7 @@ package pidev.presentation;
 
 
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 import pidev.dao.AnnonceDAO;
@@ -23,28 +24,26 @@ import pidev.entities.Annonce;
  */
 public class AfficherAnnonce extends AbstractTableModel{
 
-public List <Annonce> annonce;
+public List <Annonce> annonces=new ArrayList<Annonce>();
 String [] columTab = {"Id","Nom","Depart","Destination","Date depart","Prix"};
-    
+  AnnonceDAO annonceDAO = new AnnonceDAO();  
 public AfficherAnnonce() {
-        AnnonceDAO annonceDAO = new AnnonceDAO();
-        annonce = annonceDAO.DisplayAllAnnonce();
+        
+        annonces = annonceDAO.DisplayAllAnnonce();
 
     }
 public AfficherAnnonce(String var){
-        AnnonceDAO annonceDAO = new AnnonceDAO();
-        annonce = annonceDAO.rech_annonce(var);
+        annonces = annonceDAO.rech_annonce(var);
     
 }
     public AfficherAnnonce(int min,int max) {
-        AnnonceDAO annonceDAO = new AnnonceDAO();
-        annonce = annonceDAO.DisplayAllAnnonce(min,max);
+        annonces = annonceDAO.DisplayAllAnnonce(min,max);
 
     }
 
 
     public int getRowCount() {
-       return  annonce.size();
+       return  annonces.size();
     }
 
     public int getColumnCount() {
@@ -54,12 +53,12 @@ public AfficherAnnonce(String var){
     public Object getValueAt(int rowIndex, int columnIndex) {
        switch(columnIndex)
        {
-          case 0 : return annonce.get(rowIndex).getId_Annonce();
-          case 1 : return annonce.get(rowIndex).getNom();
-          case 2 : return annonce.get(rowIndex).getDepart();
-          case 3 : return annonce.get(rowIndex).getDestination();
-          case 4 : return annonce.get(rowIndex).getDate_deb();
-          case 5 : return annonce.get(rowIndex).getPrix();
+          case 0 : return annonces.get(rowIndex).getId_Annonce();
+          case 1 : return annonces.get(rowIndex).getNom();
+          case 2 : return annonces.get(rowIndex).getDepart();
+          case 3 : return annonces.get(rowIndex).getDestination();
+          case 4 : return annonces.get(rowIndex).getDate_deb();
+          case 5 : return annonces.get(rowIndex).getPrix();
           default: return null;
        }
     }

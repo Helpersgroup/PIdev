@@ -244,24 +244,19 @@ public class Chiheb_Espace_Admin extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(supprimer)
-                            .addComponent(details, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(supp_signal))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton2)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(var, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(agences, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(26, 26, 26)
-                                .addComponent(clients, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                                .addComponent(details, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(36, 36, 36)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(supp_signal)
+                                    .addComponent(supprimer))))
+                        .addContainerGap(56, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(151, 151, 151)
                 .addComponent(jLabel3)
-                .addGap(90, 90, 90)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jnconnecté2)
@@ -299,7 +294,7 @@ public class Chiheb_Espace_Admin extends javax.swing.JFrame {
                                 .addGap(23, 23, 23))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(details, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(39, 39, 39)
+                                .addGap(38, 38, 38)
                                 .addComponent(supprimer, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(supp_signal, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -405,6 +400,7 @@ public class Chiheb_Espace_Admin extends javax.swing.JFrame {
             clients.setVisible(true);
             supp_signal.setVisible(false);
             supp_signal.setVisible(false);
+            details.setVisible(false);
             var.setVisible(true);
             tableau.setModel(new AfficherAgent());
             // TODO add your handling code here:
@@ -419,6 +415,7 @@ public class Chiheb_Espace_Admin extends javax.swing.JFrame {
             num2.setVisible(true);
             num3.setVisible(true);
             num4.setVisible(true);
+            details.setVisible(true);
             tableau.setModel(new AfficherAnnonce(0,10));
 
     }//GEN-LAST:event_jButton9ActionPerformed
@@ -430,7 +427,7 @@ public class Chiheb_Espace_Admin extends javax.swing.JFrame {
             num4.setVisible(false);
             supprimer.setVisible(false);
             supp_signal.setVisible(true);
-            details.setVisible(true);
+            details.setVisible(false);
             tableau.setModel(new signalisation());
         
 // TODO add your handling code here:
