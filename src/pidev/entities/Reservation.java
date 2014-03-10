@@ -3,7 +3,7 @@ package pidev.entities;
 import java.util.Date;
 
 public class Reservation {
-
+    private int id_Reservation;
     private int id_Client;
     private int id_Annonce;
     private int etat;
@@ -138,5 +138,19 @@ public class Reservation {
      */
     public void setMail(String mail) {
         this.mail = mail;
+    }
+
+    /**
+     * @return the id_Reservation
+     */
+    public int getId_Reservation() {
+        return id_Reservation;
+    }
+
+    /**
+     * @param id_Reservation the id_Reservation to set
+     */
+    public void setId_Reservation(int id_Reservation) {
+        this.id_Reservation = id_Reservation;
     }
 }

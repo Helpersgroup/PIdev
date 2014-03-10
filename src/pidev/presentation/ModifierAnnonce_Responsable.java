@@ -6,6 +6,7 @@ package pidev.presentation;
 
 import java.util.Date;
 import javax.swing.*;
+import static javax.swing.JOptionPane.showMessageDialog;
 import pidev.dao.AgenceDAO;
 import pidev.dao.AnnonceDAO;
 import pidev.entities.Annonce;
@@ -20,27 +21,21 @@ import pidev.util.MyConnection;
 public class ModifierAnnonce_Responsable extends javax.swing.JFrame {
         int x=0;
         String y="";
-        static int id;
+        public static int id;
 //int id ;    
 /**
      * Creates new form ModifierAnnonce_Responsable
      */
-        public int getId(){
-            return id;
-        }
-        public void setId(int i){
-            id=i;
-        }
-        
+        static int id_Responsable =Chiheb_Authentification.id_connecté_normal;
+     
     public ModifierAnnonce_Responsable(int id) {
-        
+       this.id=id; 
         initComponents();
-         this.setId(id);
+         this.id=id;
         this.setLocationRelativeTo(null);
         this.pack();
         AgenceDAO agd = new AgenceDAO();
      x=agd.selectIdAgence(Chiheb_Authentification.id_connecté_normal);
-        System.out.println(x);
         y=agd.selectNomAgence(x);
     jLabel12.setText(""+y);
     
@@ -93,6 +88,13 @@ public class ModifierAnnonce_Responsable extends javax.swing.JFrame {
                 if(a.getDescription() != null) {
             TAdesc.setText(a.getDescription());
         }
+                     if(String.valueOf(a.getPrix()) != null) {
+                            tfPrix.setText(a.getDescription());
+                            
+                     }
+                     else{
+                         tfPrix.setText("");
+                     }
                 
     
     }
@@ -361,10 +363,11 @@ public class ModifierAnnonce_Responsable extends javax.swing.JFrame {
     }//GEN-LAST:event_TFnomActionPerformed
 
     private void BtnModifierAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnModifierAActionPerformed
-        JOptionPane d = new JOptionPane();
 
         Annonce a = new Annonce();
         AnnonceDAO aDAO = new AnnonceDAO();
+        a.setId_Annonce(this.id);
+        a.setId_Annonceur(id_Responsable);
         a.setNom(TFnom.getText());
         a.setType_annonce(CboxTheme.getSelectedItem().toString());
 
@@ -377,19 +380,27 @@ public class ModifierAnnonce_Responsable extends javax.swing.JFrame {
         a.setTransport(CboxTransport.getSelectedItem().toString());
         a.setNbr_adultes (Integer.parseInt(jSpinner1.getValue().toString()));
         a.setNbr_enfants(Integer.parseInt(jSpinner2.getValue().toString()));
-        a.setPrix (Integer.parseInt(tfPrix.getText()));
-    int id = Chiheb_Authentification.id_connecté_normal;
+        if(!tfPrix.getText().isEmpty()){
+            a.setPrix(Double.parseDouble(tfPrix.getText()));
 
-      if (aDAO.modifierAnnonce(id))
-              System.out.println("modification effectuée ");
-      else
-            System.out.println("modification non effectuée ");
+                    if (aDAO.modifierAnnonce(a)){
+                           showMessageDialog(this, "Modification reussit", "Attention", JOptionPane.INFORMATION_MESSAGE);
+                           
+                           this.dispose();
+                    }
+                    else{
+                           showMessageDialog(this, "Modification non effectuer", "Attention", JOptionPane.INFORMATION_MESSAGE);
+                           this.dispose();
+                        }
+           }
+        else
+          showMessageDialog(this, "Vous devez donner le prix", "Attention", JOptionPane.INFORMATION_MESSAGE);
+
     }//GEN-LAST:event_BtnModifierAActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    AfficherAnnonceResponsable AAR = new AfficherAnnonceResponsable();
-    AAR.setVisible(true);
-    this.dispose();
+            
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed

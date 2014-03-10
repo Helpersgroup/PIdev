@@ -239,7 +239,7 @@ public class ResponsableAgence extends javax.swing.JFrame {
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
 
-        new Liste_Reservations().setVisible(true);
+       // new Liste_Reservations().setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 

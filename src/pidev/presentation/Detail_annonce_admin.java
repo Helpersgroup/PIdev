@@ -3,6 +3,7 @@ package pidev.presentation;
 
 //import com.sun.xml.internal.ws.message.stream.StreamAttachment;
 //import java.util.List;
+import static java.lang.Double.isNaN;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import pidev.dao.AnnonceDAO;
@@ -116,6 +117,10 @@ public class Detail_annonce_admin extends javax.swing.JFrame {
                 LabTrans.setText(t);
             }
         }
+         if(!isNaN(annonce.getPrix())){
+                double prix=annonce.getPrix();
+                LabPrix.setText(String.valueOf(prix));
+            }
        
        
 

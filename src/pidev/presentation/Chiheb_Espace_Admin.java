@@ -3,6 +3,7 @@ package pidev.presentation;
 import java.awt.Color;
 import java.awt.Label;
 import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.JTable;
 import pidev.dao.PersonneDAO;
 import static pidev.presentation.GraphReaderExample.firstname;
@@ -74,6 +75,9 @@ public class Chiheb_Espace_Admin extends javax.swing.JFrame {
         l = new javax.swing.JLabel();
         details = new javax.swing.JButton();
         supp_signal = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        TfRech = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
 
         jMenu3.setText("File");
         jMenuBar2.add(jMenu3);
@@ -95,7 +99,6 @@ public class Chiheb_Espace_Admin extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Espace Admin");
         setBackground(new java.awt.Color(244, 219, 171));
-        setPreferredSize(new java.awt.Dimension(1300, 597));
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -215,6 +218,22 @@ public class Chiheb_Espace_Admin extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setText("Recherche");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        TfRech.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TfRechActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pidev/presentation/recherche_icone.png"))); // NOI18N
+        jLabel2.setText("recherche par mots- clés");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -241,6 +260,13 @@ public class Chiheb_Espace_Admin extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(var, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(agences, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addComponent(clients, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -262,6 +288,14 @@ public class Chiheb_Espace_Admin extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jButton2)
                 .addGap(63, 63, 63))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(326, 326, 326)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(TfRech, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -283,7 +317,12 @@ public class Chiheb_Espace_Admin extends javax.swing.JFrame {
                         .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(TfRech, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(var)
                             .addComponent(agences)
@@ -492,6 +531,21 @@ public class Chiheb_Espace_Admin extends javax.swing.JFrame {
 // TODO add your handling code here:
     }//GEN-LAST:event_supp_signalActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        if(!TfRech.getText().equals("")){
+            tableau.setModel(new AfficherAnnonce(TfRech.getText()));
+        }
+        else{
+            showMessageDialog(this, "Vous devez ecrire quelque chose", "Attention", JOptionPane.INFORMATION_MESSAGE);
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void TfRechActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TfRechActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TfRechActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -528,16 +582,19 @@ public class Chiheb_Espace_Admin extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField TfRech;
     private javax.swing.JButton agences;
     private javax.swing.JButton clients;
     private javax.swing.JButton details;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;

@@ -10,7 +10,6 @@ import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.table.TableModel;
 import pidev.dao.AnnonceDAO;
 import pidev.dao.PersonneDAO;
-import static pidev.presentation.AfficherAnnonceResponsable.id_Responsable;
 import static pidev.presentation.GraphReaderExample.firstname;
 import static pidev.presentation.GraphReaderExample.lastname;
 

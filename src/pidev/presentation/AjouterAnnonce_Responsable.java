@@ -6,6 +6,7 @@ package pidev.presentation;
 
 import java.util.Date;
 import javax.swing.*;
+import static javax.swing.JOptionPane.showMessageDialog;
 import pidev.dao.AgenceDAO;
 import pidev.dao.AnnonceDAO;
 import pidev.entities.Annonce;
@@ -308,14 +309,21 @@ String y="";
         a.setNbr_adultes (Integer.parseInt(jSpinner1.getValue().toString()));
         a.setNbr_enfants(Integer.parseInt(jSpinner2.getValue().toString()));
 
-         if(aDAO.InsertAnnonce(a,id))
-             System.out.println("bien");
-         else 
-             System.out.println("insertion non effectuée");
+         if(aDAO.InsertAnnonce(a,id)){
+                         showMessageDialog(this, "Ajout avec succés", "Bien !", JOptionPane.INFORMATION_MESSAGE);
+                           this.dispose();
+         }
+         else {
+                         showMessageDialog(this, "Erreur", "Attention", JOptionPane.ERROR_MESSAGE);
+                         this.dispose();
+                                 
+         }          
+
                    
     }//GEN-LAST:event_BtnAjouterAnnonceActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed

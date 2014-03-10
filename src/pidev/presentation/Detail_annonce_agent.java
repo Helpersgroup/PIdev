@@ -6,8 +6,10 @@ package pidev.presentation;
 
 //import com.sun.xml.internal.ws.message.stream.StreamAttachment;
 //import java.util.List;
+import static java.lang.Double.isNaN;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.showMessageDialog;
 import pidev.dao.AnnonceDAO;
 import pidev.dao.EvalDAO;
 import pidev.entities.Annonce;
@@ -20,66 +22,70 @@ import static pidev.presentation.Detail_annonce.id_annonce;
  */
 public class Detail_annonce_agent extends javax.swing.JFrame {
  static int id_annonce;
+ static int id_CC =Chiheb_Authentification.id_connecté_normal;
  EvalDAO e=new EvalDAO();
-    String h = "", description = "", dest = "", nom = "", type_annonce = "", dateDep = "", dateRetour = "", depart = "", heb = "" ,t="" ;
-
-    /**
-     * Creates new form Detail_annonce
-     */
+    String h = "", description = "", dest = "", nom = "", type_annonce = "", dateDep = "", dateRetour = "", depart = "", heb = "" ,t="",p="" ;
+   
     public Detail_annonce_agent(int id_Annonce) {
         initComponents();
+  
+        this.id_annonce=id_Annonce;
         this.setLocationRelativeTo(null);
         this.pack();
+        nb_jaime.setText(String.valueOf(e.getNbJaime(id_Annonce)));
         AnnonceDAO aDAO = new AnnonceDAO();
         Annonce annonce = aDAO.selectAnnonce(id_Annonce);
+        if(annonce.getId_Annonceur()==id_CC){
+            supp.setVisible(true);
+            modifier.setVisible(true);
+        }else{
+            supp.setVisible(false);
+            modifier.setVisible(false);
+        }
+        
+        
         nom = annonce.getNom();
         LabNom.setText(nom);
 
         dest = annonce.getDestination();
         labdes.setText(dest);
 
-
-        type_annonce = annonce.getType_Annonce();
-        if (type_annonce.equals("Affaire")) {
-            LabThem.setText(type_annonce);
-        } else if (type_annonce.equals("Bien etre")) {
-            LabThem.setText(type_annonce);
-        } else if (type_annonce.equals("Camping")) {
-            LabThem.setText(type_annonce);
-        } else if (type_annonce.equals("Excursion")) {
-            LabThem.setText(type_annonce);
-        } else if (type_annonce.equals("Randonnée")) {
-            LabThem.setText(type_annonce);
-        } else if (type_annonce.equals("Voyage de découverte")) {
-            LabThem.setText(type_annonce);
-        } else if (type_annonce.equals("Voyage de noce")) {
-            LabThem.setText(type_annonce);
+        if(annonce.getType_Annonce()!=null){
+            type_annonce = annonce.getType_Annonce();
+            if (type_annonce.equals("Affaire")) {
+                LabThem.setText(type_annonce);
+            } else if (type_annonce.equals("Bien etre")) {
+                LabThem.setText(type_annonce);
+            } else if (type_annonce.equals("Camping")) {
+                LabThem.setText(type_annonce);
+            } else if (type_annonce.equals("Excursion")) {
+                LabThem.setText(type_annonce);
+            } else if (type_annonce.equals("Randonnée")) {
+                LabThem.setText(type_annonce);
+            } else if (type_annonce.equals("Voyage de découverte")) {
+                LabThem.setText(type_annonce);
+            } else if (type_annonce.equals("Voyage de noce")) {
+                LabThem.setText(type_annonce);
+            }
         }
-
+        if(!annonce.getDate_Deb().equals(null)){
         dateDep = annonce.getDate_Deb().toString();
         LabDatDEb.setText(dateDep);
-
+        }
+        if(!annonce.getDate_Fin().equals(null)){
         dateRetour = annonce.getDate_Fin().toString();
         LabRet.setText(dateRetour);
-
+        }
+        if(!annonce.getDepart().equals(null)){
         depart = annonce.getDepart();
         labdep.setText(depart);
-
+        }
+        if(!annonce.getDepart().equals(null)){
         description = annonce.getDescription();
         labdesc.setText(description);
-        //type hebergement              
-//Auberge
-//Bungalow
-//Hotel 1 etoile 
-//Hotel 2 etoiles 
-//Hotel 3 etoiles 
-//Hotel 4 etoiles
-//Hotel 5 etoiles
-//Residence  
-//Villa
-
+        }
+        if(annonce.getType_Hebergement()!=null){
         h = annonce.getType_hebergement();
-        System.out.println(h);
 
         if (h.equals("Auberge")) {
             LabThem.setText(h);
@@ -100,28 +106,38 @@ public class Detail_annonce_agent extends javax.swing.JFrame {
         } else if (h.equals("Villa")) {
             LabThem.setText(h);
         }
+        }
         if(annonce.getHebergement()!=null){
         heb = annonce.getHebergement();
         labHeberg.setText(heb);
         }
-
-
+        if(annonce.getDescription()!=null){
+               heb = annonce.getDescription();
+               labdesc.setText(heb);
+               }
 
         //transport
-       t= annonce.getTransport();
-        if (t.equals("AVION")) {
-            LabTrans.setText(t);
-        } else if (t.equals("BUS")) {
-            LabTrans.setText(t);
-        } else if (t.equals("MACRO-BUS")) {
-            LabTrans.setText(t);
-        } else if (t.equals("MINI-BUS")) {
-            LabTrans.setText(t);
-        } else if (t.equals("VOITURE")) {
-            LabTrans.setText(t);
+        //System.out.println(annonce.getTransport());
+        if(annonce.getTransport() != null){
+            t = annonce.getTransport();
+            if (t.equals("AVION")) {
+                LabTrans.setText(t);
+            } else if (t.equals("BUS")) {
+                LabTrans.setText(t);
+            } else if (t.equals("MACRO-BUS")) {
+                LabTrans.setText(t);
+            } else if (t.equals("MINI-BUS")) {
+                LabTrans.setText(t);
+            } else if (t.equals("VOITURE")) {
+                LabTrans.setText(t);
+            }
         }
-
-
+   
+            if(!isNaN(annonce.getPrix())){
+                double prix=annonce.getPrix();
+                LabPrix.setText(String.valueOf(prix));
+            }
+        
 
     }
 
@@ -163,9 +179,10 @@ public class Detail_annonce_agent extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jButton3 = new javax.swing.JButton();
-        signaler = new javax.swing.JButton();
         nb_jaime = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
+        modifier = new javax.swing.JButton();
+        supp = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -256,17 +273,23 @@ public class Detail_annonce_agent extends javax.swing.JFrame {
             }
         });
 
-        signaler.setText("Signaler");
-
         nb_jaime.setText("0");
 
-        jButton5.setIcon(new javax.swing.ImageIcon("D:\\ESPRIT\\PIDev\\Pidev\\PIdev\\Pidev\\src\\pidev\\presentation\\jaime.gif")); // NOI18N
-        jButton5.setText("j'aime");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        modifier.setText("Modifier");
+        modifier.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                modifierActionPerformed(evt);
             }
         });
+
+        supp.setText("Effacer");
+        supp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                suppActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Nombre de j'aime");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -310,12 +333,9 @@ public class Detail_annonce_agent extends javax.swing.JFrame {
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                             .addGap(213, 213, 213)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addComponent(labTypHeb)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addComponent(labHeberg, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                            .addComponent(labTypHeb)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(labHeberg, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addGroup(layout.createSequentialGroup()
@@ -327,24 +347,30 @@ public class Detail_annonce_agent extends javax.swing.JFrame {
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(LabRet, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(LabThem, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(labdes, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(92, 92, 92)
-                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                .addComponent(labdes, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addGap(216, 216, 216)
+                                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(signaler)
-                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(nb_jaime)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jButton5)))))
+                                        .addGap(17, 17, 17))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(36, 36, 36)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(supp, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
+                                    .addComponent(modifier, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel13)))
-                .addContainerGap(177, Short.MAX_VALUE))
+                .addContainerGap(186, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -400,27 +426,32 @@ public class Detail_annonce_agent extends javax.swing.JFrame {
                         .addGap(14, 14, 14)
                         .addComponent(jLabel3))
                     .addComponent(labdes, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton5)
                     .addComponent(nb_jaime)
-                    .addComponent(signaler))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(modifier, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(55, 55, 55)
+                        .addComponent(supp, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton3)
-                .addGap(67, 67, 67)
+                .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addContainerGap())
+                .addGap(12, 12, 12))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        new Chiheb_Espace_Responsable().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -433,12 +464,28 @@ public class Detail_annonce_agent extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-
-        e.jaime(36, 49);
+    private void modifierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifierActionPerformed
+        
+            new ModifierAnnonce_Responsable(id_annonce).setVisible(true);
+            this.dispose();
+      
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_modifierActionPerformed
+
+    private void suppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_suppActionPerformed
+
+        AnnonceDAO aDAO = new AnnonceDAO();
+           System.out.println(id_annonce);
+            if (aDAO.deleteAnnonce(id_annonce)) {
+                showMessageDialog(this, "L'annonce a été supprimer", "Succés", JOptionPane.INFORMATION_MESSAGE);
+                new Chiheb_Espace_Responsable().setVisible(true);
+                this.dispose();
+            } else {
+                showMessageDialog(this, "n'est pas supprimer", "Attention", JOptionPane.ERROR_MESSAGE);
+            }
+       
+    }//GEN-LAST:event_suppActionPerformed
 
     /**
      * @param args the command line arguments
@@ -485,7 +532,7 @@ public class Detail_annonce_agent extends javax.swing.JFrame {
     private javax.swing.JLabel LabTrans;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -506,8 +553,9 @@ public class Detail_annonce_agent extends javax.swing.JFrame {
     private javax.swing.JLabel labdep;
     private javax.swing.JLabel labdes;
     private javax.swing.JLabel labdesc;
+    private javax.swing.JButton modifier;
     private javax.swing.JLabel nb_jaime;
-    private javax.swing.JButton signaler;
+    private javax.swing.JButton supp;
     private javax.swing.JTable tab;
     // End of variables declaration//GEN-END:variables
 }

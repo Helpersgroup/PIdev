@@ -64,33 +64,20 @@ public class AnnonceDAO {
             return false;
         }
     }
-    public boolean modifierAnnonce(int idAnnonce) {
-
-        String req = "update Annonce set nom=?,type_Annonce=?,date_Deb=?,date_Fin=?,depart=?,destination=?,description=?,hebergement=?,type_Hebergement=?,transport=?,nbre_adultes=?,nbre_enfants=?,prix=? where id_Annonce=" + idAnnonce;
-        try {
-            Annonce a = new Annonce();
+    public boolean modifierAnnonce(Annonce annonce) {
+                    Annonce a = annonce;
             java.util.Date utilDate = a.getDate_deb();
             java.util.Date utilDate1 = a.getDate_fin();
             java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
             java.sql.Date sqlDate1 = new java.sql.Date(utilDate1.getTime());
+        String req = "update Annonce set id_annonceur="+a.getId_Annonceur()+",nom='"+a.getNom()+"',type_Annonce='"+a.getType_Annonce()+"',date_Deb='"+sqlDate+"' , date_Fin='"+sqlDate1+"',depart='"+a.getDepart()+"',destination='"+a.getDestination()+"',description='"+a.getDescription()+"',hebergement='"+a.getHebergement()+"',type_Hebergement='"+a.getType_hebergement()+"' , transport='"+a.getTransport()+"' , nbre_adultes="+a.getNbr_adultes()+" , nbre_enfants="+a.getNbr_enfants()+" , etat=1 , prix="+a.getPrix()+" where id_Annonce=" + a.getId_Annonce();
+        try {
 
             PreparedStatement ps = MyConnection.getInstance().prepareStatement(req);
-            ps.setString(1, a.getNom());
-            ps.setString(2, a.getType_Annonce());
-            ps.setDate(3, sqlDate);
-            ps.setDate(4, sqlDate1);
-            ps.setString(5, a.getDepart());
-            ps.setString(6, a.getDestination());
-            ps.setString(7, a.getDescription());
-            ps.setString(8, a.getHebergement());
-            ps.setString(9, a.getType_hebergement());
-            ps.setString(10, a.getTransport());
-            ps.setInt(11, a.getNbr_adultes());
-            ps.setInt(12, a.getNbr_enfants());
-            ps.setDouble(13, a.getPrix());
-
+           
+            System.out.println(req);
             ps.executeUpdate();
-            System.out.println("Mise à jour effectuée avec succès");
+            System.out.println("Mise à jour effectuée avec succès ok ");
             return true;
         } catch (SQLException ex) {
             //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
@@ -119,12 +106,23 @@ public class AnnonceDAO {
     }
 
     public boolean deleteAnnonce(int id) {
-
+        String req1="delete from Jaime where id_Annonce=? ";
+        String req2="delete from Commentaire where id_Annonce=? ";
+        String req3="delete from reservation where id_Annonce=? ";
         String requete = "delete from Annonce where id_Annonce=? ";
         try {
-            PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
-            ps.setInt(1, id);
-            ps.executeUpdate();
+            PreparedStatement ps1 = MyConnection.getInstance().prepareStatement(req1);
+            PreparedStatement ps2 = MyConnection.getInstance().prepareStatement(req2);
+            PreparedStatement ps3 = MyConnection.getInstance().prepareStatement(req2);
+            PreparedStatement ps4 = MyConnection.getInstance().prepareStatement(requete);
+            ps1.setInt(1, id);
+            ps2.setInt(1, id);
+            ps3.setInt(1, id);
+            ps4.setInt(1, id);
+            ps1.executeUpdate();
+            ps2.executeUpdate();
+            ps3.executeUpdate();
+            ps4.executeUpdate();
             System.out.println("Suppression effectuée avec succès");
             return true;
         } catch (SQLException ex) {
@@ -605,7 +603,6 @@ public List<Annonce> rech_annonce(String contenu) {
             Annonce ann = new Annonce();
             while (resultat.next()) {
 
-                
                 ann.setId_Annonce(resultat.getInt(1));
                 ann.setId_Annonceur(resultat.getInt(2));
                 ann.setNom(resultat.getString(3));

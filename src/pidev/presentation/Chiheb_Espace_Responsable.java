@@ -16,14 +16,14 @@ import static pidev.presentation.GraphReaderExample.lastname;
 
 public class Chiheb_Espace_Responsable extends javax.swing.JFrame {
 static int id_Responsable =Chiheb_Authentification.id_connecté_normal;
-    /**
-     * Creates new form Chiheb_Espace_Responsable
-     */
+ 
     public Chiheb_Espace_Responsable() {
         initComponents();
-         
+        num1.setVisible(false);
+        reservation.setVisible(false);
+        prendre.setVisible(false);
         this.setLocationRelativeTo(null);
-       this.pack();
+        this.pack();
         this.getContentPane().setBackground(new Color(52, 152, 219));
     if (Chiheb_Authentification.connecté==1){
             jnconnecté3.setText(firstname+" "+lastname);
@@ -45,7 +45,6 @@ static int id_Responsable =Chiheb_Authentification.id_connecté_normal;
 
         jMenuItem1 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
-        btnSupp = new javax.swing.JButton();
         jBtnModifier = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -56,7 +55,17 @@ static int id_Responsable =Chiheb_Authentification.id_connecté_normal;
         jScrollPane1 = new javax.swing.JScrollPane();
         tableau = new javax.swing.JTable();
         ajouter = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        num2 = new javax.swing.JButton();
+        num4 = new javax.swing.JButton();
+        num3 = new javax.swing.JButton();
+        num1 = new javax.swing.JButton();
+        new_prop = new javax.swing.JLabel();
+        reservation = new javax.swing.JButton();
+        prendre = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        TfRech = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
@@ -64,21 +73,14 @@ static int id_Responsable =Chiheb_Authentification.id_connecté_normal;
         jMenu5 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
         jMenuItem6 = new javax.swing.JMenuItem();
-        jMenu8 = new javax.swing.JMenu();
-        jMenuItem9 = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 700));
+        setPreferredSize(new java.awt.Dimension(1000, 700));
         setResizable(false);
 
-        btnSupp.setText("Effacer");
-        btnSupp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSuppActionPerformed(evt);
-            }
-        });
+        jPanel1.setPreferredSize(new java.awt.Dimension(1200, 700));
 
         jBtnModifier.setText("Details");
         jBtnModifier.addActionListener(new java.awt.event.ActionListener() {
@@ -103,7 +105,7 @@ static int id_Responsable =Chiheb_Authentification.id_connecté_normal;
         });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setText("Espace responsable");
+        jLabel1.setText("Espace responsable Agence ");
 
         jnconnecté3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jnconnecté3.setText("jLabel2");
@@ -123,64 +125,167 @@ static int id_Responsable =Chiheb_Authentification.id_connecté_normal;
             }
         });
 
-        jButton3.setText("jButton3");
+        num2.setText("2");
+        num2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                num2ActionPerformed(evt);
+            }
+        });
+
+        num4.setText("4");
+        num4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                num4ActionPerformed(evt);
+            }
+        });
+
+        num3.setText("3");
+        num3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                num3ActionPerformed(evt);
+            }
+        });
+
+        num1.setText("1");
+        num1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                num1ActionPerformed(evt);
+            }
+        });
+
+        new_prop.setForeground(new java.awt.Color(255, 0, 0));
+        new_prop.setText("New");
+
+        reservation.setText("Liste reservation");
+        reservation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reservationActionPerformed(evt);
+            }
+        });
+
+        prendre.setText("Prendre en charge la proposition");
+        prendre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                prendreActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("Recherche");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        TfRech.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TfRechActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pidev/presentation/recherche_icone.png"))); // NOI18N
+        jLabel3.setText("recherche par mots- clés");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jnconnecté3)
-                        .addGap(8, 8, 8)
+                    .addComponent(ajouter, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(reservation, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(new_prop)
+                        .addGap(147, 147, 147)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(142, 142, 142)
+                                .addComponent(jLabel2)
+                                .addGap(18, 18, 18)
+                                .addComponent(jnconnecté3))
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton2))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ajouter, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(212, 212, 212)
+                                .addComponent(num1)
+                                .addGap(4, 4, 4)
+                                .addComponent(num2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(num3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(num4)
+                                .addGap(38, 38, 38))
+                            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
                                 .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnSupp, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jBtnModifier, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 53, Short.MAX_VALUE)))
-                .addContainerGap())
+                                .addComponent(TfRech, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(prendre, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(69, 69, 69)
+                                .addComponent(jBtnModifier, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(55, 55, 55)
+                                .addComponent(jButton1)))))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jnconnecté3)
-                    .addComponent(jButton2)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
-                .addComponent(jButton1)
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(158, 158, 158)
-                        .addComponent(jBtnModifier, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(49, 49, 49)
-                        .addComponent(btnSupp, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(new_prop)
+                        .addGap(204, 204, 204)
+                        .addComponent(ajouter, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(94, 94, 94)
-                        .addComponent(ajouter, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(47, 47, 47)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jButton1)
+                        .addGap(87, 87, 87)
+                        .addComponent(jBtnModifier, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(77, 77, 77)
+                        .addComponent(reservation, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(76, 76, 76)
+                        .addComponent(prendre, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 51, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(jnconnecté3)
+                            .addComponent(jButton2))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(TfRech, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(num1)
+                    .addComponent(num2)
+                    .addComponent(num4)
+                    .addComponent(num3)))
         );
 
         jMenu4.setText("Annonces");
@@ -216,18 +321,6 @@ static int id_Responsable =Chiheb_Authentification.id_connecté_normal;
 
         jMenuBar1.add(jMenu6);
 
-        jMenu8.setText("Reservations");
-
-        jMenuItem9.setText("Liste des réservations");
-        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem9ActionPerformed(evt);
-            }
-        });
-        jMenu8.add(jMenuItem9);
-
-        jMenuBar1.add(jMenu8);
-
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -235,20 +328,82 @@ static int id_Responsable =Chiheb_Authentification.id_connecté_normal;
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1042, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(79, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 617, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        tableau.setModel(new Affiche_Annonce_Responsable(id_Responsable));
+        tableau.setName("Mes Annonces");
+        reservation.setVisible(true);
+                        prendre.setVisible(false);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        tableau.setModel(new Liste_Proposition());
+        reservation.setVisible(false);
+        prendre.setVisible(true);
+        
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        tableau.setName("Liste Annonces");
+        tableau.setModel(new AfficherAnnonce(0, 10));
+        reservation.setVisible(false);
+                prendre.setVisible(false);
+
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void num1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num1ActionPerformed
+        tableau.setModel(new AfficherAnnonce(0,10));
+        num1.setVisible(false);
+        num2.setVisible(true);
+        num3.setVisible(true);
+        num4.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_num1ActionPerformed
+
+    private void num3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num3ActionPerformed
+        tableau.setModel(new AfficherAnnonce(20,30));
+        num1.setVisible(true);
+        num2.setVisible(true);
+        num3.setVisible(false);
+        num4.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_num3ActionPerformed
+
+    private void num4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num4ActionPerformed
+        // TODO add your handling code here:
+        tableau.setModel(new AfficherAnnonce(30,40));
+        num1.setVisible(true);
+        num2.setVisible(true);
+        num3.setVisible(true);
+        num4.setVisible(false);
+    }//GEN-LAST:event_num4ActionPerformed
+
+    private void num2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num2ActionPerformed
+        tableau.setModel(new AfficherAnnonce(10,20));
+        num1.setVisible(true);
+        num2.setVisible(false);
+        num3.setVisible(true);
+        num4.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_num2ActionPerformed
+
+    private void ajouterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterActionPerformed
+        new AjouterAnnonce_Responsable().setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ajouterActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
@@ -259,28 +414,6 @@ static int id_Responsable =Chiheb_Authentification.id_connecté_normal;
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        new AjouterAnnonce_Responsable().setVisible(true);
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
-
-    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
-
-        new Liste_Reservations().setVisible(true);
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem9ActionPerformed
-
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        new pikon_liste_proposition().dispose();
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
-
-    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
- AfficherAnnonceResponsable aar = new AfficherAnnonceResponsable();
- aar.setVisible(true);
- this.dispose();
-    }//GEN-LAST:event_jMenuItem8ActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         new Statistiques().setVisible(true);
         // TODO add your handling code here:
@@ -289,40 +422,59 @@ static int id_Responsable =Chiheb_Authentification.id_connecté_normal;
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jBtnModifierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnModifierActionPerformed
-         int ligneSelectionne = tableau.getSelectedRow();
+        int ligneSelectionne = tableau.getSelectedRow();
         int ligneSelectionne_tab2 = tableau.getSelectedRow();
-         if(ligneSelectionne!=-1){
-               int id = Integer.parseInt(tableau.getValueAt(ligneSelectionne, 0).toString());
-                new Detail_annonce((id)).setVisible(true);
-         }else if(ligneSelectionne_tab2!=-1){
-               int id = Integer.parseInt(tableau.getValueAt(ligneSelectionne, 0).toString());
-                new Detail_annonce((id)).setVisible(true);
-         }
-         else{ 
-                   showMessageDialog(this, "Rien n'est selectionner", "Attention", JOptionPane.INFORMATION_MESSAGE);
-
-         }
-  
+        if(ligneSelectionne!=-1){
+            int id = Integer.parseInt(tableau.getValueAt(ligneSelectionne, 0).toString());
+            new Detail_annonce_agent((id)).setVisible(true);
+        }else if(ligneSelectionne_tab2!=-1){
+            int id = Integer.parseInt(tableau.getValueAt(ligneSelectionne, 0).toString());
+            new Detail_annonce_agent((id)).setVisible(true);
+        }
+        else{
+            showMessageDialog(this, "Rien n'est selectionner", "Attention", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_jBtnModifierActionPerformed
 
-    private void btnSuppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuppActionPerformed
-        int ligneSelectionne = tableau.getSelectedRow();
-        int id = Integer.parseInt(tableau.getValueAt(ligneSelectionne, 0).toString());
-
-        AnnonceDAO aDAO = new AnnonceDAO();
-        System.out.println("on va effectuer la suppression ");
-        if (aDAO.deleteAnnonce(id)) {
-            System.out.println("suppression effectuée");
-            tableau.setModel(new Affiche_Annonce_Responsable());
-        } else {
-            System.out.println("supp nn effectuée");
+    private void reservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservationActionPerformed
+       int ligneSelectionne = tableau.getSelectedRow();
+        
+        if(ligneSelectionne!=-1){
+            int id = Integer.parseInt(tableau.getValueAt(ligneSelectionne, 0).toString());
+            tableau.setModel(new ListeReservation(id));
         }
-    }//GEN-LAST:event_btnSuppActionPerformed
+        else{
+            showMessageDialog(this, "Rien n'est selectionner", "Attention", JOptionPane.INFORMATION_MESSAGE);
 
-    private void ajouterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterActionPerformed
-        new AjouterAnnonce_Responsable().setVisible(true);
+        }
         // TODO add your handling code here:
-    }//GEN-LAST:event_ajouterActionPerformed
+    }//GEN-LAST:event_reservationActionPerformed
+
+    private void prendreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prendreActionPerformed
+        int ligneSelectionne = tableau.getSelectedRow();
+        if(ligneSelectionne!=-1){
+            int id = Integer.parseInt(tableau.getValueAt(ligneSelectionne, 0).toString());
+            new ModifierAnnonce_Responsable(id).setVisible(true);
+        }else
+            showMessageDialog(this, "Rien n'est selectionner", "Attention", JOptionPane.INFORMATION_MESSAGE);
+ 
+        // TODO add your handling code here:
+    }//GEN-LAST:event_prendreActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        if(!TfRech.getText().equals("")){
+            tableau.setModel(new AfficherAnnonce(TfRech.getText()));
+        }
+        else{
+            showMessageDialog(this, "Vous devez ecrire quelque chose", "Attention", JOptionPane.INFORMATION_MESSAGE);
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void TfRechActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TfRechActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TfRechActionPerformed
 
     /**
      * @param args the command line arguments
@@ -359,28 +511,35 @@ static int id_Responsable =Chiheb_Authentification.id_connecté_normal;
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField TfRech;
     private javax.swing.JButton ajouter;
-    private javax.swing.JButton btnSupp;
     private javax.swing.JButton jBtnModifier;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel jnconnecté3;
+    private javax.swing.JLabel new_prop;
+    private javax.swing.JButton num1;
+    private javax.swing.JButton num2;
+    private javax.swing.JButton num3;
+    private javax.swing.JButton num4;
+    private javax.swing.JButton prendre;
+    private javax.swing.JButton reservation;
     private javax.swing.JTable tableau;
     // End of variables declaration//GEN-END:variables
 }
