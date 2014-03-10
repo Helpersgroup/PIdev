@@ -151,7 +151,7 @@
                               <Component id="num4" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="num3" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="32" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>

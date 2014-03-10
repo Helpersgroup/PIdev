@@ -6,14 +6,21 @@
 package pidev.presentation;
 
 import java.awt.Color;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Map;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
-import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PiePlot3D;
 import org.jfree.data.general.DefaultPieDataset;
@@ -144,7 +151,7 @@ public class Statistiques extends javax.swing.JFrame {
 
      ChartFrame ch = new ChartFrame("Statistiques", chart);
 
-      //  ChartPanel ch = new ChartPanel(chart);
+      // ChartPanel ch = new ChartPanel(chart);
      ch.setSize(300, 300);
     ch.setLocationRelativeTo(null);
     ch.pack();
@@ -192,13 +199,24 @@ public class Statistiques extends javax.swing.JFrame {
         plot.setForegroundAlpha(0.5f);
 ChartFrame ch = new ChartFrame("Statistiques", chart);
 
-      //  ChartPanel ch = new ChartPanel(chart);
+      // ChartPanel ch = new ChartPanel(chart);
     ch.setSize(400, 400);
       ch.setLocationRelativeTo(null);
     ch.pack();
         ch.setVisible(true);
+//    JFrame frame = new JFrame();
+
+
+
     
-        
+//map2.addCursor("red", ".",3.876772f,43.613087f);
+//frame.add(map2);
+//frame.setSize(400, 420);
+//frame.setLocation(200, 200);
+//map2.setVisible(true);
+//frame.setVisible(true);
+     // new GMaps(3.876772f,43.613087f).setVisible(true);
+       
         //jButton2.setVisible(true);
       //  this.setContentPane(ch);
 
@@ -239,4 +257,5 @@ ChartFrame ch = new ChartFrame("Statistiques", chart);
     private javax.swing.JButton jButton1;
     private javax.swing.JToggleButton jToggleButton1;
     // End of variables declaration//GEN-END:variables
+
 }
