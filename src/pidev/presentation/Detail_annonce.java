@@ -10,6 +10,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import static java.lang.Double.isNaN;
 import java.net.URL;
 import java.util.Date;
 import javax.swing.ImageIcon;
