@@ -21,7 +21,7 @@ import pidev.entities.Reservation;
 public class ListeReservation extends AbstractTableModel {
     List<Reservation> reservation =new ArrayList<Reservation>();
     ReservationDAO  r = new ReservationDAO();
-    String[] columTab = {"Nom Annonce","Nom Client","Mail","date"};
+    String[] columTab = {"Id","Nom Annonce","Nom Client","Mail","date","etat"};
 
     public ListeReservation(int id_annonce) {
         reservation=r.DisplayReservationbyAnnonce(id_annonce);
@@ -41,13 +41,17 @@ public class ListeReservation extends AbstractTableModel {
     public Object getValueAt(int rowIndex, int columnIndex) {
         switch (columnIndex) {
             case 0:
+                return reservation.get(rowIndex).getId_Reservation();
+            case 1:
                 return reservation.get(rowIndex).getNomAnnonce();
-                   case 1:
+                   case 2:
                 return reservation.get(rowIndex).getNomclient();
-                       case 2:
+                       case 3:
                 return reservation.get(rowIndex).getMail();
-            case 3:
+            case 4:
                 return reservation.get(rowIndex).getDate();
+            case 5:
+                return reservation.get(rowIndex).getEtat();
                    default:
                 return null;
         }

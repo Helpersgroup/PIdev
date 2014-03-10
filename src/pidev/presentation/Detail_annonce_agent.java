@@ -456,10 +456,15 @@ public class Detail_annonce_agent extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        if (!jTextArea1.getText().equals("")){
         String text=jTextArea1.getText();
         e.AjouterCommentaire(text, id_CC, id_annonce);
         tab.setModel(new evaluer(id_annonce));
         jTextArea1.setText("");
+        }
+        else{
+             showMessageDialog(this, "Message vide", "Attention", JOptionPane.INFORMATION_MESSAGE);
+        }
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed

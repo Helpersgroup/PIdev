@@ -15,7 +15,12 @@
 	</style>
         
 	<queryString language="SQL">
-		<![CDATA[select * from Annonce where id_Annonce=$V{id_Annonceur}]]>
+				<![CDATA[SELECT
+     *
+FROM
+     `Annonce` Annonce
+WHERE
+     id_Annonce = $P{id_Annonce}]]>
 	</queryString>
 	<field name="nom" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>

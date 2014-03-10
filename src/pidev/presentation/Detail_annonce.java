@@ -17,8 +17,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.showMessageDialog;
 import pidev.dao.AnnonceDAO;
 import pidev.dao.EvalDAO;
+import pidev.dao.ReservationDAO;
 import pidev.entities.Annonce;
 
 /**
@@ -197,6 +199,7 @@ import pidev.entities.Annonce;
         nb_jaime = new javax.swing.JLabel();
         signaler = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        Reserver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -290,6 +293,13 @@ import pidev.entities.Annonce;
             }
         });
 
+        Reserver.setText("Reserver et generer Facture");
+        Reserver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ReserverActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -333,22 +343,6 @@ import pidev.entities.Annonce;
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(LabPrix)
                         .addGap(96, 96, 96))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(220, 220, 220)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(labTypHeb)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(112, 112, 112)
-                        .addComponent(labHeberg, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(LabTrans)
-                            .addComponent(labdesc, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton3)
@@ -357,14 +351,6 @@ import pidev.entities.Annonce;
                 .addGap(274, 274, 274))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(signaler)
-                        .addGap(18, 18, 18)
-                        .addComponent(nb_jaime)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton4)
-                        .addGap(11, 11, 11))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(191, 191, 191)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -388,6 +374,33 @@ import pidev.entities.Annonce;
                 .addGap(39, 39, 39)
                 .addComponent(jButton2)
                 .addGap(108, 108, 108))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(220, 220, 220)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(labTypHeb)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(112, 112, 112)
+                                .addComponent(labHeberg, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(LabTrans)
+                                    .addComponent(labdesc, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(Reserver)
+                        .addGap(83, 83, 83)
+                        .addComponent(signaler)
+                        .addGap(18, 18, 18)
+                        .addComponent(nb_jaime)
+                        .addGap(20, 20, 20)
+                        .addComponent(jButton4)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -433,12 +446,13 @@ import pidev.entities.Annonce;
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(LabTrans, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Reserver)
+                    .addComponent(signaler)
                     .addComponent(jButton4)
-                    .addComponent(nb_jaime)
-                    .addComponent(signaler))
-                .addGap(45, 45, 45)
+                    .addComponent(nb_jaime))
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -458,12 +472,16 @@ import pidev.entities.Annonce;
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-
+        if (!jTextArea1.getText().equals("")){
         String text=jTextArea1.getText();
         e.AjouterCommentaire(text, id_CC, id_annonce);
         tab.setModel(new evaluer(id_annonce));
         jTextArea1.setText("");
-
+        }
+        else{
+                 showMessageDialog(this, "Message vide", "Attention", JOptionPane.INFORMATION_MESSAGE);
+ 
+        }
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -522,6 +540,24 @@ import pidev.entities.Annonce;
     
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void ReserverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReserverActionPerformed
+
+      ReservationDAO res=new ReservationDAO();
+      if(res.reserver(id_annonce, id_CC)){
+      showMessageDialog(this, "Reservation Effectuer avec succés", "Attention", JOptionPane.INFORMATION_MESSAGE);
+      }
+      else
+      showMessageDialog(this, "Error lors de la reservation", "Attention", JOptionPane.ERROR_MESSAGE);
+          
+      if(new GenererPDF().genrer(id_annonce)){
+      showMessageDialog(this, "Facture Générer sous C:/classic.pdf", "Attention", JOptionPane.INFORMATION_MESSAGE);
+      }
+      else
+      showMessageDialog(this, "Error lors de la generation de la facture", "Attention", JOptionPane.ERROR_MESSAGE);
+        
+            // TODO add your handling code here:
+    }//GEN-LAST:event_ReserverActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -565,6 +601,7 @@ import pidev.entities.Annonce;
     private javax.swing.JLabel LabRet;
     private javax.swing.JLabel LabThem;
     private javax.swing.JLabel LabTrans;
+    private javax.swing.JButton Reserver;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;

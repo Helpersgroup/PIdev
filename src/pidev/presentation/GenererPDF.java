@@ -29,7 +29,7 @@ public class GenererPDF {
             // - Connexion à la base
             connection=DriverManager.getConnection(url, login, password);
             // - Chargement et compilation du rapport
-            JasperDesign jasperDesign = JRXmlLoader.load("D:\\ESPRIT\\PIDev\\p\\PIdev\\classic.jrxml");
+            JasperDesign jasperDesign = JRXmlLoader.load("D:\\ESPRIT\\PIDev\\p\\PIdev\\facture.jrxml");
             JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
             
             // - Paramètres à envoyer au rapport
@@ -39,7 +39,7 @@ public class GenererPDF {
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, connection);
             // - Création du rapport au format PDF
             //JasperViewer.viewReport (jasperPrint);
-            JasperExportManager.exportReportToPdfFile(jasperPrint, "D:\\ESPRIT\\PIDev\\p\\PIdev\\classic.pdf");
+            JasperExportManager.exportReportToPdfFile(jasperPrint, "C:\\Users\\Public\\facture.pdf");
             return true;
         }
 

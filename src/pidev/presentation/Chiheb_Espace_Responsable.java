@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
 import pidev.dao.AnnonceDAO;
 import pidev.dao.PersonneDAO;
+import pidev.dao.ReservationDAO;
 import pidev.dao.ResponsableDAO;
 import static pidev.presentation.GraphReaderExample.firstname;
 import static pidev.presentation.GraphReaderExample.lastname;
@@ -22,6 +23,7 @@ static int id_Responsable =Chiheb_Authentification.id_connecté_normal;
         num1.setVisible(false);
         reservation.setVisible(false);
         prendre.setVisible(false);
+        valider.setVisible(false);
         this.setLocationRelativeTo(null);
         this.pack();
         this.getContentPane().setBackground(new Color(52, 152, 219));
@@ -66,6 +68,7 @@ static int id_Responsable =Chiheb_Authentification.id_connecté_normal;
         jButton3 = new javax.swing.JButton();
         TfRech = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
+        valider = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
@@ -186,6 +189,13 @@ static int id_Responsable =Chiheb_Authentification.id_connecté_normal;
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pidev/presentation/recherche_icone.png"))); // NOI18N
         jLabel3.setText("recherche par mots- clés");
 
+        valider.setText("Valider Reservation et Envoyer Mail ");
+        valider.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                validerActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -228,38 +238,35 @@ static int id_Responsable =Chiheb_Authentification.id_connecté_normal;
                                 .addComponent(TfRech, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(55, 55, 55)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(prendre, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(69, 69, 69)
-                                .addComponent(jBtnModifier, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(55, 55, 55)
+                            .addComponent(valider)
+                            .addComponent(prendre, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jBtnModifier, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jButton1)))))
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(new_prop)
                         .addGap(204, 204, 204)
-                        .addComponent(ajouter, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(ajouter, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(4, 4, 4))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(94, 94, 94)
                         .addComponent(jButton1)
-                        .addGap(87, 87, 87)
-                        .addComponent(jBtnModifier, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(77, 77, 77)
-                        .addComponent(reservation, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(76, 76, 76)
-                        .addComponent(prendre, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jBtnModifier, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)))
+                .addComponent(valider, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(reservation, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(prendre, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -344,6 +351,7 @@ static int id_Responsable =Chiheb_Authentification.id_connecté_normal;
         tableau.setName("Mes Annonces");
         reservation.setVisible(true);
                         prendre.setVisible(false);
+                         valider.setVisible(false);
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem4ActionPerformed
@@ -352,6 +360,7 @@ static int id_Responsable =Chiheb_Authentification.id_connecté_normal;
         tableau.setModel(new Liste_Proposition());
         reservation.setVisible(false);
         prendre.setVisible(true);
+         valider.setVisible(false);
         
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem6ActionPerformed
@@ -361,6 +370,7 @@ static int id_Responsable =Chiheb_Authentification.id_connecté_normal;
         tableau.setModel(new AfficherAnnonce(0, 10));
         reservation.setVisible(false);
                 prendre.setVisible(false);
+                 valider.setVisible(false);
 
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
@@ -437,7 +447,8 @@ static int id_Responsable =Chiheb_Authentification.id_connecté_normal;
     }//GEN-LAST:event_jBtnModifierActionPerformed
 
     private void reservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservationActionPerformed
-       int ligneSelectionne = tableau.getSelectedRow();
+        valider.setVisible(true);
+        int ligneSelectionne = tableau.getSelectedRow();
         
         if(ligneSelectionne!=-1){
             int id = Integer.parseInt(tableau.getValueAt(ligneSelectionne, 0).toString());
@@ -475,6 +486,24 @@ static int id_Responsable =Chiheb_Authentification.id_connecté_normal;
     private void TfRechActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TfRechActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TfRechActionPerformed
+
+    private void validerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_validerActionPerformed
+            ReservationDAO res=new ReservationDAO();
+             int ligneSelectionne = tableau.getSelectedRow();
+        if(ligneSelectionne!=-1){
+            int id = Integer.parseInt(tableau.getValueAt(ligneSelectionne, 0).toString());
+            res.valider_reserver(id);
+         
+            String mail = tableau.getValueAt(ligneSelectionne, 3).toString();
+            new Mailing().send(mail);
+             showMessageDialog(this, "Mail envoyer avec succés", "Reussit", JOptionPane.INFORMATION_MESSAGE);
+           
+        }else
+            showMessageDialog(this, "Rien n'est selectionner", "Attention", JOptionPane.INFORMATION_MESSAGE);
+   
+        
+        // TODO add your handling code here:
+    }//GEN-LAST:event_validerActionPerformed
 
     /**
      * @param args the command line arguments
@@ -541,5 +570,6 @@ static int id_Responsable =Chiheb_Authentification.id_connecté_normal;
     private javax.swing.JButton prendre;
     private javax.swing.JButton reservation;
     private javax.swing.JTable tableau;
+    private javax.swing.JButton valider;
     // End of variables declaration//GEN-END:variables
 }

@@ -13,6 +13,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.showMessageDialog;
 import pidev.dao.ClientDAO;
 import pidev.dao.PersonneDAO;
 import pidev.dao.ResponsableDAO;
@@ -352,15 +354,12 @@ int ID_max;
        passe=new String(jpass.getPassword());
        passe2=new String(jpass2.getPassword());
        email=jemail.getText().toString();
-       tel=jtel.getText().toString();
-        
+       tel=jtel.getText();
+        System.out.println(Integer.parseInt(tel));
             
-          
-        
-            
+  
           if( nom.length()!=0 && prenom.length()!=0 && cin.length()!=0 && email.length()!=0 && tel.length()!=0 && passe.length()!=0 && passe2.length()!=0 &&(jRadio1.isSelected()||jRadio2.isSelected()) )
           {
-              
               PersonneDAO psd = new PersonneDAO();
               em = psd.selectPersonneByemail(email);
               if (passe.equals(passe2)){
@@ -383,12 +382,33 @@ int ID_max;
                       }
                       if(em==0){
                          jLabel19.setVisible(false); 
-                      
+                         int ci=Integer.parseInt(cin);
+                         int te=Integer.parseInt(tel);
+                         if(!Double.isNaN(te))
+                         {
+                         if(ci<10000000 || ci>99999999)
+                           showMessageDialog(this, "CIN non valide", "Attention", JOptionPane.INFORMATION_MESSAGE);
+                         }else{
+                             showMessageDialog(this, "vous devez saisir un Nombre ", "Attention", JOptionPane.INFORMATION_MESSAGE);
+
+                         }
+                         
+                         if(!Double.isNaN(te))
+                         {
+                         if(te<20000000 || te>99999999)
+                             showMessageDialog(this, "Téléphone non valide", "Attention", JOptionPane.INFORMATION_MESSAGE);
+                         }
+                         else{
+                             showMessageDialog(this, "vous devez saisir un Nombre ", "Attention", JOptionPane.INFORMATION_MESSAGE);
+
+                         }
+                         
+                         
+                         
+                         
+                         
                   if (jRadio1.isSelected()){
-                     
-                      
-                      
-                      
+          
                     jLabel15.setVisible(false);
                     Personne p = new Personne(cin,nom, prenom,email,Integer.parseInt(tel),passe);
                    PersonneDAO d = new PersonneDAO();
@@ -431,7 +451,7 @@ int ID_max;
             
               }else
               {
-                  System.out.println("pass mich kifkif");
+                 System.out.println("pass mich kifkif");
                     jLabel15.setVisible(true);
               }
         
@@ -447,7 +467,7 @@ int ID_max;
               jLabel9.setVisible(true);
               jLabel10.setVisible(true);
               jLabel11.setVisible(true);
-      
+              
           }
         
        
