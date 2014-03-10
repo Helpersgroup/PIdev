@@ -19,13 +19,13 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import pidev.entities.Annonce;
 import pidev.entities.Reservation;
-import pidev.presentation.Chiheb_Authentification;
+import pidev.presentation.Authentification;
 import pidev.presentation.GraphReaderExample;
 import pidev.presentation.fiche_reservation;
 import pidev.util.*;
 
 public class ReservationDAO {
-static int id_CC =Chiheb_Authentification.id_connecté_normal; 
+static int id_CC =Authentification.id_connecté_normal; 
 
     public List<Reservation> DisplayReservationByClient(int id) {
 

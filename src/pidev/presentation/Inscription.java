@@ -19,8 +19,8 @@ import pidev.dao.ClientDAO;
 import pidev.dao.PersonneDAO;
 import pidev.dao.ResponsableDAO;
 import pidev.entities.Personne;
-import static pidev.presentation.Chiheb_Authentification.connecté;
-import static pidev.presentation.Chiheb_Authentification.id_connecté_normal;
+import static pidev.presentation.Authentification.connecté;
+import static pidev.presentation.Authentification.id_connecté_normal;
 import static pidev.presentation.GraphReaderExample.firstname;
 import static pidev.presentation.GraphReaderExample.lastname;
 import pidev.util.MyConnection;
@@ -29,7 +29,7 @@ import pidev.util.MyConnection;
  *
  * @author chiheb
  */
-public class Chiheb_Inscription extends javax.swing.JFrame {
+public class Inscription extends javax.swing.JFrame {
 int ID_max;
  public static String nom="";
     public static    String prenom="";     
@@ -40,9 +40,9 @@ int ID_max;
         int em=0;
      public static     String tel="";
     /**
-     * Creates new form Chiheb_Inscription
+     * Creates new form Inscription
      */
-    public Chiheb_Inscription()  {
+    public Inscription()  {
          
         initComponents();
         jLabel15.setVisible(false);
@@ -354,12 +354,17 @@ int ID_max;
        passe=new String(jpass.getPassword());
        passe2=new String(jpass2.getPassword());
        email=jemail.getText().toString();
-       tel=jtel.getText();
-        System.out.println(Integer.parseInt(tel));
+       tel=jtel.getText().toString();
+        
             
-  
+          
+        
+            
           if( nom.length()!=0 && prenom.length()!=0 && cin.length()!=0 && email.length()!=0 && tel.length()!=0 && passe.length()!=0 && passe2.length()!=0 &&(jRadio1.isSelected()||jRadio2.isSelected()) )
           {
+//                if (Double.isNaN(Integer.parseInt(tel))){
+//                              showMessageDialog(this, "format du telephone incorrect", "Attention", JOptionPane.INFORMATION_MESSAGE);
+//                          }
               PersonneDAO psd = new PersonneDAO();
               em = psd.selectPersonneByemail(email);
               if (passe.equals(passe2)){
@@ -381,34 +386,14 @@ int ID_max;
                          jLabel19.setVisible(true);
                       }
                       if(em==0){
+                        
                          jLabel19.setVisible(false); 
-                         int ci=Integer.parseInt(cin);
-                         int te=Integer.parseInt(tel);
-                         if(!Double.isNaN(te))
-                         {
-                         if(ci<10000000 || ci>99999999)
-                           showMessageDialog(this, "CIN non valide", "Attention", JOptionPane.INFORMATION_MESSAGE);
-                         }else{
-                             showMessageDialog(this, "vous devez saisir un Nombre ", "Attention", JOptionPane.INFORMATION_MESSAGE);
-
-                         }
-                         
-                         if(!Double.isNaN(te))
-                         {
-                         if(te<20000000 || te>99999999)
-                             showMessageDialog(this, "Téléphone non valide", "Attention", JOptionPane.INFORMATION_MESSAGE);
-                         }
-                         else{
-                             showMessageDialog(this, "vous devez saisir un Nombre ", "Attention", JOptionPane.INFORMATION_MESSAGE);
-
-                         }
-                         
-                         
-                         
-                         
-                         
+                      
                   if (jRadio1.isSelected()){
-          
+                     
+                      
+                      
+                      
                     jLabel15.setVisible(false);
                     Personne p = new Personne(cin,nom, prenom,email,Integer.parseInt(tel),passe);
                    PersonneDAO d = new PersonneDAO();
@@ -435,7 +420,7 @@ int ID_max;
                    Personne p = new Personne(cin,nom, prenom,email,Integer.parseInt(tel),passe);
                        PersonneDAO d = new PersonneDAO();
                    d.ajouterPersonne(p.getCin(),p.getNom(), p.getPrenom(), p.getEmail(), p.getTel(), p.getMdp());
-                   Chiheb_Inscription_Suite ins= new Chiheb_Inscription_Suite();
+                   Inscription_Suite ins= new Inscription_Suite();
                    ins.setVisible(true);
                    this.dispose();
                    
@@ -451,7 +436,7 @@ int ID_max;
             
               }else
               {
-                 System.out.println("pass mich kifkif");
+                  System.out.println("pass mich kifkif");
                     jLabel15.setVisible(true);
               }
         
@@ -467,7 +452,7 @@ int ID_max;
               jLabel9.setVisible(true);
               jLabel10.setVisible(true);
               jLabel11.setVisible(true);
-              
+      
           }
         
        
@@ -488,7 +473,7 @@ public static boolean isValid(String email)
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Chiheb_Accueil acc = new Chiheb_Accueil();
+        Accueil acc = new Accueil();
         acc.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -510,13 +495,13 @@ public static boolean isValid(String email)
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Chiheb_Inscription.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Inscription.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Chiheb_Inscription.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Inscription.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Chiheb_Inscription.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Inscription.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Chiheb_Inscription.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Inscription.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -525,7 +510,7 @@ public static boolean isValid(String email)
             @Override
             public void run() {
              
-                    new Chiheb_Inscription().setVisible(true);
+                    new Inscription().setVisible(true);
                
             }
         });

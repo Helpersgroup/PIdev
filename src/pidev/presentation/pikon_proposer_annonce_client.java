@@ -262,7 +262,7 @@ public class pikon_proposer_annonce_client extends javax.swing.JFrame {
         PropositionDAO aDAO = new PropositionDAO();
         
         a.setNom(TFnom2.getText());
-        a.setId_Annonceur(Chiheb_Authentification.id_connecté_normal);
+        a.setId_Annonceur(Authentification.id_connecté_normal);
         a.setType_annonce(CboxTheme.getSelectedItem().toString());
 
 

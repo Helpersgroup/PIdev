@@ -26,7 +26,7 @@ public class ModifierAnnonce_Responsable extends javax.swing.JFrame {
 /**
      * Creates new form ModifierAnnonce_Responsable
      */
-        static int id_Responsable =Chiheb_Authentification.id_connecté_normal;
+        static int id_Responsable =Authentification.id_connecté_normal;
      
     public ModifierAnnonce_Responsable(int id) {
        this.id=id; 
@@ -35,13 +35,13 @@ public class ModifierAnnonce_Responsable extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.pack();
         AgenceDAO agd = new AgenceDAO();
-     x=agd.selectIdAgence(Chiheb_Authentification.id_connecté_normal);
+     x=agd.selectIdAgence(Authentification.id_connecté_normal);
         y=agd.selectNomAgence(x);
     jLabel12.setText(""+y);
     
    // récupération de données    
                AnnonceDAO aDAO =new AnnonceDAO();
-             //  int id =Chiheb_Authentification.id_connecté_normal;
+             //  int id =Authentification.id_connecté_normal;
                
                 Annonce a= aDAO.selectAnnonce(id);
 

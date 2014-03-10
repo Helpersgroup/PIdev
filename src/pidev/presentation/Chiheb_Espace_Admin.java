@@ -35,9 +35,9 @@ public class Chiheb_Espace_Admin extends javax.swing.JFrame {
            this.setLocationRelativeTo(null);
        this.pack();
         this.getContentPane().setBackground(new Color(52, 152, 219));
-     if (Chiheb_Authentification.connecté==1){
+     if (Authentification.connecté==1){
             jnconnecté2.setText(firstname+" "+lastname);
-//        //System.out.println(""+Chiheb_Authentification.id_connecté_normal);
+//        //System.out.println(""+Authentification.id_connecté_normal);
      }
     }
 
@@ -78,6 +78,7 @@ public class Chiheb_Espace_Admin extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         TfRech = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         jMenu3.setText("File");
         jMenuBar2.add(jMenu3);
@@ -99,16 +100,24 @@ public class Chiheb_Espace_Admin extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Espace Admin");
         setBackground(new java.awt.Color(244, 219, 171));
+        setPreferredSize(new java.awt.Dimension(1094, 700));
         setResizable(false);
+        getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Bienvenue :");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(769, 4, 71, 15);
 
         jnconnecté2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jnconnecté2.setText("jLabel2");
+        getContentPane().add(jnconnecté2);
+        jnconnecté2.setBounds(858, 4, 44, 15);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setText("Espace Admin");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(35, 134, 125, 22);
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton2.setText("Deconnexion");
@@ -117,20 +126,28 @@ public class Chiheb_Espace_Admin extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton2);
+        jButton2.setBounds(920, 0, 111, 23);
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.setText("Générer statiqtiques");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(10, 390, 200, 61);
 
+        supprimer.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         supprimer.setText("Supprimer");
         supprimer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 supprimerActionPerformed(evt);
             }
         });
+        getContentPane().add(supprimer);
+        supprimer.setBounds(970, 330, 95, 34);
 
         num1.setText("1");
         num1.addActionListener(new java.awt.event.ActionListener() {
@@ -138,6 +155,8 @@ public class Chiheb_Espace_Admin extends javax.swing.JFrame {
                 num1ActionPerformed(evt);
             }
         });
+        getContentPane().add(num1);
+        num1.setBounds(427, 496, 39, 23);
 
         num2.setText("2");
         num2.addActionListener(new java.awt.event.ActionListener() {
@@ -145,6 +164,8 @@ public class Chiheb_Espace_Admin extends javax.swing.JFrame {
                 num2ActionPerformed(evt);
             }
         });
+        getContentPane().add(num2);
+        num2.setBounds(472, 496, 39, 23);
 
         num4.setText("4");
         num4.addActionListener(new java.awt.event.ActionListener() {
@@ -152,6 +173,8 @@ public class Chiheb_Espace_Admin extends javax.swing.JFrame {
                 num4ActionPerformed(evt);
             }
         });
+        getContentPane().add(num4);
+        num4.setBounds(562, 496, 39, 23);
 
         num3.setText("3");
         num3.addActionListener(new java.awt.event.ActionListener() {
@@ -159,193 +182,123 @@ public class Chiheb_Espace_Admin extends javax.swing.JFrame {
                 num3ActionPerformed(evt);
             }
         });
+        getContentPane().add(num3);
+        num3.setBounds(517, 496, 39, 23);
 
+        jButton8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton8.setText("Gestion des Comptes");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton8);
+        jButton8.setBounds(10, 216, 200, 69);
 
+        jButton9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton9.setText("Gestion des Annonces");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton9);
+        jButton9.setBounds(10, 303, 200, 69);
 
+        jButton10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton10.setText("Gestion des Signalisations");
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton10ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton10);
+        jButton10.setBounds(10, 470, 200, 69);
 
         jScrollPane1.setViewportView(tableau);
 
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(220, 140, 710, 346);
+
+        var.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         var.setText("Affcher la liste des Agents");
         var.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 varActionPerformed(evt);
             }
         });
+        getContentPane().add(var);
+        var.setBounds(230, 100, 231, 23);
 
+        agences.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         agences.setText("Liste des Agences");
         agences.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 agencesActionPerformed(evt);
             }
         });
+        getContentPane().add(agences);
+        agences.setBounds(470, 100, 204, 23);
 
+        clients.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         clients.setText("Afficher la lsites des Clients");
         clients.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clientsActionPerformed(evt);
             }
         });
+        getContentPane().add(clients);
+        clients.setBounds(690, 100, 231, 23);
+        getContentPane().add(l);
+        l.setBounds(783, 574, 0, 0);
 
+        details.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         details.setText("Afficher Details");
         details.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 detailsActionPerformed(evt);
             }
         });
+        getContentPane().add(details);
+        details.setBounds(953, 257, 126, 57);
 
+        supp_signal.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         supp_signal.setText("Supprimer");
         supp_signal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 supp_signalActionPerformed(evt);
             }
         });
+        getContentPane().add(supp_signal);
+        supp_signal.setBounds(970, 380, 95, 35);
 
+        jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton3.setText("Recherche");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton3);
+        jButton3.setBounds(680, 50, 121, 31);
 
         TfRech.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TfRechActionPerformed(evt);
             }
         });
+        getContentPane().add(TfRech);
+        TfRech.setBounds(520, 50, 144, 29);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pidev/presentation/recherche_icone.png"))); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/search.png"))); // NOI18N
         jLabel2.setText("recherche par mots- clés");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(290, 30, 225, 64);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(num1)
-                .addGap(4, 4, 4)
-                .addComponent(num2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(num3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(num4)
-                .addGap(37, 37, 37)
-                .addComponent(l)
-                .addGap(311, 311, 311))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
-                    .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE))
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(var, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(agences, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
-                        .addComponent(clients, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(details, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(36, 36, 36)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(supp_signal)
-                                    .addComponent(supprimer))))
-                        .addContainerGap(56, Short.MAX_VALUE))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(151, 151, 151)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jnconnecté2)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2)
-                .addGap(63, 63, 63))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(326, 326, 326)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addComponent(TfRech, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel1)
-                    .addComponent(jnconnecté2))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(124, 124, 124)
-                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(TfRech, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(var)
-                            .addComponent(agences)
-                            .addComponent(clients))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(23, 23, 23))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(details, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(38, 38, 38)
-                                .addComponent(supprimer, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(supp_signal, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(135, 135, 135)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(num1)
-                            .addComponent(num2)
-                            .addComponent(num4)
-                            .addComponent(num3)
-                            .addComponent(l)))))
-        );
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Admin.png"))); // NOI18N
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(35, 0, 128, 128);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -353,14 +306,14 @@ public class Chiheb_Espace_Admin extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
          PersonneDAO psd = new PersonneDAO();
-        psd.deconnexion(Chiheb_Authentification.id_connecté_normal);
-        Chiheb_Accueil chacc = new Chiheb_Accueil();
+        psd.deconnexion(Authentification.id_connecté_normal);
+        Accueil chacc = new Accueil();
         chacc.setVisible(true);
         this.dispose();
-//        Chiheb_Accueil acc = new Chiheb_Accueil();
+//        Accueil acc = new Accueil();
 //        acc.setVisible(true);
 //        PersonneDAO psd = new PersonneDAO();
-//        psd.deconnexion(Chiheb_Authentification.id_connecté_normal);
+//        psd.deconnexion(Authentification.id_connecté_normal);
 //        this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -596,6 +549,7 @@ public class Chiheb_Espace_Admin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar2;

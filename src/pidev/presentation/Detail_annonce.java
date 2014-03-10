@@ -6,6 +6,7 @@ package pidev.presentation;
 
 //import com.sun.xml.internal.ws.message.stream.StreamAttachment;
 //import java.util.List;
+import java.awt.Color;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -29,7 +30,7 @@ import pidev.entities.Annonce;
  */
  public class Detail_annonce extends javax.swing.JFrame {
     public static int id_annonce;
-    public static int id_CC =Chiheb_Authentification.id_connecté_normal; 
+    public static int id_CC =Authentification.id_connecté_normal; 
     public static int signaler_deja=0;
 
  EvalDAO e=new EvalDAO();
@@ -38,6 +39,9 @@ import pidev.entities.Annonce;
    
     public Detail_annonce(int id_Annonce) {
         initComponents();
+          this.getContentPane().setBackground(new Color(52, 152, 219));
+          this.setLocationRelativeTo(null);
+          this.pack();
         this.id_annonce=id_Annonce;
         tab.setModel(new evaluer(id_Annonce));
         
@@ -149,7 +153,7 @@ import pidev.entities.Annonce;
                 LabTrans.setText(t);
             }
         }
-         if(!isNaN(annonce.getPrix())){
+         if(!Double.isNaN(annonce.getPrix())){
                 double prix=annonce.getPrix();
                 LabPrix.setText(String.valueOf(prix));
             }
@@ -235,6 +239,7 @@ import pidev.entities.Annonce;
         jLabel11.setForeground(new java.awt.Color(44, 62, 80));
         jLabel11.setText("Thème");
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.setText("Annuler");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -259,6 +264,7 @@ import pidev.entities.Annonce;
         tab.setModel(new evaluer(id_annonce));
         jScrollPane2.setViewportView(tab);
 
+        jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton3.setText("Commenter");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -266,6 +272,7 @@ import pidev.entities.Annonce;
             }
         });
 
+        jButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton4.setText("j'aime");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -279,6 +286,7 @@ import pidev.entities.Annonce;
 
         nb_jaime.setText("0");
 
+        signaler.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         signaler.setText("Signaler");
         signaler.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -286,6 +294,7 @@ import pidev.entities.Annonce;
             }
         });
 
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton2.setText("voir Destination");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
