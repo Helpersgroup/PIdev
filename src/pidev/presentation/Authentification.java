@@ -219,7 +219,7 @@ public static int connecté = 0;
              id_connecté_normal=res;
              firstname = pd.selectNomPersonneByid(res);
              lastname = pd.selectPrenomPersonneByid(res);
-                Chiheb_Espace_Responsable esp_res = new Chiheb_Espace_Responsable();
+                Espace_Responsable esp_res = new Espace_Responsable();
                 esp_res.setVisible(true);
              pd.connexion(res);
              this.dispose();
@@ -232,7 +232,7 @@ public static int connecté = 0;
                firstname = pd.selectNomPersonneByid(cli);
              lastname = pd.selectPrenomPersonneByid(cli);
                pd.connexion(cli);
-                Chiheb_Espace_Client esp_cli = new Chiheb_Espace_Client();
+                Espace_Client esp_cli = new Espace_Client();
                 esp_cli.setVisible(true);
                 this.dispose();
              }
@@ -242,7 +242,7 @@ public static int connecté = 0;
                firstname = pd.selectNomPersonneByid(x);
              lastname = pd.selectPrenomPersonneByid(x);
                pd.connexion(x);
-                Chiheb_Espace_Admin esp_adm = new Chiheb_Espace_Admin();
+                Espace_Admin esp_adm = new Espace_Admin();
                 esp_adm.setVisible(true);
                 this.dispose();
              }
@@ -353,7 +353,7 @@ public static int connecté = 0;
         });
     }
      private void close() {
-            Chiheb_Espace_Client cli = new Chiheb_Espace_Client();
+            Espace_Client cli = new Espace_Client();
            cli.setVisible(true);
                      this.dispose();
                 }

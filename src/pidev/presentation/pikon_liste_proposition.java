@@ -4,6 +4,8 @@
  */
 package pidev.presentation;
 
+import java.awt.Color;
+
 /**
  *
  * @author dell
@@ -17,7 +19,7 @@ public class pikon_liste_proposition extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.pack();
-
+  this.getContentPane().setBackground(new Color(52, 152, 219));
     }
 
     /**
@@ -39,6 +41,7 @@ public class pikon_liste_proposition extends javax.swing.JFrame {
         jTable1.setModel(new Liste_Proposition());
         jScrollPane1.setViewportView(jTable1);
 
+        voir.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         voir.setText("afficher");
         voir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -46,6 +49,7 @@ public class pikon_liste_proposition extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.setText("annuler");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,7 +67,7 @@ public class pikon_liste_proposition extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(voir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 42, Short.MAX_VALUE))
+                .addGap(0, 32, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

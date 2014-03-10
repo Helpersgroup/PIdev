@@ -420,7 +420,7 @@ int ID_max;
              firstname = psd.selectNomPersonneByid(y);
              lastname = psd.selectPrenomPersonneByid(y);
              psd.selectPersonneByemailpass(email, passe);
-                Chiheb_Espace_Client esp_cli = new Chiheb_Espace_Client();
+                Espace_Client esp_cli = new Espace_Client();
                 esp_cli.setVisible(true);
              
              this.dispose();

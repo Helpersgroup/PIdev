@@ -17,7 +17,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import pidev.entities.Client;
 import pidev.presentation.Authentification;
-import pidev.presentation.Chiheb_Espace_Client;
+import pidev.presentation.Espace_Client;
 import pidev.presentation.GraphReaderExample;
 
 /**
