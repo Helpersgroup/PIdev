@@ -9,10 +9,10 @@ import pidev.dao.AgenceDAO;
 import pidev.dao.PersonneDAO;
 import pidev.dao.ResponsableDAO;
 import pidev.entities.Agence;
-import static pidev.presentation.Chiheb_Authentification.connecté;
-import static pidev.presentation.Chiheb_Authentification.id_connecté_normal;
-import static pidev.presentation.Chiheb_Inscription.email;
-import static pidev.presentation.Chiheb_Inscription.passe;
+import static pidev.presentation.Authentification.connecté;
+import static pidev.presentation.Authentification.id_connecté_normal;
+import static pidev.presentation.Inscription.email;
+import static pidev.presentation.Inscription.passe;
 import static pidev.presentation.GraphReaderExample.firstname;
 import static pidev.presentation.GraphReaderExample.lastname;
 
@@ -20,12 +20,12 @@ import static pidev.presentation.GraphReaderExample.lastname;
  *
  * @author chiheb
  */
-public class Chiheb_Inscription_Suite extends javax.swing.JFrame {
+public class Inscription_Suite extends javax.swing.JFrame {
 
     /**
-     * Creates new form Chiheb_Inscription_Suite
+     * Creates new form Inscription_Suite
      */
-    public Chiheb_Inscription_Suite() {
+    public Inscription_Suite() {
         initComponents();
         jLabel1.setVisible(false);
         jLabel2.setVisible(false);
@@ -243,20 +243,20 @@ public class Chiheb_Inscription_Suite extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Chiheb_Inscription_Suite.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Inscription_Suite.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Chiheb_Inscription_Suite.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Inscription_Suite.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Chiheb_Inscription_Suite.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Inscription_Suite.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Chiheb_Inscription_Suite.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Inscription_Suite.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Chiheb_Inscription_Suite().setVisible(true);
+                new Inscription_Suite().setVisible(true);
             }
         });
     }

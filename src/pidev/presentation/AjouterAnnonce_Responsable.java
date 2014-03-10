@@ -31,7 +31,7 @@ String y="";
         this.setLocationRelativeTo(null);
         this.pack();
         AgenceDAO agd = new AgenceDAO();
-     x=    agd.selectIdAgence(Chiheb_Authentification.id_connecté_normal);
+     x=    agd.selectIdAgence(Authentification.id_connecté_normal);
         System.out.println(x);
         y=agd.selectNomAgence(x);
     jLabel12.setText(""+y);
@@ -293,7 +293,7 @@ String y="";
 
     private void BtnAjouterAnnonceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAjouterAnnonceActionPerformed
         JOptionPane d = new JOptionPane();
-        int id =Chiheb_Authentification.id_connecté_normal;
+        int id =Authentification.id_connecté_normal;
         Annonce a = new Annonce();
         AnnonceDAO aDAO = new AnnonceDAO();
         a.setId_Annonceur(id);
