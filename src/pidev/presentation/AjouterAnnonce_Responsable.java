@@ -308,6 +308,7 @@ String y="";
         a.setTransport(CboxTransport.getSelectedItem().toString());
         a.setNbr_adultes (Integer.parseInt(jSpinner1.getValue().toString()));
         a.setNbr_enfants(Integer.parseInt(jSpinner2.getValue().toString()));
+        a.setPrix(Double.valueOf(TfPrix.getText()));
 
          if(aDAO.InsertAnnonce(a,id)){
                          showMessageDialog(this, "Ajout avec succés", "Bien !", JOptionPane.INFORMATION_MESSAGE);

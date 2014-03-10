@@ -13,6 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
 import pidev.dao.ClientDAO;
@@ -45,10 +46,10 @@ int ID_max;
     public Inscription()  {
          
         initComponents();
-        jLabel15.setVisible(false);
-        jLabel1.setVisible(false);
-         jLabel18.setVisible(false);
-         jLabel19.setVisible(false);
+              jLabel15.setVisible(false);
+              jLabel1.setVisible(false);
+              jLabel18.setVisible(false);
+              jLabel19.setVisible(false);
               jLabel6.setVisible(false);
               jLabel7.setVisible(false);
               jLabel8.setVisible(false);
@@ -347,25 +348,37 @@ int ID_max;
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        
+        int ci=0,te=0;
          nom=jnom.getText().toString();
          prenom=jprenom.getText().toString();        
-         cin=jcin.getText().toString();
-       passe=new String(jpass.getPassword());
-       passe2=new String(jpass2.getPassword());
-       email=jemail.getText().toString();
-       tel=jtel.getText().toString();
+         
+         passe=new String(jpass.getPassword());
+         passe2=new String(jpass2.getPassword());
+         email=jemail.getText().toString();
+         
+         PersonneDAO psd = new PersonneDAO();
+         
+      
+                cin=jcin.getText().toString();
+          
         
+                tel=jtel.getText().toString();
             
           
         
             
           if( nom.length()!=0 && prenom.length()!=0 && cin.length()!=0 && email.length()!=0 && tel.length()!=0 && passe.length()!=0 && passe2.length()!=0 &&(jRadio1.isSelected()||jRadio2.isSelected()) )
           {
-//                if (Double.isNaN(Integer.parseInt(tel))){
-//                              showMessageDialog(this, "format du telephone incorrect", "Attention", JOptionPane.INFORMATION_MESSAGE);
-//                          }
-              PersonneDAO psd = new PersonneDAO();
+             if(Pattern.matches("^\\d*$", cin)){
+                  showMessageDialog(this, "CIN non valide", "Attention", JOptionPane.ERROR);
+             }
+              
+                 
+              
+              
+              
+              
+              
               em = psd.selectPersonneByemail(email);
               if (passe.equals(passe2)){
                    if(cin.length()>8){
@@ -390,18 +403,15 @@ int ID_max;
                          jLabel19.setVisible(false); 
                       
                   if (jRadio1.isSelected()){
-                     
-                      
-                      
-                      
+   
                     jLabel15.setVisible(false);
-                    Personne p = new Personne(cin,nom, prenom,email,Integer.parseInt(tel),passe);
+                    Personne p = new Personne(String.valueOf(ci),nom, prenom,email,te,passe);
                    PersonneDAO d = new PersonneDAO();
                    d.ajouterPersonne(p.getCin(),p.getNom(), p.getPrenom(), p.getEmail(), p.getTel(), p.getMdp());
                    ClientDAO c = new ClientDAO();
                    c.ajouterClient();
                     PersonneDAO pd = new PersonneDAO();
-       int x= pd.selectPersonneByemailpass(email, passe);
+                     int x= pd.selectPersonneByemailpass(email, passe);
                      ClientDAO cld= new ClientDAO();
                 int  y=cld.selectClient(x);
             connecté=1;

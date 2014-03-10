@@ -78,7 +78,7 @@ public class Detail_annonce_admin extends javax.swing.JFrame {
         description = annonce.getDescription();
         labdesc.setText(description);
         }
-        if(!annonce.getType_hebergement().equals(null)){
+        if(annonce.getType_hebergement()!=null){
         h = annonce.getType_hebergement();
 
         if (h.equals("Auberge")) {
@@ -175,6 +175,7 @@ public class Detail_annonce_admin extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(52, 152, 219));
@@ -233,7 +234,7 @@ public class Detail_annonce_admin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(380, 350, 90, 23);
+        jButton1.setBounds(380, 350, 90, 25);
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(44, 62, 80));
@@ -319,7 +320,7 @@ public class Detail_annonce_admin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(210, 350, 149, 23);
+        jButton2.setBounds(210, 350, 151, 25);
 
         tab.setModel(new evaluer(id_annonce));
         jScrollPane2.setViewportView(tab);
@@ -334,7 +335,7 @@ public class Detail_annonce_admin extends javax.swing.JFrame {
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton3.setText("Supprimer Commentaire");
         getContentPane().add(jButton3);
-        jButton3.setBounds(500, 600, 181, 23);
+        jButton3.setBounds(500, 600, 183, 25);
 
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton4.setText("voir Destination");
@@ -344,13 +345,16 @@ public class Detail_annonce_admin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton4);
-        jButton4.setBounds(550, 350, 131, 23);
+        jButton4.setBounds(550, 350, 133, 25);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 51, 102));
         jLabel1.setText("Hebergement");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(440, 170, 110, 17);
+
+        jLabel11.setText("Nombre de j'aime");
+        getContentPane().add(jLabel11);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -447,6 +451,7 @@ test.pack();
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

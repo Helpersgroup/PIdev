@@ -476,7 +476,7 @@ import pidev.entities.Annonce;
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        new Chiheb_Espace_Client().setVisible(true);
+
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -559,7 +559,7 @@ import pidev.entities.Annonce;
       showMessageDialog(this, "Error lors de la reservation", "Attention", JOptionPane.ERROR_MESSAGE);
           
       if(new GenererPDF().genrer(id_annonce)){
-      showMessageDialog(this, "Facture Générer sous C:/classic.pdf", "Attention", JOptionPane.INFORMATION_MESSAGE);
+      showMessageDialog(this, "Facture Générer sous C:/users/public/classic.pdf", "Attention", JOptionPane.INFORMATION_MESSAGE);
       }
       else
       showMessageDialog(this, "Error lors de la generation de la facture", "Attention", JOptionPane.ERROR_MESSAGE);
