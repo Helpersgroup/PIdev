@@ -13,11 +13,11 @@ import static pidev.presentation.GraphReaderExample.lastname;
  *
  * @author chiheb
  */
-public class Chiheb_Espace_Admin extends javax.swing.JFrame {
+public class Espace_Admin extends javax.swing.JFrame {
     
 
     
-    public Chiheb_Espace_Admin() {
+    public Espace_Admin() {
         initComponents();
             var.setVisible(false);
             agences.setVisible(false);
@@ -107,12 +107,12 @@ public class Chiheb_Espace_Admin extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Bienvenue :");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(769, 4, 71, 15);
+        jLabel1.setBounds(730, 0, 71, 15);
 
         jnconnecté2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jnconnecté2.setText("jLabel2");
         getContentPane().add(jnconnecté2);
-        jnconnecté2.setBounds(858, 4, 44, 15);
+        jnconnecté2.setBounds(810, 0, 44, 15);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setText("Espace Admin");
@@ -516,13 +516,13 @@ public class Chiheb_Espace_Admin extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Chiheb_Espace_Admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Espace_Admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Chiheb_Espace_Admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Espace_Admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Chiheb_Espace_Admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Espace_Admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Chiheb_Espace_Admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Espace_Admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -530,7 +530,7 @@ public class Chiheb_Espace_Admin extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new Chiheb_Espace_Admin().setVisible(true);
+                new Espace_Admin().setVisible(true);
             }
         });
     }

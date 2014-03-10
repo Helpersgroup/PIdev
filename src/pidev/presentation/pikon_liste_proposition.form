@@ -30,7 +30,7 @@
                   <Component id="jButton1" max="32767" attributes="0"/>
                   <Component id="voir" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace min="0" pref="42" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="32" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -69,6 +69,9 @@
     </Container>
     <Component class="javax.swing.JButton" name="voir">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="12" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="afficher"/>
       </Properties>
       <Events>
@@ -77,6 +80,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="12" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="annuler"/>
       </Properties>
       <Events>

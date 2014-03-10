@@ -4,6 +4,7 @@
  */
 
 package pidev.presentation;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 import org.jdesktop.swingx.JXDatePicker;
 import pidev.dao.PropositionDAO;
@@ -23,7 +24,7 @@ public class pikon_proposer_annonce_client extends javax.swing.JFrame {
           initComponents();
           this.setLocationRelativeTo(null);
           this.pack();   
-    
+      this.getContentPane().setBackground(new Color(52, 152, 219));
     }
 
     /**
@@ -162,6 +163,7 @@ public class pikon_proposer_annonce_client extends javax.swing.JFrame {
         getContentPane().add(TFdestination);
         TFdestination.setBounds(190, 290, 180, 30);
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.setText("Annuler");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -171,6 +173,7 @@ public class pikon_proposer_annonce_client extends javax.swing.JFrame {
         getContentPane().add(jButton1);
         jButton1.setBounds(380, 490, 90, 23);
 
+        BtnAjouterAnnonce.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         BtnAjouterAnnonce.setText("Ajouter ");
         BtnAjouterAnnonce.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

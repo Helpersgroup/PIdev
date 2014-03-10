@@ -17,12 +17,12 @@ import static pidev.presentation.GraphReaderExample.lastname;
  *
  * @author chiheb
  */
-public class Chiheb_Espace_Client extends javax.swing.JFrame {
+public class Espace_Client extends javax.swing.JFrame {
 
     /**
-     * Creates new form Chiheb_Espace_Client
+     * Creates new form Espace_Client
      */
-    public Chiheb_Espace_Client() {
+    public Espace_Client() {
         initComponents();
         
         this.setLocationRelativeTo(null);
@@ -347,20 +347,20 @@ public class Chiheb_Espace_Client extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Chiheb_Espace_Client.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Espace_Client.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Chiheb_Espace_Client.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Espace_Client.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Chiheb_Espace_Client.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Espace_Client.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Chiheb_Espace_Client.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Espace_Client.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Chiheb_Espace_Client().setVisible(true);
+                new Espace_Client().setVisible(true);
             }
         });
     }

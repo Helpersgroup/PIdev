@@ -175,6 +175,7 @@ public class Detail_annonce_admin extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(52, 152, 219));
@@ -233,7 +234,7 @@ public class Detail_annonce_admin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(380, 350, 90, 23);
+        jButton1.setBounds(280, 350, 90, 23);
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(44, 62, 80));
@@ -319,7 +320,7 @@ public class Detail_annonce_admin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(210, 350, 149, 23);
+        jButton2.setBounds(120, 350, 149, 23);
 
         tab.setModel(new evaluer(id_annonce));
         jScrollPane2.setViewportView(tab);
@@ -329,7 +330,7 @@ public class Detail_annonce_admin extends javax.swing.JFrame {
 
         nb_jaime.setText("0");
         getContentPane().add(nb_jaime);
-        nb_jaime.setBounds(480, 350, 10, 20);
+        nb_jaime.setBounds(510, 350, 10, 20);
 
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton3.setText("Supprimer Commentaire");
@@ -351,6 +352,11 @@ public class Detail_annonce_admin extends javax.swing.JFrame {
         jLabel1.setText("Hebergement");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(440, 170, 110, 17);
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel11.setText("Nombre de j'aime");
+        getContentPane().add(jLabel11);
+        jLabel11.setBounds(400, 350, 105, 15);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -447,6 +453,7 @@ test.pack();
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

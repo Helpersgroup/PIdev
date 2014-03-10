@@ -213,7 +213,7 @@ public class Inscription_Suite extends javax.swing.JFrame {
              id_connecté_normal=y;
              firstname = pd.selectNomPersonneByid(y);
              lastname = pd.selectPrenomPersonneByid(y);
-                Chiheb_Espace_Responsable esp_res = new Chiheb_Espace_Responsable();
+                Espace_Responsable esp_res = new Espace_Responsable();
                 esp_res.setVisible(true);
              
              this.dispose();
