@@ -242,7 +242,7 @@ public class Chiheb_Espace_Client extends javax.swing.JFrame {
                             .addComponent(num2)
                             .addComponent(num4)
                             .addComponent(num3))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(32, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
